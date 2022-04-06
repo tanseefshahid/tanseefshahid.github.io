@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "CV"
-permalink: /cv/
+title: "Resume"
+permalink: /resume/
 author_profile: true
 redirect_from:
   - /resume
@@ -16,9 +16,10 @@ Education
 
 Work experience
 ======
-* Nov. 2019 ~ October. 2021: Computer Vision Researcher
-  * [Ellexi](https://www.ellexi.com/)
-  * Duties included: Object detection, Object Classification, Object Tracking, Image Segmentation, Training Data generation
+* [Ellexi](https://www.ellexi.com/) (Nov. 2019 ~ October. 2021)
+  * Job Title: Computer Vision Researcher
+  * Duties included: Object detection, Object Classification,
+  Object Tracking, Image Segmentation, Training Data generation
 
 
 
