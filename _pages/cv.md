@@ -31,3 +31,4 @@ Skills
 
 
 [Download Full Resume here](http://tanseefshahid.github.io/files/resume.pdf)
+[Download Full Thesis here](http://tanseefshahid.github.io/files/thesis.pdf)
