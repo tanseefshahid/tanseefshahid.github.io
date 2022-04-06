@@ -1,10 +1,8 @@
 ---
-title: "Synthetic Data Generation"
-excerpt: "Developed an AI model for construction worker’s safety equipment detection. It detects if workers and wearing hardhat and vest on the construction site. It also tracks workers location and notify if someone is in dangerous zone. I completed this project independently.
-I gathered and labeled the dataset for construction workers, hardhat and vest and then trained yolov3 from scratch for real time object detection. It was embedded on Nvidia Jetson board for real time object detection.
+title: "Action recognition with Humain Pose Estimation"
+excerpt: "Participated in team project to monitor the abnomal actions on an airport from video surveillance. Worked on human pose estimation model to detect the human pose (e.g., dash, fall down).
 
-
-<br/><img src='/images/ppe.png'>"
+<br/><img src='/images/hpe.png'>"
 collection: portfolio
 ---
 
