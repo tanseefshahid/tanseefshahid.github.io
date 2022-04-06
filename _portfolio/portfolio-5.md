@@ -4,6 +4,7 @@ excerpt: "Developed an Opencv algorithm to create the synthetic dataset for lice
 
 
 keywords: OpenCV, Python
+
 <br/><img src='/images/dg.png'>"
 collection: portfolio
 ---
