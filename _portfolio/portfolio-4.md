@@ -1,8 +1,8 @@
 ---
 title: "Gas Boilers text Extraction"
-excerpt: "The object of this project was to extract the text of the boiler plates and detect the gas pipes for safety purposes. For text extraction I used tesseract-ocr and MobilenetSSD for pipe detection. <br />
-key: tesseract-ocr, MobilenetSSD, python, Opencv
-"
+excerpt: "The object of this project was to extract the text of the boiler plates and detect the gas pipes for safety purposes. For text extraction I used tesseract-ocr and MobilenetSSD for pipe detection.
+
+keywords: tesseract-ocr, MobilenetSSD, python, Opencv"
 collection: portfolio
 ---
 
