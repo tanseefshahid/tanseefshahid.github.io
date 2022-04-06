@@ -1,8 +1,6 @@
 ---
 title: "Training Dataset Creation"
-excerpt: "Developed an Opencv algorithm to create the synthetic dataset for license plate ocr training. Created AI and OpenCv tools to label datasets for
-
-
+excerpt: "Developed an Opencv algorithm to create the synthetic dataset for license plate ocr training. Created AI and OpenCv tools to label datasets for license plates, PPE and human actions.
 "
 collection: portfolio
 ---
