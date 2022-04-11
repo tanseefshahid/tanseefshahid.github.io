@@ -1,7 +1,7 @@
 ---
 title: "Training Dataset Preparation"
 excerpt: " Created dataset for PPE training. Collected images from construction videos and built AI and opencv based tool to label the dataset.
-Developed an Opencv algorithm to create the synthetic dataset for license plate OCR training. Created AI and OpenCv based labeling tool to label the license plate data
+Developed an Opencv algorithm to create the synthetic dataset for license plate OCR training. Created AI and OpenCv based labeling tool to label the license plate dataset.
 
 
 keywords: OpenCV, Pedestrian detection, Object detction, Python
