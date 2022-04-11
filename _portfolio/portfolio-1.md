@@ -1,9 +1,8 @@
 ---
 title: "Personal Protective Equipment Detection on Construction Site"
-excerpt: "Proper use of personal protective equipment (PPE) is key to minimizing injuries from accidents in construction sites. I have developed an AI model build on YOLOv3 to detect PPE components (Hardhat,Vest) from a video stream .It also tracks workers location and notify if someone is in dangerous zone. It was embedded on Nvidia Jetson board for real time object detection on construction site.
+excerpt: "Proper use of personal protective equipment (PPE) is key to minimizing injuries from accidents in construction sites. I have developed an AI model build on YOLOv3 to detect PPE components (Hardhat,Vest) from a video stream .It also tracks workers location and notify if someone is in dangerous zone. It was embedded on Nvidia Jetson board for real time object detection on construction site.<br />
 
-
-keywords: object detection, Yolov3,Tracking, Video processing, OpenCV, Python
+keywords: object detection, Yolov3,Tracking, Video processing, OpenCV, Python <br />
 
 <br/><img src='/images/ppe.png'>"
 
