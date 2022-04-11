@@ -1,9 +1,9 @@
 ---
 title: "Action recognition with Humain Pose Estimation"
-excerpt: "Participated in team project to monitor the abnomal actions on an airport from video surveillance. Used human pose estimation model to detect the human action (e.g., dash, fall down).
+excerpt: "Participated in team project to monitor the abnomal actions on an airport. Worked on you-only-watch-once (YOWO) and human post estimation models to detect the multiple abnormal actions (e.g., falldown, Dash)
 
 
-keywords: Post Estimation, Object Detection, Python, OpenCV
+keywords: Post Estimation, Object Detection, YOWO, Python, OpenCV
 
 
 <br/><img src='/images/hpe.png'>"
