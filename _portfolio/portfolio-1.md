@@ -41,7 +41,7 @@ excerpt: |
   - **Hardware**: NVIDIA GPUs for training and inference
 
   ## Visual Demonstration
-  ![Output Example](/images/virtual-fitting-example.jpg)
+  ![Output Example](/images/virtual-fitting-example.png)
 
   ## Takeaways
   This project highlights my expertise in generative AI, data preprocessing, and real-world model deployment.
