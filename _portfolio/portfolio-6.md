@@ -4,9 +4,6 @@ excerpt: "Developed a robust AI-powered virtual fitting system capable of proces
 keywords: "Virtual Fitting, AI, DensePose, SCHP, LADi-VTON, Computer Vision"
 collection: portfolio
 layout: post
-image:
-  path: /images/virtual-fitting-header.jpg
-  alt: "Virtual Fitting Output"
 ---
 ## Project Overview
 Developed a virtual fitting system that processes real-life clothing images and delivers realistic visualizations of the clothing on a virtual model.
