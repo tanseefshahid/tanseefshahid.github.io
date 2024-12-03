@@ -4,7 +4,7 @@ excerpt: " Adapted techniques from the paper ”LADi-VTON: Latent Diffusion Text
 Enhanced Virtual Try-On” to develop a robust virtual fitting model. Prepared high-quality training data, implemented
 advanced preprocessing (DensePose, Pose Estimation, SCHP), and trained all pipeline modules.
 Enhanced garment fitting accuracy by optimizing pose-based alignment and refining model performance,
-delivering realistic and scalable virtual try-on solutions..
+delivering realistic and scalable virtual try-on solutions.
 
 <br />keywords: OpenCV, Pedestrian detection, Object detction, Python
 <br/><img src='/images/dg.png'>"
