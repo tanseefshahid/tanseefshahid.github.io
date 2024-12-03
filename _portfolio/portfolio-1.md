@@ -49,6 +49,6 @@ keywords: "Virtual Fitting, AI, DensePose, SCHP, LADi-VTON, Computer Vision"
 collection: portfolio
 layout: post
 image:
-  path: /images/virtual-fitting-header.jpg
+  path: images/ladi-vton.png
   alt: "Virtual Fitting Output"
 ---
