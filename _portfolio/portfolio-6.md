@@ -1,7 +1,10 @@
 ---
 title: "Virtual Try-on System"
-excerpt: " Created dataset for PPE training. Collected images from construction videos and built AI and opencv based tool to label the dataset.
-Developed an Opencv algorithm to create the synthetic dataset for license plate OCR training. Created AI and OpenCv based labeling tool to label the license plate dataset.
+excerpt: " Adapted techniques from the paper ”LADi-VTON: Latent Diffusion Textual-Inversion
+Enhanced Virtual Try-On” to develop a robust virtual fitting model. Prepared high-quality training data, implemented
+advanced preprocessing (DensePose, Pose Estimation, SCHP), and trained all pipeline modules.
+Enhanced garment fitting accuracy by optimizing pose-based alignment and refining model performance,
+delivering realistic and scalable virtual try-on solutions..
 
 <br />keywords: OpenCV, Pedestrian detection, Object detction, Python
 <br/><img src='/images/dg.png'>"
