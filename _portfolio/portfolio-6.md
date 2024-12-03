@@ -1,51 +1,12 @@
 ---
-title: "Virtual Fitting Model for Real-life Clothing"
-excerpt: "Developed a robust AI-powered virtual fitting system capable of processing real-life clothing images, generating high-quality virtual try-ons, and delivering realistic visuals."
-keywords: "Virtual Fitting, AI, DensePose, SCHP, LADi-VTON, Computer Vision"
+title: "Personal Protective Equipment Detection on Construction Site"
+excerpt: "Proper use of personal protective equipment (PPE) is key to minimizing injuries from accidents in construction sites. I have developed an AI model build on YOLOv3 to detect PPE components (Hardhat,Vest) from a video stream .It also tracks workers location and notify if someone is in dangerous zone. It was embedded on Nvidia Jetson board for real time object detection on construction site.<br />
+
+keywords: object detection, Yolov3,Tracking, Video processing, OpenCV, Python <br />
+
+<br/><img src='/images/ppe.png'>"
+
 collection: portfolio
-layout: post
 ---
-## Project Overview
-Developed a virtual fitting system that processes real-life clothing images and delivers realistic visualizations of the clothing on a virtual model.
 
-## Objective
-To provide a seamless, realistic virtual fitting solution for clients using advanced AI and computer vision techniques.
-
-## Process and Workflow
-
-### Data Preparation
-- Received real-life clothing images and segmented them manually using mannequins.
-- Adjusted and aligned clothing images on virtual models with custom coding to create a natural fit.
-
-### Preprocessing
-Prepared datasets by generating:
-- **Skeletons**: Using DensePose for pose extraction.
-- **DenseMap and Keypoints**: For detailed clothing alignment.
-- **SCHP**: To refine segmented regions for accurate training.
-
-### Model Training and Fine-Tuning
-- Fine-tuned the **LADi-VTON framework** through multiple stages:
-  - **Warp Models**: Enhanced the fit of clothing to the virtual model.
-  - **EMASC and Inpainting**: Improved visual quality and realism.
-
-### Deployment
-- Automated the workflow to process incoming clothing images and fit them onto virtual models.
-- Delivered the outputs to the client via an AWS S3 bucket.
-
-## Key Achievements
-- Achieved high realism in virtual clothing fits.
-- Automated the entire pipeline, enabling scalability for future deployments.
-
-## Tools and Technologies
-- **Programming Languages**: Python, PyTorch, OpenCV
-- **Models and Frameworks**: LADi-VTON, DensePose, SCHP
-- **Deployment**: Docker, AWS S3
-- **Hardware**: NVIDIA GPUs for training and inference
-
-## Visual Demonstration
-![Output Example](/images/virtual-fitting-example.jpg)
-
-## Takeaways
-This project highlights my expertise in generative AI, data preprocessing, and real-world model deployment.
-
----
+This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML.
