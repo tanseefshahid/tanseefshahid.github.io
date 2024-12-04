@@ -57,7 +57,7 @@ excerpt: |
 
   ## Takeaways
   This project highlights my expertise in AI-based virtual fitting systems, including generative AI, advanced preprocessing workflows, and end-to-end deployment.
-
+  
 collection: portfolio
-"Virtual Fitting Output"
+
 ---
