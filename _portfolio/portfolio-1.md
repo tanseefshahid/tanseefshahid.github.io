@@ -20,6 +20,7 @@ excerpt: |
 
   1. **Pose Estimation**  
      Used a pose estimation model to identify 18 keypoints, each representing a specific human body joint:
+
     <br/><img src='/images/pose.jpg'>" 
 
   2. **DensePose**  
@@ -27,11 +28,15 @@ excerpt: |
 
   3. **SCHP (Self-Correction-Human-Parsing)**  
      Applied SCHP to segment human figures, improving the model’s ability to refine and align clothing on different body parts.
-    <br/><img src='/images/schp.png'>"
-    
+
+    <br/><img src='/images/schp.png'>
+
   ### Model Training and Fine-Tuning
   Fine-tuned the **LADi-VTON framework** through multiple steps to improve output quality:
   - **Warp Models**: Improved the alignment between clothing and body pose.  
+
+      <br/><img src='/images/warp_image.jpg'>
+      
   - **EMASC and Inpainting**: Enhanced details for realistic visual output.  
 
   ### Deployment
