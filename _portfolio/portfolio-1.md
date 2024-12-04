@@ -18,21 +18,17 @@ excerpt: |
   ### Data Preprocessing for Training
   To train the LADi-VTON framework effectively, several preprocessing steps were performed:
 
-  1. **Pose Model Keypoints**  
-     Used a pose detection model to identify 17 keypoints, each representing a specific human body joint:
-     - **0:** Nose  
-     - **1–4:** Left Eye, Right Eye, Left Ear, Right Ear  
-     - **5–6:** Left Shoulder, Right Shoulder  
-     - **7–10:** Left Elbow, Right Elbow, Left Wrist, Right Wrist  
-     - **11–12:** Left Hip, Right Hip  
-     - **13–16:** Left Knee, Right Knee, Left Ankle, Right Ankle  
+  1. **Pose Estimation**  
+     Used a pose estimation model to identify 18 keypoints, each representing a specific human body joint:
+    <br/><img src='/images/pose.jpg'>" 
 
   2. **DensePose**  
      Leveraged the Detectron DensePose model to generate dense maps and UV mappings for precise clothing alignment on the virtual model.
 
   3. **SCHP (Self-Correction-Human-Parsing)**  
      Applied SCHP to segment human figures, improving the model’s ability to refine and align clothing on different body parts.
-
+    <br/><img src='/images/schp.png'>"
+    
   ### Model Training and Fine-Tuning
   Fine-tuned the **LADi-VTON framework** through multiple steps to improve output quality:
   - **Warp Models**: Improved the alignment between clothing and body pose.  
@@ -48,7 +44,7 @@ excerpt: |
 
   ## Tools and Technologies
   - **Programming Languages**: Python, PyTorch, OpenCV  
-  - **Models and Frameworks**: LADi-VTON, DensePose, SCHP  
+  - **Models and Frameworks**: LADi-VTON, DensePose, SCHP (Self Correction for Human Parsing), Pose Estimation  
   - **Deployment**: Docker, AWS S3  
   - **Hardware**: NVIDIA GPUs for training and inference  
 
@@ -57,7 +53,7 @@ excerpt: |
 
   ## Takeaways
   This project highlights my expertise in AI-based virtual fitting systems, including generative AI, advanced preprocessing workflows, and end-to-end deployment.
-  
+
 collection: portfolio
 
 ---
