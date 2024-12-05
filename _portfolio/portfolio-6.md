@@ -1,60 +1,51 @@
 ---
-title: "Action Recognition with Human Pose Estimation"
+title: "Personal Protective Equipment (PPE) Detection on Construction Sites"
 excerpt: |
-  Contributed to a team project for monitoring abnormal actions at an airport using YOWO and human pose estimation models. The system successfully detected multiple abnormal actions, such as falling down and dashing, in real-time.
+  Developed a real-time AI system using YOLOv3 to detect PPE components (hardhat, vest) and track worker locations on construction sites. The system identifies safety compliance and alerts when workers enter dangerous zones, deployed on an NVIDIA Jetson board for edge computing.
 
   ## Project Overview
-  Developed an action recognition system for airport security to monitor and detect abnormal human behaviors using YOWO (You-Only-Watch-Once) and human pose estimation techniques. The system was optimized for real-time performance to ensure prompt alerts and responses.
+  Created a safety monitoring system for construction sites to ensure proper use of Personal Protective Equipment (PPE) and track workers in real-time. The system reduces accident risks by automating safety checks and notifying workers or supervisors about potential hazards.
 
   ## Objective
-  To create a real-time action recognition system capable of identifying multiple abnormal actions (e.g., falling down, dashing) in crowded airport environments, enhancing security and safety measures.
+  To enhance safety on construction sites by detecting PPE compliance and monitoring worker locations for hazard prevention in real-time.
 
   ## Process and Workflow
 
-  ### Model Design and Implementation
-  - **YOWO (You-Only-Watch-Once)**:
-    - Implemented YOWO for video-based action recognition, leveraging its efficiency in spatiotemporal feature extraction.
-    - Trained the model to recognize abnormal behaviors, focusing on falling and dashing actions.
-  - **Human Pose Estimation**:
-    - Integrated human pose estimation models to identify key body movements and postures.
-    - Extracted pose keypoints and trajectories to validate action predictions and reduce false positives.
+  ### PPE Detection
+  - Implemented **YOLOv3** for object detection to identify:
+    - **Hardhats**
+    - **Safety Vests**
+  - Trained the model on a custom dataset of construction worker images under diverse conditions (e.g., lighting, angles, and occlusions).
+  - Achieved high precision in detecting PPE components, even in crowded environments.
 
-  ### Data Preparation
-  - Collected and annotated a diverse dataset of video sequences with both normal and abnormal actions in airport scenarios.
-  - Preprocessed video frames using OpenCV for augmentation and normalization:
-    - Adjusted lighting, scaling, and rotation to simulate varied environments.
-    - Labeled abnormal actions with detailed timestamps for training and evaluation.
+  ### Worker Tracking and Hazard Notifications
+  - Integrated a tracking algorithm to monitor worker locations over time.
+  - Designed a zone monitoring system to:
+    - Identify hazardous areas.
+    - Notify workers or supervisors if someone enters a dangerous zone without proper PPE.
+  - Processed video streams in real-time to ensure prompt alerts.
 
-  ### Model Training and Optimization
-  - Fine-tuned YOWO on the annotated dataset to improve accuracy for detecting targeted actions.
-  - Combined pose estimation results with YOWO predictions for robust recognition, especially in crowded or partially obscured environments.
-
-  ### Validation and Testing
-  - Evaluated the system using metrics like precision, recall, and F1-score to ensure high performance in real-world scenarios.
-  - Tested the system in simulated airport environments to verify its ability to handle multiple simultaneous actions.
-
-  ## Deployment
-  - Designed a pipeline to process live video feeds and generate real-time alerts for detected abnormal actions.
-  - Integrated with airport security systems to provide actionable insights.
+  ### Deployment
+  - Deployed the system on an **NVIDIA Jetson board**, enabling efficient edge computing for real-time detection and tracking.
+  - Optimized the pipeline for low latency and scalability, ensuring reliable performance in dynamic construction environments.
 
   ## Key Achievements
-  - Successfully detected multiple abnormal actions in real-time with high accuracy.
-  - Reduced false positives by combining human pose estimation with YOWO-based action recognition.
-  - Created a scalable and robust solution applicable to various security and surveillance scenarios.
+  - Automated PPE compliance monitoring, reducing manual inspection effort.
+  - Improved construction site safety by providing real-time alerts for hazardous situations.
+  - Delivered a scalable and deployable solution for edge computing environments.
 
   ## Tools and Technologies
-  - **Models**: YOWO, Human Pose Estimation (e.g., OpenPose, Mediapipe)
+  - **Object Detection**: YOLOv3
   - **Programming**: Python
-  - **Frameworks**: PyTorch, OpenCV
-  - **Applications**: Airport Security, Abnormal Action Detection, Real-Time Surveillance
+  - **Frameworks**: OpenCV, TensorFlow/Keras
+  - **Hardware**: NVIDIA Jetson Board
+  - **Applications**: Construction Safety, Real-Time Tracking, Edge Computing
 
   ## Visual Demonstration
-  ![Abnormal Action Recognition Example](/images/hpe.png)
+  ![PPE Detection Example](/images/ppe.png)
 
   ## Takeaways
-  This project demonstrates expertise in action recognition, pose estimation, and real-time surveillance systems, with applications in enhancing security and safety in critical environments.
-  
-  Keywords: "Pose Estimation, Object Detection, YOWO, Action Recognition, Python, OpenCV"
+  This project showcases expertise in real-time object detection, tracking, and edge deployment, providing a practical solution for improving safety in high-risk environments.
+  keywords: "Object Detection, YOLOv3, Worker Tracking, Video Processing, Edge Computing, Python"
 collection: portfolio
-
 ---
