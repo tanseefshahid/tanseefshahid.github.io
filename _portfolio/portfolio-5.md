@@ -1,10 +1,7 @@
 ---
-title: "Training Dataset Preparation"
-excerpt: " Created dataset for PPE training. Collected images from construction videos and built AI and opencv based tool to label the dataset.
-Developed an Opencv algorithm to create the synthetic dataset for license plate OCR training. Created AI and OpenCv based labeling tool to label the license plate dataset.
-
-<br />keywords: OpenCV, Pedestrian detection, Object detction, Python
-<br/><img src='/images/dg.png'>"
+title: "Gas Boilers text Extraction"
+excerpt: "The object of this project was to extract the text of the boiler plates and detect the gas pipes for safety purposes. For text extraction I used tesseract-ocr and MobilenetSSD for pipe detection.
+<br />keywords: tesseract-ocr, MobilenetSSD, python, OpenCV"
 
 collection: portfolio
 ---

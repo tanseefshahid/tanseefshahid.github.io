@@ -1,7 +1,11 @@
 ---
-title: "Gas Boilers text Extraction"
-excerpt: "The object of this project was to extract the text of the boiler plates and detect the gas pipes for safety purposes. For text extraction I used tesseract-ocr and MobilenetSSD for pipe detection.
-<br />keywords: tesseract-ocr, MobilenetSSD, python, OpenCV"
+title: "Action recognition with Humain Pose Estimation"
+excerpt: "Participated in team project to monitor the abnomal actions on an airport. Worked on you-only-watch-once (YOWO) and human post estimation models to detect the multiple abnormal actions (e.g., falldown, Dash)
+
+
+keywords: Post Estimation, Object Detection, YOWO, Python, OpenCV
+
+<br/><img src='/images/hpe.png'>"
 
 collection: portfolio
 ---
