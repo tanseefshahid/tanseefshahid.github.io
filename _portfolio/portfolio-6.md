@@ -1,10 +1,11 @@
 ---
-title: "Training Dataset Preparation"
-excerpt: " Created dataset for PPE training. Collected images from construction videos and built AI and opencv based tool to label the dataset.
-Developed an Opencv algorithm to create the synthetic dataset for license plate OCR training. Created AI and OpenCv based labeling tool to label the license plate dataset.
+title: "Action recognition with Humain Pose Estimation"
+excerpt: "Participated in team project to monitor the abnomal actions on an airport. Worked on you-only-watch-once (YOWO) and human post estimation models to detect the multiple abnormal actions (e.g., falldown, Dash)
 
-<br />keywords: OpenCV, Pedestrian detection, Object detction, Python
-<br/><img src='/images/dg.png'>"
+
+keywords: Post Estimation, Object Detection, YOWO, Python, OpenCV
+
+<br/><img src='/images/hpe.png'>"
 
 collection: portfolio
 ---
