@@ -1,10 +1,10 @@
 ---
-title: "Training Dataset Preparation"
-excerpt: " Created dataset for PPE training. Collected images from construction videos and built AI and opencv based tool to label the dataset.
-Developed an Opencv algorithm to create the synthetic dataset for license plate OCR training. Created AI and OpenCv based labeling tool to label the license plate dataset.
+title: "Personal Protective Equipment Detection on Construction Site"
+excerpt: "Proper use of personal protective equipment (PPE) is key to minimizing injuries from accidents in construction sites. I have developed an AI model build on YOLOv3 to detect PPE components (Hardhat,Vest) from a video stream .It also tracks workers location and notify if someone is in dangerous zone. It was embedded on Nvidia Jetson board for real time object detection on construction site.<br />
 
-<br />keywords: OpenCV, Pedestrian detection, Object detction, Python
-<br/><img src='/images/dg.png'>"
+keywords: object detection, Yolov3,Tracking, Video processing, OpenCV, Python <br />
+
+<br/><img src='/images/ppe.png'>"
 
 collection: portfolio
 ---
