@@ -4,15 +4,12 @@ excerpt: |
   Developed a robust AI-powered virtual fitting system capable of processing real-life clothing images, generating high-quality virtual try-ons, and delivering realistic visuals.
 
   ## Project Overview
-  Designed a virtual fitting system that processes real-life clothing images and generates realistic visualizations of clothing on virtual models, leveraging advanced AI and computer vision techniques.
-
-  ## Objective
-  Provide a seamless, scalable, and realistic virtual fitting solution for clients using cutting-edge computer vision and generative AI models.
+  Designed a virtual fitting system that processes real-life clothing images and generates realistic visualizations of clothing on virtual models, leveraging generative AI and computer vision techniques.
 
   ## Process and Workflow
 
   ### Data Preparation
-  - Received real-life clothing images from clients, segmented them manually, and aligned them onto mannequins for realistic wear visualizations.
+  - Received real-life clothing images from clients, segmented them, and aligned them onto mannequins for realistic wear visualizations.
   - Adjusted clothing images on virtual models using custom coding for natural and precise fitting.
 
   ### Data Preprocessing for Training
@@ -24,20 +21,27 @@ excerpt: |
     <br/><img src='/images/pose.jpg'>" 
 
   2. **DensePose**  
-     Leveraged the Detectron DensePose model to generate dense maps and UV mappings for precise clothing alignment on the virtual model.
+     Leveraged the Detectron DensePose model to generate dense maps and UV mappings for input data.
 
   3. **SCHP (Self-Correction-Human-Parsing)**  
-     Applied SCHP to segment human figures, improving the model’s ability to refine and align clothing on different body parts.
+     Applied SCHP to segment human figures, improving the model’s ability during training to refine and align clothing on different body parts.
 
     <br/><img src='/images/schp.png'>
 
   ### Model Training and Fine-Tuning
-  Fine-tuned the **LADi-VTON framework** through multiple steps to improve output quality:
-  - **Warp Models**: Improved the alignment between clothing and body pose.  
+  Fine-tuned the **LADi-VTON framework** to enhance output quality by refining multiple modules:
+  - **Warping Module**:  Responsible for transforming the clothing item to fit the target model. Improved garment alignment by refining shape and position adjustments to match the body shape and pose effectively.  
 
       <br/><img src='/images/warp_image.jpg'>
       
-  - **EMASC and Inpainting**: Enhanced details for realistic visual output.  
+  - **EMASC Module (Enhanced Mask-Aware Skip Connection)**:
+  Enhanced detail preservation by reducing reconstruction error and improving high-frequency details, ensuring realistic and high-quality outputs.
+  - **Inversion Module**:  
+  Mapped visual garment features to the CLIP token embedding space. Generated pseudo-word token embeddings to condition the generation process, maintaining garment texture and intricate details.
+
+  - **VTON Module (Virtual Try-On)**:  
+   Optimized the final image generation by combining warped clothing items with the target model’s image. Integrated noise inputs into the diffusion model, ensuring lifelike and visually appealing results.
+
 
   ### Deployment
   - Automated the workflow to process incoming clothing images, run the virtual fitting pipeline, and generate output images.  
@@ -48,16 +52,11 @@ excerpt: |
   - Automated end-to-end data processing and fitting workflows, improving efficiency and scalability.  
 
   ## Tools and Technologies
-  - **Programming Languages**: Python, PyTorch, OpenCV  
+  - **Programming Languages**: Python, PyTorch, OpenCV, Flask  
   - **Models and Frameworks**: LADi-VTON, DensePose, SCHP (Self Correction for Human Parsing), Pose Estimation  
   - **Deployment**: Docker, AWS S3  
   - **Hardware**: NVIDIA GPUs for training and inference  
 
-  ## Visual Demonstration
-  ![Output Example](/images/virtual-fitting-example.jpg)
-
-  ## Takeaways
-  This project highlights my expertise in AI-based virtual fitting systems, including generative AI, advanced preprocessing workflows, and end-to-end deployment.
 
 collection: portfolio
 
