@@ -6,9 +6,6 @@ excerpt: |
   ## Project Overview
   Designed and implemented a pipeline for generating high-quality 3D models from 2D images using Open LRM. The solution involved custom data preparation, realistic rendering, and advanced training techniques.
 
-  ## Objective
-  To create a highly accurate and realistic image-to-3D reconstruction system that excels in reconstructing objects such as tables, chairs, bookshelves, beds, and sofas.
-
   ## Process and Workflow
 
   ### Data Rendering for Training
@@ -26,15 +23,15 @@ excerpt: |
 
   ### Key Enhancements
   - Achieved significant improvements in the realism and detail of 3D reconstructions for furniture and household objects.
+  - Achieved notable performance metrics:
+    - **IoU**: 0.80  
+    - **Chamfer Distance**: 0.08  
+    - **Normal Consistency**: 0.82
   - Optimized the training workflow for scalability and quality enhancement.
+
 
   ### Deployment
   - Enabled real-time generation of 3D models for use in AR/VR applications, virtual staging, and game design.
-
-  ## Key Achievements
-  - Developed a high-quality dataset with realistic rendered images for 3D model training.
-  - Enhanced model performance significantly for complex and varied objects.
-  - Created scalable and efficient workflows for rendering and training.
 
   ## Tools and Technologies
   - **Rendering Tools**: Objaverse GitHub, Blender (bpy scripting)
@@ -42,12 +39,6 @@ excerpt: |
   - **Training Framework**: Open LRM, PyTorch
   - **Programming**: Python
   - **3D Applications**: AR/VR, CAD, Gaming
-
-  ## Visual Demonstration
-  ![Output Example](/images/image-to-3d-example.jpg)
-
-  ## Takeaways
-  This project demonstrates expertise in data preparation, rendering optimization, and training advanced models for realistic 3D reconstruction.
 
 collection: portfolio
 ---
