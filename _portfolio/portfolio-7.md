@@ -29,21 +29,12 @@ excerpt: |
   - Fine-tuned YOWO on the annotated dataset to improve accuracy for detecting targeted actions.
   - Combined pose estimation results with YOWO predictions for robust recognition, especially in crowded or partially obscured environments.
 
-  ### Validation and Testing
-  - Evaluated the system using metrics like precision, recall, and F1-score to ensure high performance in real-world scenarios.
-  - Tested the system in simulated airport environments to verify its ability to handle multiple simultaneous actions.
-
   ## Deployment
   - Designed a pipeline to process live video feeds and generate real-time alerts for detected abnormal actions.
   - Integrated with airport security systems to provide actionable insights.
 
-  ## Key Achievements
-  - Successfully detected multiple abnormal actions in real-time with high accuracy.
-  - Reduced false positives by combining human pose estimation with YOWO-based action recognition.
-  - Created a scalable and robust solution applicable to various security and surveillance scenarios.
-
   ## Tools and Technologies
-  - **Models**: YOWO, Human Pose Estimation (e.g., OpenPose, Mediapipe)
+  - **Models**: YOWO, Human Pose Estimation 
   - **Programming**: Python
   - **Frameworks**: PyTorch, OpenCV
   - **Applications**: Airport Security, Abnormal Action Detection, Real-Time Surveillance
@@ -51,10 +42,6 @@ excerpt: |
   ## Visual Demonstration
   ![Abnormal Action Recognition Example](/images/hpe.png)
 
-  ## Takeaways
-  This project demonstrates expertise in action recognition, pose estimation, and real-time surveillance systems, with applications in enhancing security and safety in critical environments.
-  
-  Keywords: "Pose Estimation, Object Detection, YOWO, Action Recognition, Python, OpenCV"
 collection: portfolio
 
 ---
