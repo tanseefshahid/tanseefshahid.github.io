@@ -52,7 +52,7 @@ excerpt: |
   - Automated end-to-end data processing and fitting workflows, improving efficiency and scalability.  
 
   ## Tools and Technologies
-  - **Programming Languages**: Python, PyTorch, OpenCV, Flask  
+  - **Programming**: Python, PyTorch, OpenCV, Flask  
   - **Models and Frameworks**: LADi-VTON, DensePose, SCHP (Self Correction for Human Parsing), Pose Estimation  
   - **Deployment**: Docker, AWS S3  
   - **Hardware**: NVIDIA GPUs for training and inference  

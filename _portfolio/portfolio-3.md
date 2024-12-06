@@ -1,7 +1,7 @@
 ---
 title: "Cloth Segmentation and Background Removal Using U2Net"
 excerpt: |
-  Fine-tuned U2Net to achieve high-accuracy cloth segmentation for background removal and part identification (top, bottom, and dress). This project focuses on preprocessing clothing images for applications in virtual fitting, e-commerce, and fashion visualization.
+  Fine-tuned U2Net to achieve high-accuracy cloth segmentation for background removal and part identification (top, bottom, and dress). This project focuses on preprocessing clothing images for applications in virtual fitting and fashion visualization.
 
   ## Project Overview
   Developed a robust solution for cloth segmentation, combining background removal and part segmentation into a single pipeline. The model enables clean and detailed preprocessing for downstream applications in AI-powered fashion and e-commerce.
@@ -33,25 +33,16 @@ excerpt: |
   ## Deployment and Applications
   - Integrated the segmentation model into an automated pipeline for:
     - Virtual fitting systems.
-    - E-commerce product image enhancement.
     - Fashion design and visualization.
 
-  ## Key Achievements
-  - Combined background removal and part segmentation in a single pipeline, streamlining workflows.
-  - Achieved clean segmentation masks, preserving fine garment details (e.g., edges, folds).
-  - Delivered a scalable solution for real-world applications in fashion and retail.
-
   ## Tools and Technologies
-  - **Segmentation Model**: Fine-tuned U2Net
+  - **Segmentation Model**: U2Net
   - **Programming**: Python
   - **Frameworks**: PyTorch, OpenCV
-  - **Applications**: Virtual Fitting, E-Commerce, Fashion Visualization
+  - **Applications**: Virtual Fitting, Fashion Visualization
 
   ## Visual Demonstration
   ![Background Removal and Part Segmentation Outputs](/images/cloth-segmentation-example.jpg)
-
-  ## Takeaways
-  This project highlights expertise in deep learning-based image segmentation, with a focus on real-world applications in fashion technology and AI.
 
 collection: portfolio
 ---
