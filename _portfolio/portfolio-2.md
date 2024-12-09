@@ -39,6 +39,26 @@ excerpt: |
   - **Training Framework**: Open LRM, PyTorch
   - **Programming**: Python
   - **3D Applications**: AR/VR, CAD, Gaming
+  ## View 3D Model
+  Below is an interactive 3D model demonstrating the output of the pipeline:
 
+  <iframe 
+      title="3D Model"
+      src="https://sketchfab.com/models/psHvw/embed"
+      frameborder="0"
+      allow="autoplay; fullscreen; xr-spatial-tracking"
+      width="640"
+      height="480">
+  </iframe>
 collection: portfolio
 ---
+
+
+####3D ouput link
+
+https://skfb.ly/psHvu
+
+
+3D input link
+
+https://skfb.ly/psHvw
