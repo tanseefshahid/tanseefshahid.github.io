@@ -42,14 +42,38 @@ excerpt: |
   ## View 3D Model
   Below is an interactive 3D model demonstrating the output of the pipeline:
 
-  <iframe 
-      title="3D Model"
-      src="https://sketchfab.com/models/psHvw/embed"
-      frameborder="0"
-      allow="autoplay; fullscreen; xr-spatial-tracking"
-      width="640"
-      height="480">
-  </iframe>
+  <div class="sketchfab-embed-wrapper"> 
+    <iframe title="2b1af04045c8c823f51f77a6d7299806" 
+            frameborder="0" 
+            allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            src="https://sketchfab.com/models/c00cd46903164e43ab18fb07f194bbf0/embed">
+    </iframe> 
+    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
+      <a href="https://sketchfab.com/3d-models/2b1af04045c8c823f51f77a6d7299806-c00cd46903164e43ab18fb07f194bbf0?utm_medium=embed&utm_campaign=share-popup&utm_content=c00cd46903164e43ab18fb07f194bbf0" 
+        target="_blank" 
+        rel="nofollow" 
+        style="font-weight: bold; color: #1CAAD9;">
+        2b1af04045c8c823f51f77a6d7299806
+      </a> 
+      by 
+      <a href="https://sketchfab.com/tanseef?utm_medium=embed&utm_campaign=share-popup&utm_content=c00cd46903164e43ab18fb07f194bbf0" 
+        target="_blank" 
+        rel="nofollow" 
+        style="font-weight: bold; color: #1CAAD9;">
+        tanseef
+      </a> 
+      on 
+      <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=c00cd46903164e43ab18fb07f194bbf0" 
+        target="_blank" 
+        rel="nofollow" 
+        style="font-weight: bold; color: #1CAAD9;">
+        Sketchfab
+      </a>
+    </p>
+  </div>
 collection: portfolio
 ---
 
