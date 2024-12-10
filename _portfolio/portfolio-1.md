@@ -22,6 +22,7 @@ excerpt: |
 
   2. **DensePose**  
      Leveraged the Detectron DensePose model to generate dense maps and UV mappings for input data.
+     <br/><img src='/images/densepose.png'>
 
   3. **SCHP (Self-Correction-Human-Parsing)**  
      Applied SCHP to segment human figures, improving the model’s ability during training to refine and align clothing on different body parts.
