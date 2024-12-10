@@ -16,12 +16,15 @@ excerpt: |
   To train the LADi-VTON framework effectively, several preprocessing steps were performed:
 
   1. **Pose Estimation**  
-     Used a pose estimation model to identify 18 keypoints, each representing a specific human body joint:
+    Used a pose estimation model to identify 18 keypoints, each representing a specific human body joint:
 
-    <br/><img src='/images/pose.jpg'>" 
-
+    <div style="text-align: center;">
+      <img src="/images/pose.jpg" alt="Pose Estimation">
+    </div>
+ 
   2. **DensePose**  
      Leveraged the Detectron DensePose model to generate dense maps and UV mappings for input data.
+     
      <br/><img src='/images/densepose.png'>
 
   3. **SCHP (Self-Correction-Human-Parsing)**  
