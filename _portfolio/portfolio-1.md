@@ -23,20 +23,26 @@ excerpt: |
     </div>
  
   2. **DensePose**  
-     Leveraged the Detectron DensePose model to generate dense maps and UV mappings for input data.
-     
-     <br/><img src='/images/densepose.png'>
+    Leveraged the Detectron DensePose model to generate dense maps and UV mappings for input data.
+
+    <div style="text-align: center;">
+      <img src="/images/densepose.png" alt="DensePose">
+    </div>
 
   3. **SCHP (Self-Correction-Human-Parsing)**  
-     Applied SCHP to segment human figures, improving the model’s ability during training to refine and align clothing on different body parts.
+    Applied SCHP to segment human figures, improving the model’s ability during training to refine and align clothing on different body parts.
 
-    <br/><img src='/images/schp.png'>
+    <div style="text-align: center;">
+      <img src="/images/schp.png" alt="SCHP">
+    </div>
 
   ### Model Training and Fine-Tuning
   Fine-tuned the **LADi-VTON framework** to enhance output quality by refining multiple modules:
   - **Warping Module**:  Responsible for transforming the clothing item to fit the target model. Improved garment alignment by refining shape and position adjustments to match the body shape and pose effectively.  
 
-      <br/><img src='/images/warp_image.jpg'>
+    <div style="text-align: center;">
+      <img src="/images/warp_image.jpg" alt="Warping Module">
+    </div>
       
   - **EMASC Module (Enhanced Mask-Aware Skip Connection)**:
   Enhanced detail preservation by reducing reconstruction error and improving high-frequency details, ensuring realistic and high-quality outputs.
