@@ -42,38 +42,27 @@ excerpt: |
   ## View 3D Model
   Below is an interactive 3D model demonstrating the output of the pipeline:
 
-  <div class="sketchfab-embed-wrapper"> 
-    <iframe title="2b1af04045c8c823f51f77a6d7299806" 
-            frameborder="0" 
-            allowfullscreen 
-            mozallowfullscreen="true" 
-            webkitallowfullscreen="true" 
-            allow="autoplay; fullscreen; xr-spatial-tracking" 
-            src="https://sketchfab.com/models/c00cd46903164e43ab18fb07f194bbf0/embed">
-    </iframe> 
-    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
-      <a href="https://sketchfab.com/3d-models/2b1af04045c8c823f51f77a6d7299806-c00cd46903164e43ab18fb07f194bbf0?utm_medium=embed&utm_campaign=share-popup&utm_content=c00cd46903164e43ab18fb07f194bbf0" 
-        target="_blank" 
-        rel="nofollow" 
-        style="font-weight: bold; color: #1CAAD9;">
-        2b1af04045c8c823f51f77a6d7299806
-      </a> 
-      by 
-      <a href="https://sketchfab.com/tanseef?utm_medium=embed&utm_campaign=share-popup&utm_content=c00cd46903164e43ab18fb07f194bbf0" 
-        target="_blank" 
-        rel="nofollow" 
-        style="font-weight: bold; color: #1CAAD9;">
-        tanseef
-      </a> 
-      on 
-      <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=c00cd46903164e43ab18fb07f194bbf0" 
-        target="_blank" 
-        rel="nofollow" 
-        style="font-weight: bold; color: #1CAAD9;">
-        Sketchfab
-      </a>
-    </p>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+    <!-- 3D Model -->
+    <div style="flex: 1;">
+      <iframe title="2b1af04045c8c823f51f77a6d7299806"
+              frameborder="0"
+              allowfullscreen
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              src="https://sketchfab.com/models/c00cd46903164e43ab18fb07f194bbf0/embed"
+              style="width: 100%; height: 400px;">
+      </iframe>
+    </div>
+
+    <!-- Image -->
+    <div style="flex: 1;">
+      <img src="render.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 400px;">
+    </div>
   </div>
+
+
   ### Model 2
   Below is the second interactive 3D model demonstrating the output of the pipeline:
 
