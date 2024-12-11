@@ -52,6 +52,12 @@ excerpt: |
   - **VTON Module (Virtual Try-On)**:  
    Optimized the final image generation by combining warped clothing items with the target model’s image. Integrated noise inputs into the diffusion model, ensuring lifelike and visually appealing results.
 
+  ### Virtual Fitting Output:
+
+  <div style="text-align: center;">
+    <img src="/images/ladi-vton.png" alt="Warping Module">
+  </div>
+
 
   ### Deployment
   - Automated the workflow to process incoming clothing images, run the virtual fitting pipeline, and generate output images.  
