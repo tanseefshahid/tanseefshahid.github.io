@@ -52,13 +52,13 @@ excerpt: |
               webkitallowfullscreen="true"
               allow="autoplay; fullscreen; xr-spatial-tracking"
               src="https://sketchfab.com/models/c00cd46903164e43ab18fb07f194bbf0/embed"
-              style="width: 100%; height: 400px;">
+              style="width: 100%; height: 200px;">
       </iframe>
     </div>
 
     <!-- Image -->
     <div style="flex: 1;">
-      <img src="/images/render.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 400px;">
+      <img src="/images/render.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 200px;">
     </div>
   </div>
 
