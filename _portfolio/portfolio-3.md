@@ -53,8 +53,5 @@ excerpt: |
   - **Frameworks**: PyTorch, OpenCV
   - **Applications**: Virtual Fitting, Fashion Visualization
 
-  ## Visual Demonstration
-  ![Background Removal and Part Segmentation Outputs](/images/cloth-segmentation-example.jpg)
-
 collection: portfolio
 ---
