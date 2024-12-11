@@ -64,40 +64,26 @@ excerpt: |
 
 
   ### Model 2
-  Below is the second interactive 3D model demonstrating the output of the pipeline:
 
-  <div class="sketchfab-embed-wrapper"> 
-    <iframe title="2a1d80a0aa67ee7585d33ad8f24c4885" 
-            frameborder="0" 
-            allowfullscreen 
-            mozallowfullscreen="true" 
-            webkitallowfullscreen="true" 
-            allow="autoplay; fullscreen; xr-spatial-tracking" 
-            src="https://sketchfab.com/models/27745858326e41c39ebafe2e99133cff/embed">
-    </iframe> 
-    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
-      <a href="https://sketchfab.com/3d-models/2a1d80a0aa67ee7585d33ad8f24c4885-27745858326e41c39ebafe2e99133cff?utm_medium=embed&utm_campaign=share-popup&utm_content=27745858326e41c39ebafe2e99133cff" 
-        target="_blank" 
-        rel="nofollow" 
-        style="font-weight: bold; color: #1CAAD9;">
-        2a1d80a0aa67ee7585d33ad8f24c4885
-      </a> 
-      by 
-      <a href="https://sketchfab.com/tanseef?utm_medium=embed&utm_campaign=share-popup&utm_content=27745858326e41c39ebafe2e99133cff" 
-        target="_blank" 
-        rel="nofollow" 
-        style="font-weight: bold; color: #1CAAD9;">
-        tanseef
-      </a> 
-      on 
-      <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=27745858326e41c39ebafe2e99133cff" 
-        target="_blank" 
-        rel="nofollow" 
-        style="font-weight: bold; color: #1CAAD9;">
-        Sketchfab
-      </a>
-    </p>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+    <!-- Image -->
+    <div style="flex: 1;">
+      <img src="/images/input_3D_image.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 200px;">
+    </div>
+    <!-- 3D Model -->
+    <div style="flex: 1;">
+      <iframe title="2a1d80a0aa67ee7585d33ad8f24c4885"
+              frameborder="0"
+              allowfullscreen
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              src="https://sketchfab.com/models/27745858326e41c39ebafe2e99133cff/embed"
+              style="width: 100%; height: 200px;">
+      </iframe>
+    </div>
   </div>
+  
 collection: portfolio
 ---
 
