@@ -16,6 +16,10 @@ Education
 
 Work experience
 ======
+* [PERSPECTIVE Corp.]()(APR. 2022 - Present)
+  * Job Title: SENIOR AI RESEARCHER
+  * Duties included: Virtual Fitting, Image to 3D Reconstruction, Object Classification, Image Segmentation,
+  FaceSwap 
 * [Ellexi](https://www.ellexi.com/) (Nov. 2019 ~ October. 2021)
   * Job Title: Computer Vision Researcher
   * Duties included: Object detection, Object Classification,
@@ -25,9 +29,10 @@ Work experience
 
 Skills
 ======
-* Python, C/C++
-* Tensorflow, Pytorch, Darkent, Keras, OpenCV (python)
-* Docker, Git, Numpy, Pandas
+* Python, C++, PyTorch, OpenCV, CUDA, TensorFlow
+* NeRF, Occupancy Networks, Automated 3D Rendering
+* Docker, ONNX, Qt Framework, Blender Python (bpy)
+* Git, GitHub
 
 
 [Download Full Resume here](http://tanseefshahid.github.io/files/resume.pdf)
