@@ -16,12 +16,24 @@ excerpt: |
   - Utilized a labeled dataset of clothing images with diverse backgrounds for model training.
   - Achieved high-quality segmentation masks with minimal noise and artifacts.
 
+  ### Background Removal Model:
+
+  <div style="text-align: center;">
+    <img src="/images/background_rm.jpg" alt="cloth seg">
+  </div>
+
   ### Cloth Part Segmentation
   - Enhanced U2Net to perform fine-grained segmentation of clothing into three categories:
     - **Top:** Shirts, blouses, jackets.
     - **Bottom:** Pants, skirts, shorts.
     - **Dress:** Full-body dresses.
   - Used labeled datasets with precise annotations to improve model accuracy for edge and texture details.
+
+  ### Cloth Segmentation Output:
+
+  <div style="text-align: center;">
+    <img src="/images/cloth_seg.JPG" alt="cloth seg">
+  </div>
 
   ### Model Optimization
   - Fine-tuned on diverse datasets to handle variations in:
