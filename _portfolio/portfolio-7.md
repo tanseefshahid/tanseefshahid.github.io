@@ -39,7 +39,7 @@ excerpt: |
   - **Frameworks**: PyTorch, OpenCV
   - **Applications**: Airport Security, Abnormal Action Detection, Real-Time Surveillance
 
-  ## Visual Demonstration
+  ## Pose Estimation Output:
   ![Abnormal Action Recognition Example](/images/hpe.png)
 
 collection: portfolio
