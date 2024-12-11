@@ -58,7 +58,7 @@ excerpt: |
 
     <!-- Image -->
     <div style="flex: 1;">
-      <img src="render.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 400px;">
+      <img src="/images/render.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 400px;">
     </div>
   </div>
 
