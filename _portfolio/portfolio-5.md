@@ -1,7 +1,7 @@
 ---
 title: "Automatic License Plate Recognition and System for Gas Stations"
 excerpt: |
-  Designed and implemented a real-time AI system to capture, recognize, and track license plates of vehicles across fueling machines. Leveraged YOLOv2 for detection, OCR for text recognition, and DeepSORT for tracking unique vehicle IDs, supported by synthetic datasets for robust performance in diverse conditions.
+  Designed and implemented a real-time AI system to capture, recognize, and track license plates of vehicles across fueling machines. Leveraged YOLO for detection, OCR for text recognition, and DeepSORT for tracking unique vehicle IDs, supported by synthetic datasets for robust performance in diverse conditions.
 
   ## Project Overview
 
@@ -12,7 +12,7 @@ excerpt: |
 
   ### License Plate Detection
 
-  - Used **YOLOv2** for detecting license plates in images and video streams.
+  - Used **YOLO** for detecting license plates in images and video streams.
   - Optimized the model for multi-license plate detection in a single frame, addressing:
     - Varied lighting conditions.
     - Plate distortions and angles.
@@ -33,7 +33,7 @@ excerpt: |
 
   ### Model Training and Optimization
 
-  - Fine-tuned YOLOv2 for license plate detection, achieving high precision and recall.
+  - Fine-tuned YOLO for license plate detection, achieving high precision and recall.
   - Validated OCR outputs with post-processing to ensure consistent and formatted results.
 
   ### Deployment
@@ -53,7 +53,7 @@ excerpt: |
 
   ## Tools and Technologies
 
-    - **Object Detection:** YOLOv2, Keras
+    - **Object Detection:** YOLO, Keras
     - **Vehicle Tracking:** DeepSORT
     - **Programming:** Python
     - **Frameworks:** PyTorch, OpenCV
