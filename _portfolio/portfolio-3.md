@@ -1,5 +1,5 @@
 ---
-title: "Cloth Segmentation and Background Removal Using U2Net"
+title: "3- Cloth Segmentation and Background Removal Using U2Net"
 excerpt: |
   Fine-tuned U2Net to achieve high-accuracy cloth segmentation for background removal and part identification (top, bottom, and dress). This project focuses on preprocessing clothing images for applications in virtual fitting and fashion visualization.
 

@@ -1,5 +1,5 @@
 ---
-title: "Virtual Fitting Model for Real-life Clothing"
+title: "1- Virtual Fitting Model for Real-life Clothing"
 excerpt: |
   Developed a robust AI-powered virtual fitting system capable of processing real-life clothing images, generating high-quality virtual try-ons, and delivering realistic visuals.
 
