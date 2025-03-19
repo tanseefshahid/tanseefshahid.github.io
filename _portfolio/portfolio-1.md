@@ -1,7 +1,7 @@
 ---
-title: "1- Virtual Fitting Model for Real-life Clothing"
+title: "1- Virtual Try-On with Diffusion Models"
 excerpt: |
-  Developed a robust AI-powered virtual fitting system capable of processing real-life clothing images, generating high-quality virtual try-ons, and delivering realistic visuals.
+  Developed an application for virtual try-on which enables users to see how clothes fit on a virtual model using AI-based image synthesis.
 
   ## Project Overview
   Designed a virtual fitting system that processes real-life clothing images and generates realistic visualizations of clothing on virtual models, leveraging generative AI and computer vision techniques.
