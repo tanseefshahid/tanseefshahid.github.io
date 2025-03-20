@@ -6,7 +6,7 @@ excerpt: |
   1. **포즈 추정 (Pose Estimation)**  
     포즈 추정 모델을 사용하여 18개의 주요 키포인트를 식별하고, 각 키포인트는 특정 신체 관절을 나타내며 옷 맞춤을 위한 신체 자세를 추출하는 데 사용됩니다.
     <div style="text-align: center;">
-      <img src="/images/pose.jpg" alt="Pose Estimation" style="width: 90%; height: auto;">
+      <img src="/images/pose.jpg" alt="Pose Estimation" style="width: 70%; height: auto;">
     </div>
  
   2. **DensePose 및 UV 맵**  
