@@ -55,7 +55,9 @@ excerpt: |
 
   ## Key Achievements
   - Achieved high-quality, realistic fits across diverse clothing types and body shapes.  
-  - Automated end-to-end data processing and fitting workflows, improving efficiency and scalability.  
+  - Prepared and curated custom training data, ensuring adaptability to diverse real-world clothing styles.
+  - Fine-tuned each module (pose estimation, warping, EMASC, inversion, and diffusion) to improve performance on unseen data in real-time scenarios.
+  - Enhanced robustness for varied lighting, poses, and complex clothing textures, improving generalization beyond standard datasets.
 
   ## Tools and Technologies
   - **Programming**: Python, PyTorch, OpenCV, Flask  
