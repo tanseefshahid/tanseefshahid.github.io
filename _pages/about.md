@@ -20,7 +20,7 @@ redirect_from:
 제 한국어 실력은 기본 수준입니다. 이 포트폴리오와 이력서는 번역 도구를 활용하여 작성하였습니다.
 내용이 명확하지 않다면, **영어 버전(링크 참조)**을 확인해 주세요.
 
-<a href="https://tanseefshahid.github.io/portfolio/">Link to GitHub</a>
+<a href="https://tanseefshahid.github.io/portfolio/">포트폴리오 링크</a>
 
 <!--
 Welcome to my portfolio! I am M. Tansee Shahid, a passionate AI researcher and computer vision specialist with 5 years of experience in developing innovative solutions at the intersection of computer vision, 3D reconstruction, and generative AI. My expertise spans a wide range of cutting-edge technologies, including virtual fitting systems, 3D avatar modeling, pose estimation, object segmentation, object detection, recognition and classification.
