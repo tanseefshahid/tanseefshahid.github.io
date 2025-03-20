@@ -2,12 +2,10 @@
 title: "1- 확산 모델을 활용한 가상 피팅"
 excerpt: |
   AI 기반 이미지 합성을 사용하여 사용자가 가상 모델을 통해 옷이 어떻게 맞는지 확인할 수 있는 가상 피팅 애플리케이션을 개발했습니다.
-
   ## 과정 및 워크플로우
 
   1. **포즈 추정 (Pose Estimation)**  
     포즈 추정 모델을 사용하여 18개의 주요 키포인트를 식별하고, 각 키포인트는 특정 신체 관절을 나타내며 옷 맞춤을 위한 신체 자세를 추출하는 데 사용됩니다.
-
     <div style="text-align: center;">
       <img src="/images/pose.jpg" alt="Pose Estimation">
     </div>
