@@ -64,7 +64,7 @@ excerpt: |
   - **프로그래밍**: Python, PyTorch, OpenCV, Flask  
   - **모델 및 프레임워크**: LADi-VTON, DensePose, SCHP (Self Correction for Human Parsing), 포즈 추정 
   - **배포**: Docker, AWS S3  
-  - **하드웨어**: NVIDIA GPUs for training and inference  
+  - **하드웨어**:훈련 및 추론을 위한 NVIDIA GPU 
 
 
 collection: portfolio
