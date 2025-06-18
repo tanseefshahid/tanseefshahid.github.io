@@ -1,134 +1,117 @@
 ---
-title: "5- Automatic License Plate Recognition and Tracking System for Gas Stations"
+title: "3- Cloth Segmentation and Background Removal Using U2Net"
 excerpt: |
-  Designed and implemented a real-time AI system to capture, recognize, and track license plates of vehicles across fueling machines. Leveraged YOLO for detection, OCR for text recognition, and DeepSORT for tracking unique vehicle IDs, supported by synthetic datasets for robust performance in diverse conditions.
+  Fine-tuned U2Net to achieve high-accuracy cloth segmentation for background removal and part identification (top, bottom, and dress). This project focuses on preprocessing clothing images for applications in virtual fitting and fashion visualization.
 
   ## Project Overview
+  Developed a robust solution for cloth segmentation, combining background removal and part segmentation into a single pipeline. The model enables clean and detailed preprocessing for downstream applications in AI-powered fashion and e-commerce.
 
-  Developed a real-time Automatic License Plate Recognition (ALPR) system to monitor, identify, and track vehicles at gas stations. The system captures license plates from live video feeds, rectifies distortions, and recognizes text for automated vehicle identification and monitoring while maintaining unique IDs for each vehicle entering and exiting the premises.
-
+  ## Objective
+  To create a unified segmentation pipeline capable of isolating clothing from backgrounds and categorizing them into parts (top, bottom, dress) with high accuracy.
 
   ## Process and Workflow
 
-  ### License Plate Detection
+  ### Background Removal
+  - Fine-tuned **U2Net** for removing backgrounds from clothing images, creating clean and isolated visuals.
+  - Utilized a labeled dataset of clothing images with diverse backgrounds for model training.
+  - Achieved high-quality segmentation masks with minimal noise and artifacts.
 
-  - Used **YOLO** for detecting license plates in images and video streams.
-  - Optimized the model for multi-license plate detection in a single frame, addressing:
-    - Varied lighting conditions.
-    - Plate distortions and angles.
-    - Diverse license plate formats.
+  ### Background Removal Model:
 
-  ### Vehicle Tracking
+  <div style="text-align: center;">
+    <img src="/images/background_rm.jpg" alt="cloth seg">
+  </div>
 
-  - Integrated **DeepSORT** for robust vehicle tracking, ensuring each car is assigned a unique ID for:
-    - Monitoring entry and exit across fueling stations.
-    - Automating tracking and logging for operational efficiency.
+  ### Cloth Part Segmentation
+  - Enhanced U2Net to perform fine-grained segmentation of clothing into three categories:
+    - **Top:** Shirts, blouses, jackets.
+    - **Bottom:** Pants, skirts, shorts.
+    - **Dress:** Full-body dresses.
+  - Used labeled datasets with precise annotations to improve model accuracy for edge and texture details.
 
-  ### Data Preparation
+  ### Cloth Segmentation Output:
 
-  - Created and utilized **synthetic datasets** of license plates, simulating variations in:
-    - Plate types (e.g., sizes, fonts, and formats).
-    - Environmental factors (e.g., lighting, motion blur, and occlusions).
-  - Augmented data with transformations like rotation, scaling, and cropping to improve model robustness.
+  <div style="text-align: center;">
+    <img src="/images/cloth_seg.JPG" alt="cloth seg">
+  </div>
 
-  ### Model Training and Optimization
+  ### Model Optimization
+  - Fine-tuned on diverse datasets to handle variations in:
+    - Clothing textures (e.g., plain, patterned, transparent).
+    - Lighting conditions and shadows.
+    - Pose and garment overlap.
+  - Validated results on unseen clothing images to ensure generalization across multiple styles.
 
-  - Fine-tuned YOLO for license plate detection, achieving high precision and recall.
-  - Validated OCR outputs with post-processing to ensure consistent and formatted results.
-
-  ### Deployment
-
-  - Deployed the system for real-time operation, processing live video feeds from gas station cameras.
-  - Designed the pipeline to handle multiple fueling stations simultaneously, automating vehicle identification, tracking, and logging.
-
- 
-
-  ## Key Achievements
-
-    - Automated detection, recognition, and tracking of license plates and vehicles, significantly improving monitoring efficiency.
-    - Developed robust models capable of handling diverse and challenging conditions.
-    - Scaled the system to process live feeds across multiple fueling stations in real-time.
-
-
+  ## Deployment and Applications
+  - Integrated the segmentation model into an automated pipeline for:
+    - Virtual fitting systems.
+    - Fashion design and visualization.
 
   ## Tools and Technologies
-
-    - **Object Detection:** YOLO, Keras
-    - **Vehicle Tracking:** DeepSORT
-    - **Programming:** Python
-    - **Frameworks:** PyTorch, OpenCV
-    - **Applications:** Gas Station Monitoring, Vehicle Tracking, Automation
-
-  ## Visual Demonstration
-  ![License Plate Recognition Example](/images/alpr.png)
+  - **Segmentation Model**: U2Net
+  - **Programming**: Python
+  - **Frameworks**: PyTorch, OpenCV
+  - **Applications**: Virtual Fitting, Fashion Visualization
 
 collection: portfolio
-
 ---
 
+
+
 ---
-title: "5- 주유소용 차량 번호판 인식 및 추적 시스템"
+title: "3- U2Net을 활용한 의류 분할 및 배경 제거"
 excerpt: |
-  실시간으로 차량의 번호판을 감지, 인식, 추적하는 AI 시스템을 설계하고 구현하였습니다. YOLO를 사용한 번호판 탐지, OCR을 활용한 문자 인식, DeepSORT 기반 차량 ID 추적으로 각 차량을 식별 및 모니터링하며, 다양한 환경에서도 강인한 성능을 발휘할 수 있도록 **합성 데이터셋(Synthetic Datasets)**을 활용하여 학습을 최적화하였습니다.
+  U2Net을 정밀 튜닝하여 의류의 정확한 분할을 수행하고, 배경 제거 및 의류 부위(상의, 하의, 원피스) 식별을 최적화하였습니다. 이 프로젝트는 가상 피팅 및 패션 시각화를 위한 의류 이미지 전처리에 초점을 맞추고 있습니다.
 
   ## 프로젝트 개요
+  배경 제거와 의류 부위 분할을 단일 파이프라인으로 통합한 강력한 솔루션을 개발하였습니다. 이를 통해 AI 기반 패션 및 전자상거래 애플리케이션에서 고품질 의류 전처리를 지원합니다.
 
-  실시간 자동 차량 번호판 인식(ALPR, Automatic License Plate Recognition) 시스템을 개발하여 주유소 내 차량 모니터링, 식별 및 추적을 자동화하였습니다.
-  이 시스템은 라이브 비디오 스트림에서 차량 번호판을 캡처하고, 왜곡을 보정한 후 텍스트를 인식하여 출입 차량을 추적하고 기록하는 기능을 수행합니다.
-
+  ## 목표
+  고정밀 분할을 통해 의류를 배경에서 효과적으로 분리하고, 이를 상의, 하의, 원피스로 분류하는 통합 파이프라인을 구축하는 것이 목표입니다.
 
   ## 과정 및 워크플로우
 
-  ### 번호판 감지
+  ### 배경 제거
+  - U2Net을 세밀하게 조정하여 의류 이미지의 배경을 제거하고, 깨끗하고 선명한 시각적 데이터를 생성.
+  - 다양한 배경을 포함한 의류 이미지 데이터셋을 활용하여 모델 학습 진행.
+  - 노이즈와 아티팩트를 최소화하여 고품질의 세분화 마스크를 생성.
 
-  - **YOLO를** 사용하여 이미지 및 영상에서 번호판을 탐지.
-  - 다중 번호판 탐지를 최적화하여 한 프레임 내 여러 차량의 번호판을 감지.
-  - 다양한 환경을 고려한 개선:
-    - 조명 조건 변화 대응
-    - 번호판 왜곡 및 각도 보정
-    - 다양한 국가별 번호판 형식 지원
+  ### 배경 제거 모델 결과:
 
-  ### 차량 추적
+  <div style="text-align: center;">
+    <img src="/images/background_rm.jpg" alt="cloth seg">
+  </div>
 
-  - **DeepSORT를** 활용하여 차량을 고유 ID로 추적.
-  - 차량의 입출차 기록을 자동화하여 운영 효율성을 극대화.
+  ### 의류 부위 분할
+  - U2Net을 확장하여 의류를 세 가지 주요 카테고리로 분할:
+    - **상의(Top):** 셔츠, 블라우스, 재킷 등
+    - **하의(Bottom):** 바지, 치마, 반바지 등
+    - **원피스(Dress):** 전체 길이의 드레스.
+  - 정밀한 주석 데이터를 활용하여 가장자리 및 질감 디테일을 개선하여 모델 정확도를 향상.
 
-  ### 데이터 준비
+  ### 의류 분할 결과:
 
-  - **합성 데이터셋(Synthetic Datasets)**을 생성하여 다음과 같은 변수를 반영:
-    - 번호판 종류 (사이즈, 글꼴, 형식)
-    - 환경적 요인 (조명, 모션 블러, 가림 현상)
-  - 모델의 일반화를 높이기 위해 회전, 크기 조정, 크롭핑 등 데이터 증강 기법 적용.
+  <div style="text-align: center;">
+    <img src="/images/cloth_seg.JPG" alt="cloth seg">
+  </div>
 
-  ### 모델 학습 및 최적화
+  ### 모델 최적화
+  - 다양한 데이터셋을 활용하여 모델을 튜닝하여 다음과 같은 변수에 대응하도록 개선:
+    - 다양한 의류 질감(예: 단색, 패턴, 반투명)
+    - 조명 및 그림자 변화
+    - 포즈 및 의류 겹침
+  - 모델이 다양한 스타일의 의류에서도 일반화될 수 있도록 새로운 데이터에 대한 성능 검증 진행.
 
-  - YOLO 모델을 미세 조정(Fine-tuning) 하여 높은 **정확도(Precision)와 재현율(Recall)**을 달성.
-  - OCR 결과를 후처리(Post-processing)하여 일관된 포맷과 정제된 인식 결과를 보장.
-
-  ### 배포 및 실시간 운영
-
-  - 주유소 카메라에서 실시간 영상 스트림을 처리하도록 시스템 배포.
-  - 다수의 주유 기계를 동시에 관리하여 차량 식별, 추적, 로그 기록을 자동화.
-
- 
-  ## 주요 성과
-
-    - 번호판 및 차량 자동 탐지, 인식, 추적을 통해 주유소 운영 효율을 크게 향상.
-    - 다양한 조명 및 환경 변화에서도 강인한 모델 성능 달성.
-    - 실시간 영상 피드를 활용한 다중 주유소 모니터링 시스템으로 확장 가능.
+  ## 배포 및 활용
+  - 자동화된 의류 전처리 파이프라인에 모델을 통합하여:
+    - 가상 피팅 시스템
+    - 패션 디자인 및 시각화
 
   ## 사용 기술
-
-    - **객체 탐지(Object Detection):** YOLO, Keras
-    - **차량 추적(Vehicle Tracking):** DeepSORT
-    - **프로그래밍:** Python
-    - **프레임워크:** PyTorch, OpenCV
-    - **응용 분야:** 주유소 모니터링, 차량 추적, 자동화
-
-  ## 시각적 시연
-  ![License Plate Recognition Example](/images/alpr.png)
+  - **세분화 모델**: U2Net
+  - **프로그래밍**: Python
+  - **프레임워크**: PyTorch, OpenCV
+  - **적용 분야**: 가상 피팅, 패션 시각화
 
 collection: portfolio
-
 ---
-

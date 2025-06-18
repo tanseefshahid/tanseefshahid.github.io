@@ -1,74 +1,181 @@
 ---
-title: "4- Clothing Classification with Multi-Class Categories"
+title: "2- Image-to-3D Reconstruction Using Open LRM"
 excerpt: |
-  Designed and trained a multi-class classification model to categorize clothing into 73 classes. The project encompasses top wear, bottom wear, and dresses, providing a comprehensive solution for fashion classification.
+  Developed a robust image-to-3D reconstruction pipeline using Open LRM, incorporating advanced data rendering techniques, enhanced image resolution with ESRGAN, and training models for realistic 3D object reconstruction.
 
   ## Project Overview
-  Developed a deep learning model for classifying clothing items into 73 distinct categories across three main types: tops, bottoms, and dresses. This solution is tailored for applications in virtual fitting and recommendation systems.
+  Designed and implemented a pipeline for generating high-quality 3D models from 2D images using Open LRM. The solution involved custom data preparation, realistic rendering, and advanced training techniques.
 
   ## Process and Workflow
 
-  ### Data Preparation
-  - Collected and curated a diverse dataset of clothing images from various sources.
-  - Manually labeled the dataset into 73 classes across three primary categories:
-    1. **Top Wear**: Shirts, T-shirts, polo shirts, hoodies, jackets, etc.
-    2. **Bottom Wear**: Pants, skirts, shorts, jeans, dress pants, etc.
-    3. **Dresses**: Long coats, female dresses, and other similar types.
-  - Augmented the dataset using techniques like rotation, cropping, and color adjustments to improve model robustness.
+  ### Data Rendering for Training
+  - Used Objaverse GitHub techniques for 3D object rendering.
+  - Improved the realism of rendered images by:
+    - **Camera Rotations**: Applied appropriate angles to capture diverse perspectives.
+    - **Camera Distance**: Optimized the positioning to highlight object details.
+    - **Lighting Adjustments**: Enhanced illumination to mimic real-life conditions.
+  - Applied **ESRGAN (Enhanced Super-Resolution Generative Adversarial Network)** to upscale and refine rendered images, improving visual quality for training.
 
-  ### Model Design and Training
-  - Used a deep learning architecture suitable for multi-class classification:
-    - **Backbone Model**: Fine-tuned ResNet50 pre-trained on ImageNet for transfer learning.
-    - **Classifier Head**: Added fully connected layers with softmax activation for predicting 73 classes.
-  - Optimized model hyperparameters, including learning rate and batch size, for improved performance.
+  Below is a 3D model and its rendered 360 Images used for training:
 
-  ## Key Achievements
-  - Achieved over 90% accuracy on the validation set and consistent performance across all classes.
-  - Developed a scalable pipeline for training and deploying the model.
-  - Successfully handled multi-class classification with diverse and imbalanced data.
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+    <!-- 3D Model -->
+    <div style="flex: 1;">
+      <iframe title="2b1af04045c8c823f51f77a6d7299806"
+              frameborder="0"
+              allowfullscreen
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              src="https://sketchfab.com/models/c00cd46903164e43ab18fb07f194bbf0/embed"
+              style="width: 100%; height: 200px;">
+      </iframe>
+    </div>
+
+    <!-- Image -->
+    <div style="flex: 1;">
+      <img src="/images/render.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 200px;">
+    </div>
+  </div>
+
+  ### Model Training
+  - Trained Open LRM for image-to-3D reconstruction using the prepared dataset.
+  - Focused on five key object categories: **tables, chairs, bookshelves, beds, and sofas**.
+  - Applied advanced techniques to improve 3D reconstruction accuracy and visual realism.
+
+  ## Image to 3D Reconstruction:
+  Below is an input Image and 3D model created by reconstruction model
+
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+    <!-- Image -->
+    <div style="flex: 1;">
+      <img src="/images/input_3D_image.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 200px;">
+    </div>
+    <!-- 3D Model -->
+    <div style="flex: 1;">
+      <iframe title="2a1d80a0aa67ee7585d33ad8f24c4885"
+              frameborder="0"
+              allowfullscreen
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              src="https://sketchfab.com/models/27745858326e41c39ebafe2e99133cff/embed"
+              style="width: 100%; height: 200px;">
+      </iframe>
+    </div>
+  </div>
+
+  ### Key Enhancements
+  - Achieved significant improvements in the realism and detail of 3D reconstructions for furniture and household objects.
+  - Achieved notable performance metrics:
+    - **IoU**: 0.80  
+    - **Chamfer Distance**: 0.08  
+    - **Normal Consistency**: 0.82
+  - Optimized the training workflow for scalability and quality enhancement.
+
+
+  ### Deployment
+  - Enabled real-time generation of 3D models for use in AR/VR applications, virtual staging, and game design.
 
   ## Tools and Technologies
-  - **Frameworks**: PyTorch, TensorFlow
+  - **Rendering Tools**: Objaverse GitHub, Blender (bpy scripting)
+  - **Resolution Enhancement**: ESRGAN
+  - **Training Framework**: Open LRM, PyTorch
   - **Programming**: Python
-  - **Data Augmentation**: OpenCV, PyTorch
-
+  - **3D Applications**: AR/VR, CAD, Gaming
+  
+  
 collection: portfolio
 ---
 
 
 ---
-title: "4- 다중 클래스 카테고리를 활용한 의류 분류"
+title: "2- Open LRM을 활용한 이미지-3D 재구성"
 excerpt: |
-  의류를 73개 카테고리로 분류하는 다중 클래스 분류 모델을 설계하고 훈련하였습니다. 이 프로젝트는 상의, 하의, 원피스를 포함하는 패션 분류 솔루션으로, 가상 피팅 및 추천 시스템과 같은 애플리케이션에 최적화되었습니다.
+  Open LRM을 사용하여 강력한 이미지-3D 재구성 파이프라인을 개발하였으며, 고급 데이터 렌더링 기법, ESRGAN을 활용한 이미지 해상도 향상, 그리고 현실적인 3D 객체 재구성을 위한 모델 훈련을 포함하였습니다.
 
   ## 프로젝트 개요
-  딥러닝 기반 모델을 활용하여 의류 아이템을 73개 세부 카테고리로 분류하는 솔루션을 개발했습니다. 이 모델은 가상 피팅 시스템 및 추천 엔진과 같은 패션 기술 응용 분야에 적용할 수 있도록 설계되었습니다.
+  Open LRM을 활용하여 2D 이미지로부터 고품질 3D 모델을 생성하는 파이프라인을 설계하고 구현하였습니다. 이 솔루션은 맞춤형 데이터 준비, 사실적인 렌더링, 그리고 고급 훈련 기법을 포함합니다.
 
   ## 과정 및 워크플로우
 
-  ### 데이터 준비
-  - 다양한 출처에서 의류 이미지를 수집하고 정제하여 다양성을 갖춘 데이터셋을 구축.
-  - 수작업으로 73개 클래스로 주석 처리하여 세 가지 주요 카테고리로 분류:
-    1. **상의(Top Wear)**: 셔츠, 티셔츠, 폴로셔츠, 후드티, 재킷 등
-    2. **하의(Bottom Wear)**: 바지, 치마, 반바지, 청바지, 정장 바지 등
-    3. **원피스(Dresses)**: 롱코트, 여성 드레스 등
-  - 모델의 강인성을 높이기 위해 회전, 크롭, 색상 조정 등의 데이터 증강 기법 적용.
+  ### 훈련을 위한 데이터 렌더링
+  - Objaverse GitHub 기법을 활용하여 3D 객체를 렌더링하였습니다.
+  - 렌더링된 이미지의 사실감을 향상시키기 위해:
+    - **카메라 회전 (Camera Rotations)**: 다양한 시점을 캡처할 수 있도록 적절한 각도를 적용.
+    - **카메라 거리 (Camera Distance)**: 객체의 세부 사항을 강조할 수 있도록 최적의 위치 설정.
+    - **조명 조정 (Lighting Adjustments)**: 실제와 유사한 조명 환경을 구현하여 이미지 품질 향상.
+  - ESRGAN (Enhanced Super-Resolution Generative Adversarial Network)** 을 적용하여 렌더링된 이미지를 업스케일하고 세부 표현을 개선하여 훈련 품질을 높였습니다.
 
-  ### 모델 설계 및 훈련
-  - 다중 클래스 분류에 적합한 딥러닝 아키텍처 적용:
-    - **백본 모델(Backbone Model)**: ImageNet으로 사전 훈련된 ResNet50을 전이 학습(Fine-tuning)
-    - **분류기(Classifier Head)**: **완전 연결 계층(FC Layers)**과 소프트맥스(Softmax) 활성화 함수 추가하여 73개 클래스 예측
-  - 학습률(Learning Rate) 및 배치 크기(Batch Size)와 같은 **초매개변수(Hyperparameters)**를 최적화하여 성능 개선.
+  아래는 훈련에 사용된 3D 모델과 360도 렌더링 이미지입니다:
 
-  ## 주요 성과
-  - 검증 데이터(Validation Set)에서 90% 이상의 정확도 달성.
-  - 확장 가능한 학습 및 배포 파이프라인 구축.
-  - 다양한 의류 스타일 및 불균형한 데이터에서도 일관된 성능 유지.
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+    <!-- 3D Model -->
+    <div style="flex: 1;">
+      <iframe title="2b1af04045c8c823f51f77a6d7299806"
+              frameborder="0"
+              allowfullscreen
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              src="https://sketchfab.com/models/c00cd46903164e43ab18fb07f194bbf0/embed"
+              style="width: 100%; height: 200px;">
+      </iframe>
+    </div>
+
+    <!-- Image -->
+    <div style="flex: 1;">
+      <img src="/images/render.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 200px;">
+    </div>
+  </div>
+
+  ### 모델 훈련
+  - 준비된 데이터셋을 활용하여 Open LRM을 훈련하여 이미지-3D 재구성을 수행하였습니다.
+  - 테이블, 의자, 책장, 침대, 소파의 5가지 주요 객체 카테고리에 초점을 맞추었습니다.
+  - 3D 재구성 정확도 및 사실감을 향상시키기 위해 고급 기법을 적용하였습니다.
+
+  ## 이미지-3D 재구성 결과:
+  아래는 입력 이미지와 재구성 모델이 생성한 3D 모델입니다.
+
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+    <!-- Image -->
+    <div style="flex: 1;">
+      <img src="/images/input_3D_image.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 200px;">
+    </div>
+    <!-- 3D Model -->
+    <div style="flex: 1;">
+      <iframe title="2a1d80a0aa67ee7585d33ad8f24c4885"
+              frameborder="0"
+              allowfullscreen
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              src="https://sketchfab.com/models/27745858326e41c39ebafe2e99133cff/embed"
+              style="width: 100%; height: 200px;">
+      </iframe>
+    </div>
+  </div>
+
+  ### 주요 개선 사항
+  - 가구 및 실내 물체의 3D 재구성 사실감 및 세부 표현을 크게 향상시켰습니다.
+  - 성능 지표에서 뛰어난 결과를 달성하였습니다:
+    - **IoU**: 0.80  
+    - **Chamfer Distance**: 0.08  
+    - **Normal Consistency**: 0.82
+  - 훈련 워크플로우를 최적화하여 확장성과 품질을 향상시켰습니다.
+
+
+  ### 배포
+  - AR/VR 애플리케이션, 가상 스테이징, 게임 디자인에서 실시간 3D 모델 생성을 가능하게 하였습니다.
 
   ## 사용 기술
-  - **프레임워크**: PyTorch, TensorFlow
+  - **렌더링 도구**: Objaverse GitHub, Blender (bpy 스크립팅)
+  - **해상도 향상**: ESRGAN
+  - **훈련 프레임워크**: Open LRM, PyTorch
   - **프로그래밍**: Python
-  - **데이터 증강**: OpenCV, PyTorch
-
+  - **3D 애플리케이션**: AR/VR, CAD, Gaming
+  
+  
 collection: portfolio
 ---
+

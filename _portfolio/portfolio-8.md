@@ -1,72 +1,85 @@
 ---
-title: "8- Gas Boilers Text Extraction and Pipe Detection"
+title: "6- Personal Protective Equipment (PPE) Detection on Construction Sites"
 excerpt: |
-  Developed a system for extracting text from boiler plates and detecting gas pipes for safety monitoring. The solution utilized Tesseract-OCR for text recognition and MobileNetSSD for real-time pipe detection.
+  Developed a real-time AI system using YOLO to detect PPE components (hardhat, vest) and track worker locations on construction sites. The system identifies safety compliance and alerts when workers enter dangerous zones, deployed on an NVIDIA Jetson board for edge computing.
 
   ## Project Overview
-  Designed and implemented a safety monitoring system for gas boilers to extract critical text information from boiler plates and detect gas pipes. The system enhances safety by automating inspections and identifying potential hazards.
+  Created a safety monitoring system for construction sites to ensure proper use of Personal Protective Equipment (PPE) and track workers in real-time. The system reduces accident risks by automating safety checks and notifying workers or supervisors about potential hazards.
 
   ## Process and Workflow
 
-  ### Text Extraction from Boiler Plates
-  - Used **Tesseract-OCR** to extract text from images of boiler plates.
-  - Preprocessed images to improve OCR accuracy:
-    - **Noise Reduction**: Removed unwanted artifacts.
-    - **Contrast Adjustment**: Enhanced text visibility for better recognition.
-  - Validated and formatted extracted text to ensure reliability and usability for inspections.
+  ### PPE Detection
+  - Implemented **YOLO** for object detection to identify:
+    - **Hardhats**
+    - **Safety Vests**
+    - **shoes**
+  - Trained the model on a custom dataset of construction worker images under diverse conditions (e.g., lighting, angles, and distances).
+  - Achieved high precision in detecting PPE components, even in crowded environments.
 
-  ### Gas Pipe Detection
-  - Implemented **MobileNetSSD** for detecting gas pipes in images.
-  - Fine-tuned the model on a custom dataset of gas pipes under diverse conditions.
-  - Optimized the detection pipeline for real-time performance to support immediate safety checks.
+  ### Worker Tracking and Hazard Notifications
+  - Integrated a tracking algorithm to monitor worker locations over time.
+  - Designed a zone monitoring system to:
+    - Identify hazardous areas.
+    - Notify workers or supervisors if someone enters a dangerous zone without proper PPE.
+  - Processed video streams in real-time to ensure prompt alerts.
 
   ### Deployment
-  - Integrated the text extraction and pipe detection modules into a single automated pipeline.
-  - Designed the system to process live camera feeds or pre-recorded images for flexible deployment in different environments.
+  - Deployed the system on an **NVIDIA Jetson board**, enabling efficient edge computing for real-time detection and tracking.
+  - Optimized the pipeline for low latency and scalability, ensuring reliable performance in dynamic construction environments.
 
   ## Tools and Technologies
-  - **Text Recognition**: Tesseract-OCR
-  - **Object Detection**: MobileNetSSD
+  - **Object Detection**: YOLO
   - **Programming**: Python
-  - **Frameworks and Libraries**: OpenCV, TensorFlow
-  - **Applications**: Gas Boiler Safety, Inspection Automation
+  - **Frameworks**: OpenCV, TensorFlow/Keras
+  - **Hardware**: NVIDIA Jetson Board
+  - **Applications**: Construction Safety, Real-Time Tracking
+
+  ## Visual Demonstration
+  ![PPE Detection Example](/images/ppe.png)
 
 collection: portfolio
+
 ---
 
 
 ---
-title: "8- 가스 보일러 텍스트 추출 및 배관 감지 시스템"
+title: "6- 건설 현장에서의 개인 보호 장비(PPE) 감지 시스템"
 excerpt: |
-  가스 보일러의 명판(Boiler Plates)에서 텍스트를 추출하고 가스 배관을 감지하는 시스템을 개발하였습니다. Tesseract-OCR을 활용하여 보일러 명판의 중요한 정보를 인식하고, MobileNetSSD를 사용하여 가스 배관을 실시간으로 탐지하는 솔루션을 구축하였습니다.
+  YOLO 기반의 실시간 AI 시스템을 개발하여 건설 현장에서 개인 보호 장비(PPE) 착용 여부를 감지하고 작업자 위치를 추적하는 기능을 구현하였습니다. 해당 시스템은 안전모, 조끼, 신발 착용 여부를 확인하고, 위험 구역 진입 시 경고 알림을 제공합니다. 또한, NVIDIA Jetson 보드에서 엣지 컴퓨팅을 활용하여 실시간으로 동작하도록 배포되었습니다.
 
   ## 프로젝트 개요
-  본 시스템은 가스 보일러의 안전 점검을 자동화하여 중요한 텍스트 정보 추출 및 배관 감지를 통해 잠재적인 위험 요소를 식별하고 예방하는 기능을 수행합니다.
+  건설 현장의 작업자들이 적절한 PPE를 착용하고 있는지 자동으로 감지하고, 실시간으로 위치를 추적하는 안전 모니터링 시스템을 개발하였습니다. 이를 통해 사고 위험을 줄이고, 위험 요소 발생 시 즉각적인 알림을 제공할 수 있습니다.
 
   ## 과정 및 워크플로우
 
-  ### 보일러 명판의 텍스트 추출
-  - **Tesseract-OCR을** 사용하여 보일러 명판에서 텍스트를 추출.
-  - OCR 인식 정확도를 향상시키기 위해 이미지 전처리 적용:
-    - **노이즈 제거**: 불필요한 배경 및 잡음 제거.
-    - **명암 대비 조정**: 텍스트 가독성을 향상시켜 OCR 성능 개선.
-  - 추출된 텍스트를 검증 및 형식화하여 안전 점검 시 신뢰할 수 있도록 처리.
+  ### PPE 감지
+  - **YOLO** 기반 객체 탐지(Object Detection) 모델을 적용하여 다음을 감지:
+    - **안전모 (Hardhat)**
+    - **안전 조끼 (Safety Vest)**
+    - **작업화 (Shoes)**
+  - 다양한 조명, 각도, 거리 조건에서 촬영된 건설 현장 이미지 데이터셋을 활용하여 모델을 학습.
+  - 혼잡한 환경에서도 높은 정확도로 PPE 착용 여부 감지 성공.
 
-  ### 가스 배관 감지
-  - MobileNetSSD 모델을 사용하여 가스 배관을 감지.
-  - 다양한 환경에서 배관을 탐지할 수 있도록 커스텀 데이터셋을 활용하여 모델을 세밀하게 튜닝.
-  - 실시간 감지를 지원하기 위해 탐지 파이프라인을 최적화하여 높은 처리 속도를 유지.
+  ### 작업자 추적 및 위험 감지 알림
+  - **추적 알고리즘(Tracking Algorithm)**을 적용하여 작업자의 위치를 지속적으로 모니터링.
+  - 위험 구역 감지 시스템을 도입하여:
+    - 작업자가 위험 지역에 접근하는 경우 감지.
+    - PPE 미착용 상태로 위험 구역 진입 시 경고 알림을 발송.
+  - 실시간 영상 스트리밍을 분석하여 즉각적인 안전 조치 가능.
 
   ### 시스템 배포
-  - 텍스트 추출 및 배관 감지 모듈을 통합된 자동화 파이프라인으로 구성.
-  - 실시간 카메라 스트리밍 및 사전 녹화된 이미지를 처리할 수 있도록 유연한 배포 옵션 제공.
+  - **NVIDIA Jetson 보드를** 활용하여 엣지 컴퓨팅(Edge Computing) 기반의 실시간 감지 및 추적 기능 구현.
+  - 지연 시간을 최소화하고 대규모 건설 현장에서도 확장 가능하도록 시스템 최적화.
 
   ## 사용 기술
-  - **텍스트 인식**: Tesseract-OCR
-  - **객체 탐지**: MobileNetSSD
+  - **객체 탐지(Object Detection)**: YOLO
   - **프로그래밍**: Python
-  - **프레임워크 및 라이브러리**: OpenCV, TensorFlow
-  - **응용 분야**: 가스 보일러 안전 점검, 검사 자동화
+  - **프레임워크**: OpenCV, TensorFlow/Keras
+  - **하드웨어**: NVIDIA Jetson Board
+  - **응용 분야**: 건설 현장 안전 관리, 실시간 작업자 추적
+
+  ## 시각적 시연
+  ![PPE Detection Example](/images/ppe.png)
 
 collection: portfolio
 ---

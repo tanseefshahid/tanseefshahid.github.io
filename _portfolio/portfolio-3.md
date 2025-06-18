@@ -1,117 +1,144 @@
 ---
-title: "3- Cloth Segmentation and Background Removal Using U2Net"
+title: "1- Virtual Try-On with Diffusion Models"
 excerpt: |
-  Fine-tuned U2Net to achieve high-accuracy cloth segmentation for background removal and part identification (top, bottom, and dress). This project focuses on preprocessing clothing images for applications in virtual fitting and fashion visualization.
-
-  ## Project Overview
-  Developed a robust solution for cloth segmentation, combining background removal and part segmentation into a single pipeline. The model enables clean and detailed preprocessing for downstream applications in AI-powered fashion and e-commerce.
-
-  ## Objective
-  To create a unified segmentation pipeline capable of isolating clothing from backgrounds and categorizing them into parts (top, bottom, dress) with high accuracy.
+  Developed an application for virtual try-on which enables users to see how clothes fit on a virtual model using AI-based image synthesis.
 
   ## Process and Workflow
 
-  ### Background Removal
-  - Fine-tuned **U2Net** for removing backgrounds from clothing images, creating clean and isolated visuals.
-  - Utilized a labeled dataset of clothing images with diverse backgrounds for model training.
-  - Achieved high-quality segmentation masks with minimal noise and artifacts.
+  1. **Pose Estimation**  
+    Used a pose estimation model to identify 18 keypoints, each representing a specific human body joint to get the body pose for cloth fitting.
 
-  ### Background Removal Model:
+    <div style="text-align: center;">
+      <img src="/images/pose.jpg" alt="Pose Estimation">
+    </div>
+ 
+  2. **DensePose and UV Maps**  
+    DensePose creates the digital avatar which matches the specific body shape and posture of the real person.
+    UV Maps ensure that fabric textures are correctly aligned and placed on this avatar.  
+
+    <div style="text-align: center;">
+      <img src="/images/densepose.png" alt="DensePose">
+    </div>
+
+  3. **SCHP (Self-Correction-Human-Parsing)**  
+    Applied SCHP to segment human figures, improving the model’s ability during training to refine and align clothing on different body parts.
+
+    <div style="text-align: center;">
+      <img src="/images/schp.png" alt="SCHP">
+    </div>
+
+
+  4. **Warping Module**:  Responsible for transforming the clothing item to fit the target model. Improved garment alignment by refining shape and position adjustments to match the body shape and pose effectively.  
+
+    <div style="text-align: center;">
+      <img src="/images/warp_image.jpg" alt="Warping Module">
+    </div>
+      
+  5. **EMASC Module (Enhanced Mask-Aware Skip Connection)**:
+  Enhanced detail preservation by reducing reconstruction error and improving high-frequency details, ensuring realistic and high-quality outputs.
+  6. **Inversion Module**:  
+  Mapped visual garment features to the CLIP token embedding space. Generated pseudo-word token embeddings to condition the generation process, maintaining garment texture and intricate details.
+
+  7. **VTON Module (Virtual Try-On)**:  
+   Optimized the final image generation by combining warped clothing items with the target model’s image. Integrated noise inputs into the diffusion model, ensuring lifelike and visually appealing results.
+
+  ### Virtual Fitting Sample Output:
 
   <div style="text-align: center;">
-    <img src="/images/background_rm.jpg" alt="cloth seg">
+    <img src="/images/ladi-vton.png" alt="Warping Module">
   </div>
 
-  ### Cloth Part Segmentation
-  - Enhanced U2Net to perform fine-grained segmentation of clothing into three categories:
-    - **Top:** Shirts, blouses, jackets.
-    - **Bottom:** Pants, skirts, shorts.
-    - **Dress:** Full-body dresses.
-  - Used labeled datasets with precise annotations to improve model accuracy for edge and texture details.
 
-  ### Cloth Segmentation Output:
+  ### Deployment
+  - Automated the workflow to process incoming clothing images, run the virtual fitting pipeline, and generate output images.  
+  - Delivered final results via AWS S3 for easy client access.  
 
-  <div style="text-align: center;">
-    <img src="/images/cloth_seg.JPG" alt="cloth seg">
-  </div>
-
-  ### Model Optimization
-  - Fine-tuned on diverse datasets to handle variations in:
-    - Clothing textures (e.g., plain, patterned, transparent).
-    - Lighting conditions and shadows.
-    - Pose and garment overlap.
-  - Validated results on unseen clothing images to ensure generalization across multiple styles.
-
-  ## Deployment and Applications
-  - Integrated the segmentation model into an automated pipeline for:
-    - Virtual fitting systems.
-    - Fashion design and visualization.
+  ## Key Achievements
+  - Achieved high-quality, realistic fits across diverse clothing types and body shapes.  
+  - Prepared and curated custom training data, ensuring adaptability to diverse real-world clothing styles.
+  - Fine-tuned each module (pose estimation, warping, EMASC, inversion, and diffusion) to improve performance on unseen data in real-time scenarios.
+  - Enhanced robustness for varied lighting, poses, and complex clothing textures, improving generalization beyond standard datasets.
 
   ## Tools and Technologies
-  - **Segmentation Model**: U2Net
-  - **Programming**: Python
-  - **Frameworks**: PyTorch, OpenCV
-  - **Applications**: Virtual Fitting, Fashion Visualization
+  - **Programming**: Python, PyTorch, OpenCV, Flask  
+  - **Models and Frameworks**: LADi-VTON, DensePose, SCHP (Self Correction for Human Parsing), Pose Estimation  
+  - **Deployment**: Docker, AWS S3  
+  - **Hardware**: NVIDIA GPUs for training and inference  
+
 
 collection: portfolio
----
-
-
 
 ---
-title: "3- U2Net을 활용한 의류 분할 및 배경 제거"
+
+
+---
+title: "1- 확산 모델을 활용한 가상 피팅"
 excerpt: |
-  U2Net을 정밀 튜닝하여 의류의 정확한 분할을 수행하고, 배경 제거 및 의류 부위(상의, 하의, 원피스) 식별을 최적화하였습니다. 이 프로젝트는 가상 피팅 및 패션 시각화를 위한 의류 이미지 전처리에 초점을 맞추고 있습니다.
-
-  ## 프로젝트 개요
-  배경 제거와 의류 부위 분할을 단일 파이프라인으로 통합한 강력한 솔루션을 개발하였습니다. 이를 통해 AI 기반 패션 및 전자상거래 애플리케이션에서 고품질 의류 전처리를 지원합니다.
-
-  ## 목표
-  고정밀 분할을 통해 의류를 배경에서 효과적으로 분리하고, 이를 상의, 하의, 원피스로 분류하는 통합 파이프라인을 구축하는 것이 목표입니다.
-
+  AI 기반 이미지 합성을 사용하여 사용자가 가상 모델을 통해 옷이 어떻게 맞는지 확인할 수 있는 가상 피팅 애플리케이션을 개발했습니다.
   ## 과정 및 워크플로우
+  1. **포즈 추정 (Pose Estimation)**  
+    포즈 추정 모델을 사용하여 18개의 주요 키포인트를 식별하고, 각 키포인트는 특정 신체 관절을 나타내며 옷 맞춤을 위한 신체 자세를 추출하는 데 사용됩니다.
+    <div style="text-align: center;">
+      <img src="/images/pose.jpg" alt="Pose Estimation" style="width: 70%; height: auto;">
+    </div>
+ 
+  2. **DensePose 및 UV 맵**  
+    DensePose는 실제 사람의 특정 체형과 자세를 반영하는 디지털 아바타를 생성합니다.
+    UV 맵은 패브릭 텍스처가 이 아바타에 정확하게 정렬되고 배치되도록 보장합니다.  
 
-  ### 배경 제거
-  - U2Net을 세밀하게 조정하여 의류 이미지의 배경을 제거하고, 깨끗하고 선명한 시각적 데이터를 생성.
-  - 다양한 배경을 포함한 의류 이미지 데이터셋을 활용하여 모델 학습 진행.
-  - 노이즈와 아티팩트를 최소화하여 고품질의 세분화 마스크를 생성.
+    <div style="text-align: center;">
+      <img src="/images/densepose.png" alt="DensePose">
+    </div>
 
-  ### 배경 제거 모델 결과:
+  3. **SCHP (Self-Correction-Human-Parsing)**  
+    SCHP를 적용하여 인간 형상을 세분화하고, 모델의 훈련 과정에서 다양한 신체 부위에 맞게 옷을 정교하게 조정하는 능력을 향상시켰습니다.
+
+    <div style="text-align: center;">
+      <img src="/images/schp.png" alt="SCHP">
+    </div>
+
+
+  4. **워핑 모듈 (Warping Module)**:  
+  의류 아이템을 대상 모델에 맞게 변형하는 역할을 수행합니다. 신체 형태 및 자세에 효과적으로 맞출 수 있도록 형태 및 위치 조정을 개선하여 의류 정렬을 향상시켰습니다.  
+
+    <div style="text-align: center;">
+      <img src="/images/warp_image.jpg" alt="Warping Module">
+    </div>
+      
+  5. **EMASC 모듈 (Enhanced Mask-Aware Skip Connection)**:
+  복원 오류를 줄이고 고주파 디테일을 개선하여 현실적이고 고품질의 결과를 보장하는 방식으로 세부 사항을 보존하였습니다.
+  6. **반전 모듈 (Inversion Module)**:  
+  시각적 의류 특징을 CLIP 토큰 임베딩 공간에 매핑했습니다. 가짜 단어 토큰 임베딩을 생성하여 생성 과정에서 의류 텍스처와 복잡한 디테일을 유지할 수 있도록 했습니다.
+
+  7. **VTON 모듈 (Virtual Try-On)**:  
+   워핑된 의류 아이템을 대상 모델 이미지와 결합하여 최종 이미지 생성을 최적화하였습니다. 확산 모델에 노이즈 입력을 통합하여 생동감 있고 시각적으로 매력적인 결과를 보장했습니다.
+
+  ### 가상 피팅 샘플 출력:
 
   <div style="text-align: center;">
-    <img src="/images/background_rm.jpg" alt="cloth seg">
+    <img src="/images/ladi-vton.png" alt="Warping Module">
   </div>
 
-  ### 의류 부위 분할
-  - U2Net을 확장하여 의류를 세 가지 주요 카테고리로 분할:
-    - **상의(Top):** 셔츠, 블라우스, 재킷 등
-    - **하의(Bottom):** 바지, 치마, 반바지 등
-    - **원피스(Dress):** 전체 길이의 드레스.
-  - 정밀한 주석 데이터를 활용하여 가장자리 및 질감 디테일을 개선하여 모델 정확도를 향상.
 
-  ### 의류 분할 결과:
+  ### 배포
+  - 의류 이미지를 자동으로 처리하고 가상 피팅 파이프라인을 실행하여 출력 이미지를 생성하는 워크플로우를 자동화했습니다.  
+  - 최종 결과를 AWS S3를 통해 제공하여 클라이언트가 쉽게 접근할 수 있도록 했습니다. 
 
-  <div style="text-align: center;">
-    <img src="/images/cloth_seg.JPG" alt="cloth seg">
-  </div>
-
-  ### 모델 최적화
-  - 다양한 데이터셋을 활용하여 모델을 튜닝하여 다음과 같은 변수에 대응하도록 개선:
-    - 다양한 의류 질감(예: 단색, 패턴, 반투명)
-    - 조명 및 그림자 변화
-    - 포즈 및 의류 겹침
-  - 모델이 다양한 스타일의 의류에서도 일반화될 수 있도록 새로운 데이터에 대한 성능 검증 진행.
-
-  ## 배포 및 활용
-  - 자동화된 의류 전처리 파이프라인에 모델을 통합하여:
-    - 가상 피팅 시스템
-    - 패션 디자인 및 시각화
+  ## 주요 성과
+  - 다양한 의류 유형 및 체형에서 높은 품질의 현실적인 핏을 달성했습니다.  
+  - 맞춤형 훈련 데이터를 준비하고 정제하여 다양한 실제 의류 스타일에 적응할 수 있도록 했습니다.
+  - 포즈 추정, 워핑, EMASC, 반전 및 확산 모듈을 세부적으로 조정하여 실시간 시나리오에서 성능을 향상시켰습니다.
+  - 다양한 조명, 자세, 복잡한 의류 텍스처에서도 강인성을 높여 표준 데이터셋을 넘어 일반화를 개선했습니다.
 
   ## 사용 기술
-  - **세분화 모델**: U2Net
-  - **프로그래밍**: Python
-  - **프레임워크**: PyTorch, OpenCV
-  - **적용 분야**: 가상 피팅, 패션 시각화
+  - **프로그래밍**: Python, PyTorch, OpenCV, Flask  
+  - **모델 및 프레임워크**: LADi-VTON, DensePose, SCHP (Self Correction for Human Parsing), 포즈 추정 
+  - **배포**: Docker, AWS S3  
+  - **하드웨어**:훈련 및 추론을 위한 NVIDIA GPU 
+
 
 collection: portfolio
+
 ---
+
+

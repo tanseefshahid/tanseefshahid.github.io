@@ -1,85 +1,74 @@
 ---
-title: "6- Personal Protective Equipment (PPE) Detection on Construction Sites"
+title: "4- Clothing Classification with Multi-Class Categories"
 excerpt: |
-  Developed a real-time AI system using YOLO to detect PPE components (hardhat, vest) and track worker locations on construction sites. The system identifies safety compliance and alerts when workers enter dangerous zones, deployed on an NVIDIA Jetson board for edge computing.
+  Designed and trained a multi-class classification model to categorize clothing into 73 classes. The project encompasses top wear, bottom wear, and dresses, providing a comprehensive solution for fashion classification.
 
   ## Project Overview
-  Created a safety monitoring system for construction sites to ensure proper use of Personal Protective Equipment (PPE) and track workers in real-time. The system reduces accident risks by automating safety checks and notifying workers or supervisors about potential hazards.
+  Developed a deep learning model for classifying clothing items into 73 distinct categories across three main types: tops, bottoms, and dresses. This solution is tailored for applications in virtual fitting and recommendation systems.
 
   ## Process and Workflow
 
-  ### PPE Detection
-  - Implemented **YOLO** for object detection to identify:
-    - **Hardhats**
-    - **Safety Vests**
-    - **shoes**
-  - Trained the model on a custom dataset of construction worker images under diverse conditions (e.g., lighting, angles, and distances).
-  - Achieved high precision in detecting PPE components, even in crowded environments.
+  ### Data Preparation
+  - Collected and curated a diverse dataset of clothing images from various sources.
+  - Manually labeled the dataset into 73 classes across three primary categories:
+    1. **Top Wear**: Shirts, T-shirts, polo shirts, hoodies, jackets, etc.
+    2. **Bottom Wear**: Pants, skirts, shorts, jeans, dress pants, etc.
+    3. **Dresses**: Long coats, female dresses, and other similar types.
+  - Augmented the dataset using techniques like rotation, cropping, and color adjustments to improve model robustness.
 
-  ### Worker Tracking and Hazard Notifications
-  - Integrated a tracking algorithm to monitor worker locations over time.
-  - Designed a zone monitoring system to:
-    - Identify hazardous areas.
-    - Notify workers or supervisors if someone enters a dangerous zone without proper PPE.
-  - Processed video streams in real-time to ensure prompt alerts.
+  ### Model Design and Training
+  - Used a deep learning architecture suitable for multi-class classification:
+    - **Backbone Model**: Fine-tuned ResNet50 pre-trained on ImageNet for transfer learning.
+    - **Classifier Head**: Added fully connected layers with softmax activation for predicting 73 classes.
+  - Optimized model hyperparameters, including learning rate and batch size, for improved performance.
 
-  ### Deployment
-  - Deployed the system on an **NVIDIA Jetson board**, enabling efficient edge computing for real-time detection and tracking.
-  - Optimized the pipeline for low latency and scalability, ensuring reliable performance in dynamic construction environments.
+  ## Key Achievements
+  - Achieved over 90% accuracy on the validation set and consistent performance across all classes.
+  - Developed a scalable pipeline for training and deploying the model.
+  - Successfully handled multi-class classification with diverse and imbalanced data.
 
   ## Tools and Technologies
-  - **Object Detection**: YOLO
+  - **Frameworks**: PyTorch, TensorFlow
   - **Programming**: Python
-  - **Frameworks**: OpenCV, TensorFlow/Keras
-  - **Hardware**: NVIDIA Jetson Board
-  - **Applications**: Construction Safety, Real-Time Tracking
-
-  ## Visual Demonstration
-  ![PPE Detection Example](/images/ppe.png)
+  - **Data Augmentation**: OpenCV, PyTorch
 
 collection: portfolio
-
 ---
 
 
 ---
-title: "6- 건설 현장에서의 개인 보호 장비(PPE) 감지 시스템"
+title: "4- 다중 클래스 카테고리를 활용한 의류 분류"
 excerpt: |
-  YOLO 기반의 실시간 AI 시스템을 개발하여 건설 현장에서 개인 보호 장비(PPE) 착용 여부를 감지하고 작업자 위치를 추적하는 기능을 구현하였습니다. 해당 시스템은 안전모, 조끼, 신발 착용 여부를 확인하고, 위험 구역 진입 시 경고 알림을 제공합니다. 또한, NVIDIA Jetson 보드에서 엣지 컴퓨팅을 활용하여 실시간으로 동작하도록 배포되었습니다.
+  의류를 73개 카테고리로 분류하는 다중 클래스 분류 모델을 설계하고 훈련하였습니다. 이 프로젝트는 상의, 하의, 원피스를 포함하는 패션 분류 솔루션으로, 가상 피팅 및 추천 시스템과 같은 애플리케이션에 최적화되었습니다.
 
   ## 프로젝트 개요
-  건설 현장의 작업자들이 적절한 PPE를 착용하고 있는지 자동으로 감지하고, 실시간으로 위치를 추적하는 안전 모니터링 시스템을 개발하였습니다. 이를 통해 사고 위험을 줄이고, 위험 요소 발생 시 즉각적인 알림을 제공할 수 있습니다.
+  딥러닝 기반 모델을 활용하여 의류 아이템을 73개 세부 카테고리로 분류하는 솔루션을 개발했습니다. 이 모델은 가상 피팅 시스템 및 추천 엔진과 같은 패션 기술 응용 분야에 적용할 수 있도록 설계되었습니다.
 
   ## 과정 및 워크플로우
 
-  ### PPE 감지
-  - **YOLO** 기반 객체 탐지(Object Detection) 모델을 적용하여 다음을 감지:
-    - **안전모 (Hardhat)**
-    - **안전 조끼 (Safety Vest)**
-    - **작업화 (Shoes)**
-  - 다양한 조명, 각도, 거리 조건에서 촬영된 건설 현장 이미지 데이터셋을 활용하여 모델을 학습.
-  - 혼잡한 환경에서도 높은 정확도로 PPE 착용 여부 감지 성공.
+  ### 데이터 준비
+  - 다양한 출처에서 의류 이미지를 수집하고 정제하여 다양성을 갖춘 데이터셋을 구축.
+  - 수작업으로 73개 클래스로 주석 처리하여 세 가지 주요 카테고리로 분류:
+    1. **상의(Top Wear)**: 셔츠, 티셔츠, 폴로셔츠, 후드티, 재킷 등
+    2. **하의(Bottom Wear)**: 바지, 치마, 반바지, 청바지, 정장 바지 등
+    3. **원피스(Dresses)**: 롱코트, 여성 드레스 등
+  - 모델의 강인성을 높이기 위해 회전, 크롭, 색상 조정 등의 데이터 증강 기법 적용.
 
-  ### 작업자 추적 및 위험 감지 알림
-  - **추적 알고리즘(Tracking Algorithm)**을 적용하여 작업자의 위치를 지속적으로 모니터링.
-  - 위험 구역 감지 시스템을 도입하여:
-    - 작업자가 위험 지역에 접근하는 경우 감지.
-    - PPE 미착용 상태로 위험 구역 진입 시 경고 알림을 발송.
-  - 실시간 영상 스트리밍을 분석하여 즉각적인 안전 조치 가능.
+  ### 모델 설계 및 훈련
+  - 다중 클래스 분류에 적합한 딥러닝 아키텍처 적용:
+    - **백본 모델(Backbone Model)**: ImageNet으로 사전 훈련된 ResNet50을 전이 학습(Fine-tuning)
+    - **분류기(Classifier Head)**: **완전 연결 계층(FC Layers)**과 소프트맥스(Softmax) 활성화 함수 추가하여 73개 클래스 예측
+  - 학습률(Learning Rate) 및 배치 크기(Batch Size)와 같은 **초매개변수(Hyperparameters)**를 최적화하여 성능 개선.
 
-  ### 시스템 배포
-  - **NVIDIA Jetson 보드를** 활용하여 엣지 컴퓨팅(Edge Computing) 기반의 실시간 감지 및 추적 기능 구현.
-  - 지연 시간을 최소화하고 대규모 건설 현장에서도 확장 가능하도록 시스템 최적화.
+  ## 주요 성과
+  - 검증 데이터(Validation Set)에서 90% 이상의 정확도 달성.
+  - 확장 가능한 학습 및 배포 파이프라인 구축.
+  - 다양한 의류 스타일 및 불균형한 데이터에서도 일관된 성능 유지.
 
   ## 사용 기술
-  - **객체 탐지(Object Detection)**: YOLO
+  - **프레임워크**: PyTorch, TensorFlow
   - **프로그래밍**: Python
-  - **프레임워크**: OpenCV, TensorFlow/Keras
-  - **하드웨어**: NVIDIA Jetson Board
-  - **응용 분야**: 건설 현장 안전 관리, 실시간 작업자 추적
-
-  ## 시각적 시연
-  ![PPE Detection Example](/images/ppe.png)
+  - **데이터 증강**: OpenCV, PyTorch
 
 collection: portfolio
 ---

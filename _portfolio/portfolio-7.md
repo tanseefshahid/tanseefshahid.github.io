@@ -1,96 +1,134 @@
 ---
-title: 7- Action Recognition with Human Pose Estimation"
+title: "5- Automatic License Plate Recognition and Tracking System for Gas Stations"
 excerpt: |
-  Contributed to a team project for monitoring abnormal actions at an airport using YOWO and human pose estimation models. The system successfully detected multiple abnormal actions, such as falling down and dashing, in real-time.
+  Designed and implemented a real-time AI system to capture, recognize, and track license plates of vehicles across fueling machines. Leveraged YOLO for detection, OCR for text recognition, and DeepSORT for tracking unique vehicle IDs, supported by synthetic datasets for robust performance in diverse conditions.
 
   ## Project Overview
-  Developed an action recognition system for airport security to monitor and detect abnormal human behaviors using YOWO (You-Only-Watch-Once) and human pose estimation techniques. The system was optimized for real-time performance to ensure prompt alerts and responses.
 
-  ## Objective
-  To create a real-time action recognition system capable of identifying multiple abnormal actions (e.g., falling down, dashing) in crowded airport environments, enhancing security and safety measures.
+  Developed a real-time Automatic License Plate Recognition (ALPR) system to monitor, identify, and track vehicles at gas stations. The system captures license plates from live video feeds, rectifies distortions, and recognizes text for automated vehicle identification and monitoring while maintaining unique IDs for each vehicle entering and exiting the premises.
+
 
   ## Process and Workflow
 
-  ### Model Design and Implementation
-  - **YOWO (You-Only-Watch-Once)**:
-    - Implemented YOWO for video-based action recognition, leveraging its efficiency in spatiotemporal feature extraction.
-    - Trained the model to recognize abnormal behaviors, focusing on falling and dashing actions.
-  - **Human Pose Estimation**:
-    - Integrated human pose estimation models to identify key body movements and postures.
-    - Extracted pose keypoints and trajectories to validate action predictions and reduce false positives.
+  ### License Plate Detection
+
+  - Used **YOLO** for detecting license plates in images and video streams.
+  - Optimized the model for multi-license plate detection in a single frame, addressing:
+    - Varied lighting conditions.
+    - Plate distortions and angles.
+    - Diverse license plate formats.
+
+  ### Vehicle Tracking
+
+  - Integrated **DeepSORT** for robust vehicle tracking, ensuring each car is assigned a unique ID for:
+    - Monitoring entry and exit across fueling stations.
+    - Automating tracking and logging for operational efficiency.
 
   ### Data Preparation
-  - Collected and annotated a diverse dataset of video sequences with both normal and abnormal actions in airport scenarios.
-  - Preprocessed video frames using OpenCV for augmentation and normalization:
-    - Adjusted lighting, scaling, and rotation to simulate varied environments.
-    - Labeled abnormal actions with detailed timestamps for training and evaluation.
+
+  - Created and utilized **synthetic datasets** of license plates, simulating variations in:
+    - Plate types (e.g., sizes, fonts, and formats).
+    - Environmental factors (e.g., lighting, motion blur, and occlusions).
+  - Augmented data with transformations like rotation, scaling, and cropping to improve model robustness.
 
   ### Model Training and Optimization
-  - Fine-tuned YOWO on the annotated dataset to improve accuracy for detecting targeted actions.
-  - Combined pose estimation results with YOWO predictions for robust recognition, especially in crowded or partially obscured environments.
 
-  ## Deployment
-  - Designed a pipeline to process live video feeds and generate real-time alerts for detected abnormal actions.
-  - Integrated with airport security systems to provide actionable insights.
+  - Fine-tuned YOLO for license plate detection, achieving high precision and recall.
+  - Validated OCR outputs with post-processing to ensure consistent and formatted results.
+
+  ### Deployment
+
+  - Deployed the system for real-time operation, processing live video feeds from gas station cameras.
+  - Designed the pipeline to handle multiple fueling stations simultaneously, automating vehicle identification, tracking, and logging.
+
+ 
+
+  ## Key Achievements
+
+    - Automated detection, recognition, and tracking of license plates and vehicles, significantly improving monitoring efficiency.
+    - Developed robust models capable of handling diverse and challenging conditions.
+    - Scaled the system to process live feeds across multiple fueling stations in real-time.
+
+
 
   ## Tools and Technologies
-  - **Models**: YOWO, Human Pose Estimation 
-  - **Programming**: Python
-  - **Frameworks**: PyTorch, OpenCV
-  - **Applications**: Airport Security, Abnormal Action Detection, Real-Time Surveillance
 
-  ## Pose Estimation Output:
-  ![Abnormal Action Recognition Example](/images/hpe.png)
+    - **Object Detection:** YOLO, Keras
+    - **Vehicle Tracking:** DeepSORT
+    - **Programming:** Python
+    - **Frameworks:** PyTorch, OpenCV
+    - **Applications:** Gas Station Monitoring, Vehicle Tracking, Automation
+
+  ## Visual Demonstration
+  ![License Plate Recognition Example](/images/alpr.png)
 
 collection: portfolio
 
 ---
 
-
 ---
-title: 7- 인간 포즈 추정을 활용한 행동 인식 시스템"
+title: "5- 주유소용 차량 번호판 인식 및 추적 시스템"
 excerpt: |
-  공항 내 이상 행동 감지를 위한 YOWO 및 인간 포즈 추정 모델을 활용한 모니터링 시스템 개발에 기여하였습니다. 본 시스템은 넘어짐(falling down), 갑작스러운 질주(dashing) 등의 여러 이상 행동을 실시간으로 감지하는 데 성공하였습니다.
+  실시간으로 차량의 번호판을 감지, 인식, 추적하는 AI 시스템을 설계하고 구현하였습니다. YOLO를 사용한 번호판 탐지, OCR을 활용한 문자 인식, DeepSORT 기반 차량 ID 추적으로 각 차량을 식별 및 모니터링하며, 다양한 환경에서도 강인한 성능을 발휘할 수 있도록 **합성 데이터셋(Synthetic Datasets)**을 활용하여 학습을 최적화하였습니다.
 
   ## 프로젝트 개요
-  공항 보안 강화를 위해 YOWO(You-Only-Watch-Once) 및 인간 포즈 추정 기술을 활용한 실시간 행동 인식 시스템을 개발하였습니다. 이를 통해 이상 행동을 신속하게 탐지하고 경고를 제공하여 보안 조치를 즉각 수행할 수 있도록 하였습니다.
 
-  ## 목표
-  공항과 같이 혼잡한 환경에서 실시간으로 이상 행동(예: 넘어짐, 질주)을 인식할 수 있는 시스템을 구축하여 보안과 안전 조치를 강화하는 것이 목표입니다.
+  실시간 자동 차량 번호판 인식(ALPR, Automatic License Plate Recognition) 시스템을 개발하여 주유소 내 차량 모니터링, 식별 및 추적을 자동화하였습니다.
+  이 시스템은 라이브 비디오 스트림에서 차량 번호판을 캡처하고, 왜곡을 보정한 후 텍스트를 인식하여 출입 차량을 추적하고 기록하는 기능을 수행합니다.
+
 
   ## 과정 및 워크플로우
 
-  ### 모델 설계 및 구현
-  - **YOWO (You-Only-Watch-Once) 기반 행동 인식**:
-    - 영상 기반 행동 인식을 위해 YOWO 모델을 활용하여 시공간 특징(Spatiotemporal Features) 추출.
-    - 넘어짐(falling), 질주(dashing) 등의 이상 행동 감지를 위해 모델을 학습.
-  - **인간 포즈 추정(Human Pose Estimation) 적용**:
-    - 신체 주요 포인트(Keypoints) 및 자세(Trajectories) 분석을 통해 행동을 감지.
-    - 포즈 데이터와 YOWO 예측 결과를 결합하여 오탐(False Positives) 감소.
+  ### 번호판 감지
+
+  - **YOLO를** 사용하여 이미지 및 영상에서 번호판을 탐지.
+  - 다중 번호판 탐지를 최적화하여 한 프레임 내 여러 차량의 번호판을 감지.
+  - 다양한 환경을 고려한 개선:
+    - 조명 조건 변화 대응
+    - 번호판 왜곡 및 각도 보정
+    - 다양한 국가별 번호판 형식 지원
+
+  ### 차량 추적
+
+  - **DeepSORT를** 활용하여 차량을 고유 ID로 추적.
+  - 차량의 입출차 기록을 자동화하여 운영 효율성을 극대화.
 
   ### 데이터 준비
-  - 공항 내 정상 및 이상 행동이 포함된 다양한 비디오 데이터셋 수집 및 주석(annotation) 작업 수행.
-  - OpenCV를 활용한 데이터 전처리 및 증강(Augmentation) 적용:
-    - 조명, 크기 조정(Scaling), 회전(Rotation) 변형을 적용하여 다양한 환경을 시뮬레이션.
-    - 이상 행동을 정확한 타임스탬프와 함께 라벨링하여 학습 데이터로 활용.
+
+  - **합성 데이터셋(Synthetic Datasets)**을 생성하여 다음과 같은 변수를 반영:
+    - 번호판 종류 (사이즈, 글꼴, 형식)
+    - 환경적 요인 (조명, 모션 블러, 가림 현상)
+  - 모델의 일반화를 높이기 위해 회전, 크기 조정, 크롭핑 등 데이터 증강 기법 적용.
 
   ### 모델 학습 및 최적화
-  - YOWO 모델을 이상 행동 감지에 최적화하여 높은 정확도 달성.
-  - 포즈 추정 결과와 YOWO 예측을 결합하여 혼잡한 환경이나 부분적으로 가려진 경우에도 강건한 행동 인식 가능.
 
-  ## 시스템 배포
-  - 실시간 비디오 스트리밍을 처리하는 파이프라인을 설계하여 이상 행동 감지 시 즉각적인 경고를 생성.
-  - 공항 보안 시스템과 통합하여 경고 데이터를 실시간으로 제공.
+  - YOLO 모델을 미세 조정(Fine-tuning) 하여 높은 **정확도(Precision)와 재현율(Recall)**을 달성.
+  - OCR 결과를 후처리(Post-processing)하여 일관된 포맷과 정제된 인식 결과를 보장.
+
+  ### 배포 및 실시간 운영
+
+  - 주유소 카메라에서 실시간 영상 스트림을 처리하도록 시스템 배포.
+  - 다수의 주유 기계를 동시에 관리하여 차량 식별, 추적, 로그 기록을 자동화.
+
+ 
+  ## 주요 성과
+
+    - 번호판 및 차량 자동 탐지, 인식, 추적을 통해 주유소 운영 효율을 크게 향상.
+    - 다양한 조명 및 환경 변화에서도 강인한 모델 성능 달성.
+    - 실시간 영상 피드를 활용한 다중 주유소 모니터링 시스템으로 확장 가능.
 
   ## 사용 기술
-  - **모델**: YOWO, Human Pose Estimation 
-  - **프로그래밍**: Python
-  - **프레임워크**: PyTorch, OpenCV
-  - **응용 분야**: 공항 보안, 이상 행동 탐지, 실시간 감시 시스템
 
-  ## 포즈 추정 결과
-  ![Abnormal Action Recognition Example](/images/hpe.png)
+    - **객체 탐지(Object Detection):** YOLO, Keras
+    - **차량 추적(Vehicle Tracking):** DeepSORT
+    - **프로그래밍:** Python
+    - **프레임워크:** PyTorch, OpenCV
+    - **응용 분야:** 주유소 모니터링, 차량 추적, 자동화
+
+  ## 시각적 시연
+  ![License Plate Recognition Example](/images/alpr.png)
 
 collection: portfolio
 
 ---
+
