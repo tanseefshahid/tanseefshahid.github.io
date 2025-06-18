@@ -1,5 +1,5 @@
 ---
-title: "Real-Time Defect Detection System with PLC Integration"
+title: "1- Real-Time Defect Detection System with PLC Integration"
 excerpt: |
   Built and deployed a real-time multi-camera defect detection system triggered by external sensors, integrated with industrial PLCs to automatically reject faulty products on a live production line.
 

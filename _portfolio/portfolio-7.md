@@ -1,5 +1,5 @@
 ---
-title: "5- Automatic License Plate Recognition and Tracking System for Gas Stations"
+title: "7- Automatic License Plate Recognition and Tracking System for Gas Stations"
 excerpt: |
   Designed and implemented a real-time AI system to capture, recognize, and track license plates of vehicles across fueling machines. Leveraged YOLO for detection, OCR for text recognition, and DeepSORT for tracking unique vehicle IDs, supported by synthetic datasets for robust performance in diverse conditions.
 

@@ -1,5 +1,5 @@
 ---
-title: "6- Personal Protective Equipment (PPE) Detection on Construction Sites"
+title: "8- Personal Protective Equipment (PPE) Detection on Construction Sites"
 excerpt: |
   Developed a real-time AI system using YOLO to detect PPE components (hardhat, vest) and track worker locations on construction sites. The system identifies safety compliance and alerts when workers enter dangerous zones, deployed on an NVIDIA Jetson board for edge computing.
 

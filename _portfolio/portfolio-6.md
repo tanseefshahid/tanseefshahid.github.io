@@ -1,5 +1,5 @@
 ---
-title: "4- Clothing Classification with Multi-Class Categories"
+title: "6- Clothing Classification with Multi-Class Categories"
 excerpt: |
   Designed and trained a multi-class classification model to categorize clothing into 73 classes. The project encompasses top wear, bottom wear, and dresses, providing a comprehensive solution for fashion classification.
 

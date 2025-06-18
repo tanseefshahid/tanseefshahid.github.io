@@ -1,5 +1,5 @@
 ---
-title: 7- Action Recognition with Human Pose Estimation"
+title: 9- Action Recognition with Human Pose Estimation"
 excerpt: |
   Contributed to a team project for monitoring abnormal actions at an airport using YOWO and human pose estimation models. The system successfully detected multiple abnormal actions, such as falling down and dashing, in real-time.
 

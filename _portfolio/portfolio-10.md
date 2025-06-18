@@ -1,5 +1,5 @@
 ---
-title: "8- Gas Boilers Text Extraction and Pipe Detection"
+title: "10- Gas Boilers Text Extraction and Pipe Detection"
 excerpt: |
   Developed a system for extracting text from boiler plates and detecting gas pipes for safety monitoring. The solution utilized Tesseract-OCR for text recognition and MobileNetSSD for real-time pipe detection.
 

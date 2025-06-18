@@ -1,5 +1,5 @@
 ---
-title: "CNC Machine Localization and 6-DoF Pose Estimation"
+title: "2- CNC Machine Localization and 6-DoF Pose Estimation"
 excerpt: |
   Designed a vision system for CNC machines using a 3D depth camera mounted on the drill head to accurately localize objects and estimate their spatial orientation before machining.
 

@@ -1,5 +1,5 @@
 ---
-title: "1- Virtual Try-On with Diffusion Models"
+title: "3- Virtual Try-On with Diffusion Models"
 excerpt: |
   Developed an application for virtual try-on which enables users to see how clothes fit on a virtual model using AI-based image synthesis.
 

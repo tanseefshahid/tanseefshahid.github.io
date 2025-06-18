@@ -1,5 +1,5 @@
 ---
-title: "2- Image-to-3D Reconstruction Using Open LRM"
+title: "4- Image-to-3D Reconstruction Using Open LRM"
 excerpt: |
   Developed a robust image-to-3D reconstruction pipeline using Open LRM, incorporating advanced data rendering techniques, enhanced image resolution with ESRGAN, and training models for realistic 3D object reconstruction.
 
