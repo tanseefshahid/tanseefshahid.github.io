@@ -1,7 +1,12 @@
 {% include base_path %}
 
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{%- comment -%} Determine teaser image: prefer post.teaser -> post.header.teaser -> post.header.image -> site.teaser {%- endcomment -%}
+{% if post.teaser %}
+  {% assign teaser = post.teaser %}
+{% elsif post.header and post.header.teaser %}
+  {% assign teaser = post.header.teaser %}
+{% elsif post.header and post.header.image %}
+  {% assign teaser = post.header.image %}
 {% else %}
   {% assign teaser = site.teaser %}
 {% endif %}

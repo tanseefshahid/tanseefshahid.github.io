@@ -399,3 +399,27 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
+
+/* Language switcher styling (small pill in header) */
+.language-switcher {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  z-index: 30;
+
+  &__link {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background: $lighter-gray;
+    color: $link-color-hover;
+    border-radius: 999px;
+    font-size: $type-size-7;
+    text-decoration: none;
+    border: 1px solid $border-color;
+
+    &:hover {
+      background: $primary-color;
+      color: #fff;
+    }
+  }
+}

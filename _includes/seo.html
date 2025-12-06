@@ -94,11 +94,21 @@
   {% assign counterparts = site.portfolio | where: "slug", page.slug %}
   {% for p in counterparts %}
     {% if p.lang %}
+      {% comment %}Map short lang codes to region-specific hreflang values (improves SEO)
+          - en -> en-US
+          - ko -> ko-KR
+      {% endcomment %}
+      {% assign hreflang_code = p.lang %}
+      {% if p.lang == "en" %}
+        {% assign hreflang_code = "en-US" %}
+      {% elsif p.lang == "ko" %}
+        {% assign hreflang_code = "ko-KR" %}
+      {% endif %}
       {% comment %}Ensure absolute URL for SEO{% endcomment %}
       {% if site.url %}
-        <link rel="alternate" hreflang="{{ p.lang }}" href="{{ site.url | append: p.url | replace: '/index.html','/' }}" />
+        <link rel="alternate" hreflang="{{ hreflang_code }}" href="{{ site.url | append: p.url | replace: '/index.html','/' }}" />
       {% else %}
-        <link rel="alternate" hreflang="{{ p.lang }}" href="{{ p.url | replace: '/index.html','/' }}" />
+        <link rel="alternate" hreflang="{{ hreflang_code }}" href="{{ p.url | replace: '/index.html','/' }}" />
       {% endif %}
     {% endif %}
   {% endfor %}

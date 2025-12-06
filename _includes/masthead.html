@@ -10,10 +10,16 @@
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
-              {% else %}
+            {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            {% assign link_full = domain | append: link.url %}
+            {% comment %}Mark active when current page URL matches or starts with the link URL{% endcomment %}
+            {% assign is_active = false %}
+            {% if page.url == link.url or page.url == link_full or page.url contains link.url %}
+              {% assign is_active = true %}
+            {% endif %}
+            <li class="masthead__menu-item{% if is_active %} active{% endif %}"><a href="{{ link_full }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>

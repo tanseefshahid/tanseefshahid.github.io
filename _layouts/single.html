@@ -47,7 +47,9 @@ layout: default
           {% assign counterparts = site.portfolio | where: "slug", page.slug %}
           {% for p in counterparts %}
             {% if p.lang and p.lang != page.lang %}
-              <p class="language-switcher">Switch language: <a href="{{ p.url | prepend: base_path }}">{% if p.lang == "en" %}English{% elsif p.lang == "ko" %}한국어{% else %}{{ p.lang }}{% endif %}</a></p>
+              <div class="language-switcher">
+                <a href="{{ p.url | prepend: base_path }}" class="language-switcher__link">{% if p.lang == "en" %}English{% elsif p.lang == "ko" %}한국어{% else %}{{ p.lang }}{% endif %}</a>
+              </div>
             {% endif %}
           {% endfor %}
         {% endif %}
