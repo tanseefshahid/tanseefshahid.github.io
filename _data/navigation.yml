@@ -1,7 +1,10 @@
 # main links links
 main:
-  - title: "Portfolio"
-    url: /portfolio/
+  - title: "Portfolio (EN)"
+    url: /en/portfolio/
+
+  - title: "포트폴리오 (KO)"
+    url: /ko/portfolio/
 
   - title: "Resume"
     url: /cv/

@@ -1,0 +1,17 @@
+---
+layout: archive
+title: "Portfolio"
+permalink: /en/portfolio/
+lang: en
+author_profile: true
+---
+
+{% include base_path %}
+
+{% assign current_lang = page.lang | default: site.lang | default: "en" %}
+
+{% for post in site.portfolio %}
+  {% if post.lang == current_lang %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}

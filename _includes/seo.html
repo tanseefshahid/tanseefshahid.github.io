@@ -89,6 +89,21 @@
   <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
 {% endif %}
 
+<!-- add hreflang alternate links for translated portfolio pages -->
+{% if page.slug %}
+  {% assign counterparts = site.portfolio | where: "slug", page.slug %}
+  {% for p in counterparts %}
+    {% if p.lang %}
+      {% comment %}Ensure absolute URL for SEO{% endcomment %}
+      {% if site.url %}
+        <link rel="alternate" hreflang="{{ p.lang }}" href="{{ site.url | append: p.url | replace: '/index.html','/' }}" />
+      {% else %}
+        <link rel="alternate" hreflang="{{ p.lang }}" href="{{ p.url | replace: '/index.html','/' }}" />
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
 {% if page.date %}
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
