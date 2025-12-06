@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-05
 collection: portfolio
 permalink: /ko/portfolio/portfolio-05/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   U2Net을 정밀 튜닝하여 의류의 정확한 분할을 수행하고, 배경 제거 및 의류 부위(상의, 하의, 원피스) 식별을 최적화하였습니다. 이 프로젝트는 가상 피팅 및 패션 시각화를 위한 의류 이미지 전처리에 초점을 맞추고 있습니다.
 ---

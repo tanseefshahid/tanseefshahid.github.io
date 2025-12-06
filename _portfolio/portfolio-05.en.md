@@ -4,6 +4,7 @@ lang: en
 slug: portfolio-05
 collection: portfolio
 permalink: /en/portfolio/portfolio-05/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Fine-tuned U2Net to achieve high-accuracy cloth segmentation for background removal and part identification (top, bottom, and dress). This project focuses on preprocessing clothing images for applications in virtual fitting and fashion visualization.
 ---

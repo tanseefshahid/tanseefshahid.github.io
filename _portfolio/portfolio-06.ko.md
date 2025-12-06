@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-06
 collection: portfolio
 permalink: /ko/portfolio/portfolio-06/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   의류를 73개 카테고리로 분류하는 다중 클래스 분류 모델을 설계하고 훈련하였습니다. 이 프로젝트는 상의, 하의, 원피스를 포함하는 패션 분류 솔루션으로, 가상 피팅 및 추천 시스템과 같은 애플리케이션에 최적화되었습니다.
 ---

@@ -4,6 +4,7 @@ lang: en
 slug: portfolio-03
 collection: portfolio
 permalink: /en/portfolio/portfolio-03/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Developed an application for virtual try-on which enables users to see how clothes fit on a virtual model using AI-based image synthesis.
 ---

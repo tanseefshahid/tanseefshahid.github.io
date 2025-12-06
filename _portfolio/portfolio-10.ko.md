@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-10
 collection: portfolio
 permalink: /ko/portfolio/portfolio-10/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   가스 보일러의 명판(Boiler Plates)에서 텍스트를 추출하고 가스 배관을 감지하는 시스템을 개발하였습니다. Tesseract-OCR을 활용하여 보일러 명판의 중요한 정보를 인식하고, MobileNetSSD를 사용하여 가스 배관을 실시간으로 탐지하는 솔루션을 구축하였습니다.
 ---

@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-01
 collection: portfolio
 permalink: /ko/portfolio/portfolio-01/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   외부 센서로 트리거되는 실시간 다중 카메라 불량 검출 시스템을 구축·배포하고, 산업용 PLC와 연동하여 생산 라인에서 불량품을 자동으로 배출합니다.
 ---

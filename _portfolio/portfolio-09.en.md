@@ -4,6 +4,7 @@ lang: en
 slug: portfolio-09
 collection: portfolio
 permalink: /en/portfolio/portfolio-09/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Contributed to a team project for monitoring abnormal actions at an airport using YOWO and human pose estimation models. The system successfully detected multiple abnormal actions, such as falling down and dashing, in real-time.
 ---

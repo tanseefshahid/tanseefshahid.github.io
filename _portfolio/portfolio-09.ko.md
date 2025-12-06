@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-09
 collection: portfolio
 permalink: /ko/portfolio/portfolio-09/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   공항 내 이상 행동 감지를 위한 YOWO 및 인간 포즈 추정 모델을 활용한 모니터링 시스템 개발에 기여하였습니다. 본 시스템은 넘어짐(falling down), 갑작스러운 질주(dashing) 등의 여러 이상 행동을 실시간으로 감지하는 데 성공하였습니다.
 ---

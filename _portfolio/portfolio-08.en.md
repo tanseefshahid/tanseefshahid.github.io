@@ -4,6 +4,7 @@ lang: en
 slug: portfolio-08
 collection: portfolio
 permalink: /en/portfolio/portfolio-08/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Developed a real-time AI system using YOLO to detect PPE components (hardhat, vest) and track worker locations on construction sites. The system identifies safety compliance and alerts when workers enter dangerous zones, deployed on an NVIDIA Jetson board for edge computing.
 ---

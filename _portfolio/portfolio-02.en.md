@@ -4,6 +4,7 @@ lang: en
 slug: portfolio-02
 collection: portfolio
 permalink: /en/portfolio/portfolio-02/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Designed a vision system for CNC machines using a 3D depth camera mounted on the drill head to accurately localize objects and estimate their spatial orientation before machining.
 ---

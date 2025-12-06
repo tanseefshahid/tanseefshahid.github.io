@@ -4,6 +4,7 @@ lang: en
 slug: portfolio-10
 collection: portfolio
 permalink: /en/portfolio/portfolio-10/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Developed a system for extracting text from boiler plates and detecting gas pipes for safety monitoring. The solution utilized Tesseract-OCR for text recognition and MobileNetSSD for real-time pipe detection.
 ---

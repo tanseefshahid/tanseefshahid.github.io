@@ -4,6 +4,7 @@ lang: en
 slug: portfolio-04
 collection: portfolio
 permalink: /en/portfolio/portfolio-04/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Developed a robust image-to-3D reconstruction pipeline using Open LRM, incorporating advanced data rendering techniques, enhanced image resolution with ESRGAN, and training models for realistic 3D object reconstruction.
 ---

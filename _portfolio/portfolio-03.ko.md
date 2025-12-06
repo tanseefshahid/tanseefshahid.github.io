@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-03
 collection: portfolio
 permalink: /ko/portfolio/portfolio-03/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   AI 기반 이미지 합성을 사용하여 사용자가 가상 모델을 통해 옷이 어떻게 맞는지 확인할 수 있는 가상 피팅 애플리케이션을 개발했습니다.
 ---

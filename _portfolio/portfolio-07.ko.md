@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-07
 collection: portfolio
 permalink: /ko/portfolio/portfolio-07/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   실시간으로 차량의 번호판을 감지, 인식, 추적하는 AI 시스템을 설계하고 구현하였습니다. YOLO를 사용한 번호판 탐지, OCR을 활용한 문자 인식, DeepSORT 기반 차량 ID 추적으로 각 차량을 식별 및 모니터링하며, 다양한 환경에서도 강인한 성능을 발휘할 수 있도록 합성 데이터셋을 활용하였습니다.
 ---

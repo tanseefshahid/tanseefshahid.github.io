@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-04
 collection: portfolio
 permalink: /ko/portfolio/portfolio-04/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Open LRM을 사용하여 강력한 이미지-3D 재구성 파이프라인을 개발하였으며, 고급 데이터 렌더링 기법, ESRGAN을 활용한 이미지 해상도 향상, 그리고 현실적인 3D 객체 재구성을 위한 모델 훈련을 포함하였습니다.
 ---

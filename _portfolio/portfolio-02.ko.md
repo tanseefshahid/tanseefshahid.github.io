@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-02
 collection: portfolio
 permalink: /ko/portfolio/portfolio-02/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   드릴 헤드에 장착된 3D 깊이 카메라를 사용하여 CNC 기계에서 물체의 위치를 정확히 로컬라이즈하고, 가공 전에 물체의 공간적 자세(6-DoF)를 추정하는 비전 시스템을 설계했습니다.
 ---

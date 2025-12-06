@@ -4,6 +4,7 @@ lang: en
 slug: portfolio-06
 collection: portfolio
 permalink: /en/portfolio/portfolio-06/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Designed and trained a multi-class classification model to categorize clothing into 73 classes. The project encompasses top wear, bottom wear, and dresses, providing a comprehensive solution for fashion classification.
 ---

@@ -4,6 +4,7 @@ lang: ko
 slug: portfolio-08
 collection: portfolio
 permalink: /ko/portfolio/portfolio-08/
+teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   YOLO 기반의 실시간 AI 시스템을 개발하여 건설 현장에서 개인 보호 장비(PPE) 착용 여부를 감지하고 작업자 위치를 추적하는 기능을 구현하였습니다. 해당 시스템은 안전모, 조끼, 신발 착용 여부를 확인하고, 위험 구역 진입 시 경고 알림을 제공합니다.
 ---
