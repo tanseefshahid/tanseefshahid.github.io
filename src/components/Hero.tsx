@@ -21,7 +21,7 @@ export default function Hero() {
                     <h2 className="text-xl md:text-2xl font-light tracking-widest text-cyan-400 mb-4 uppercase">
                         Computer Vision Engineer
                     </h2>
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
                         Muhammad Tanseef Shahid
                     </h1>
                     <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
