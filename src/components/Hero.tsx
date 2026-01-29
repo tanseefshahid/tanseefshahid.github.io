@@ -24,8 +24,11 @@ export default function Hero() {
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
                         Muhammad Tanseef Shahid
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-                        Passionate AI researcher and computer vision specialist with 5 years of experience in developing innovative solutions at the intersection of computer vision, 3D reconstruction, and generative AI.
+                    <p className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto mb-8 leading-relaxed">
+                        Welcome to my portfolio! I am Muhammad Tanseef Shahid, a passionate AI researcher and computer vision specialist with 5 years of experience in developing innovative solutions at the intersection of computer vision, 3D reconstruction, and generative AI.
+                    </p>
+                    <p className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto mb-12 leading-relaxed">
+                        My expertise spans a wide range of cutting-edge technologies, including virtual fitting systems, 3D avatar modeling, pose estimation, object segmentation, object detection, recognition, and classification.
                     </p>
                 </motion.div>
 
