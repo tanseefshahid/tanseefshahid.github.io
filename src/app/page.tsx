@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Experience from "@/components/Experience";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 
@@ -6,6 +7,7 @@ export default function Home() {
   return (
     <main className="bg-black min-h-screen">
       <Hero />
+      <Experience />
 
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="mb-12">

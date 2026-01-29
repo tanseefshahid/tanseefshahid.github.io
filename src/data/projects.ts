@@ -4,38 +4,44 @@ export type Project = {
     description: string;
     tags: string[];
     imageUrl?: string;
-    videoUrl?: string; // For eventually adding video previews
+    videoUrl?: string;
     link?: string;
-    github?: string;
 };
 
 export const projects: Project[] = [
     {
-        id: "virtual-try-on",
-        title: "Virtual Try-On System",
-        description: "Developed a robust virtual fitting system leveraging generative AI to overlay clothing on user inputs with high fidelity.",
-        tags: ["Generative AI", "PyTorch", "Computer Vision"],
+        id: "virtual-fitting-system",
+        title: "Virtual Fitting System",
+        description: "Developed Virtual Fitting System using generative AI (Generative Adversarial Networks) which overlay clothes on user input.",
+        tags: ["Generative AI", "GANs", "PyTorch", "Virtual Try-On"],
         link: "#",
     },
     {
-        id: "3d-avatar",
+        id: "3d-avatar-modeling",
         title: "3D Avatar Modeling",
-        description: "Real-time 3D avatar reconstruction from monocular video inputs using parametric models.",
-        tags: ["3D Reconstruction", "SMPL", "Real-time"],
+        description: "Real-time 3D avatar reconstruction from monocular video inputs, enabling digital humans for metaverse applications.",
+        tags: ["3D Reconstruction", "SMPL", "Avatar", "Computer Vision"],
+        link: "#",
+    },
+    {
+        id: "pose-estimation",
+        title: "Pose Estimation & Object Segmentation",
+        description: "Implemented robust pose estimation and object segmentation algorithms for complex scenes.",
+        tags: ["Pose Estimation", "Segmentation", "Deep Learning"],
         link: "#",
     },
     {
         id: "safety-monitoring",
         title: "Real-time Safety Monitoring",
-        description: "Industrial safety solution capable of detecting PPE compliance and hazardous zone intrusions.",
-        tags: ["Object Detection", "YOLO", "Edge AI"],
+        description: "Designed a real-time safety monitoring solution for industrial environments to detect hazards and ensure compliance.",
+        tags: ["Object Detection", "Safety", "Real-time"],
         link: "#",
     },
     {
-        id: "floorplan-to-3d",
-        title: "Floorplan to 3D",
-        description: "Automated pipeline converting 2D floorplan images into architecturally accurate 3D GLB models.",
-        tags: ["Geometry Processing", "Three.js", "Python"],
+        id: "procedural-rendering",
+        title: "Procedural Rendering & Synthetic Data",
+        description: "Leveraged procedural rendering techniques to generate large-scale synthetic datasets for training AI models.",
+        tags: ["Synthetic Data", "Rendering", "Data Generation"],
         link: "#",
     },
 ];

@@ -25,8 +25,7 @@ export default function Hero() {
                         Muhammad Tanseef Shahid
                     </h1>
                     <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-                        Specializing in 3D Reconstruction, Generative AI, and Real-time Vision Systems.
-                        Building the future of spatial computing.
+                        Passionate AI researcher and computer vision specialist with 5 years of experience in developing innovative solutions at the intersection of computer vision, 3D reconstruction, and generative AI.
                     </p>
                 </motion.div>
 
