@@ -23,10 +23,10 @@ export function getSortedProjectsData(): Project[] {
 
     const fileNames = fs.readdirSync(projectsDirectory);
     const allProjectsData = fileNames
-        .filter((fileName) => fileName.match(/\.md$/) && !fileName.includes(".ko.md")) // Filter only english markdown files
+        .filter((fileName) => fileName.match(/\.en\.md$/)) // STRICTLY Filter only .en.md files to avoid duplicates
         .map((fileName) => {
-            // Remove ".md" from file name to get id
-            const id = fileName.replace(/\.md$/, "").replace(/\.en$/, "");
+            // Remove ".en.md" from file name to get id
+            const id = fileName.replace(/\.en\.md$/, "");
 
             // Read markdown file as string
             const fullPath = path.join(projectsDirectory, fileName);
@@ -39,10 +39,10 @@ export function getSortedProjectsData(): Project[] {
             return {
                 id,
                 title: data.title || "Untitled Project",
-                description: data.excerpt || "No description available", // Use excerpt if available, or we might need to truncate content
+                description: data.excerpt || "No description available",
                 tags: data.tags || [],
-                imageUrl: data.image || undefined, // Map frontmatter 'image' to imageUrl
-                link: `/projects/${id}`, // Internal link to details page
+                imageUrl: data.image || undefined,
+                link: `/projects/${id}`,
                 content: content,
                 date: data.date || "",
                 collection: data.collection || "",
@@ -60,10 +60,11 @@ export function getSortedProjectsData(): Project[] {
 }
 
 export function getProjectData(id: string) {
-    // Try to find the file. It might have .en.md or .md extension
-    let fullPath = path.join(projectsDirectory, `${id}.md`);
+    // Try to find the ENGLISH file first.
+    let fullPath = path.join(projectsDirectory, `${id}.en.md`);
     if (!fs.existsSync(fullPath)) {
-        fullPath = path.join(projectsDirectory, `${id}.en.md`);
+        // Fallback to generic .md
+        fullPath = path.join(projectsDirectory, `${id}.md`);
     }
 
     if (!fs.existsSync(fullPath)) {
