@@ -1,9 +1,10 @@
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/projects";
+import { getSortedProjectsData } from "@/lib/projects";
 
 export default function Home() {
+  const projects = getSortedProjectsData();
   return (
     <main className="bg-black min-h-screen">
       <Hero />

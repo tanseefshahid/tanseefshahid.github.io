@@ -1,8 +1,9 @@
 "use client";
 
-import { Project } from "@/data/projects";
+import { Project } from "@/lib/projects";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
     return (
@@ -15,9 +16,14 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         >
             <div className="aspect-video bg-gray-900 relative overflow-hidden">
                 {/* Placeholder for video/image */}
-                <div className="absolute inset-0 flex items-center justify-center text-gray-700 font-mono text-sm">
-                    [Visual Preview]
-                </div>
+                {project.imageUrl ? (
+                    <img src={project.imageUrl} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
+                ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-gray-700 font-mono text-sm">
+                        [Visual Preview]
+                    </div>
+                )}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60" />
 
                 <div className="absolute bottom-4 left-4 right-4">
@@ -34,12 +40,12 @@ export default function ProjectCard({ project, index }: { project: Project; inde
 
             <div className="p-6">
                 <p className="text-gray-400 text-sm mb-4 line-clamp-3">{project.description}</p>
-                <a
-                    href={project.link}
+                <Link
+                    href={project.link || "#"}
                     className="inline-flex items-center text-cyan-400 hover:text-cyan-300 text-sm font-medium"
                 >
                     View Project <ArrowUpRight className="w-4 h-4 ml-1" />
-                </a>
+                </Link>
             </div>
         </motion.div>
     );
