@@ -7,7 +7,7 @@ permalink: /en/portfolio/portfolio-01/
 teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
   Built and deployed a real-time multi-camera defect detection system triggered by external sensors, integrated with industrial PLCs to automatically reject faulty products on a live production line.
-teaser: /assets/images/portfolio/placeholder.svg
+
 ---
 
 ## Overview
