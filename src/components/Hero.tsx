@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black text-white">
+        <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-white">
             {/* Background Gradient/Mesh effect */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-[-20%] left-[-20%] h-[70vh] w-[70vh] rounded-full bg-purple-900/30 blur-[120px]" />

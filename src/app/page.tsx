@@ -6,7 +6,7 @@ import { getSortedProjectsData } from "@/lib/projects";
 export default function Home() {
   const projects = getSortedProjectsData();
   return (
-    <main className="bg-black min-h-screen">
+    <main className="min-h-screen bg-slate-950 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#0b0f19] to-black text-slate-100">
       <Hero />
       <Experience />
 
