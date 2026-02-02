@@ -8,11 +8,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  --background: #0b0f17;
-  /* Rich Midnight Dark */
-  --foreground: #f8fafc;
-  /* Slate-50 */
-}
+  :root {
+    --background: #0b0f17;
+    /* Rich Midnight Dark */
+    --foreground: #f8fafc;
+    /* Slate-50 */
+  }
 }
 
 body {
