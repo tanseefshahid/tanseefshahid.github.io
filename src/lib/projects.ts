@@ -49,13 +49,29 @@ export function getSortedProjectsData(): Project[] {
             };
         });
 
-    // Sort projects by date if available, or filename
+    // Sort projects: 0a, 0b, 0c first, then 01, 02, 03...
     return allProjectsData.sort((a: any, b: any) => {
-        if (a.date < b.date) {
-            return 1;
-        } else {
-            return -1;
+        // Extract the suffix after "portfolio-" (e.g., "0a", "01", "10")
+        const suffixA = a.id.replace('portfolio-', '');
+        const suffixB = b.id.replace('portfolio-', '');
+
+        // Check if suffix starts with "0" followed by a letter (0a, 0b, 0c)
+        const isLetterA = /^0[a-z]$/i.test(suffixA);
+        const isLetterB = /^0[a-z]$/i.test(suffixB);
+
+        // Letter suffixes come first
+        if (isLetterA && !isLetterB) return -1;
+        if (!isLetterA && isLetterB) return 1;
+
+        // If both are letter suffixes, sort alphabetically
+        if (isLetterA && isLetterB) {
+            return suffixA.localeCompare(suffixB);
         }
+
+        // Otherwise, sort numerically
+        const numA = parseInt(suffixA, 10) || 0;
+        const numB = parseInt(suffixB, 10) || 0;
+        return numA - numB;
     });
 }
 
