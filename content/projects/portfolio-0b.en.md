@@ -13,6 +13,17 @@ excerpt: |
 
 Built a desktop-based 3D metrology application designed to replicate the alignment workflows of industry-standard software like PolyWorks. The tool enables users to align raw point cloud scans (PLY, PCD, TXT) to reference CAD models (STL, OBJ) using a combination of manual landmark selection and automated Iterative Closest Point (ICP) algorithms. It also includes comprehensive tools for data cleaning and batch alignment verification.
 
+<div className="my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+  <video 
+    controls 
+    className="w-full" 
+    poster="/assets/images/portfolio/placeholder.svg"
+  >
+    <source src="/assets/videos/alignment_demo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 ## Key Features
 
 ### 1. 3D Alignment Workflow

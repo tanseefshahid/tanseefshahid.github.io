@@ -13,6 +13,17 @@ excerpt: |
 
 Developed a modular, node-based 3D inspection engine designed to offer greater flexibility than traditional hard-coded metrology software. The system allows users to construct custom inspection pipelines by visually connecting nodes, making it easy to adapt to new part geometries or inspection requirements without recompiling code.
 
+<div className="my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+  <video 
+    controls 
+    className="w-full" 
+    poster="/assets/images/portfolio/placeholder.svg"
+  >
+    <source src="/assets/videos/nodegraph_demo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 ## Key Features
 
 ### 1. Visual Node Editor
