@@ -6,34 +6,38 @@ collection: portfolio
 permalink: /en/portfolio/portfolio-0b/
 teaser: /assets/images/portfolio/placeholder.svg
 excerpt: |
-  Developed a PolyWorks-inspired alignment tool for 3D point cloud data, enabling precise coordinate system alignment and best-fit registration for metrology applications.
+  Developed a professional 3D metrology tool for aligning point clouds to CAD models. Features include landmark-based registration, ICP best-fit refinement, lasso-based noise removal, and batch verification of alignment results.
 ---
 
 ## Overview
 
-Created a professional-grade 3D alignment tool inspired by PolyWorks Inspector. The system provides intuitive alignment workflows for positioning point cloud data within coordinate systems, essential for accurate dimensional inspection and quality control.
+Built a desktop-based 3D metrology application designed to replicate the alignment workflows of industry-standard software like PolyWorks. The tool enables users to align raw point cloud scans (PLY, PCD, TXT) to reference CAD models (STL, OBJ) using a combination of manual landmark selection and automated Iterative Closest Point (ICP) algorithms. It also includes comprehensive tools for data cleaning and batch alignment verification.
 
 ## Key Features
 
-- **Best-Fit Alignment**: Automatic registration algorithms for optimal point cloud positioning
-- **Manual Alignment**: Interactive tools for precise user-controlled alignment
-- **Reference Geometry**: Support for planes, cylinders, spheres, and custom reference features
-- **Coordinate Systems**: Multiple coordinate system management and transformation
-- **Alignment Verification**: Quality metrics and deviation analysis
+### 1. 3D Alignment Workflow
+- **Split-View Interface**: Side-by-side visualization of CAD and Point Cloud for precise landmark selection.
+- **Landmark Registration**: Manual selection of 3+ point pairs to establish initial rough alignment.
+- **ICP Refinement**: Automated "Best-Fit" algorithm (Iterative Closest Point) to fine-tune alignment accuracy.
+- **Matrix Export**: Generates and exports 4x4 transformation matrices compatible with commercial metrology software.
 
-## Alignment Methods
+### 2. Point Cloud Cleaning (Noise Removal)
+- **Lasso Selection Tool**: Interactive, polygon-based lasso tool to manual select outliers and noise.
+- **Multi-Angle Cleaning**: Supports additive selections from different camera angles before deletion.
+- **Non-Destructive Workflow**: Visual highlighting of selected points before permanent removal.
 
-1. **3-2-1 Alignment**: Traditional datum-based alignment using primary, secondary, and tertiary references
-2. **Best-Fit Alignment**: Iterative closest point (ICP) and variants for optimal registration
-3. **RPS Alignment**: Reference point system alignment for consistent positioning
-4. **Feature-Based**: Alignment using extracted geometric features
+### 3. Batch Verification
+- **Automated Matching**: Algorithmically pairs large datasets of point clouds with transformation matrices based on filename patterns.
+- **Visual Validation**: Loads and applies transforms to multiple datasets simultaneously for visual inspection of alignment quality.
 
-## Tools and Technologies
+## Technical Implementation
 
-- **3D Processing**: Custom alignment algorithms
-- **Programming**: Python, C++
-- **UI Framework**: Modern desktop application framework
-- **Visualization**: OpenGL-based 3D rendering
+- **Core Engine**: Built with **Python** and **VTK/PyVista** for high-performance 3D rendering.
+- **Algorithms**: 
+    - **Landmark Transform**: SVD-based rigid body transformation from paired points.
+    - **ICP**: Point-to-plane and point-to-point variants for fine registration.
+- **UI Framework**: **PyQt/PySide** for the split-panel interface and interactive toolbar controls.
+- **Data Handling**: Efficient processing of large point clouds (>1M points) with optimized rendering pipelines.
 
 ## Company
 
