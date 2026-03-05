@@ -58,8 +58,7 @@ const education = [
 export default function Experience() {
     return (
         <section className="relative py-24 px-4 overflow-hidden">
-            {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent pointer-events-none" />
+            {/* Background gradient handled globally, removed local gradient */}
 
             <div className="max-w-5xl mx-auto relative z-10">
                 {/* Experience Section */}
@@ -71,11 +70,11 @@ export default function Experience() {
                     className="mb-20"
                 >
                     <div className="flex items-center gap-4 mb-12">
-                        <div className="p-3 rounded-xl glass glow-cyan">
+                        <div className="p-3 rounded-xl glass glow-cyan bg-cyan-500/10">
                             <Briefcase className="w-6 h-6 text-cyan-400" />
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white">
-                            Professional Experience
+                        <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">
+                            Professional <span className="gradient-text-vibrant">Experience</span><span className="text-cyan-400">.</span>
                         </h2>
                     </div>
 
@@ -107,7 +106,7 @@ export default function Experience() {
                                                     </span>
                                                 )}
                                             </div>
-                                            <p className="text-lg text-violet-400 font-medium mb-3">
+                                            <p className="text-lg text-cyan-400/90 font-medium mb-3">
                                                 {exp.company}
                                             </p>
                                             <p className="text-gray-400 leading-relaxed">
@@ -140,11 +139,11 @@ export default function Experience() {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="flex items-center gap-4 mb-12">
-                        <div className="p-3 rounded-xl glass glow-purple">
-                            <GraduationCap className="w-6 h-6 text-violet-400" />
+                        <div className="p-3 rounded-xl glass glow-cyan bg-cyan-500/10">
+                            <GraduationCap className="w-6 h-6 text-cyan-400" />
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white">
-                            Education
+                        <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">
+                            <span className="gradient-text-vibrant">Education</span><span className="text-cyan-400">.</span>
                         </h2>
                     </div>
 
@@ -163,10 +162,10 @@ export default function Experience() {
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
                                     <div className="relative">
-                                        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-violet-400 transition-colors">
+                                        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
                                             {edu.school}
                                         </h3>
-                                        <p className="text-violet-400 font-medium mb-3">
+                                        <p className="text-cyan-400/90 font-medium mb-3">
                                             {edu.degree}
                                         </p>
                                         {edu.description && (

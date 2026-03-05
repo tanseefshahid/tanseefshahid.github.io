@@ -71,25 +71,24 @@ export default function Hero() {
                         className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass border border-cyan-500/20"
                     >
                         <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                        <span className="text-sm font-medium tracking-wide text-cyan-300">
-                            3D Metrology & AI Engineer
+                        <span className="text-sm font-medium tracking-wide text-cyan-300 uppercase">
+                            Deep Learning & Computer Vision
                         </span>
                     </motion.div>
 
                     {/* Name with Gradient */}
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
-                        <span className="text-white">Muhammad</span>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 font-sans">
+                        <span className="text-white">Muhammad Tanseef</span>
                         <br />
-                        <span className="gradient-text-vibrant">Tanseef Shahid</span>
+                        <span className="text-white">Shahid<span className="text-cyan-400">.</span></span>
                     </h1>
 
                     {/* Description */}
                     <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-6 leading-relaxed">
-                        Passionate AI researcher specializing in{" "}
-                        <span className="text-cyan-400 font-medium">3D Metrology</span>,{" "}
-                        <span className="text-violet-400 font-medium">3D Reconstruction</span>, and{" "}
-                        <span className="text-fuchsia-400 font-medium">Computer Vision</span> with 5+ years
-                        of experience building innovative inspection and AI-powered systems.
+                        AI Researcher and Engineer specializing in{" "}
+                        <span className="text-white font-semibold">3D Metrology</span>,{" "}
+                        <span className="text-white font-semibold">3D Reconstruction</span>, and{" "}
+                        <span className="text-white font-semibold">Computer Vision</span>. Building innovative inspection and AI-powered systems with over 5 years of experience.
                     </p>
 
                     <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">

@@ -1,28 +1,36 @@
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
 import ProjectCard from "@/components/ProjectCard";
+import StickyHeader from "@/components/StickyHeader";
+import Expertise from "@/components/Expertise";
+import Skills from "@/components/Skills";
 import { getSortedProjectsData } from "@/lib/projects";
 
 export default function Home() {
   const projects = getSortedProjectsData();
   return (
-    <main className="min-h-screen bg-[#09090b] relative overflow-hidden">
+    <main className="min-h-screen bg-[#070A12] relative overflow-hidden">
       {/* Global background gradient */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-violet-900/20 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-900/15 rounded-full blur-[150px]" />
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-cyan-900/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px]" />
       </div>
 
       <div className="relative z-10">
+        <StickyHeader />
         <Hero />
-        <Experience />
+        <Expertise />
+        <Skills />
+        <div id="experience">
+          <Experience />
+        </div>
 
         {/* Projects Section */}
-        <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto relative">
+        <section id="projects" className="py-24 px-4 md:px-8 max-w-7xl mx-auto relative">
           {/* Section Header */}
           <div className="mb-16 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Selected <span className="gradient-text">Works</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-sans">
+              Selected <span className="gradient-text-vibrant">Works</span><span className="text-cyan-400">.</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               A collection of projects showcasing my expertise in computer vision,

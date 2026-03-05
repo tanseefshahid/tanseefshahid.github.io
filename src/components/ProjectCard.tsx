@@ -14,10 +14,10 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             transition={{ delay: index * 0.1, duration: 0.5 }}
             className="group relative"
         >
-            <div className="relative glass-strong rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div className="relative glass-strong rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/20 group-hover:bg-white/[0.08]">
                 {/* Gradient border on hover */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-br from-cyan-500/50 via-violet-500/50 to-fuchsia-500/50" />
+                    <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-br from-cyan-500/50 via-blue-500/50 to-transparent" />
                 </div>
 
                 {/* Image/Video Container */}
@@ -49,13 +49,13 @@ export default function ProjectCard({ project, index }: { project: Project; inde
                             {project.tags.slice(0, 4).map((tag) => (
                                 <span
                                     key={tag}
-                                    className="text-xs px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-gray-300 border border-white/10"
+                                    className="text-xs px-3 py-1 rounded-full bg-white/5 backdrop-blur-md text-cyan-100 border border-white/10"
                                 >
                                     {tag}
                                 </span>
                             ))}
                             {project.tags.length > 4 && (
-                                <span className="text-xs px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-gray-400 border border-white/10">
+                                <span className="text-xs px-3 py-1 rounded-full bg-white/5 backdrop-blur-md text-cyan-100 border border-white/10">
                                     +{project.tags.length - 4}
                                 </span>
                             )}
