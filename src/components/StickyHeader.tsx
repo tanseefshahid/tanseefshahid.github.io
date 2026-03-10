@@ -57,12 +57,14 @@ export default function StickyHeader() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <Link
-                        href="/resume"
-                        className="px-5 py-2 rounded-full text-sm font-medium bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-cyan-500/50 transition-all"
-                    >
-                        Resume
-                    </Link>
+                    {process.env.NODE_ENV === 'development' && (
+                        <Link
+                            href="/resume"
+                            className="px-5 py-2 rounded-full text-sm font-medium bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-cyan-500/50 transition-all"
+                        >
+                            Resume
+                        </Link>
+                    )}
 
                     {/* Mobile hamburger button */}
                     <button

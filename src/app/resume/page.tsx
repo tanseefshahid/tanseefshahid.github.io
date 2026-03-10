@@ -3,8 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Download, ArrowLeft, Mail, Github, Linkedin, Globe } from "lucide-react";
+import { notFound } from "next/navigation";
 
 export default function ResumePage() {
+    if (process.env.NODE_ENV === 'production') {
+        notFound();
+    }
+
     return (
         <main className="min-h-screen bg-[#070A12] relative overflow-hidden py-12 md:py-24 print:bg-white print:overflow-visible">
             {/* Background elements - hidden on print */}
