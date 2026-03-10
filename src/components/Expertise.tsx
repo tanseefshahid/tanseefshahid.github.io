@@ -6,32 +6,32 @@ import { Cpu, Eye, Code, Layers, Video, Zap } from "lucide-react";
 const expertiseAreas = [
     {
         title: "3D Metrology",
-        description: "Point cloud processing, precision alignment, and 3D geometric dimensioning & tolerancing (GD&T).",
+        description: "RANSAC/ICP-based point cloud alignment, FAI inspection, coordinate system calibration, and sub-millimeter precision measurement on industrial laser scan data.",
         icon: Layers,
     },
     {
         title: "Computer Vision",
-        description: "Object detection, image segmentation, face alignment, and classical vision algorithms.",
+        description: "Object detection (YOLO), semantic segmentation (U-Net, SAM), anomaly detection, OCR pipelines, and real-time multi-camera tracking (DeepSORT).",
         icon: Eye,
     },
     {
         title: "3D Reconstruction",
-        description: "Image-to-3D, multiview stereo, NeRFs, and surface mesh generation.",
+        description: "Single-image to 3D mesh (OpenLRM), NeRF, 6-DoF pose estimation (FoundationPose + ICP), and Blender-based synthetic data generation.",
         icon: Video,
     },
     {
-        title: "Deep Learning",
-        description: "PyTorch, model optimization, transfer learning, and training data generation architectures.",
+        title: "Generative AI",
+        description: "Latent Diffusion (LADi-VTON) virtual try-on, GAN-based synthesis, textual inversion, and synthetic dataset engineering for data-scarce domains.",
         icon: Cpu,
     },
     {
         title: "Software Engineering",
-        description: "C++, C#, Python, Next.js. Building scalable industrial and web applications.",
+        description: "Production-grade C++/MFC, C#/.NET 8 (WPF/ECS), Python (PyTorch/Flask), and full-stack web (React/Next.js). Multi-threaded, containerized architectures.",
         icon: Code,
     },
     {
-        title: "Optimization & AI",
-        description: "CUDA acceleration, real-time edge AI, and high-performance computing solutions.",
+        title: "Edge & Deployment",
+        description: "NVIDIA Jetson edge AI, PLC/GPIO hardware integration, Docker containerization, ONNX optimization, and cloud deployment (AWS S3/EC2).",
         icon: Zap,
     },
 ];

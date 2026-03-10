@@ -1,41 +1,48 @@
 ---
-title: "8- Personal Protective Equipment (PPE) Detection on Construction Sites"
+title: "Real-Time PPE Compliance & Spatial Hazard Detection at the Edge"
 lang: en
 slug: portfolio-08
 collection: portfolio
 permalink: /en/portfolio/portfolio-08/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_ppe.png
 excerpt: |
-  Developed a real-time AI system using YOLO to detect PPE components (hardhat, vest) and track worker locations on construction sites. The system identifies safety compliance and alerts when workers enter dangerous zones, deployed on an NVIDIA Jetson board for edge computing.
+  Architected and deployed a fully automated, edge-computed safety monitoring system for construction sites. The system enforces PPE compliance at access points and provides real-time spatial tracking within hazardous zones, immediately alerting workers and managers to safety violations.
+
 ---
 
 ## Project Overview
-Created a safety monitoring system for construction sites to ensure proper use of Personal Protective Equipment (PPE) and track workers in real-time. The system reduces accident risks by automating safety checks and notifying workers or supervisors about potential hazards.
 
-## Process and Workflow
+Architected and deployed a fully automated, edge-computed safety monitoring system for active construction sites. The system enforced Personal Protective Equipment (PPE) compliance at access points and provided real-time spatial tracking within hazardous zones, immediately alerting both workers and site managers to safety violations to prevent accidents.
 
-### PPE Detection
-- Implemented **YOLO** for object detection to identify:
-  - **Hardhats**
-  - **Safety Vests**
-  - **Shoes**
-- Trained the model on a custom dataset of construction worker images under diverse conditions (e.g., lighting, angles, and distances).
+## The Challenge
 
-### Worker Tracking and Hazard Notifications
-- Integrated a tracking algorithm to monitor worker locations over time.
-- Designed a zone monitoring system to identify hazardous areas and notify workers or supervisors if someone enters a dangerous zone without proper PPE.
+Construction sites are highly dynamic, presenting challenges such as heavy occlusions, fluctuating lighting, and strict zero-latency requirements for safety alerts. The system needed to detect small, varied objects (helmets, safety boots, vests) reliably, track human movement across defined 2D spatial regions (crane operating zones, open pits), and process everything locally on edge hardware without relying on cloud connectivity.
 
-### Deployment
-- Deployed the system on an **NVIDIA Jetson board**, enabling efficient edge computing for real-time detection and tracking.
-- Optimized the pipeline for low latency and scalability.
+## Technical Approach & Architecture
+
+<div style="text-align: center;">
+  <img src="/images/architecture_ppe.png" alt="PPE Compliance & Hazard Detection Architecture">
+</div>
+
+### Multi-Class Edge Detection (PPE)
+- Trained and optimized a lightweight YOLO architecture (e.g., YOLOv5) on a highly augmented custom dataset of construction personnel to detect hardhats, high-visibility vests, and safety boots.
+- Designed an inference pipeline to analyze continuous video feeds at site access points, utilizing multi-class logic to flag non-compliant combinations before workers entered the site.
+
+### Spatial Tracking & Dynamic Hazard Zones (ROI)
+- Integrated a robust tracking algorithm (DeepSORT) to assign and maintain unique IDs for workers moving throughout the active site.
+- Engineered a spatial monitoring module allowing site managers to define custom polygonal Regions of Interest (ROIs) around temporary hazards like active crane loads or fall risks.
+- Implemented geometric intersection logic to calculate when a tracked worker's spatial footprint breached a restricted ROI.
+
+### Hardware Integration & Edge Deployment
+- Deployed the entire inference and tracking pipeline onto an **NVIDIA Jetson** edge device, utilizing **TensorRT** optimization to maximize throughput and achieve real-time, low-latency processing.
+- Built a localized event-trigger system: non-compliance at the entrance automatically dispatched SMS alerts to site managers via a mobile API, while ROI breaches triggered an integrated on-site PA speaker system to broadcast immediate evacuation warnings to the worker.
+
+## Impact & Results
+- **Automated Safety Enforcement:** Replaced manual checkpoint inspections with a 24/7 automated gateway, drastically improving site-wide PPE compliance.
+- **Zero-Latency Hazard Prevention:** The localized edge deployment ensured that workers stepping into critical danger zones (e.g., under crane loads) were warned instantly, proactively reducing the risk of severe site accidents.
 
 ## Tools and Technologies
-- **Object Detection**: YOLO
-- **Programming**: Python
-- **Frameworks**: OpenCV, TensorFlow/Keras
-- **Hardware**: NVIDIA Jetson Board
-
-## Visual Demonstration
-![PPE Detection Example](/images/ppe.png)
-
-collection: portfolio
+- **Computer Vision & Tracking:** YOLOv5, DeepSORT
+- **Edge Computing:** NVIDIA Jetson (Nano/TX2/Xavier), TensorRT optimization
+- **Languages & Frameworks:** Python, OpenCV, PyTorch
+- **Integration:** SMS API (e.g., Twilio), GPIO / Audio Hardware Integration

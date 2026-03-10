@@ -1,10 +1,10 @@
 ---
-title: "0C- 3D Rendering Engine with Node-Based Workflow Editor"
+title: "3D Rendering Engine with Node-Based Workflow Editor"
 lang: en
 slug: portfolio-0c
 collection: portfolio
 permalink: /en/portfolio/portfolio-0c/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_0c.png
 excerpt: |
   Built a flexible 3D inspection platform featuring a visual node editor. Users can design custom metrology workflows by connecting processing nodes for alignment, measurement, and defect detection.
 ---
@@ -13,11 +13,14 @@ excerpt: |
 
 Developed a modular, node-based 3D inspection engine designed to offer greater flexibility than traditional hard-coded metrology software. The system allows users to construct custom inspection pipelines by visually connecting nodes, making it easy to adapt to new part geometries or inspection requirements without recompiling code.
 
+<div style="text-align: center;">
+  <img src="/images/architecture_0c.png" alt="Node-Based Workflow Editor Architecture">
+</div>
+
 <div className="my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
   <video 
     controls 
     className="w-full" 
-    poster="/assets/images/portfolio/placeholder.svg"
   >
     <source src="/assets/videos/nodegraph_demo.mp4" type="video/mp4" />
     Your browser does not support the video tag.

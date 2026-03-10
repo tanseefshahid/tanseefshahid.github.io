@@ -44,7 +44,7 @@ export default function ResumePage() {
                                     Muhammad Tanseef Shahid
                                 </h1>
                                 <p className="text-xl text-cyan-400 font-medium">
-                                    3D Metrology & AI Engineer
+                                    2D/3D Computer Vision & AI Engineer
                                 </p>
                             </div>
                             <div className="shrink-0">
@@ -70,32 +70,36 @@ export default function ResumePage() {
                     {/* Summary */}
                     <div className="mb-8 print-section">
                         <p className="text-gray-300 leading-relaxed">
-                            Vision-driven AI and 3D Metrology Engineer with extensive experience bridging the gap between mathematical metrology and modern artificial intelligence. Specialized in developing high-precision 3D inspection systems, scalable point cloud processing pipelines, and AI-driven generative reconstructions.
+                            Computer vision engineer and AI researcher with <strong className="text-white">6+ years</strong> of production experience building end-to-end 2D/3D vision systems — from industrial 3D laser inspection and point cloud metrology to generative AI, real-time edge detection, and autonomous hardware integration. Published researcher (IEEE Access, CMMM) with M.S. in Computer Vision. Proven track record delivering sub-200ms real-time inference, 98%+ accuracy detection systems, and high-precision sub-millimeter 3D measurement pipelines deployed on factory floors.
                         </p>
                     </div>
 
                     {/* Core Competencies */}
                     <div className="mb-10 print-section">
                         <h2 className="text-2xl font-bold text-white mb-4 border-b border-white/5 pb-2">
-                            Core Expertise
+                            Core Competencies
                         </h2>
                         <div className="resume-skills-grid grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <h3 className="text-cyan-400 font-medium mb-2">Engineering & Metrology</h3>
+                                <h3 className="text-cyan-400 font-medium mb-2">Computer Vision & 3D</h3>
                                 <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
-                                    <li>Point Cloud Processing & 3D Registration</li>
-                                    <li>Geometric Dimensioning & Tolerancing (GD&T)</li>
-                                    <li>Image-to-3D, Multi-view Stereo, NeRFs</li>
-                                    <li>CUDA acceleration, Real-time Edge AI</li>
+                                    <li>Object Detection & Tracking (YOLO, DeepSORT, Mask R-CNN)</li>
+                                    <li>Image Segmentation (U-Net, U2Net, SAM, Active Contours)</li>
+                                    <li>3D Reconstruction (NeRF, OpenLRM, Point Cloud to Mesh)</li>
+                                    <li>6-DoF Pose Estimation (FoundationPose, ICP, Hand-Eye Calib.)</li>
+                                    <li>3D Metrology (RANSAC, PCA, FAI, Coordinate Alignment)</li>
+                                    <li>Generative Models (Latent Diffusion, GANs, Textual Inversion)</li>
                                 </ul>
                             </div>
                             <div>
-                                <h3 className="text-cyan-400 font-medium mb-2">Software & Frameworks</h3>
+                                <h3 className="text-cyan-400 font-medium mb-2">Software & Tools</h3>
                                 <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
-                                    <li>C++, C#, Python, TypeScript</li>
-                                    <li>PyTorch, ROS, OpenCV, Open3D</li>
-                                    <li>React, Next.js, Architecture Design</li>
-                                    <li>Git, Docker, CI/CD pipelines</li>
+                                    <li>Python, C++, C# (.NET 8), TypeScript, MATLAB</li>
+                                    <li>PyTorch, TensorFlow, OpenCV, PCL, Open3D</li>
+                                    <li>Blender (bpy), PyVista/VTK, Eigen, Helix Toolkit</li>
+                                    <li>Docker, Git, ONNX, CUDA, Linux</li>
+                                    <li>MFC, WPF, PyQt, Flask, React/Next.js</li>
+                                    <li>NVIDIA Jetson, Basler GigE, PLC/GPIO, AWS</li>
                                 </ul>
                             </div>
                         </div>
@@ -107,7 +111,7 @@ export default function ResumePage() {
                             Professional Experience
                         </h2>
 
-                        {/* Job 1 */}
+                        {/* Job 1 - Hyvision */}
                         <div className="mb-8">
                             <div className="resume-job-row flex justify-between items-start mb-2">
                                 <div>
@@ -115,75 +119,78 @@ export default function ResumePage() {
                                     <p className="text-cyan-400">Hyvision System</p>
                                 </div>
                                 <div className="text-right text-sm text-gray-500">
-                                    <p>Aug 2025 - Present</p>
+                                    <p>Aug 2025 – Present</p>
                                     <p>Seoul, South Korea</p>
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Building scalable 3D inspection systems using laser scanning and point cloud analysis.</li>
-                                <li>Developing PolyWorks-style precision alignment tools for complex geometries.</li>
-                                <li>Architecting a 3D rendering engine with a dedicated node-based workflow editor to automate custom inspection pipelines.</li>
+                                <li>Architected a high-speed 3D laser inspection system for UMP modules using <strong className="text-white">PCL</strong> and <strong className="text-white">RANSAC/Eigen</strong>-based coordinate alignment, achieving sub-millimeter measurement precision with automated FAI validation against SQL Server specifications.</li>
+                                <li>Developed a PolyWorks-style 3D alignment application with <strong className="text-white">ICP best-fit</strong>, landmark registration (SVD), and interactive lasso-based noise removal — processing point clouds of 1M+ points in real-time using <strong className="text-white">VTK/PyVista</strong>.</li>
+                                <li>Designed a modular 3D rendering engine with a visual <strong className="text-white">node-based workflow editor</strong> (ECS architecture, .NET 8/WPF), enabling non-programmers to build custom inspection pipelines via drag-and-drop with an extensible plugin system.</li>
                             </ul>
                         </div>
 
-                        {/* Job 2 */}
+                        {/* Job 2 - Luxolis */}
                         <div className="mb-8">
                             <div className="resume-job-row flex justify-between items-start mb-2">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">SLAM Engineer</h3>
+                                    <h3 className="text-lg font-semibold text-white">Computer Vision Engineer</h3>
                                     <p className="text-cyan-400">Luxolis</p>
                                 </div>
                                 <div className="text-right text-sm text-gray-500">
-                                    <p>Apr 2025 - Jul 2025</p>
+                                    <p>Apr 2025 – Jul 2025</p>
                                     <p>Seoul, South Korea</p>
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Developed robust SLAM and 3D reconstruction solutions for industrial scanning hardware.</li>
-                                <li>Optimized sensor data fusion pipelines to minimize mapping drift and latency.</li>
+                                <li>Deployed a real-time 360° defect detection system using a synchronized <strong className="text-white">6-camera Basler GigE array</strong> with YOLO inference, achieving <strong className="text-white">&lt;200ms end-to-end latency at 5 parts/sec</strong>. Integrated with PLCs via NuDAQ I/O for pneumatic rejection of defective units.</li>
+                                <li>Built an <strong className="text-white">eye-in-hand 6-DoF pose estimation</strong> pipeline for autonomous CNC machining using an RGB-D camera, FoundationPose (zero-shot), and ICP refinement — eliminating manual fixturing and enabling dynamic toolpath adjustment in SE(3) space.</li>
                             </ul>
                         </div>
 
-                        {/* Job 3 */}
+                        {/* Job 3 - PERSPECTIVE */}
                         <div className="mb-8">
                             <div className="resume-job-row flex justify-between items-start mb-2">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">Senior AI Researcher</h3>
+                                    <h3 className="text-lg font-semibold text-white">2D/3D AI Researcher</h3>
                                     <p className="text-cyan-400">PERSPECTIVE Corp.</p>
                                 </div>
                                 <div className="text-right text-sm text-gray-500">
-                                    <p>Apr 2022 - Apr 2025</p>
+                                    <p>Apr 2022 – Apr 2025</p>
                                     <p>Seoul, South Korea</p>
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Led the technical research direction for generative Virtual Fitting AI tools, integrating GANs for high-fidelity clothing overlay.</li>
-                                <li>Architected Image-to-3D Reconstruction models for human avatars (SMPL).</li>
-                                <li>Deployed real-time image segmentation and FaceSwap architectures for commercial metaverse platforms.</li>
+                                <li>Architected a photorealistic <strong className="text-white">virtual try-on</strong> pipeline using LADi-VTON (Latent Diffusion), DensePose, U2Net cloth segmentation, and CLIP textual inversion, achieving <strong className="text-white">85%+ pattern fidelity</strong>. Deployed on AWS with Docker.</li>
+                                <li>Created a single-image to <strong className="text-white">3D mesh reconstruction</strong> pipeline using OpenLRM, achieving IoU 0.80 and Chamfer Distance 0.08 with 24×360° Blender-rendered training views enhanced by ESRGAN.</li>
+                                <li>Designed a hierarchical <strong className="text-white">apparel classification</strong> system (ResNet50) achieving <strong className="text-white">&gt;95% accuracy across 74 classes</strong> using 3-depth taxonomy with specialized sub-classifiers.</li>
+                                <li>Led face processing R&D: face reconstruction, audio-driven lip synthesis, and face enhancement using GANs and diffusion models.</li>
                             </ul>
                         </div>
 
-                        {/* Job 4 */}
+                        {/* Job 4 - Ellexi */}
                         <div className="mb-2">
                             <div className="resume-job-row flex justify-between items-start mb-2">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">Computer Vision Researcher</h3>
+                                    <h3 className="text-lg font-semibold text-white">AI Developer</h3>
                                     <p className="text-cyan-400">Ellexi</p>
                                 </div>
                                 <div className="text-right text-sm text-gray-500">
-                                    <p>Nov 2019 - Oct 2021</p>
+                                    <p>Nov 2019 – Oct 2021</p>
                                     <p>Seoul, South Korea</p>
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Engineered safety monitoring solutions using object detection and classification in real-time camera feeds.</li>
-                                <li>Generated automated large-scale synthetic training data utilizing procedural rendering techniques.</li>
+                                <li>Developed a real-time <strong className="text-white">ALPR system</strong> for gas station automation using YOLO + CRNN with synthetic license plate data, achieving <strong className="text-white">98% recognition accuracy</strong> with DeepSORT tracking.</li>
+                                <li>Deployed a <strong className="text-white">PPE compliance detection</strong> system on <strong className="text-white">NVIDIA Jetson TX2</strong> for construction sites with multi-class YOLO inference and real-time geo-fenced hazard zone alerts.</li>
+                                <li>Built an <strong className="text-white">anomaly detection & multi-camera tracking</strong> system for Incheon Airport using YOWO (3D-CNN), HRNet pose estimation, and Person Re-ID — detecting falls, sprinting, and abandoned baggage.</li>
+                                <li>Created a <strong className="text-white">gas meter inspection</strong> pipeline using CRAFT + Tesseract OCR with Mask R-CNN segmentation, digitizing date stamps from weathered boiler plates.</li>
                             </ul>
                         </div>
                     </div>
 
                     {/* Education */}
-                    <div className="print-section">
+                    <div className="mb-10 print-section">
                         <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/5 pb-2">
                             Education
                         </h2>
@@ -191,29 +198,39 @@ export default function ResumePage() {
                         <div className="mb-4">
                             <div className="resume-job-row flex justify-between items-start">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">M.S. in Computer Vision</h3>
-                                    <p className="text-cyan-400">Chung-Ang University</p>
+                                    <h3 className="text-lg font-semibold text-white">M.S. in Computer Science (Computer Vision)</h3>
+                                    <p className="text-cyan-400">Chung-Ang University (CAU)</p>
                                 </div>
                                 <div className="text-right text-sm text-gray-500">
-                                    <p>Sep 2019</p>
+                                    <p>Mar 2017 – Sep 2019</p>
                                     <p>Seoul, South Korea</p>
                                 </div>
                             </div>
+                            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2 mt-1">
+                                <li>Thesis: Object Segmentation with Active Contours Driven by Weight Matrix</li>
+                                <li>Research Focus: Active Contours, Image Segmentation, Object Detection & Tracking</li>
+                                <li>CAYSS Scholarship recipient (Chung-Ang Young Scientist Scholarship)</li>
+                            </ul>
                         </div>
 
                         <div>
                             <div className="resume-job-row flex justify-between items-start">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">B.S. in Electronics Engineering</h3>
+                                    <h3 className="text-lg font-semibold text-white">B.S. in Electronic Engineering</h3>
                                     <p className="text-cyan-400">GIK Institute</p>
                                 </div>
                                 <div className="text-right text-sm text-gray-500">
-                                    <p>Jul 2016</p>
-                                    <p>Pakistan</p>
+                                    <p>2011 – 2016</p>
+                                    <p>Topi, Pakistan</p>
                                 </div>
                             </div>
+                            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2 mt-1">
+                                <li>FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM)</li>
+                                <li>Secured 2nd position in the final year project competition</li>
+                            </ul>
                         </div>
                     </div>
+
 
                 </div>
             </div>

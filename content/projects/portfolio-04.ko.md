@@ -1,71 +1,66 @@
 ---
-title: "2- Open LRM을 활용한 이미지-3D 재구성"
+title: "OpenLRM 및 뉴럴 렌더링 기반 단일 이미지 3D 복원 파이프라인"
 lang: ko
 slug: portfolio-04
 collection: portfolio
 permalink: /ko/portfolio/portfolio-04/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_3d.png
 excerpt: |
-  Open LRM을 사용하여 강력한 이미지-3D 재구성 파이프라인을 개발하였으며, 고급 데이터 렌더링 기법, ESRGAN을 활용한 이미지 해상도 향상, 그리고 현실적인 3D 객체 재구성을 위한 모델 훈련을 포함하였습니다.
+  단일 2D 이미지에서 고충실도 3D 메시를 생성하는 고급 이미지-3D 생성 파이프라인을 설계·훈련했습니다. OpenLRM 프레임워크와 맞춤형 합성 렌더링 파이프라인을 활용하여 AR/VR, 가상 스테이징 및 게이밍 환경을 위한 실시간 3D 에셋 생성을 지원합니다.
 ---
 
 ## 프로젝트 개요
-Open LRM을 활용하여 2D 이미지로부터 고품질 3D 모델을 생성하는 파이프라인을 설계하고 구현하였습니다. 이 솔루션은 맞춤형 데이터 준비, 사실적인 렌더링, 그리고 고급 훈련 기법을 포함합니다.
 
-## 과정 및 워크플로우
+단일 2D 이미지에서 고충실도 3D 메시를 생성할 수 있는 고급 이미지-3D 생성 파이프라인을 설계·훈련했습니다. OpenLRM(Large Reconstruction Model) 프레임워크를 활용하며, 맞춤형 합성 렌더링 파이프라인의 지원을 받아 AR/VR, 가상 스테이징 및 게이밍 환경을 위한 실시간 3D 에셋 생성을 가능하게 합니다.
 
-### 훈련을 위한 데이터 렌더링
-- Objaverse GitHub 기법을 활용하여 3D 객체를 렌더링하였습니다.
-- 렌더링된 이미지의 사실감을 향상시키기 위해:
-  - **카메라 회전 (Camera Rotations)**: 다양한 시점을 캡처할 수 있도록 적절한 각도를 적용.
-  - **카메라 거리 (Camera Distance)**: 객체의 세부 사항을 강조할 수 있도록 최적의 위치 설정.
-  - **조명 조정 (Lighting Adjustments)**: 실제와 유사한 조명 환경을 구현하여 이미지 품질 향상.
-- ESRGAN을 적용하여 렌더링된 이미지를 업스케일하고 세부 표현을 개선하여 훈련 품질을 높였습니다.
+<div style="text-align: center;">
+  <img src="/images/architecture_3d.png" alt="단일 이미지 3D 복원 아키텍처">
+</div>
 
-아래는 훈련에 사용된 3D 모델과 360도 렌더링 이미지입니다:
+## 과제
+
+단일 2D 이미지에서 정확한 3D 기하학을 추출하는 것은 심각한 깊이 모호성으로 인해 부적정 문제입니다. 기존 다중 뷰 픽셀 매칭 및 Occupancy Networks를 사용한 초기 반복은 깊이 해상도에서 어려움을 겪었습니다. 이후 NeRF 구현이 시각적 품질을 향상시켰지만, 장면당 계산 비용이 높은 최적화가 필요했습니다. 목표는 차원 정확도를 타협하지 않으면서 정확하고 텍스처가 있는 3D 토폴로지를 즉시 생성할 수 있는 빠른 피드포워드 네트워크를 구축하는 것이었습니다.
+
+## 기술적 접근 방식 및 아키텍처
+
+### 절차적 합성 데이터 생성
+- **Blender(bpy 스크립팅)**를 사용하여 가구(테이블, 의자, 책장, 침대, 소파)의 대규모 CAD 데이터셋을 처리하는 자동화된 렌더링 파이프라인을 구축했습니다.
+- 객체당 24개의 정밀한 360도 뷰를 추출하고, 카메라 회전, 초점 거리, 조명을 최적화하여 복잡한 표면 지형을 완벽하게 캡처했습니다.
+- **ESRGAN**(향상된 초해상도 GAN)을 통합하여 렌더링된 이미지를 업스케일하고, 고주파 텍스처 디테일을 주입하여 훈련 중 3D 모델이 스무딩되거나 흐릿하게 나타나는 것을 방지했습니다.
+
+### 모델 R&D 및 OpenLRM 미세 조정
+- 암묵적 신경 표현(NeRF)에서 트랜스포머 기반 **OpenLRM** 아키텍처로 전환하여 빠른 피드포워드 3D 생성을 달성했습니다.
+- 고해상도 합성 데이터셋에서 모델을 미세 조정하여 정확한 트라이플레인 표현을 예측하고 깨끗한 매니폴드 메시를 추출하도록 네트워크를 최적화했습니다.
+
+### 계측 및 기하학적 평가
+- 2D 시각적 충실도뿐만 아니라 표면 법선과 포인트 클라우드 편차에 초점을 맞추어 생성된 메시의 구조적 무결성을 기준 CAD 모델과 비교 측정하는 엄격한 평가 프로토콜을 수립했습니다.
+
+## 시각적 데모
+
+아래는 입력 이미지와 복원 모델이 생성한 3D 모델입니다:
 
 <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
   <div style="flex: 1;">
-    <iframe title="2b1af04045c8c823f51f77a6d7299806" frameborder="0" allowfullscreen src="https://sketchfab.com/models/c00cd46903164e43ab18fb07f194bbf0/embed" style="width: 100%; height: 200px;"></iframe>
+    <img src="/images/input_3D_image.png" alt="입력 2D 이미지" style="max-width: 100%; height: auto; max-height: 200px;">
   </div>
   <div style="flex: 1;">
-    <img src="/images/render.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 200px;">
+    <iframe title="2a1d80a0aa67ee7585d33ad8f24c4885"
+            frameborder="0"
+            allowfullscreen
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            src="https://sketchfab.com/models/27745858326e41c39ebafe2e99133cff/embed"
+            style="width: 100%; height: 200px;">
+    </iframe>
   </div>
 </div>
 
-### 모델 훈련
-- 준비된 데이터셋을 활용하여 Open LRM을 훈련하여 이미지-3D 재구성을 수행하였습니다.
-- 테이블, 의자, 책장, 침대, 소파의 5가지 주요 객체 카테고리에 초점을 맞추었습니다.
-- 3D 재구성 정확도 및 사실감을 향상시키기 위해 고급 기법을 적용하였습니다.
-
-## 이미지-3D 재구성 결과:
-아래는 입력 이미지와 재구성 모델이 생성한 3D 모델입니다.
-
-<div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-  <div style="flex: 1;">
-    <img src="/images/input_3D_image.png" alt="Description of image" style="max-width: 100%; height: auto; max-height: 200px;">
-  </div>
-  <div style="flex: 1;">
-    <iframe title="2a1d80a0aa67ee7585d33ad8f24c4885" frameborder="0" allowfullscreen src="https://sketchfab.com/models/27745858326e41c39ebafe2e99133cff/embed" style="width: 100%; height: 200px;"></iframe>
-  </div>
-</div>
-
-### 주요 개선 사항
-- 가구 및 실내 물체의 3D 재구성 사실감 및 세부 표현을 크게 향상시켰습니다.
-- 성능 지표에서 뛰어난 결과를 달성하였습니다:
-  - **IoU**: 0.80
-  - **Chamfer Distance**: 0.08
-  - **Normal Consistency**: 0.82
-- 훈련 워크플로우를 최적화하여 확장성과 품질을 향상시켰습니다.
-
-### 배포
-- AR/VR 애플리케이션, 가상 스테이징, 게임 디자인에서 실시간 3D 모델 생성을 가능하게 하였습니다.
+## 성과 및 결과
+- **고정밀 기하학:** 복잡한 가구 토폴로지에서 뛰어난 계측 정확도를 달성하여 **IoU 0.80**, **Chamfer Distance 0.08**, **Normal Consistency 0.82**를 기록했습니다.
+- **확장 가능한 3D 생산:** 계산 비용이 높은 NeRF 최적화를 피드포워드 트랜스포머 파이프라인으로 성공적으로 대체하여 추론 시간을 대폭 줄이고 공간 컴퓨팅 애플리케이션을 위한 실시간 에셋 생성을 가능하게 했습니다.
 
 ## 사용 기술
-- **렌더링 도구**: Objaverse GitHub, Blender (bpy 스크립팅)
-- **해상도 향상**: ESRGAN
-- **훈련 프레임워크**: Open LRM, PyTorch
-- **프로그래밍**: Python
-- **3D 애플리케이션**: AR/VR, CAD, Gaming
-
-collection: portfolio
+- **3D 딥러닝:** OpenLRM, NeRF, Occupancy Networks, 트라이플레인 표현
+- **렌더링 및 증강:** Blender(bpy), Objaverse 기법, ESRGAN
+- **언어 및 프레임워크:** Python, PyTorch, Py3D

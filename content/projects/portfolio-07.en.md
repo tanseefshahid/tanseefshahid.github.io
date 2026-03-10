@@ -1,52 +1,47 @@
 ---
-title: "7- Automatic License Plate Recognition and Tracking System for Gas Stations"
+title: "Real-Time ALPR & Automated Fueling Tracking Pipeline"
 lang: en
 slug: portfolio-07
 collection: portfolio
 permalink: /en/portfolio/portfolio-07/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_alpr.png
 excerpt: |
-  Designed and implemented a real-time AI system to capture, recognize, and track license plates of vehicles across fueling machines. Leveraged YOLO for detection, OCR for text recognition, and DeepSORT for tracking unique vehicle IDs, supported by synthetic datasets for robust performance in diverse conditions.
+  Architected and developed a high-precision Automatic License Plate Recognition and vehicle tracking system to automate billing at gas stations, achieving >99% character recognition and >97% full plate accuracy using a robust synthetic training pipeline.
+
 ---
 
 ## Project Overview
 
-Developed a real-time Automatic License Plate Recognition (ALPR) system to monitor, identify, and track vehicles at gas stations. The system captures license plates from live video feeds, rectifies distortions, and recognizes text for automated vehicle identification and monitoring while maintaining unique IDs for each vehicle entering and exiting the premises.
+Architected and developed a high-precision Automatic License Plate Recognition (ALPR) and vehicle tracking system designed to automate billing at gas stations. The system tracked vehicles across multiple fueling pumps, rectifying severe perspective distortions to achieve near-perfect plate recognition without relying on restricted real-world datasets.
 
-## Process and Workflow
+## The Challenge
 
-### License Plate Detection
+The project faced strict data privacy and confidentiality regulations, strictly prohibiting the use of real South Korean license plate datasets for training. Additionally, cameras mounted at gas stations capture plates at extreme, varied angles with significant environmental noise (motion blur, headlight glare, and weather). The system required flawless character recognition to ensure billing systems charged the correct user accounts.
 
-- Used **YOLO** for detecting license plates in images and video streams.
-- Optimized the model for multi-license plate detection in a single frame, addressing varied lighting, plate distortions, and diverse plate formats.
+## Technical Approach & Architecture
 
-### Vehicle Tracking
+<div style="text-align: center;">
+  <img src="/images/architecture_alpr.png" alt="ALPR Pipeline Architecture">
+</div>
 
-- Integrated **DeepSORT** for robust vehicle tracking, ensuring each car is assigned a unique ID for monitoring entry and exit across fueling stations.
+### Procedural Synthetic Data Engineering
+- Engineered a massive, highly realistic synthetic dataset of license plates from scratch to bypass data privacy restrictions.
+- Applied advanced spatial transformations—including programmatic homography projection, occlusion modeling, motion blur, and illumination noise—to perfectly mimic the physical distortions and environmental conditions of real-world gas station cameras.
 
-### Data Preparation
+### State-of-the-Art ALPR Pipeline (ICCV/CVPR Inspired)
+- Developed a custom, two-stage detection and recognition pipeline inspired by top-tier academic architectures.
+- **Stage 1 (Localization):** Deployed a highly optimized YOLO model to detect vehicle bounding boxes and isolate the license plate region within the frame.
+- **Stage 2 (Geometric Rectification & Character Recognition):** Applied geometric homography transformations to spatially warp and flatten severely angled plates. Utilized a custom character-level bounding box and recognition model (CRNN/LPRNet style) to sequentially detect and classify individual alphanumeric characters.
 
-- Created and utilized **synthetic datasets** of license plates, simulating variations in plate types, fonts, and environmental factors.
-- Augmented data with rotation, scaling, and cropping to improve robustness.
+### Multi-Pump Tracking (MTMCT)
+- Integrated DeepSORT to assign and maintain a persistent, unique ID for every vehicle entering the station.
+- Tracked the vehicle's spatial trajectory from the entrance to specific fueling bays, locking the recognized license plate to the exact pump to enable seamless, automated backend billing.
 
-### Model Training and Optimization
-
-- Fine-tuned YOLO for license plate detection, achieving high precision and recall.
-- Validated OCR outputs with post-processing to ensure consistent and formatted results.
-
-### Deployment
-
-- Deployed the system for real-time operation, processing live video feeds from gas station cameras.
-- Designed the pipeline to handle multiple fueling stations simultaneously, automating vehicle identification, tracking, and logging.
+## Impact & Results
+- **Unprecedented Accuracy on Synthetic Data:** Achieved >99% accuracy for individual character recognition and >97% full license plate recognition accuracy on real-world test sets, entirely driven by the robust synthetic training pipeline.
+- **Scalable Automation:** Successfully delivered the technical proof-of-concept capable of processing live, multi-camera RTSP feeds in real-time, effectively linking physical vehicle movement to automated transaction systems.
 
 ## Tools and Technologies
-
-- **Object Detection:** YOLO, Keras
-- **Vehicle Tracking:** DeepSORT
-- **Programming:** Python
-- **Frameworks:** PyTorch, OpenCV
-
-## Visual Demonstration
-![License Plate Recognition Example](/images/alpr.png)
-
-collection: portfolio
+- **Computer Vision:** YOLO (Object Detection), Character-Level OCR, Geometric Homography, DeepSORT (Tracking)
+- **Data Engineering:** Procedural Synthetic Data Generation, Spatial Augmentations
+- **Languages & Frameworks:** Python, PyTorch, OpenCV, Keras

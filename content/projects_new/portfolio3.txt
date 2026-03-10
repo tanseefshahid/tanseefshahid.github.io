@@ -1,0 +1,53 @@
+### High-Fidelity Virtual Try-On via Latent Diffusion & Textual Inversion
+
+**Project Overview**
+Architected and deployed a photorealistic Virtual Try-On (VTON) pipeline for a commercial fashion application. The system leverages a complex orchestration of computer vision models to accurately extract human spatial geometry and garment features, ultimately utilizing a tuned Latent Diffusion Model (LADi-VTON) to seamlessly synthesize the garment onto the target avatar.
+
+**The Challenge**
+Standard diffusion models struggle with virtual try-on because they tend to hallucinate, altering the specific textures, logos, or structural identity of the source garment. The objective was to build a multi-stage pipeline that geometrically warped the garment to fit novel body shapes and poses, while mathematically forcing the generative model to strictly preserve the exact style and fabric properties of the original clothing item.
+
+**Technical Approach & Architecture**
+
+* **Multi-Modal Preprocessing Pipeline:**
+    * Orchestrated a sequential data preparation pipeline to extract spatial and semantic targets from source images.
+    * **Pose Estimation:** Extracted 18 anatomical keypoints to define the skeletal posture of the target avatar.
+    <div style="text-align: center;">
+      <img src="/images/pose.jpg" alt="Pose Estimation">
+    </div>
+    * **DensePose & UV Mapping:** Generated a digital 3D-to-2D surface representation of the body to understand volume and curvature, ensuring fabric textures aligned correctly across 3D contours.
+    <div style="text-align: center;">
+      <img src="/images/densepose.png" alt="DensePose">
+    </div>
+    * **Semantic Parsing (SCHP):** Deployed Self-Correction Human Parsing to cleanly segment distinct anatomical and clothing regions, isolating the target area for generation.
+    <div style="text-align: center;">
+      <img src="/images/schp.png" alt="SCHP">
+    </div>
+
+* **Geometric Warping & Texture Preservation:**
+    * Engineered a spatial **Warping Module** to mechanically deform the 2D garment image to match the inferred 3D body shape and DensePose coordinates before generation.
+    <div style="text-align: center;">
+      <img src="/images/warp_image.jpg" alt="Warping Module">
+    </div>
+    * **Textual Inversion & Conditioning:** Mapped the visual features of the garment into the CLIP token embedding space (pseudo-word tokens). This conditioned the diffusion process to deeply "understand" the garment's visual identity.
+    * **EMASC (Enhanced Mask-Aware Skip Connection):** Implemented targeted skip connections to bypass the VAE bottleneck, directly injecting high-frequency spatial details (seams, patterns, logos) into the diffusion decoder to prevent resolution loss.
+
+* **Latent Diffusion Generation (LADi-VTON):**
+    * Fine-tuned the diffusion generative parameters (classifier-free guidance scales, noise scheduling) to strike the perfect balance between realistic lighting/shadow integration and strict garment style preservation.
+
+**Visual Demonstration**
+<div style="text-align: center;">
+  <img src="/images/ladi-vton.png" alt="Virtual Try-On Result">
+</div>
+
+**Cloud Deployment & MLOps**
+* Containerized the entire multi-model inference pipeline using **Docker**, ensuring deterministic execution across environments.
+* Built a scalable cloud architecture deployed via **Flask**, automating the process of fetching target avatars and garments, executing the heavy GPU diffusion pipeline, and securely delivering the synthesized output images via **AWS S3**.
+
+**Impact & Results**
+* **Photorealistic Synthesis:** Achieved highly realistic, commercially viable virtual fitting results across highly diverse body shapes, complex poses, and difficult fabric textures.
+* **Robust Generalization:** Successfully curated and prepared custom paired/unpaired training datasets, drastically improving the model's out-of-the-box generalization to unseen real-world clothing styles.
+
+**Tools & Technologies**
+* **Deep Learning Models:** LADi-VTON, DensePose, SCHP, Latent Diffusion, CLIP Textual Inversion
+* **Languages & Frameworks:** Python, PyTorch, OpenCV
+* **Cloud & MLOps:** Docker, Flask, AWS (EC2/S3), NVIDIA GPU Optimization

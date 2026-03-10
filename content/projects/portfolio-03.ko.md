@@ -1,72 +1,76 @@
 ---
-title: "1- 확산 모델을 활용한 가상 피팅"
+title: "잠재 확산 및 텍스트 역변환 기반 고충실도 가상 피팅"
 lang: ko
 slug: portfolio-03
 collection: portfolio
 permalink: /ko/portfolio/portfolio-03/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_vton.png
 excerpt: |
-  AI 기반 이미지 합성을 사용하여 사용자가 가상 모델을 통해 옷이 어떻게 맞는지 확인할 수 있는 가상 피팅 애플리케이션을 개발했습니다.
+  인체 공간 기하학 및 의류 특징을 추출하는 컴퓨터 비전 모델의 복합적 오케스트레이션과 LADi-VTON 잠재 확산 모델을 활용하여 의류를 타겟 아바타에 자연스럽게 합성하는 포토리얼리스틱 가상 피팅 파이프라인을 설계·배포했습니다.
 ---
 
-## 과정 및 워크플로우
-1. **포즈 추정 (Pose Estimation)**  
-  포즈 추정 모델을 사용하여 18개의 주요 키포인트를 식별하고, 각 키포인트는 특정 신체 관절을 나타내며 옷 맞춤을 위한 신체 자세를 추출하는 데 사용됩니다.
+## 프로젝트 개요
 
-  <div style="text-align: center;">
-    <img src="/images/pose.jpg" alt="Pose Estimation" style="width: 70%; height: auto;">
-  </div>
+상용 패션 애플리케이션을 위한 포토리얼리스틱 가상 피팅(VTON) 파이프라인을 설계·배포했습니다. 인체 공간 기하학 및 의류 특징을 정확하게 추출하는 컴퓨터 비전 모델의 복합적 오케스트레이션을 활용하며, 최종적으로 튜닝된 잠재 확산 모델(LADi-VTON)을 사용하여 의류를 타겟 아바타에 자연스럽게 합성합니다.
 
-2. **DensePose 및 UV 맵**  
-  DensePose는 실제 사람의 특정 체형과 자세를 반영하는 디지털 아바타를 생성합니다.  
-  UV 맵은 패브릭 텍스처가 이 아바타에 정확하게 정렬되고 배치되도록 보장합니다.
+<div style="text-align: center;">
+  <img src="/images/architecture_vton.png" alt="가상 피팅 파이프라인 아키텍처">
+</div>
 
-  <div style="text-align: center;">
-    <img src="/images/densepose.png" alt="DensePose">
-  </div>
+## 과제
 
-3. **SCHP (Self-Correction-Human-Parsing)**  
-  SCHP를 적용하여 인간 형상을 세분화하고, 모델의 훈련 과정에서 다양한 신체 부위에 맞게 옷을 정교하게 조정하는 능력을 향상시켰습니다.
+표준 확산 모델은 가상 피팅에서 할루시네이션을 일으켜 소스 의류의 특정 텍스처, 로고 또는 구조적 정체성을 변경하는 문제가 있습니다. 목표는 새로운 체형과 포즈에 맞게 의류를 기하학적으로 워핑하면서, 생성 모델이 원본 의류의 정확한 스타일과 원단 속성을 엄격히 보존하도록 수학적으로 강제하는 다단계 파이프라인을 구축하는 것이었습니다.
 
-  <div style="text-align: center;">
-    <img src="/images/schp.png" alt="SCHP">
-  </div>
+## 기술적 접근 방식 및 아키텍처
 
-4. **워핑 모듈 (Warping Module)**:  
-  의류 아이템을 대상 모델에 맞게 변형하는 역할을 수행합니다. 신체 형태 및 자세에 효과적으로 맞출 수 있도록 형태 및 위치 조정을 개선하여 의류 정렬을 향상시켰습니다.
+### 멀티모달 전처리 파이프라인
+- 소스 이미지에서 공간적·의미적 타겟을 추출하는 순차적 데이터 준비 파이프라인을 조율했습니다.
+- **포즈 추정:** 타겟 아바타의 골격 자세를 정의하는 18개 해부학적 키포인트를 추출합니다.
 
-  <div style="text-align: center;">
-    <img src="/images/warp_image.jpg" alt="Warping Module">
-  </div>
+<div style="text-align: center;">
+  <img src="/images/pose.jpg" alt="포즈 추정">
+</div>
 
-5. **EMASC 모듈 (Enhanced Mask-Aware Skip Connection)**:  
-  복원 오류를 줄이고 고주파 디테일을 개선하여 현실적이고 고품질의 결과를 보장하는 방식으로 세부 사항을 보존하였습니다.
-6. **반전 모듈 (Inversion Module)**:  
-  시각적 의류 특징을 CLIP 토큰 임베딩 공간에 매핑했습니다. 가짜 단어 토큰 임베딩을 생성하여 생성 과정에서 의류 텍스처와 복잡한 디테일을 유지할 수 있도록 했습니다.
+- **DensePose 및 UV 매핑:** 체적과 곡률을 이해하기 위한 신체의 디지털 3D-2D 표면 표현을 생성하여 원단 텍스처가 3D 윤곽에 정확히 정렬되도록 합니다.
 
-7. **VTON 모듈 (Virtual Try-On)**:  
-  워핑된 의류 아이템을 대상 모델 이미지와 결합하여 최종 이미지 생성을 최적화하였습니다. 확산 모델에 노이즈 입력을 통합하여 생동감 있고 시각적으로 매력적인 결과를 보장했습니다.
+<div style="text-align: center;">
+  <img src="/images/densepose.png" alt="DensePose">
+</div>
 
-### 가상 피팅 샘플 출력:
+- **시맨틱 파싱(SCHP):** Self-Correction Human Parsing을 배포하여 개별 해부학적 및 의류 영역을 깔끔하게 세그멘테이션하고 생성 대상 영역을 분리합니다.
 
-  <div style="text-align: center;">
-    <img src="/images/ladi-vton.png" alt="Warping Module">
-  </div>
+<div style="text-align: center;">
+  <img src="/images/schp.png" alt="SCHP">
+</div>
 
-### 배포
-- 의류 이미지를 자동으로 처리하고 가상 피팅 파이프라인을 실행하여 출력 이미지를 생성하는 워크플로우를 자동화했습니다.  
-- 최종 결과를 AWS S3를 통해 제공하여 클라이언트가 쉽게 접근할 수 있도록 했습니다.
+### 기하학적 워핑 및 텍스처 보존
+- 공간적 **워핑 모듈**을 설계하여 생성 전에 2D 의류 이미지를 추론된 3D 체형 및 DensePose 좌표에 맞게 기계적으로 변형합니다.
 
-## 주요 성과
-- 다양한 의류 유형 및 체형에서 높은 품질의 현실적인 핏을 달성했습니다.  
-- 맞춤형 훈련 데이터를 준비하고 정제하여 다양한 실제 의류 스타일에 적응할 수 있도록 했습니다.
-- 포즈 추정, 워핑, EMASC, 반전 및 확산 모듈을 세부적으로 조정하여 실시간 시나리오에서 성능을 향상시켰습니다.
-- 다양한 조명, 자세, 복잡한 의류 텍스처에서도 강인성을 높여 표준 데이터셋을 넘어 일반화를 개선했습니다.
+<div style="text-align: center;">
+  <img src="/images/warp_image.jpg" alt="워핑 모듈">
+</div>
+
+- **텍스트 역변환 및 조건화:** 의류의 시각적 특징을 CLIP 토큰 임베딩 공간(의사 단어 토큰)에 매핑했습니다. 이를 통해 확산 과정이 의류의 시각적 정체성을 깊이 "이해"하도록 조건화합니다.
+- **EMASC(향상된 마스크 인식 스킵 연결):** VAE 병목을 우회하는 타겟 스킵 연결을 구현하여 고주파 공간 디테일(솔기, 패턴, 로고)을 확산 디코더에 직접 주입하여 해상도 손실을 방지합니다.
+
+### 잠재 확산 생성(LADi-VTON)
+- 확산 생성 파라미터(분류기 비의존 가이던스 스케일, 노이즈 스케줄링)를 미세 조정하여 사실적인 조명/그림자 통합과 엄격한 의류 스타일 보존 사이의 완벽한 균형을 달성했습니다.
+
+## 시각적 데모
+
+<div style="text-align: center;">
+  <img src="/images/ladi-vton.png" alt="가상 피팅 결과">
+</div>
+
+## 클라우드 배포 및 MLOps
+- **Docker**를 사용하여 전체 멀티모델 추론 파이프라인을 컨테이너화하여 환경 간 결정론적 실행을 보장합니다.
+- **Flask**를 통해 배포된 확장 가능한 클라우드 아키텍처를 구축하여 타겟 아바타 및 의류 가져오기, 무거운 GPU 확산 파이프라인 실행, **AWS S3**를 통한 합성 출력 이미지의 안전한 전달 프로세스를 자동화합니다.
+
+## 성과 및 결과
+- **포토리얼리스틱 합성:** 다양한 체형, 복잡한 포즈, 어려운 원단 텍스처에 걸쳐 매우 사실적이고 상업적으로 활용 가능한 가상 피팅 결과를 달성했습니다.
+- **강건한 일반화:** 맞춤형 쌍/비쌍 훈련 데이터셋을 성공적으로 큐레이션·준비하여 이전에 보지 못한 실제 의류 스타일에 대한 모델의 기본 일반화 성능을 대폭 향상시켰습니다.
 
 ## 사용 기술
-- **프로그래밍**: Python, PyTorch, OpenCV, Flask  
-- **모델 및 프레임워크**: LADi-VTON, DensePose, SCHP (Self Correction for Human Parsing), 포즈 추정  
-- **배포**: Docker, AWS S3  
-- **하드웨어**: 훈련 및 추론을 위한 NVIDIA GPU
-
-collection: portfolio
+- **딥러닝 모델:** LADi-VTON, DensePose, SCHP, 잠재 확산, CLIP 텍스트 역변환
+- **언어 및 프레임워크:** Python, PyTorch, OpenCV
+- **클라우드 및 MLOps:** Docker, Flask, AWS(EC2/S3), NVIDIA GPU 최적화

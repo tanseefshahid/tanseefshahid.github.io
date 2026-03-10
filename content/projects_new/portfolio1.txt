@@ -1,0 +1,32 @@
+### Real-Time 360° Defect Detection & PLC Integration Pipeline
+
+**Project Overview**
+Architected and deployed a fully automated, hardware-in-the-loop (HITL) machine vision system for high-speed industrial quality control. The system utilizes a synchronized 6-camera circular array to perform 360-degree surface inspections on manufactured nuts, actively communicating with machine PLCs to track production metrics and physically eject defective units in real-time.
+
+**The Challenge**
+The production line operates at a high throughput of 5 units per second, leaving less than 200ms to detect a part, capture it from all angles, run AI inference to find micro-cracks, and send a physical actuation signal. Software latency or out-of-sync frames would result in the pneumatic valve missing the defective part, compromising the entire batch's quality assurance.
+
+**Technical Approach & Architecture** 
+* **Hardware Triggering & Acquisition:**
+    * Engineered a deterministic image acquisition pipeline. An **Autonics** photoelectric sensor detects the physical arrival of the nut, sending a hardwired GPIO trigger to an array of six **Basler GigE** cameras.
+    * Arranged the cameras in a custom 360-degree circular topology to eliminate blind spots, utilizing the **PyPylon SDK** to capture perfectly synchronized, multi-angle frames of the falling/moving part.
+* **Edge Inference Pipeline:**
+    * Deployed a highly optimized, lightweight **YOLO-based** object detection model on an industrial PC (IPC) to analyze all six high-resolution frames simultaneously, scanning for micro-cracks, surface defects, and structural anomalies.
+    * Containerized the inference and control logic using **Docker** to ensure robust, 24/7 uptime in a harsh factory environment with varying illumination.
+* **PLC Handshake & Actuation:**
+    * Integrated a **NuDAQ** digital I/O card to bridge the gap between the Python AI pipeline and the industrial machine hardware.
+    * Wrote control logic to maintain pass/fail counters directly on the machine's **PLC** and instantly trigger a high-speed pneumatic air compressor valve to physically blast defective nuts off the conveyor belt.
+
+**Impact & Results**
+* **Deterministic High-Speed Sorting:** Successfully achieved a total system latency of ~200ms, effortlessly handling the line speed of 5 parts per second without dropping frames or missing actuation windows.
+* **End-to-End Automation:** Delivered a true turnkey solution, taking the process from physical sensor input to AI analysis, and back to physical machine actuation, drastically reducing the need for manual QA.
+
+**Company & Role**
+* **Company:** Luxolis, Seoul, South Korea
+* **Role:** SLAM Engineer
+* **Period:** Apr. 2025 – Present
+
+**Tools & Technologies**
+* **Hardware:** Basler GigE Cameras (Circular Array), Autonics Sensors, NuDAQ I/O Card, Industrial PLC, Pneumatic Valves
+* **Software & AI:** Python, OpenCV, PyTorch, PyPylon SDK, YOLO Architecture
+* **Deployment:** Industrial Edge PC, Docker, Hardware-in-the-Loop (HITL) Control

@@ -1,62 +1,58 @@
 ---
-title: "5- Cloth Segmentation and Background Removal Using U2Net"
+title: "High-Fidelity Cloth Segmentation & Alpha Matting Pipeline"
 lang: en
 slug: portfolio-05
 collection: portfolio
 permalink: /en/portfolio/portfolio-05/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_clothseg.png
 excerpt: |
-  Fine-tuned U2Net to achieve high-accuracy cloth segmentation for background removal and part identification (top, bottom, and dress). This project focuses on preprocessing clothing images for applications in virtual fitting and fashion visualization.
+  Developed an advanced semantic segmentation and background removal pipeline for a commercial fashion application using a fine-tuned U2Net architecture to extract pixel-perfect garment masks and categorize them into precise regions for downstream virtual try-on systems.
+
 ---
 
 ## Project Overview
-Developed a robust solution for cloth segmentation, combining background removal and part segmentation into a single pipeline. The model enables clean and detailed preprocessing for downstream applications in AI-powered fashion and e-commerce.
 
-## Objective
-To create a unified segmentation pipeline capable of isolating clothing from backgrounds and categorizing them into parts (top, bottom, dress) with high accuracy.
+Developed an advanced semantic segmentation and background removal pipeline for a commercial fashion application. The system utilized a fine-tuned U2Net architecture to extract pixel-perfect masks of garments, categorizing them into precise regions (tops, bottoms, dresses) to serve as the foundational preprocessing layer for a downstream virtual try-on avatar system.
 
-## Process and Workflow
+<div style="text-align: center;">
+  <img src="/images/architecture_clothseg.png" alt="Cloth Segmentation Pipeline Architecture">
+</div>
 
-### Background Removal
-- Fine-tuned **U2Net** for removing backgrounds from clothing images, creating clean and isolated visuals.
-- Utilized a labeled dataset of clothing images with diverse backgrounds for model training.
-- Achieved high-quality segmentation masks with minimal noise and artifacts.
+## The Challenge
+
+For virtual fitting applications to look realistic, the initial garment extraction must be flawless. Standard background removal often leaves jagged boundaries, fails on transparent or highly textured fabrics, and struggles when garments overlap physically. The objective was to build a unified pipeline capable of isolating the garment from complex, real-world backgrounds while simultaneously parsing the clothing into specific semantic categories with extreme edge precision.
+
+## Technical Approach & Architecture
+
+### High-Resolution Background Removal
+- Fine-tuned a deep **U2Net** (nested U-structure) architecture to perform highly accurate salient object detection and background removal.
+- Focused heavily on boundary preservation and alpha matting, ensuring the model could cleanly isolate difficult textures such as lace, semi-transparent fabrics, and complex patterns without introducing artifacts.
 
 ### Background Removal Model:
 
 <div style="text-align: center;">
-  <img src="/images/background_rm.jpg" alt="cloth seg">
+  <img src="/images/background_rm.jpg" alt="Background Removal">
 </div>
 
-### Cloth Part Segmentation
-- Enhanced U2Net to perform fine-grained segmentation of clothing into three categories:
-  - **Top:** Shirts, blouses, jackets.
-  - **Bottom:** Pants, skirts, shorts.
-  - **Dress:** Full-body dresses.
-- Used labeled datasets with precise annotations to improve model accuracy for edge and texture details.
+### Semantic Part Segmentation
+- Extended the segmentation pipeline to perform multi-class, fine-grained part segmentation.
+- Trained the model on meticulously annotated datasets to accurately segment the isolated subject into specific anatomical clothing regions: **Top** (shirts, blouses, jackets), **Bottom** (pants, skirts, shorts), and **Dress** (full-body garments).
 
 ### Cloth Segmentation Output:
 
 <div style="text-align: center;">
-  <img src="/images/cloth_seg.JPG" alt="cloth seg">
+  <img src="/images/cloth_seg.JPG" alt="Cloth Segmentation">
 </div>
 
-### Model Optimization
-- Fine-tuned on diverse datasets to handle variations in:
-  - Clothing textures (e.g., plain, patterned, transparent).
-  - Lighting conditions and shadows.
-  - Pose and garment overlap.
-- Validated results on unseen clothing images to ensure generalization across multiple styles.
+### Robustness & Generalization
+- Optimized the model against a highly diverse dataset to handle severe real-world variances, including dynamic lighting, harsh shadows, complex human poses, and significant garment overlap.
+- Utilized **OpenCV** and **PyTorch** for dynamic data augmentation and post-processing, ensuring the masks were smoothed and perfectly aligned for the next stage of the application.
 
-## Deployment and Applications
-- Integrated the segmentation model into an automated pipeline for:
-  - Virtual fitting systems.
-  - Fashion design and visualization.
+## Impact & Results
+- **Flawless Preprocessing Engine:** Delivered a highly robust segmentation pipeline that output clean, artifact-free garment masks, completely eliminating the noise that typically ruins automated styling apps.
+- **Enabled Advanced Avatar Fitting:** Successfully isolated specific clothing parts with precise geometric boundaries, providing the exact structural data required by the downstream 2D/3D avatar synthesis models.
 
 ## Tools and Technologies
-- **Segmentation Model**: U2Net
-- **Programming**: Python
-- **Frameworks**: PyTorch, OpenCV
-- **Applications**: Virtual Fitting, Fashion Visualization
-
-collection: portfolio
+- **Computer Vision:** U2Net, Semantic Part Segmentation, Salient Object Detection
+- **Languages & Frameworks:** Python, PyTorch, OpenCV
+- **Applications:** E-Commerce Preprocessing, Fashion Visualization

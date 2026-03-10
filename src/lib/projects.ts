@@ -41,7 +41,7 @@ export function getSortedProjectsData(): Project[] {
                 title: data.title || "Untitled Project",
                 description: data.excerpt || "No description available",
                 tags: data.tags || [],
-                imageUrl: data.image || undefined,
+                imageUrl: data.teaser || data.image || undefined,
                 link: `/projects/${id}`,
                 content: content,
                 date: data.date || "",

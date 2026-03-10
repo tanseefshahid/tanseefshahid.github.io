@@ -34,13 +34,19 @@ export default function StickyHeader() {
 
                 <nav className="hidden md:flex items-center gap-8">
                     {["Expertise", "Skills", "Experience", "Projects"].map((item) => (
-                        <Link
+                        <button
                             key={item}
-                            href={`#${item.toLowerCase()}`}
-                            className="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const el = document.getElementById(item.toLowerCase());
+                                if (el) {
+                                    el.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                            className="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none"
                         >
                             {item}
-                        </Link>
+                        </button>
                     ))}
                 </nav>
 

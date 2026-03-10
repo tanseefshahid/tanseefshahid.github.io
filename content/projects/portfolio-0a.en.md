@@ -1,10 +1,10 @@
 ---
-title: "0A- 3D Laser Inspection System for UMP Modules"
+title: "3D Laser Inspection System for UMP Modules"
 lang: en
 slug: portfolio-0a
 collection: portfolio
 permalink: /en/portfolio/portfolio-0a/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_0a.png
 excerpt: |
   Built a high-performance 3D inspection framework for UMP modules. Features automated coordinate system alignment using RANSAC and PCL, DB-driven FAI measurements, and multi-threaded processing.
 ---
@@ -12,6 +12,10 @@ excerpt: |
 ## Overview
 
 Developed a high-speed 3D inspection framework designed for the automated quality control of UMP modules. The system captures high-density point cloud data using laser profiles and performs real-time dimensional analysis. It utilizes a sophisticated C++ architecture to handle massive datasets, ensuring accurate metrology results against strict manufacturing tolerances.
+
+<div style="text-align: center;">
+  <img src="/images/architecture_0a.png" alt="3D Laser Inspection Pipeline Architecture">
+</div>
 
 ## Key Features
 

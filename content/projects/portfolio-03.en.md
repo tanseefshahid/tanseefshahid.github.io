@@ -1,67 +1,77 @@
 ---
-title: "3- Virtual Try-On with Diffusion Models"
+title: "High-Fidelity Virtual Try-On via Latent Diffusion & Textual Inversion"
 lang: en
 slug: portfolio-03
 collection: portfolio
 permalink: /en/portfolio/portfolio-03/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_vton.png
 excerpt: |
-  Developed an application for virtual try-on which enables users to see how clothes fit on a virtual model using AI-based image synthesis.
+  Architected and deployed a photorealistic Virtual Try-On pipeline leveraging a complex orchestration of computer vision models to extract human geometry and garment features, utilizing a tuned LADi-VTON Latent Diffusion Model to seamlessly synthesize garments onto target avatars.
+
 ---
 
-## Process and Workflow
+## Project Overview
 
-1. **Pose Estimation**  
-  Used a pose estimation model to identify 18 keypoints, each representing a specific human body joint to get the body pose for cloth fitting.
+Architected and deployed a photorealistic Virtual Try-On (VTON) pipeline for a commercial fashion application. The system leverages a complex orchestration of computer vision models to accurately extract human spatial geometry and garment features, ultimately utilizing a tuned Latent Diffusion Model (LADi-VTON) to seamlessly synthesize the garment onto the target avatar.
 
-  <div style="text-align: center;">
-    <img src="/images/pose.jpg" alt="Pose Estimation">
-  </div>
+<div style="text-align: center;">
+  <img src="/images/architecture_vton.png" alt="Virtual Try-On Pipeline Architecture">
+</div>
 
-2. **DensePose and UV Maps**  
-  DensePose creates the digital avatar which matches the specific body shape and posture of the real person.
-  UV Maps ensure that fabric textures are correctly aligned and placed on this avatar.
+## The Challenge
 
-  <div style="text-align: center;">
-    <img src="/images/densepose.png" alt="DensePose">
-  </div>
+Standard diffusion models struggle with virtual try-on because they tend to hallucinate, altering the specific textures, logos, or structural identity of the source garment. The objective was to build a multi-stage pipeline that geometrically warped the garment to fit novel body shapes and poses, while mathematically forcing the generative model to strictly preserve the exact style and fabric properties of the original clothing item.
 
-3. **SCHP (Self-Correction-Human-Parsing)**  
-  Applied SCHP to segment human figures, improving the model’s ability during training to refine and align clothing on different body parts.
+## Technical Approach & Architecture
 
-  <div style="text-align: center;">
-    <img src="/images/schp.png" alt="SCHP">
-  </div>
+### Multi-Modal Preprocessing Pipeline
+- Orchestrated a sequential data preparation pipeline to extract spatial and semantic targets from source images.
+- **Pose Estimation:** Extracted 18 anatomical keypoints to define the skeletal posture of the target avatar.
 
-4. **Warping Module**:  Responsible for transforming the clothing item to fit the target model. Improved garment alignment by refining shape and position adjustments to match the body shape and pose effectively.
+<div style="text-align: center;">
+  <img src="/images/pose.jpg" alt="Pose Estimation">
+</div>
 
-  <div style="text-align: center;">
-    <img src="/images/warp_image.jpg" alt="Warping Module">
-  </div>
+- **DensePose & UV Mapping:** Generated a digital 3D-to-2D surface representation of the body to understand volume and curvature, ensuring fabric textures aligned correctly across 3D contours.
 
-5. **EMASC Module (Enhanced Mask-Aware Skip Connection)**: Enhanced detail preservation by reducing reconstruction error and improving high-frequency details, ensuring realistic and high-quality outputs.
-6. **Inversion Module**:  Mapped visual garment features to the CLIP token embedding space. Generated pseudo-word token embeddings to condition the generation process, maintaining garment texture and intricate details.
+<div style="text-align: center;">
+  <img src="/images/densepose.png" alt="DensePose">
+</div>
 
-7. **VTON Module (Virtual Try-On)**:  Optimized the final image generation by combining warped clothing items with the target model’s image. Integrated noise inputs into the diffusion model, ensuring lifelike and visually appealing results.
+- **Semantic Parsing (SCHP):** Deployed Self-Correction Human Parsing to cleanly segment distinct anatomical and clothing regions, isolating the target area for generation.
 
-### Virtual Fitting Sample Output:
+<div style="text-align: center;">
+  <img src="/images/schp.png" alt="SCHP">
+</div>
 
-  <div style="text-align: center;">
-    <img src="/images/ladi-vton.png" alt="Warping Module">
-  </div>
+### Geometric Warping & Texture Preservation
+- Engineered a spatial **Warping Module** to mechanically deform the 2D garment image to match the inferred 3D body shape and DensePose coordinates before generation.
 
-### Deployment
-- Automated the workflow to process incoming clothing images, run the virtual fitting pipeline, and generate output images.  
-- Delivered final results via AWS S3 for easy client access.
+<div style="text-align: center;">
+  <img src="/images/warp_image.jpg" alt="Warping Module">
+</div>
 
-## Key Achievements
-- Achieved high-quality, realistic fits across diverse clothing types and body shapes.  
-- Prepared and curated custom training data, ensuring adaptability to diverse real-world clothing styles.
-- Fine-tuned each module (pose estimation, warping, EMASC, inversion, and diffusion) to improve performance on unseen data in real-time scenarios.
-- Enhanced robustness for varied lighting, poses, and complex clothing textures, improving generalization beyond standard datasets.
+- **Textual Inversion & Conditioning:** Mapped the visual features of the garment into the CLIP token embedding space (pseudo-word tokens). This conditioned the diffusion process to deeply "understand" the garment's visual identity.
+- **EMASC (Enhanced Mask-Aware Skip Connection):** Implemented targeted skip connections to bypass the VAE bottleneck, directly injecting high-frequency spatial details (seams, patterns, logos) into the diffusion decoder to prevent resolution loss.
+
+### Latent Diffusion Generation (LADi-VTON)
+- Fine-tuned the diffusion generative parameters (classifier-free guidance scales, noise scheduling) to strike the perfect balance between realistic lighting/shadow integration and strict garment style preservation.
+
+## Visual Demonstration
+
+<div style="text-align: center;">
+  <img src="/images/ladi-vton.png" alt="Virtual Try-On Result">
+</div>
+
+## Cloud Deployment & MLOps
+- Containerized the entire multi-model inference pipeline using **Docker**, ensuring deterministic execution across environments.
+- Built a scalable cloud architecture deployed via **Flask**, automating the process of fetching target avatars and garments, executing the heavy GPU diffusion pipeline, and securely delivering the synthesized output images via **AWS S3**.
+
+## Impact & Results
+- **Photorealistic Synthesis:** Achieved highly realistic, commercially viable virtual fitting results across highly diverse body shapes, complex poses, and difficult fabric textures.
+- **Robust Generalization:** Successfully curated and prepared custom paired/unpaired training datasets, drastically improving the model's out-of-the-box generalization to unseen real-world clothing styles.
 
 ## Tools and Technologies
-- **Programming**: Python, PyTorch, OpenCV, Flask  
-- **Models and Frameworks**: LADi-VTON, DensePose, SCHP (Self Correction for Human Parsing), Pose Estimation  
-- **Deployment**: Docker, AWS S3  
-- **Hardware**: NVIDIA GPUs for training and inference
+- **Deep Learning Models:** LADi-VTON, DensePose, SCHP, Latent Diffusion, CLIP Textual Inversion
+- **Languages & Frameworks:** Python, PyTorch, OpenCV
+- **Cloud & MLOps:** Docker, Flask, AWS (EC2/S3), NVIDIA GPU Optimization

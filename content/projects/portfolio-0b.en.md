@@ -1,10 +1,10 @@
 ---
-title: "0B- PolyWorks-Style 3D Alignment Tool"
+title: "PolyWorks-Style 3D Alignment Tool"
 lang: en
 slug: portfolio-0b
 collection: portfolio
 permalink: /en/portfolio/portfolio-0b/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_0b.png
 excerpt: |
   Developed a professional 3D metrology tool for aligning point clouds to CAD models. Features include landmark-based registration, ICP best-fit refinement, lasso-based noise removal, and batch verification of alignment results.
 ---
@@ -13,11 +13,14 @@ excerpt: |
 
 Built a desktop-based 3D metrology application designed to replicate the alignment workflows of industry-standard software like PolyWorks. The tool enables users to align raw point cloud scans (PLY, PCD, TXT) to reference CAD models (STL, OBJ) using a combination of manual landmark selection and automated Iterative Closest Point (ICP) algorithms. It also includes comprehensive tools for data cleaning and batch alignment verification.
 
+<div style="text-align: center;">
+  <img src="/images/architecture_0b.png" alt="3D Alignment Tool Architecture">
+</div>
+
 <div className="my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
   <video 
     controls 
     className="w-full" 
-    poster="/assets/images/portfolio/placeholder.svg"
   >
     <source src="/assets/videos/alignment_demo.mp4" type="video/mp4" />
     Your browser does not support the video tag.

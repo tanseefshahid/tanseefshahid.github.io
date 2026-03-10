@@ -1,52 +1,52 @@
 ---
-title: "1- Real-Time Defect Detection System with PLC Integration"
+title: "Real-Time 360° Defect Detection & PLC Integration Pipeline"
 lang: en
 slug: portfolio-01
 collection: portfolio
 permalink: /en/portfolio/portfolio-01/
-teaser: /assets/images/portfolio/placeholder.svg
+teaser: /images/architecture_defect.png
 excerpt: |
-  Built and deployed a real-time multi-camera defect detection system triggered by external sensors, integrated with industrial PLCs to automatically reject faulty products on a live production line.
+  Architected and deployed a fully automated, hardware-in-the-loop machine vision system for high-speed industrial quality control. The system utilizes a synchronized 6-camera circular array to perform 360-degree surface inspections, actively communicating with machine PLCs to eject defective units in real-time.
 
 ---
 
-## Overview
+## Project Overview
 
-Developed a fully automated vision system using Basler cameras, Autonics sensors, and a NuDAQ card to detect defective items and trigger air valve-based rejection via PLCs. The system processes each item in under 200ms, handling up to 5 units per second on a live production line.
+Architected and deployed a fully automated, hardware-in-the-loop (HITL) machine vision system for high-speed industrial quality control. The system utilizes a synchronized 6-camera circular array to perform 360-degree surface inspections on manufactured nuts, actively communicating with machine PLCs to track production metrics and physically eject defective units in real-time.
 
-## Workflow
+<div style="text-align: center;">
+  <img src="/images/architecture_defect.png" alt="360° Defect Detection Pipeline Architecture">
+</div>
 
-1. **Sensor Triggering**  
-   Autonics sensor detects product arrival and triggers GPIO on each Basler camera.
+## The Challenge
 
-2. **Image Capture**  
-   On trigger, synchronized frames are captured from multiple Basler cameras covering different product angles.
+The production line operates at a high throughput of 5 units per second, leaving less than 200ms to detect a part, capture it from all angles, run AI inference to find micro-cracks, and send a physical actuation signal. Software latency or out-of-sync frames would result in the pneumatic valve missing the defective part, compromising the entire batch's quality assurance.
 
-3. **Defect Detection**  
-   A lightweight object detection model analyzes the captured images in real time to identify surface defects or misalignments.
+## Technical Approach & Architecture
 
-4. **Decision & Signaling**  
-   Detection results are sent via NuDAQ digital I/O card to the machine's PLC.
+### Hardware Triggering & Acquisition
+- Engineered a deterministic image acquisition pipeline. An **Autonics** photoelectric sensor detects the physical arrival of the nut, sending a hardwired GPIO trigger to an array of six **Basler GigE** cameras.
+- Arranged the cameras in a custom 360-degree circular topology to eliminate blind spots, utilizing the **PyPylon SDK** to capture perfectly synchronized, multi-angle frames of the falling/moving part.
 
-5. **Actuation**  
-   If defects are detected, the PLC activates an air valve to physically push the faulty item off the conveyor belt.
+### Edge Inference Pipeline
+- Deployed a highly optimized, lightweight **YOLO-based** object detection model on an industrial PC (IPC) to analyze all six high-resolution frames simultaneously, scanning for micro-cracks, surface defects, and structural anomalies.
+- Containerized the inference and control logic using **Docker** to ensure robust, 24/7 uptime in a harsh factory environment with varying illumination.
 
-## Key Features
+### PLC Handshake & Actuation
+- Integrated a **NuDAQ** digital I/O card to bridge the gap between the Python AI pipeline and the industrial machine hardware.
+- Wrote control logic to maintain pass/fail counters directly on the machine's **PLC** and instantly trigger a high-speed pneumatic air compressor valve to physically blast defective nuts off the conveyor belt.
 
-- Multi-camera vision pipeline with synchronized acquisition.
-- Sensor-driven image capture for frame-accurate analysis.
-- ~200ms total latency per product; supports 5 products per second.
-- Robust in varying factory lighting and motion conditions.
+## Impact & Results
+- **Deterministic High-Speed Sorting:** Successfully achieved a total system latency of ~200ms, effortlessly handling the line speed of 5 parts per second without dropping frames or missing actuation windows.
+- **End-to-End Automation:** Delivered a true turnkey solution, taking the process from physical sensor input to AI analysis, and back to physical machine actuation, drastically reducing the need for manual QA.
 
 ## Tools and Technologies
-
-- **Hardware**: Basler GigE Cameras, Autonics Sensor, NuDAQ Card, PLC, Pneumatic Air Valve  
-- **Software**: Python, PyPylon SDK, OpenCV, PyTorch  
-- **Detection**: Custom-trained object detection model (YOLO-based)  
-- **Deployment**: Real-time on industrial PC with Docker containers  
+- **Hardware:** Basler GigE Cameras (Circular Array), Autonics Sensors, NuDAQ I/O Card, Industrial PLC, Pneumatic Valves
+- **Software & AI:** Python, OpenCV, PyTorch, PyPylon SDK, YOLO Architecture
+- **Deployment:** Industrial Edge PC, Docker, Hardware-in-the-Loop (HITL) Control
 
 ## Company
 
-- **Luxolis**, Seoul, South Korea  
-- **Role**: SLAM Engineer  
+- **Luxolis**, Seoul, South Korea
+- **Role**: SLAM Engineer
 - **Period**: Apr. 2025 – Present

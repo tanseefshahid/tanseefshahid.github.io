@@ -72,7 +72,7 @@ export default function Hero() {
                     >
                         <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                         <span className="text-sm font-medium tracking-wide text-cyan-300 uppercase">
-                            Deep Learning & Computer Vision
+                            2D/3D Computer Vision & AI Engineering
                         </span>
                     </motion.div>
 
@@ -88,12 +88,11 @@ export default function Hero() {
                         AI Researcher and Engineer specializing in{" "}
                         <span className="text-white font-semibold">3D Metrology</span>,{" "}
                         <span className="text-white font-semibold">3D Reconstruction</span>, and{" "}
-                        <span className="text-white font-semibold">Computer Vision</span>. Building innovative inspection and AI-powered systems with over 5 years of experience.
+                        <span className="text-white font-semibold">Computer Vision</span>. Building innovative inspection and AI-powered systems with over 6 years of experience.
                     </p>
 
                     <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-                        Expertise in virtual fitting systems, 3D avatar modeling, pose estimation,
-                        object detection, and segmentation.
+                        From industrial 3D inspection & point cloud metrology to generative AI, real-time detection, and edge deployment.
                     </p>
                 </motion.div>
 

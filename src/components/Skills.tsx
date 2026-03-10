@@ -10,50 +10,64 @@ const skillCategories = [
                 label: "Languages:",
                 skills: ["Python", "C++", "C#", "C", "TypeScript", "MATLAB"],
             },
-        ],
-    },
-    {
-        title: "Libraries",
-        subcategories: [
             {
-                label: "",
-                skills: [
-                    "PyTorch",
-                    "TensorFlow",
-                    "Keras",
-                    "OpenCV",
-                    "NumPy",
-                    "Pandas",
-                    "Scikit-learn",
-                    "Open3D",
-                    "Matplotlib",
-                    "SciPy",
-                ],
+                label: "UI Frameworks:",
+                skills: ["MFC", "WPF/.NET 8", "PyQt/PySide", "React/Next.js"],
             },
         ],
     },
     {
-        title: "Frameworks / Models",
+        title: "Libraries & Tools",
         subcategories: [
             {
-                label: "Detection:",
-                skills: ["YOLO", "Fast R-CNN", "Detectron2"],
+                label: "Vision & ML:",
+                skills: ["OpenCV", "NumPy", "SciPy", "Pandas", "Scikit-learn", "Matplotlib"],
             },
             {
-                label: "Segmentation:",
-                skills: ["U-Net", "SegNExt"],
+                label: "3D Processing:",
+                skills: ["PCL", "Open3D", "PyVista/VTK", "Eigen", "Helix Toolkit", "Blender (bpy)"],
             },
             {
-                label: "Neural Networks:",
-                skills: ["CNN", "DNN", "RNN", "GAN"],
+                label: "DevOps:",
+                skills: ["Docker", "Git", "ONNX", "CUDA", "Linux"],
+            },
+        ],
+    },
+    {
+        title: "AI / ML Frameworks",
+        subcategories: [
+            {
+                label: "Deep Learning:",
+                skills: ["PyTorch", "TensorFlow", "Keras", "Hugging Face"],
             },
             {
-                label: "Architectures:",
-                skills: ["MobileNet", "NFNet", "VGG", "BERT"],
+                label: "Detection & Segmentation:",
+                skills: ["YOLO", "Detectron2", "Mask R-CNN", "U-Net", "U2Net", "SAM"],
             },
             {
-                label: "Platforms:",
-                skills: ["Hugging Face", "ROS"],
+                label: "Generative & 3D AI:",
+                skills: ["Stable Diffusion", "LADi-VTON", "GANs", "NeRF", "OpenLRM"],
+            },
+            {
+                label: "Tracking & Pose:",
+                skills: ["DeepSORT", "HRNet", "DensePose", "CRAFT OCR", "Tesseract"],
+            },
+        ],
+    },
+    {
+        title: "3D & Deployment",
+        subcategories: [
+            {
+                label: "Metrology & Algorithms:",
+                skills: ["RANSAC", "ICP", "PCA", "SVD", "Point Cloud Filtering"],
+            },
+            {
+                label: "Hardware & Edge:",
+                skills: ["NVIDIA Jetson", "Basler GigE Cameras", "PLC/NuDAQ", "RGB-D Cameras"],
+            },
+            {
+                label: "Cloud & Infra:",
+                skills: ["AWS (S3, EC2)", "Flask", "SQL Server/ODBC", "REST APIs"],
             },
         ],
     },
@@ -75,7 +89,7 @@ export default function Skills() {
                 </div>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {skillCategories.map((category, catIndex) => (
                         <motion.div
                             key={category.title}
