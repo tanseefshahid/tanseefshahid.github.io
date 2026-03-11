@@ -1,0 +1,89 @@
+TanseefShahid
+COMPUTER VISION RESEARCHER (3D/2D )
+ (+82) 010-21909107 |  mtanseefshahid@gmail.com |  muhammad-tanseef-shahid
+Professional Summary
+Experienced computer vision researcher with over 5 years of expertise in 3D reconstruction, generative AI, pose
+estimation, object detection, and image segmentation. Recently working on smart factory automation at Lux-
+olis, developing real-time defect detection and part localization systems using 2D and depth data. Previously
+built systems for virtual try-on, 3D object reconstruction, garment segmentation, and face enhancement using
+models like NeRF, OpenLRM, and Stable Diffusion. Skilled in full AI pipelines from dataset creation to model
+deployment, with deep experience in PyTorch, TensorFlow, OpenCV, Blender, and CUDA. Focused on building
+practical, scalable vision systems that perform reliably in real-world settings.
+Work Experience
+Luxolis Seoul, Korea
+SLAM ENGINEER Apr. 2025 – Present
+• Designed and deployed a real-time defect detection system for a smart factory using multiple Basler cameras,
+integrated with PLCs to automatically reject faulty items during production.
+• Built a vision pipeline for CNC machines to localize parts and estimate object dimensions and orientation
+(roll, pitch, yaw) using 2D images and depth data.
+PERSPECTIVE Corp. Seoul, Korea
+2D/3D AI RESEARCHER APR. 2022 - APR. 2025
+• Developed a pose estimation and diffusion-based virtual try-on system, achieving 85%+ accuracy in pattern
+transfer, clothing alignment, and style adaptation onto virtual models.
+• Created a 2D-to-3D object reconstruction pipeline for furniture and household objects using OpenLRM re-
+construction models.
+• Automated 3D model rendering for CAD and training datasets using Blender’s bpy scripting, optimizing cam-
+era intrinsics, lighting, rotations, and noise introduction to generate diverse, high-quality datasets.
+• Designed a U-Net-based clothing classification model, achieving a accuracy greater than 95% in 74 classes
+for lower and upper body clothes.
+• Developed multiple segmentation models for furniture part segmentation (3D reconstruction with SAM ),
+clothing part segmentation (lower body, upper body, dresses/overcoats), and background removal for user
+clothing images using U2Net.
+• Worked on 3D reconstruction, including point clouds, voxels, and mesh processing. Developed 3D view ma-
+nipulation, 3D re-orientation, automatic texturing, surface reconstruction, and conversions between mesh,
+point clouds, and voxels.
+• Led multiple face processing projects, including face reconstruction, lip synthesis from audio, and face en-
+hancement, leveraging GANs, diffusion models, and GPEN to enhance facial detail, realism, and consistency
+across varied conditions.
+AI RESEARCHER RESUME · TANSEEF SHAHID 1
+Ellexi Seoul, Korea
+AI DEVELOPER Nov. 2019 – Oct. 2021
+• Developed an AI-powered system to detect construction workers ’ safety equipment (helmets, vests) and
+monitor restricted zones using real-time inference on Jetson TX2, successfully deployed on-site.
+• Created a real-time license plate recognition system for gas stations using synthetic data for robustness,
+achieving 98% accuracy.
+• Built a behavior detection system using video-based person and object tracking to identify abnormal actions
+and improve situational awareness.
+• Developed a module for detecting and extracting date stamps from gas inspection boilerplates using
+Tesseract-OCR and OpenCV-based preprocessing.
+Technical Skills
+• Computer Vision (Object Detection and Tracking, Image Segmentation, Pose Estimation, Image Enhance-
+ment and Restoration, Image Classification, OpenCV)
+• 3D Reconstruction & Mapping (OpenLRM, NeRF, Occupancy Networks, Visual SLAM, LiDAR Processing, 3D
+Point Clouds, Volumetric Fusion, Automated 3D Rendering)
+• Generative Models (Stable Diffusion, GANs, CLIP-based Models)
+• 3D Visualization and Rendering (Blender Python (bpy), Open3D, PyVista)
+• Programming and Libraries (Python, C++, PyTorch, TensorFlow, scikit-learn, OpenCV, CUDA, pandas, mat-
+plotlib)
+• Tools & Platforms (Docker, Git, GitHub, ONNX, Qt Framework, NVIDIA Jetson TX2, Linux)
+Education
+CAU (Chung-Ang University) - www.cau.ac.kr Seoul, South Korea
+M.S. IN COMPUTER SCIENCE (COMPUTER VISION ) Mar. 2017 - Sep. 2019
+• Thesis Title: Object Segmentation with Active Contours Driven by Weight Matrix
+• Research Areas: Active Contours, Image Segmentation, Object Detection and Tracking
+• Project: Real-time Object Detection and Tracking with UAV(Drone)
+GIKI (Ghulam Ishaq Khan Institute of Engineering Sciences and
+Technology) - www.giki.edu.pk Topi, Pakistan
+B.S. IN ELECTRONIC ENGINEERING 2011 - 2016
+• Final Year Project: Smart Blind Navigation System
+The project aimed to assist visually impaired individuals in walking, identifying familiar faces, and navi-
+gating using Raspberry Pi, camera, and GSM module with OpenCV algorithms.
+Academic Achievements
+CAYSS SCHOLARSHIP:
+Won Chung Ang Young Scientist Scholarship for my masters degree.
+FYP COMPETITION:
+Secured Second position in the final year project competition in bachelor’s.
+Publications
+Master’s
+AI RESEARCHER RESUME · TANSEEF SHAHID 2
+• A Munir, S. Soomro, M.T. Shahid , T.A. Soomro, K.N. Choi. “Hybrid active contours driven by edge and region fitting
+energies based on p-Laplace equation”, IEEE Access (2019).
+• Kim, D. D., M.T. Shahid , Kim, Y., Lee, W. J., Song, H. C., Piccialli, F.,Choi, K. N. (2019, November ). “ Generating
+Pedestrian Training Dataset using DCGAN” . In Proceedings of the 2019 3rd International Conference on Advances in
+Image Processing (pp. 1-4 ).
+• Memon, Asif Aziz, Shafiullah Soomro, M.T. Shahid , Asad Munir, Asim Niaz, and Kwang Nam Choi. “Segmenta-
+tion of Intensity-Corrupted Medical Images Using Adaptive Weight-Based Hybrid Active Contours” . Computational and
+Mathematical Methods in Medicine 2020 (2020).
+Master’s Thesis
+• Object Segmentation with Active Contours Driven by Weight Matrix, 131th Master ’ s Thesis, Chung-Ang University.
+AI RESEARCHER RESUME · TANSEEF SHAHID 3

@@ -54,11 +54,11 @@ export default function ResumePage() {
                             </div>
                             <div className="shrink-0">
                                 <Image
-                                    src="/pp.jpeg"
+                                    src="/Tanseef_Shahid_grey.jpg"
                                     alt="Muhammad Tanseef Shahid"
                                     width={140}
                                     height={140}
-                                    className="w-[140px] h-[140px] -rotate-90 rounded-full object-cover border-4 border-cyan-500/20 bg-white/5"
+                                    className="w-[140px] h-[140px] rounded-full object-cover object-[center_20%] border-4 border-cyan-500/20 bg-white/5"
                                     priority
                                 />
                             </div>
@@ -75,7 +75,7 @@ export default function ResumePage() {
                     {/* Summary */}
                     <div className="mb-8 print-section">
                         <p className="text-gray-300 leading-relaxed">
-                            Computer vision engineer and AI researcher with <strong className="text-white">6+ years</strong> of production experience building end-to-end 2D/3D vision systems — from industrial 3D laser inspection and point cloud metrology to generative AI, real-time edge detection, and autonomous hardware integration. Published researcher (IEEE Access, CMMM) with M.S. in Computer Vision. Proven track record delivering sub-200ms real-time inference, 98%+ accuracy detection systems, and high-precision sub-millimeter 3D measurement pipelines deployed on factory floors.
+                            Computer vision engineer and AI researcher with over <strong className="text-white">6 years</strong> of experience specializing in 3D computer vision, metrology, and deep learning. Proven expertise in designing comprehensive AI pipelines spanning 3D reconstruction, point cloud processing, pose estimation, object detection, and image segmentation. Adept at bridging mathematical algorithms with modern artificial intelligence to build robust systems, with a strong track record of delivering high-precision 3D measurement tools and scalable 2D/3D vision solutions for complex industrial environments.
                         </p>
                     </div>
 
@@ -130,7 +130,7 @@ export default function ResumePage() {
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
                                 <li>Architected a high-speed 3D laser inspection system for UMP modules using <strong className="text-white">PCL</strong> and <strong className="text-white">RANSAC/Eigen</strong>-based coordinate alignment, achieving sub-millimeter measurement precision with automated FAI validation against SQL Server specifications.</li>
-                                <li>Developed a PolyWorks-style 3D alignment application with <strong className="text-white">ICP best-fit</strong>, landmark registration (SVD), and interactive lasso-based noise removal — processing point clouds of 1M+ points in real-time using <strong className="text-white">VTK/PyVista</strong>.</li>
+                                <li>Developed a PolyWorks-style 3D alignment application with <strong className="text-white">ICP best-fit</strong>, landmark registration (SVD), and interactive lasso-based noise removal, processing point clouds of 1M+ points in real-time using <strong className="text-white">VTK/PyVista</strong>.</li>
                                 <li>Designed a modular 3D rendering engine with a visual <strong className="text-white">node-based workflow editor</strong> (ECS architecture, .NET 8/WPF), enabling non-programmers to build custom inspection pipelines via drag-and-drop with an extensible plugin system.</li>
                             </ul>
                         </div>
@@ -149,7 +149,7 @@ export default function ResumePage() {
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
                                 <li>Deployed a real-time 360° defect detection system using a synchronized <strong className="text-white">6-camera Basler GigE array</strong> with YOLO inference, achieving <strong className="text-white">&lt;200ms end-to-end latency at 5 parts/sec</strong>. Integrated with PLCs via NuDAQ I/O for pneumatic rejection of defective units.</li>
-                                <li>Built an <strong className="text-white">eye-in-hand 6-DoF pose estimation</strong> pipeline for autonomous CNC machining using an RGB-D camera, FoundationPose (zero-shot), and ICP refinement — eliminating manual fixturing and enabling dynamic toolpath adjustment in SE(3) space.</li>
+                                <li>Built an <strong className="text-white">eye-in-hand 6-DoF pose estimation</strong> pipeline for autonomous CNC machining using an RGB-D camera, FoundationPose (zero-shot), and ICP refinement. This eliminates manual fixturing and enables dynamic toolpath adjustment in SE(3) space.</li>
                             </ul>
                         </div>
 
@@ -232,6 +232,37 @@ export default function ResumePage() {
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2 mt-1">
                                 <li>FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM)</li>
                                 <li>Secured 2nd position in the final year project competition</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Publications */}
+                    <div className="mb-10 print-section">
+                        <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/5 pb-2">
+                            Publications
+                        </h2>
+
+                        <div className="mb-6">
+                            <h3 className="text-lg font-semibold text-white mb-3">Journals & Conferences</h3>
+                            <ul className="list-disc list-inside text-gray-300 text-sm space-y-3 ml-2">
+                                <li className="leading-relaxed">
+                                    A. Munir, S. Soomro, <strong className="text-white">M.T. Shahid</strong>, T.A. Soomro, K.N. Choi. "Hybrid active contours driven by edge and region fitting energies based on p-Laplace equation", <em className="text-cyan-400">IEEE Access</em> (2019).
+                                </li>
+                                <li className="leading-relaxed">
+                                    Kim, D. D., <strong className="text-white">M.T. Shahid</strong>, Kim, Y., Lee, W. J., Song, H. C., Piccialli, F., Choi, K. N. "Generating Pedestrian Training Dataset using DCGAN", <em className="text-cyan-400">Proceedings of the 2019 3rd International Conference on Advances in Image Processing</em> (2019).
+                                </li>
+                                <li className="leading-relaxed">
+                                    Memon, Asif Aziz, Shafiullah Soomro, <strong className="text-white">M.T. Shahid</strong>, Asad Munir, Asim Niaz, and Kwang Nam Choi. "Segmentation of Intensity-Corrupted Medical Images Using Adaptive Weight-Based Hybrid Active Contours", <em className="text-cyan-400">Computational and Mathematical Methods in Medicine</em> (2020).
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-white mb-3">Master's Thesis</h3>
+                            <ul className="list-disc list-inside text-gray-300 text-sm space-y-3 ml-2">
+                                <li className="leading-relaxed">
+                                    "Object Segmentation with Active Contours Driven by Weight Matrix", 131th Master's Thesis, <em className="text-cyan-400">Chung-Ang University</em>.
+                                </li>
                             </ul>
                         </div>
                     </div>
