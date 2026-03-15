@@ -68,11 +68,11 @@ export default function MedicalCoverLetter() {
                         </ul>
 
                         <p>
-                            I am looking to pivot my career toward Medical 3D because I am passionate about the impact of this data. I am a fast learner when it comes to specific software tools (like 3D Slicer), provided the underlying mathematics are solid—which they are.
+                            I am looking to pivot my career toward Medical 3D because I am passionate about the impact of this data. I am a fast learner when it comes to specific software tools (like 3D Slicer), provided the underlying mathematics are solid, which they are.
                         </p>
 
-                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 italic">
-                            <p className="font-bold not-italic mb-2">My Approach:</p>
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 italic print:break-before-page print:mt-12">
+                            <p className="font-bold not-italic mb-2 text-gray-900">My Approach:</p>
                             I value your time and technical standards. If you are willing to provide a sample dataset and specific task details, I would love to provide a <strong>comprehensive task plan and a Proof of Concept (POC)</strong> before we officially begin. This will allow you to evaluate my methodology and clinical accuracy firsthand.
                         </div>
 
