@@ -1,0 +1,31 @@
+[Your Name]
+Seoul, South Korea
+mtanseefshahid@gmail.com
+tanseefshahid.github.io
+linkedin.com/in/muhammad-tanseef-shahid
+
+[Date]
+
+Hiring Committee,
+
+I am writing to express my strong interest in the Medical Imaging Specialist position. With over 6 years of experience in 3D Computer Vision and a Master’s degree specifically focused on image segmentation, I am eager to bridge my expertise in high-precision engineering with the medical field.
+
+While my recent professional experience has been in industrial metrology and generative 3D AI, my academic and research foundation is deeply rooted in medical imaging. My Master’s thesis was centered on **"Object Segmentation with Active Contours Driven by Weight Matrix,"** and I have co-authored research specifically for the medical domain, such as **"Segmentation of Intensity-Corrupted Medical Images Using Adaptive Weight-Based Hybrid Active Contours"** (published in CMMM).
+
+Key highlights I bring to this role include:
+
+*   **Deep Mathematical Expertise:** I have a rigorous understanding of the mathematical foundations of segmentation (Active Contours, Level Sets) and 3D reconstruction. My experience is not limited to using tools, but extends to optimizing the underlying algorithms.
+*   **3D Reconstruction & DICOM:** I have completed projects involving the reconstruction of 3D anatomical models from CT/DICOM data. I am highly comfortable with the transition from 2D slices to 3D volumetric surfaces and meshes.
+*   **Automation focus:** I am an expert in Python and C++. I don't just perform manual segmentation; I build scripts (including Blender/bpy and PyVista/VTK) to automate workflows. I am eager to apply this to the 3D Slicer API to enhance your project's efficiency.
+*   **Technical Versatility:** I understand that medical data has unique acquisition challenges. However, the geometric principles of metrology and sub-millimeter precision I used at Hyvision System translate directly to the reliability required in clinical imaging.
+
+I am looking to pivot my career toward Medical 3D because I am passionate about the impact of this data. I am a fast learner when it comes to specific software tools (like 3D Slicer), provided the underlying mathematics are solid—which they are.
+
+**My Approach:**
+I value your time and technical standards. If you are willing to provide a sample dataset and specific task details, I would love to provide a **comprehensive task plan and a Proof of Concept (POC)** before we officially begin. This will allow you to evaluate my methodology and clinical accuracy firsthand.
+
+Thank you for your time and consideration. I look forward to the possibility of discussing how my background in high-precision 3D vision can serve your team.
+
+Best regards,
+
+Muhammad Tanseef Shahid

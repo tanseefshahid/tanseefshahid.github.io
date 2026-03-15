@@ -67,7 +67,9 @@ export default function ResearchResumePage() {
                         <div className="flex flex-wrap gap-4 text-sm text-gray-400">
                             <span className="flex items-center gap-1"><Mail className="w-4 h-4" /> mtanseefshahid@gmail.com</span>
                             <span className="flex items-center gap-1"><Globe className="w-4 h-4" /> tanseefshahid.github.io</span>
-                            <span className="flex items-center gap-1"><Linkedin className="w-4 h-4" /> linkedin.com/in/tanseef</span>
+                            <a href="https://www.linkedin.com/in/muhammad-tanseef-shahid/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-cyan-400 transition-colors">
+                                <Linkedin className="w-4 h-4" /> linkedin.com/in/muhammad-tanseef-shahid
+                            </a>
                             <span className="flex items-center gap-1"><Github className="w-4 h-4" /> github.com/tanseefshahid</span>
                         </div>
                     </div>
