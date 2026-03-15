@@ -104,8 +104,7 @@ export default function Hero() {
                     className="flex justify-center gap-4"
                 >
                     {[
-                        { href: "https://github.com/tanseefshahid", icon: Github, label: "GitHub" },
-                        { href: "https://linkedin.com/in/muhammad-tanseef-shahid-58a435141/", icon: Linkedin, label: "LinkedIn" },
+                        { href: "https://www.linkedin.com/in/muhammad-tanseef-shahid/", icon: Linkedin, label: "LinkedIn" },
                         { href: "mailto:mtanseefshahid@gmail.com", icon: Mail, label: "Email" },
                     ].map(({ href, icon: Icon, label }) => (
                         <motion.a
