@@ -6,9 +6,8 @@ import { Download, ArrowLeft, Mail, Github, Linkedin, Globe } from "lucide-react
 import { notFound } from "next/navigation";
 
 export default function MedicalCombinedResumePage() {
-    if (process.env.NODE_ENV === 'production') {
-        notFound();
-    }
+    // Removed production block to allow page to be live on GitHub Pages
+
 
     return (
         <main className="min-h-screen bg-[#070A12] relative py-12 md:py-24 print:bg-white print:py-0 print:px-0">
