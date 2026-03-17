@@ -111,13 +111,13 @@ export default function CloResumePage() {
                     </div>
 
                     {/* Experience */}
-                    <div className="mb-6 print-section">
-                        <h2 className="text-xl font-bold text-white print:text-blue-900 mb-4 border-b border-white/5 print:border-gray-200 pb-1">
+                    <div className="mb-6">
+                        <h2 className="text-xl font-bold text-white print:text-blue-900 mb-4 border-b border-white/5 print:border-gray-200 pb-1 print:mb-2 break-after-avoid">
                             Professional Experience
                         </h2>
 
                         {/* Job 1 - Hyvision */}
-                        <div className="mb-5 print:mb-4">
+                        <div className="mb-5 print:mb-4 print-section">
                             <div className="resume-job-row flex justify-between items-start mb-1">
                                 <div>
                                     <h3 className="text-md font-semibold text-white print:text-black">3D Metrology & AI Engineer</h3>
@@ -138,7 +138,7 @@ export default function CloResumePage() {
                         </div>
 
                         {/* Job 2 - Luxolis */}
-                        <div className="mb-5 print:mb-4">
+                        <div className="mb-5 print:mb-4 print-section">
                             <div className="resume-job-row flex justify-between items-start mb-1">
                                 <div>
                                     <h3 className="text-md font-semibold text-white print:text-black">Computer Vision Engineer</h3>
@@ -156,7 +156,7 @@ export default function CloResumePage() {
                         </div>
 
                         {/* Job 3 - PERSPECTIVE */}
-                        <div className="mb-5 print:mb-4">
+                        <div className="mb-5 print:mb-4 print-section">
                             <div className="resume-job-row flex justify-between items-start mb-1">
                                 <div>
                                     <h3 className="text-md font-semibold text-white print:text-black">2D/3D AI Researcher (Generative AI & 3D Vision)</h3>
@@ -180,7 +180,7 @@ export default function CloResumePage() {
                         </div>
 
                         {/* Job 4 - Ellexi */}
-                        <div className="mb-2">
+                        <div className="mb-2 print-section">
                             <div className="resume-job-row flex justify-between items-start mb-1">
                                 <div>
                                     <h3 className="text-md font-semibold text-white print:text-black">AI Developer</h3>
@@ -236,9 +236,13 @@ export default function CloResumePage() {
             <style jsx global>{`
                 @media print {
                     .no-print { display: none !important; }
-                    body { background: white !important; }
-                    main { padding: 0 !important; }
-                    .print-section { break-inside: avoid; margin-bottom: 12px !important; }
+                    body { background: white !important; color: black !important; }
+                    main { padding: 0 !important; margin: 0 !important; }
+                    .print-section { break-inside: avoid; margin-bottom: 10px !important; }
+                    .break-after-avoid { break-after: avoid; }
+                    h1 { margin-bottom: 8px !important; }
+                    h2 { margin-top: 15px !important; margin-bottom: 8px !important; }
+                    .resume-skills-grid { gap: 10px !important; }
                 }
             `}</style>
         </main>
