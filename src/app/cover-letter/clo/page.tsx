@@ -61,7 +61,7 @@ export default function CloCoverLetterPage() {
                         </p>
 
                         <p>
-                            CLO's tools like Marvelous Designer set the industry standard because of their mathematical rigor and graphic fidelity. I am looking for a team where I can combine my deep learning background with my passion for computer graphics and 3D geometry constraints.
+                            I am looking for a team where I can combine my deep learning background with my passion for computer graphics and 3D geometry constraints to help build the next generation of digital fashion.
                         </p>
 
                         <p>

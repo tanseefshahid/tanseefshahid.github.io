@@ -1,0 +1,17 @@
+Dear Hiring Team,
+
+I am writing to express my interest in joining CLO Virtual Fashion. With over 6 years of experience specializing in 2D/3D AI, 3D reconstruction, metrology, and Generative AI, my technical background strongly aligns with CLO’s mission to build the future of digital fashion.
+
+A key part of my recent work involved designing an end-to-end virtual fitting system successfully deployed for the company Stylebot. To make this work, I built pipelines for 3D avatar pose and shape estimation. Achieving a realistic final result also required heavily fine-tuning generative models like Stable Diffusion to handle high-fidelity clothing generation and style adaptation onto virtual models.
+
+Beyond virtual try-on, I have led multiple image-to-3D reconstruction projects. I have expert-level knowledge of working with 3D polygon meshes. I do not just run deep learning models; I regularly handle the low-level geometry processing, including point-cloud to mesh conversion, automatic texturing, lighting, and physically based rendering (PBR) using tools like Python, C++, PCL, and Blender.
+
+I am looking for a team where I can combine my deep learning background with my passion for computer graphics and 3D geometry to help build the next generation of digital fashion.
+
+I have attached my resume and portfolio for your review. I would welcome the opportunity to discuss how my skill set fits into your ongoing research and development.
+
+Best regards,
+
+Muhammad Tanseef Shahid
+mtanseefshahid@gmail.com
+https://tanseefshahid.github.io
