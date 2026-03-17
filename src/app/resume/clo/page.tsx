@@ -147,7 +147,7 @@ export default function CloResumePage() {
                             </div>
                             <ul className="list-disc list-inside text-gray-300 print:text-gray-800 text-sm space-y-1 ml-2">
                                 <li>
-                                    Deployed a real-time 360° defect detection pipeline using a synchronized 6-camera Basler GigE array. Optimized YOLO inference models using <strong className="text-white print:text-black font-medium">ONNX for on-device deployment</strong>, achieving &lt;200ms latency at 5 parts/sec.
+                                    Deployed a real-time 360° defect detection pipeline using a synchronized 6-camera Basler GigE array. Optimized YOLO inference models using <strong className="text-white print:text-black font-medium">ONNX for on-device deployment</strong>, achieving &lt;200ms latency at 5 parts/sec <strong className="text-white print:text-black italic">(Pungkang Co. Ltd.)</strong>.
                                 </li>
                                 <li>
                                     Built an eye-in-hand 6-DoF pose estimation pipeline for autonomous CNC machining using an RGB-D camera and FoundationPose. Bridged the gap between 2D tracking and <strong className="text-white print:text-black font-medium">3D pose & shape estimation</strong> in SE(3) space <strong className="text-white print:text-black italic">(Hwacheon Machinery)</strong>.

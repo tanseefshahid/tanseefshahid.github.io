@@ -134,8 +134,8 @@ export default function ResumePage() {
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Architected a high-speed 3D laser inspection system for UMP modules using <strong className="text-white">PCL</strong> and <strong className="text-white">RANSAC/Eigen</strong>-based coordinate alignment, achieving sub-millimeter measurement precision with automated FAI validation against SQL Server specifications.</li>
-                                <li>Developed a PolyWorks-style 3D alignment application with <strong className="text-white">ICP best-fit</strong>, landmark registration (SVD), and interactive lasso-based noise removal, processing point clouds of 1M+ points in real-time using <strong className="text-white">VTK/PyVista</strong>.</li>
+                                <li>Architected a high-speed 3D laser inspection system for UMP modules using <strong className="text-white">PCL</strong> and <strong className="text-white">RANSAC/Eigen</strong>-based coordinate alignment, achieving sub-millimeter measurement precision with automated FAI validation against SQL Server specifications <strong className="text-white italic">(Apple Project)</strong>.</li>
+                                <li>Developed a PolyWorks-style 3D alignment application with <strong className="text-white">ICP best-fit</strong>, landmark registration (SVD), and interactive lasso-based noise removal, processing point clouds of 1M+ points in real-time using <strong className="text-white">VTK/PyVista</strong> <strong className="text-white italic">(Apple Project)</strong>.</li>
                                 <li>Designed a modular 3D rendering engine with a visual <strong className="text-white">node-based workflow editor</strong> (ECS architecture, .NET 8/WPF), enabling non-programmers to build custom inspection pipelines via drag-and-drop with an extensible plugin system.</li>
                             </ul>
                         </div>
@@ -153,8 +153,8 @@ export default function ResumePage() {
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Deployed a real-time 360° defect detection system using a synchronized <strong className="text-white">6-camera Basler GigE array</strong> with YOLO inference, achieving <strong className="text-white">&lt;200ms end-to-end latency at 5 parts/sec</strong>. Integrated with PLCs via NuDAQ I/O for pneumatic rejection of defective units.</li>
-                                <li>Built an <strong className="text-white">eye-in-hand 6-DoF pose estimation</strong> pipeline for autonomous CNC machining using an RGB-D camera, FoundationPose (zero-shot), and ICP refinement. This eliminates manual fixturing and enables dynamic toolpath adjustment in SE(3) space.</li>
+                                <li>Deployed a real-time 360° defect detection system using a synchronized <strong className="text-white">6-camera Basler GigE array</strong> with YOLO inference, achieving <strong className="text-white">&lt;200ms end-to-end latency at 5 parts/sec</strong>. Integrated with PLCs via NuDAQ I/O for pneumatic rejection of defective units <strong className="text-white italic">(Pungkang Co. Ltd.)</strong>.</li>
+                                <li>Built an <strong className="text-white">eye-in-hand 6-DoF pose estimation</strong> pipeline for autonomous CNC machining using an RGB-D camera, FoundationPose (zero-shot), and ICP refinement. This eliminates manual fixturing and enables dynamic toolpath adjustment in SE(3) space <strong className="text-white italic">(Hwacheon Machinery)</strong>.</li>
                             </ul>
                         </div>
 
