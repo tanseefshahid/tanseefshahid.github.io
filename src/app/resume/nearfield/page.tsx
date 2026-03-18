@@ -126,13 +126,13 @@ export default function NearfieldResumePage() {
                             </div>
                             <ul className="list-disc list-inside text-gray-300 print:text-gray-800 text-sm space-y-1 ml-2">
                                 <li>
-                                    Architected a high-speed 3D laser metrology system for UMP electronics, achieving sub-micron alignment precision through advanced <strong className="text-white print:text-black font-medium">Coordinate Metrology</strong> and RANSAC/Eigen-based physics algorithms <strong className="text-white print:text-black italic font-bold">(Apple Project)</strong>.
+                                    Architected a high-speed 3D laser metrology system (UMP software) for mobile jig/frame inspection using <strong className="text-white print:text-black font-medium">Keyence LJ-X8080 laser profilers</strong>. Processed dense point cloud data to perform automated FAI, extracting precise geometric features (circles, lines, curves) for dimensional analysis <strong className="text-white print:text-black italic font-bold">(Apple Project)</strong>.
                                 </li>
                                 <li>
                                     Developed a PolyWorks-style metrology application for automated FAI (First Article Inspection). Enabled real-time **Best-fit Alignment (ICP)** of high-density point clouds (1M+ pts) against **Parametric CAD models** to identify production deviations.
                                 </li>
                                 <li>
-                                    Collaborated with onsite manufacturing teams to deploy automated **measurement recipes** and inspection workflows, significantly reducing manual operator overhead in assembly lines.
+                                    Collaborated continuously with On-Site Supervisors (OSS) to provide real-time engineering solutions. Diagnosed issues with both current and legacy metrology software, rapidly designing and deploying new measurement algorithms via compiled <strong className="text-white print:text-black font-medium">DLL updates</strong> to resolve field application challenges.
                                 </li>
                                 <li>
                                     Built a modular visual workflow engine (ECS architecture, .NET 8) for system technicians to create custom inspection pipelines, bridging the gap between R&D and onsite factory operations.
