@@ -75,7 +75,7 @@ export default function NearfieldResumePage() {
                     {/* Summary */}
                     <div className="mb-6 print-section text-sm lg:text-base">
                         <p className="text-gray-300 print:text-gray-800 leading-relaxed">
-                            Solutions-oriented **Systems Engineer & Metrology Researcher** with over **6 years** of experience in high-precision 3D measurement, automated data analysis, and advanced algorithm development. Proven track record of architecting end-to-end inspection systems for Tier-1 technology companies (e.g., **Apple Project**) in high-throughput manufacturing environments. Expert in bridging the gap between R&D, field applications, and customer requirements, focusing on high-accuracy **Coordinate Alignment**, **Statistical Yield Optimization**, and **Automated FAI (First Article Inspection)**. Deeply proficient in Python, C++, and MATLAB for complex data visualization and metrology solution engineering.
+                            Solutions-oriented **Systems Engineer & Metrology Researcher** with over **6 years** of experience in high-precision 3D measurement, automated data analysis, and advanced algorithm development. Proven track record of architecting end-to-end inspection systems for Tier-1 technology companies (e.g., **Apple Project**) in high-throughput manufacturing environments. Expert in bridging the gap between R&D, field applications, and customer requirements, focusing on high-accuracy **Coordinate Alignment**, **Statistical Yield Optimization**, and **Automated FAI (First Article Inspection)**. Deeply proficient in Python, C++, and MATLAB for complex data visualization and metrology solution engineering. Leveraging extensive experience in sub-micron laser profiling (LJ-X8080), I bring a strong analytical foundation and a keen interest in **Atomic Force Microscopy (AFM)** and advanced semiconductor/wafer metrology.
                         </p>
                     </div>
 
@@ -90,10 +90,10 @@ export default function NearfieldResumePage() {
                                 <ul className="list-disc list-inside text-gray-300 print:text-gray-800 text-sm space-y-1">
                                     <li><strong className="text-white print:text-black font-medium">3D Metrology & Precision Alignment</strong> (RANSAC, ICP, SVD)</li>
                                     <li><strong className="text-white print:text-black font-medium">Sub-micron Geometric Analysis</strong> (Geometric Dimensioning & Tolerancing)</li>
-                                    <li>Automated **Measurement Recipe Development** for high-throughput Ffabs</li>
+                                    <li>Automated **Measurement Recipe Development** for high-throughput fabs</li>
                                     <li>Hardware-Software Integration: **PLC/NuDAQ, Basler GigE, PLC Interface**</li>
                                     <li>System Calibration & Yield Optimization</li>
-                                    <li>Field Application Services & Corporate Training</li>
+                                    <li>**Customer-Facing Field Application Services** & Corporate Training</li>
                                 </ul>
                             </div>
                             <div>
@@ -101,7 +101,7 @@ export default function NearfieldResumePage() {
                                 <ul className="list-disc list-inside text-gray-300 print:text-gray-800 text-sm space-y-1">
                                     <li><strong className="text-white print:text-black font-medium">Python & MATLAB Data Analysis</strong> (Visualization, Statistics, FFT)</li>
                                     <li><strong className="text-white print:text-black font-medium">C++, C# (.NET 8), & Eigen-based Metrology Algorithms</strong></li>
-                                    <li>3D Point Cloud Processing (**PCL, Open3D, PyVista**)</li>
+                                    <li>3D Point Cloud Processing (**PolyWorks, PCL, Open3D, PyVista**)</li>
                                     <li>Algorithm Optimization for Real-time Systems (**ONNX, TensorRT**)</li>
                                     <li>Database Integration (**SQL Server**) for Metrology Data Management</li>
                                     <li>Expert knowledge of **3D Polygon Meshes & Parametric CAD Models**</li>
@@ -129,7 +129,10 @@ export default function NearfieldResumePage() {
                                     Architected a high-speed 3D laser metrology system (UMP software) for mobile jig/frame inspection using <strong className="text-white print:text-black font-medium">Keyence LJ-X8080 laser profilers</strong>. Processed dense point cloud data to perform automated FAI, extracting precise geometric features (circles, lines, curves) for dimensional analysis <strong className="text-white print:text-black italic font-bold">(Apple Project)</strong>.
                                 </li>
                                 <li>
-                                    Developed a PolyWorks-style metrology application for automated FAI (First Article Inspection). Enabled real-time **Best-fit Alignment (ICP)** of high-density point clouds (1M+ pts) against **Parametric CAD models** to identify production deviations.
+                                    Engineered a high-precision automated metrology pipeline for camera module tilt analysis using <strong className="text-white print:text-black font-medium">Keyence LJ-X8080</strong> laser profiler data. Implemented parallel ICP alignment and robust iterative plane fitting to extract sub-micron tilt deviations, translating complex sensor data into actionable measurement recipes for yield optimization <strong className="text-white print:text-black italic font-bold">(Apple Project)</strong>.
+                                </li>
+                                <li>
+                                    Developed a PolyWorks-style metrology application for automated FAI (First Article Inspection). Enabled real-time **Best-fit Alignment (ICP)** of high-density point clouds (1M+ pts) against **Parametric CAD models** to identify production deviations <strong className="text-white print:text-black italic font-bold">(Apple Project)</strong>.
                                 </li>
                                 <li>
                                     Collaborated continuously with On-Site Supervisors (OSS) to provide real-time engineering solutions. Diagnosed issues with both current and legacy metrology software, rapidly designing and deploying new measurement algorithms via compiled <strong className="text-white print:text-black font-medium">DLL updates</strong> to resolve field application challenges.

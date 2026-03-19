@@ -10,6 +10,14 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        id: "camera-module-tilt",
+        title: "Camera Module Tilt Analysis (LJ-X8080)",
+        description: "High-performance C++ pipeline for aligning and computing tilt on camera modules using Keyence LJ-X8080 laser data, featuring parallel ICP alignment and robust plane fitting.",
+        tags: ["C++", "PCL", "Eigen", "3D Metrology", "ICP"],
+        link: "/en/portfolio/portfolio-0d/",
+        imageUrl: "/images/architecture_0d.png",
+    },
+    {
         id: "virtual-fitting-system",
         title: "Virtual Fitting System",
         description: "Developed Virtual Fitting System using generative AI (Generative Adversarial Networks) which overlay clothes on user input.",

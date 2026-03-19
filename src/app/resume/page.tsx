@@ -105,7 +105,7 @@ export default function ResumePage() {
                                 <h3 className="text-cyan-400 font-medium mb-2">Software & Tools</h3>
                                 <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
                                     <li>Python, C++, C# (.NET 8), TypeScript, MATLAB</li>
-                                    <li>PyTorch, TensorFlow, OpenCV, PCL, Open3D</li>
+                                    <li>PolyWorks, PyTorch, TensorFlow, OpenCV, PCL, Open3D</li>
                                     <li>Blender (bpy), PyVista/VTK, Eigen, Helix Toolkit</li>
                                     <li>Docker, Git, ONNX, CUDA, Linux</li>
                                     <li>MFC, WPF, PyQt, Flask, React/Next.js</li>
@@ -135,6 +135,7 @@ export default function ResumePage() {
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
                                 <li>Architected a high-speed 3D laser inspection system for UMP modules using <strong className="text-white">PCL</strong> and <strong className="text-white">RANSAC/Eigen</strong>-based coordinate alignment, achieving sub-millimeter measurement precision with automated FAI validation against SQL Server specifications <strong className="text-white italic">(Apple Project)</strong>.</li>
+                                <li>Developed a high-performance C++ metrology pipeline for camera module tilt analysis using <strong className="text-white">Keyence LJ-X8080 laser scan data</strong>. Implemented OpenMP-accelerated parallel <strong className="text-white">ICP alignment</strong> and iterative robust plane fitting (sigma-clipping) to extract highly precise geometric tilt measurements <strong className="text-white italic">(Apple Project)</strong>.</li>
                                 <li>Developed a PolyWorks-style 3D alignment application with <strong className="text-white">ICP best-fit</strong>, landmark registration (SVD), and interactive lasso-based noise removal, processing point clouds of 1M+ points in real-time using <strong className="text-white">VTK/PyVista</strong> <strong className="text-white italic">(Apple Project)</strong>.</li>
                                 <li>Designed a modular 3D rendering engine with a visual <strong className="text-white">node-based workflow editor</strong> (ECS architecture, .NET 8/WPF), enabling non-programmers to build custom inspection pipelines via drag-and-drop with an extensible plugin system.</li>
                             </ul>
