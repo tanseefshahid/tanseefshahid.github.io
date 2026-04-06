@@ -9,6 +9,7 @@ const PROJECT_3D_IDS = new Set([
     "portfolio-0a",
     "portfolio-0b",
     "portfolio-0c",
+    "portfolio-0d",
     "portfolio-02",
     "portfolio-04",
 ]);

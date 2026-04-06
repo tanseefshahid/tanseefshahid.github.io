@@ -106,8 +106,8 @@ export default function ResumePage() {
                                 <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
                                     <li>Python, C++, C# (.NET 8), TypeScript, MATLAB</li>
                                     <li>PolyWorks, PyTorch, TensorFlow, OpenCV, PCL, Open3D</li>
-                                    <li>Blender (bpy), PyVista/VTK, Eigen, Helix Toolkit</li>
-                                    <li>Docker, Git, ONNX, CUDA, Linux</li>
+                                    <li>TensorRT, Weights & Biases, ROS/ROS2, Docker, Git, ONNX, CUDA</li>
+                                    <li>Blender (bpy), PyVista/VTK, Eigen, Helix Toolkit, Linux</li>
                                     <li>MFC, WPF, PyQt, Flask, React/Next.js</li>
                                     <li>NVIDIA Jetson, Basler GigE, PLC/GPIO, AWS</li>
                                 </ul>
@@ -134,10 +134,9 @@ export default function ResumePage() {
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Architected a high-speed 3D laser inspection system for UMP modules using <strong className="text-white">PCL</strong> and <strong className="text-white">RANSAC/Eigen</strong>-based coordinate alignment, achieving sub-millimeter measurement precision with automated FAI validation against SQL Server specifications <strong className="text-white italic">(Apple Project)</strong>.</li>
-                                <li>Developed a high-performance C++ metrology pipeline for camera module tilt analysis using <strong className="text-white">Keyence LJ-X8080 laser scan data</strong>. Implemented OpenMP-accelerated parallel <strong className="text-white">ICP alignment</strong> and iterative robust plane fitting (sigma-clipping) to extract highly precise geometric tilt measurements <strong className="text-white italic">(Apple Project)</strong>.</li>
-                                <li>Developed a PolyWorks-style 3D alignment application with <strong className="text-white">ICP best-fit</strong>, landmark registration (SVD), and interactive lasso-based noise removal, processing point clouds of 1M+ points in real-time using <strong className="text-white">VTK/PyVista</strong> <strong className="text-white italic">(Apple Project)</strong>.</li>
-                                <li>Designed a modular 3D rendering engine with a visual <strong className="text-white">node-based workflow editor</strong> (ECS architecture, .NET 8/WPF), enabling non-programmers to build custom inspection pipelines via drag-and-drop with an extensible plugin system.</li>
+                                <li><strong className="text-white italic">(Apple Project)</strong> — Optimized high-performance C++ metrology pipelines for smartphone camera module tilt analysis using <strong className="text-white">Keyence LJ-X8080</strong> laser scan data, implementing parallelized <strong className="text-white">ICP alignment</strong> and robust plane fitting.</li>
+                                <li><strong className="text-white italic">(Apple Project)</strong> — Designed a modular 3D rendering engine with a visual <strong className="text-white">node-based workflow editor</strong> (.NET 8/WPF), enabling automated inspection sequences via an extensible plugin architecture.</li>
+                                <li><strong className="text-white italic">(Apple Project)</strong> — Developed custom 3D alignment tools with landmark registration and interactive noise removal, processing 1M+ point clouds in real-time for high-precision manufacturing validation.</li>
                             </ul>
                         </div>
 
@@ -154,8 +153,9 @@ export default function ResumePage() {
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Deployed a real-time 360° defect detection system using a synchronized <strong className="text-white">6-camera Basler GigE array</strong> with YOLO inference, achieving <strong className="text-white">&lt;200ms end-to-end latency at 5 parts/sec</strong>. Integrated with PLCs via NuDAQ I/O for pneumatic rejection of defective units <strong className="text-white italic">(Pungkang Co. Ltd.)</strong>.</li>
-                                <li>Built an <strong className="text-white">eye-in-hand 6-DoF pose estimation</strong> pipeline for autonomous CNC machining using an RGB-D camera, FoundationPose (zero-shot), and ICP refinement. This eliminates manual fixturing and enables dynamic toolpath adjustment in SE(3) space <strong className="text-white italic">(Hwacheon Machinery)</strong>.</li>
+                                <li><strong className="text-white italic">(Pungkang Co. Ltd.)</strong> — Deployed a real-time 360° surface inspection system using a <strong className="text-white">synchronized 6-camera Basler array</strong> and YOLO inference, achieving <strong className="text-white">&lt;200ms latency at 5 parts/sec</strong> with PLC-integrated pneumatic rejection.</li>
+                                <li><strong className="text-white italic">(Hwacheon Machinery)</strong> — Built an <strong className="text-white">eye-in-hand 6-DoF pose estimation</strong> pipeline for autonomous CNC machines using FoundationPose and ICP refinement, enabling dynamic toolpath adjustment in SE(3) space.</li>
+                                <li>Developed deterministic image acquisition and control logic using <strong className="text-white">NuDAQ I/O</strong>, bridging high-speed Python AI pipelines with industrial automation hardware.</li>
                             </ul>
                         </div>
 
@@ -172,10 +172,10 @@ export default function ResumePage() {
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Architected a photorealistic <strong className="text-white">virtual try-on</strong> pipeline using LADi-VTON (Latent Diffusion), DensePose, U2Net cloth segmentation, and CLIP textual inversion, achieving <strong className="text-white">85%+ pattern fidelity</strong>. Deployed on AWS with Docker.</li>
-                                <li>Created a single-image to <strong className="text-white">3D mesh reconstruction</strong> pipeline using OpenLRM, achieving IoU 0.80 and Chamfer Distance 0.08 with 24×360° Blender-rendered training views enhanced by ESRGAN.</li>
-                                <li>Designed a hierarchical <strong className="text-white">apparel classification</strong> system (ResNet50) achieving <strong className="text-white">&gt;95% accuracy across 74 classes</strong> using 3-depth taxonomy with specialized sub-classifiers.</li>
-                                <li>Led face processing R&D: face reconstruction, audio-driven lip synthesis, and face enhancement using GANs and diffusion models.</li>
+                                <li>Developed a photorealistic <strong className="text-white">virtual try-on</strong> pipeline using LADi-VTON (Latent Diffusion), DensePose, and CLIP textual inversion, achieving <strong className="text-white">85%+ pattern fidelity</strong> for commercial fashion applications.</li>
+                                <li>Architected a <strong className="text-white">single-image to 3D mesh</strong> reconstruction pipeline using OpenLRM and neural rendering, achieving <strong className="text-white">0.80 IoU and 0.08 Chamfer Distance</strong> for rapid asset generation.</li>
+                                <li>Engineered a <strong className="text-white">hierarchical apparel classification</strong> system (ResNet50) with a 3-depth taxonomy, attaining <strong className="text-white">&gt;95% accuracy</strong> across 73 fine-grained categories.</li>
+                                <li>Designed a high-fidelity <strong className="text-white">cloth segmentation</strong> and alpha matting pipeline using fine-tuned U2Net to extract pixel-perfect masks for downstream synthesis.</li>
                             </ul>
                         </div>
 
@@ -192,10 +192,10 @@ export default function ResumePage() {
                                 </div>
                             </div>
                             <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
-                                <li>Developed a real-time <strong className="text-white">ALPR system</strong> for gas station automation using YOLO + CRNN with synthetic license plate data, achieving <strong className="text-white">98% recognition accuracy</strong> with DeepSORT tracking.</li>
-                                <li>Deployed a <strong className="text-white">PPE compliance detection</strong> system on <strong className="text-white">NVIDIA Jetson TX2</strong> for construction sites with multi-class YOLO inference and real-time geo-fenced hazard zone alerts.</li>
-                                <li>Built an <strong className="text-white">anomaly detection & multi-camera tracking</strong> system for Incheon Airport using YOWO (3D-CNN), HRNet pose estimation, and Person Re-ID — detecting falls, sprinting, and abandoned baggage.</li>
-                                <li>Created a <strong className="text-white">gas meter inspection</strong> pipeline using CRAFT + Tesseract OCR with Mask R-CNN segmentation, digitizing date stamps from weathered boiler plates.</li>
+                                <li><strong className="text-white italic">(Incheon International Airport)</strong> — Built a real-time <strong className="text-white">anomaly detection & multi-camera tracking</strong> system using 3D-CNN (YOWO) and HRNet pose estimation to identify falls, sprinting, and abandoned baggage.</li>
+                                <li>Architected a high-precision <strong className="text-white">ALPR and vehicle tracking</strong> pipeline for gas station automation, achieving <strong className="text-white">&gt;99% character recognition</strong> using a custom synthetic training data engine.</li>
+                                <li>Deployed a <strong className="text-white">PPE compliance and spatial hazard detection</strong> system on <strong className="text-white">NVIDIA Jetson</strong> edge devices, enforcing safety protocols via real-time YOLO inference.</li>
+                                <li>Developed an automated <strong className="text-white">gas meter inspection</strong> pipeline using OCR (CRAFT/Tesseract) and Mask R-CNN segmentation, digitizing weathered industrial equipment plates.</li>
                             </ul>
                         </div>
                     </div>

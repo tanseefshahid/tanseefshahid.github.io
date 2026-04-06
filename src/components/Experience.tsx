@@ -9,15 +9,15 @@ const experiences = [
         company: "Hyvision",
         location: "Seoul, South Korea",
         period: "Aug 2025 - Present",
-        description: "Building 3D inspection systems with laser scanning and point cloud analysis, PolyWorks-style alignment tools, and a 3D rendering engine with node-based workflow editor for inspection automation.",
+        description: "Architecting high-precision 3D inspection systems and C++ metrology pipelines for sub-micron surface analysis. Developing modular 3D engines with node-based automation and advanced point-cloud alignment (ICP/RANSAC) for industrial quality control.",
         current: true,
     },
     {
-        title: "SLAM Engineer",
+        title: "Computer Vision Engineer",
         company: "Luxolis",
         location: "Seoul, South Korea",
         period: "Apr 2025 - Jul 2025",
-        description: "Developed SLAM and 3D reconstruction solutions for industrial applications.",
+        description: "Engineered hardware-in-the-loop (HITL) machine vision systems and 360° inspection arrays. Implemented 6-DoF pose estimation for autonomous CNC machining and real-time deep learning pipelines integrated with industrial PLCs for high-speed manufacturing.",
         current: false,
     },
     {
@@ -25,7 +25,7 @@ const experiences = [
         company: "PERSPECTIVE Corp.",
         location: "Seoul, South Korea",
         period: "Apr 2022 - Apr 2025",
-        description: "Leading research in Virtual Fitting, Image-to-3D Reconstruction, Object Classification, Image Segmentation, and FaceSwap technologies.",
+        description: "Led research in generative AI and 3D reconstruction. Specialized in virtual fitting systems (LADi-VTON), single-image to 3D asset generation (OpenLRM), and high-precision cloth segmentation for fashion and surveillance applications.",
         current: false,
     },
     {
@@ -33,7 +33,7 @@ const experiences = [
         company: "Ellexi",
         location: "Seoul, South Korea",
         period: "Nov 2019 - Oct 2021",
-        description: "Focused on Object Detection, Classification, Tracking, Segmentation, and Training Data Generation.",
+        description: "Focused on edge-computed vision systems for industrial safety and automation. Implemented real-time ALPR for gas stations, 3D-CNN anomaly detection (Incheon Airport), and PPE compliance monitoring on NVIDIA Jetson edge devices.",
         current: false,
     },
 ];

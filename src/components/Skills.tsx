@@ -25,11 +25,11 @@ const skillCategories = [
             },
             {
                 label: "3D Processing:",
-                skills: ["PCL", "Open3D", "PyVista/VTK", "Eigen", "Helix Toolkit", "Blender (bpy)"],
+                skills: ["PolyWorks", "PCL", "Open3D", "PyVista/VTK", "Eigen", "Helix Toolkit", "Blender (bpy)"],
             },
             {
-                label: "DevOps:",
-                skills: ["Docker", "Git", "ONNX", "CUDA", "Linux"],
+                label: "MLOps & DevOps:",
+                skills: ["Weights & Biases", "Docker", "Git", "ONNX", "CUDA", "Linux"],
             },
         ],
     },
@@ -62,8 +62,8 @@ const skillCategories = [
                 skills: ["RANSAC", "ICP", "PCA", "SVD", "Point Cloud Filtering"],
             },
             {
-                label: "Hardware & Edge:",
-                skills: ["NVIDIA Jetson", "Basler GigE Cameras", "PLC/NuDAQ", "RGB-D Cameras"],
+                label: "Hardware & Edge AI:",
+                skills: ["NVIDIA Jetson", "TensorRT", "ROS/ROS2", "Basler GigE Cameras", "PLC/NuDAQ", "RGB-D Cameras"],
             },
             {
                 label: "Cloud & Infra:",

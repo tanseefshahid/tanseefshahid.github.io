@@ -36,7 +36,7 @@ Built a robust and highly optimized 3D data processing pipeline in C++ explicitl
 ## Technical Implementation
 
 - **Core Languages**: **C++17** for maximum runtime and cache-level performance.
-- **Libraries**:
+- **Libraries & Metrology Tools**:
     - **PCL (Point Cloud Library)**: Used for core point cloud object handling, KD-Tree formulation, and generic ICP components.
     - **Eigen3**: Powers all the matrix algebra, geometric transformations, and least-squares solving required for plane fitting.
     - **OpenMP**: For robust multithreading across independent alignment tasks.
