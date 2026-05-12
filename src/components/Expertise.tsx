@@ -5,33 +5,33 @@ import { Cpu, Eye, Code, Layers, Video, Zap } from "lucide-react";
 
 const expertiseAreas = [
     {
-        title: "3D Metrology",
-        description: "RANSAC/ICP-based point cloud alignment, FAI inspection, coordinate system calibration, and sub-millimeter precision measurement on industrial laser scan data.",
+        title: "3D Geometry & SLAM",
+        description: "Point cloud processing, geometric registration (ICP, RANSAC, SVD), 6-DoF pose estimation, hand-eye calibration, and sub-millimeter alignment for robotics, autonomous systems, and precision metrology.",
         icon: Layers,
     },
     {
         title: "Computer Vision",
-        description: "Object detection (YOLO), semantic segmentation (U-Net, SAM), anomaly detection, OCR pipelines, and real-time multi-camera tracking (DeepSORT).",
+        description: "Object detection (YOLO), semantic segmentation (U-Net, U2Net, SAM, Mask R-CNN), multi-view geometry, OCR, and multi-camera tracking & re-identification (DeepSORT, HRNet).",
         icon: Eye,
     },
     {
-        title: "3D Reconstruction",
-        description: "Single-image to 3D mesh (OpenLRM), NeRF, 6-DoF pose estimation (FoundationPose + ICP), and Blender-based synthetic data generation.",
+        title: "3D Reconstruction & Rendering",
+        description: "Single-image to 3D mesh generation (OpenLRM), NeRF, neural rendering, Blender-based procedural rendering, and exporting production-ready .obj / .glb assets for AR/VR, gaming, and manufacturing.",
         icon: Video,
     },
     {
         title: "Generative AI",
-        description: "Latent Diffusion (LADi-VTON) virtual try-on, GAN-based synthesis, textual inversion, and synthetic dataset engineering for data-scarce domains.",
+        description: "Latent Diffusion (LADi-VTON, Stable Diffusion), GANs, conditional generation, CLIP textual inversion, and large-scale synthetic dataset engineering for data-scarce and regulated domains.",
         icon: Cpu,
     },
     {
         title: "Software Engineering",
-        description: "Production-grade C++/MFC, C#/.NET 8 (WPF/ECS), Python (PyTorch/Flask), and full-stack web (React/Next.js). Multi-threaded, containerized architectures.",
+        description: "Production C++ (Eigen, PCL, STL), C# / .NET 8 (WPF, ECS architecture), Python (PyTorch, Flask), and full-stack web (React / Next.js, TypeScript). Multi-threaded, containerized, scalable architectures.",
         icon: Code,
     },
     {
-        title: "Edge & Deployment",
-        description: "NVIDIA Jetson edge AI, PLC/GPIO hardware integration, Docker containerization, ONNX optimization, and cloud deployment (AWS S3/EC2).",
+        title: "Edge AI & Deployment",
+        description: "NVIDIA Jetson edge inference, TensorRT/ONNX optimization, Docker containerization, hardware-in-the-loop integration (PLC/GPIO, Basler cameras), and cloud deployment (AWS).",
         icon: Zap,
     },
 ];
@@ -45,7 +45,7 @@ export default function Expertise() {
                         Core <span className="gradient-text-vibrant">Expertise</span><span className="text-cyan-400">.</span>
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        Bridging the gap between mathematical metrology and modern artificial intelligence to build robust, high-precision systems.
+                        Bridging classical geometric algorithms and modern AI to build robust 3D systems across robotics, metrology, generative content, and real-time perception.
                     </p>
                 </div>
 

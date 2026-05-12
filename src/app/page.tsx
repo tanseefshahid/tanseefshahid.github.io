@@ -33,8 +33,7 @@ export default function Home() {
               Selected <span className="gradient-text-vibrant">Works</span><span className="text-cyan-400">.</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              A collection of projects showcasing my expertise in computer vision,
-              AI research, and innovative technology solutions.
+              A collection of projects spanning 3D reconstruction, SLAM, metrology, generative AI, and real-time perception — bridging classical geometry with modern deep learning.
             </p>
             <div className="mt-6 h-1 w-24 mx-auto bg-gradient-to-r from-cyan-500 to-violet-500 rounded-full" />
           </div>

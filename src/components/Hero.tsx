@@ -72,7 +72,7 @@ export default function Hero() {
                     >
                         <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                         <span className="text-sm font-medium tracking-wide text-cyan-300 uppercase">
-                            2D/3D Computer Vision & AI Engineering
+                            3D Computer Vision · AI · Robotics · Generative Systems
                         </span>
                     </motion.div>
 
@@ -85,14 +85,15 @@ export default function Hero() {
 
                     {/* Description */}
                     <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-6 leading-relaxed">
-                        AI Researcher and Engineer specializing in{" "}
-                        <span className="text-white font-semibold">3D Metrology</span>,{" "}
-                        <span className="text-white font-semibold">3D Reconstruction</span>, and{" "}
-                        <span className="text-white font-semibold">Computer Vision</span>. Building innovative inspection and AI-powered systems with over 6 years of experience.
+                        Engineer and researcher across{" "}
+                        <span className="text-white font-semibold">3D Reconstruction</span>,{" "}
+                        <span className="text-white font-semibold">SLAM &amp; Metrology</span>,{" "}
+                        <span className="text-white font-semibold">Generative AI</span>, and{" "}
+                        <span className="text-white font-semibold">Computer Vision</span>. Building production-grade systems with over 6 years of experience.
                     </p>
 
                     <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-                        From industrial 3D inspection & point cloud metrology to generative AI, real-time detection, and edge deployment.
+                        From point cloud processing and 6-DoF pose estimation to neural rendering, latent diffusion, real-time perception, and edge deployment.
                     </p>
                 </motion.div>
 
