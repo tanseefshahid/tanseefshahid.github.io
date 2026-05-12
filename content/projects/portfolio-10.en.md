@@ -1,12 +1,12 @@
 ---
-title: "Automated Gas Meter Inspection & Hazard Detection Pipeline"
+title: "Robust OCR & Geometric Structural Analysis in Unconstrained Field Conditions"
 lang: en
 slug: portfolio-10
 collection: portfolio
 permalink: /en/portfolio/portfolio-10/
 teaser: /images/architecture_gasmeter.png
 excerpt: |
-  Designed and deployed an end-to-end computer vision system for a gas inspection company to automate maintenance scheduling and proactively detect infrastructure hazards by extracting text data from gas meters and assessing pipe structural integrity.
+  Hybrid OCR (CRAFT + Tesseract) and geometric measurement pipeline (Mask R-CNN segmentation, angle estimation) handling severe weathering, variable lighting, and arbitrary capture angles. Robust text extraction and geometric analysis transfer to document AI, infrastructure inspection, robotics perception, and industrial digitization.
 
 ---
 

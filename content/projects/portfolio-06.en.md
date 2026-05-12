@@ -1,12 +1,12 @@
 ---
-title: "Hierarchical Deep Learning for Multi-Granularity Apparel Classification"
+title: "Hierarchical Fine-Grained Visual Categorization (FGVC) with Deep CNNs"
 lang: en
 slug: portfolio-06
 collection: portfolio
 permalink: /en/portfolio/portfolio-06/
 teaser: /images/architecture_apparel.png
 excerpt: |
-  Architected and trained a fine-grained visual categorization model for a commercial fashion application, accurately classifying apparel across a complex 3-depth hierarchical taxonomy with >95% top-level and >90% fine-grained accuracy across 73 classes.
+  Hierarchical ResNet50-based classification system handling severe class imbalance and high intra-class variance across a 3-depth taxonomy of 73 classes (&gt;95% top-level, &gt;90% fine-grained). Hierarchical FGVC and class-imbalance techniques generalize to medical diagnosis, species recognition, defect classification, and 3D model categorization.
 
 ---
 

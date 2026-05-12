@@ -1,12 +1,12 @@
 ---
-title: "High-Fidelity Virtual Try-On via Latent Diffusion & Textual Inversion"
+title: "Photorealistic Image Synthesis with Latent Diffusion & Conditional Generation"
 lang: en
 slug: portfolio-03
 collection: portfolio
 permalink: /en/portfolio/portfolio-03/
 teaser: /images/architecture_vton.png
 excerpt: |
-  Architected and deployed a photorealistic Virtual Try-On pipeline leveraging a complex orchestration of computer vision models to extract human geometry and garment features, utilizing a tuned LADi-VTON Latent Diffusion Model to seamlessly synthesize garments onto target avatars.
+  Conditional image generation pipeline using fine-tuned LADi-VTON Latent Diffusion, DensePose human geometry extraction, and CLIP textual inversion for photorealistic synthesis. Applied to virtual try-on but the diffusion conditioning, geometry-aware synthesis, and large-scale rendering apply to generative 3D, AR effects, and content creation.
 
 ---
 

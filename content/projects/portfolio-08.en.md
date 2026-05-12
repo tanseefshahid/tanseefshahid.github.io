@@ -1,12 +1,12 @@
 ---
-title: "Real-Time PPE Compliance & Spatial Hazard Detection at the Edge"
+title: "Edge-Deployed Real-Time Object Detection & Spatial Zone Tracking"
 lang: en
 slug: portfolio-08
 collection: portfolio
 permalink: /en/portfolio/portfolio-08/
 teaser: /images/architecture_ppe.png
 excerpt: |
-  Architected and deployed a fully automated, edge-computed safety monitoring system for construction sites. The system enforces PPE compliance at access points and provides real-time spatial tracking within hazardous zones, immediately alerting workers and managers to safety violations.
+  Low-latency multi-class detection and 2D spatial tracking deployed on NVIDIA Jetson edge devices, handling heavy occlusion, variable lighting, and zero-cloud-dependency constraints. Edge inference, spatial-zone reasoning, and real-time alerting transfer to robotics, autonomous vehicles, and on-device AR systems.
 
 ---
 

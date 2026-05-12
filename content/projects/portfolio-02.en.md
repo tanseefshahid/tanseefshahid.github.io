@@ -1,12 +1,12 @@
 ---
-title: "Eye-in-Hand 6-DoF Pose Estimation & Autonomous CNC Localization"
+title: "Eye-in-Hand 6-DoF Pose Estimation & Robotic Spatial Localization"
 lang: en
 slug: portfolio-02
 collection: portfolio
 permalink: /en/portfolio/portfolio-02/
 teaser: /images/architecture_cnc.png
 excerpt: |
-  Architected and deployed a high-precision spatial awareness system for autonomous CNC machining. Using an eye-in-hand 3D RGB-D camera mounted on the drill head, the system performs real-time 6-DoF pose estimation by registering workpieces against CAD models, eliminating manual fixturing.
+  Real-time 6-DoF pose estimation pipeline using an eye-in-hand RGB-D camera, FoundationPose, and ICP refinement to register physical objects against 3D models in SE(3) space. Hand-eye calibration and pose tracking apply directly to robotic manipulation, autonomous pick-and-place, and SLAM-driven mobile robots.
 
 ---
 

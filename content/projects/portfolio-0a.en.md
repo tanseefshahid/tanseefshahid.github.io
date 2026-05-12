@@ -1,12 +1,12 @@
 ---
-title: "3D Laser Inspection System for UMP Modules"
+title: "Real-Time 3D Point Cloud Processing & Geometric Registration Framework"
 lang: en
 slug: portfolio-0a
 collection: portfolio
 permalink: /en/portfolio/portfolio-0a/
 teaser: /images/architecture_0a.png
 excerpt: |
-  Built a high-performance 3D inspection framework for UMP modules. Features automated coordinate system alignment using RANSAC and PCL, DB-driven FAI measurements, and multi-threaded processing.
+  High-performance C++/PCL framework for large-scale point cloud processing, robust geometric primitive fitting (RANSAC), and automated coordinate-frame estimation. Core techniques transfer to SLAM, robotics, 3D scene reconstruction, and autonomous mapping.
 ---
 
 ## Overview

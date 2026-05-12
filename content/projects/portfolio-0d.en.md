@@ -1,12 +1,12 @@
 ---
-title: "Camera Module Tilt Analysis (LJ-X8080)"
+title: "6-DoF Pose Estimation from Laser Scan Point Clouds"
 lang: en
 slug: portfolio-0d
 collection: portfolio
 permalink: /en/portfolio/portfolio-0d/
 teaser: /images/architecture_0d.png
 excerpt: |
-  Developed a high-performance C++ pipeline for processing Keyence LJ-X8080 laser scan data to compute the precise tilt of smartphone camera modules relative to reference brackets. Features parallel ICP matching, robust plane fitting, and automated ROI extraction.
+  High-performance C++ pipeline computing precise 6-DoF pose (Tx, Ty, Rx, Ry) of objects relative to reference frames using parallel ICP registration, robust RANSAC plane fitting, and automated ROI extraction. Pose estimation and template matching techniques transfer to robotics, SLAM, autonomous navigation, and depth-sensor calibration.
 ---
 
 ## Overview

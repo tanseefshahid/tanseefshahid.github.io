@@ -1,12 +1,12 @@
 ---
-title: "Single-Image to 3D Reconstruction Pipeline via OpenLRM & Neural Rendering"
+title: "Single-Image to 3D Mesh Reconstruction with Neural Rendering"
 lang: en
 slug: portfolio-04
 collection: portfolio
 permalink: /en/portfolio/portfolio-04/
 teaser: /images/architecture_3d.png
 excerpt: |
-  Architected and trained an advanced image-to-3D generative pipeline capable of producing high-fidelity 3D meshes from a single 2D image using the OpenLRM framework, supported by a custom synthetic rendering pipeline for AR/VR, virtual staging, and gaming environments.
+  Image-to-3D generative pipeline producing high-fidelity textured meshes from a single RGB image using OpenLRM (Large Reconstruction Model) and a custom multi-view Blender rendering pipeline (24×360° views, ESRGAN-enhanced). Core 3D reconstruction techniques apply to AR/VR, gaming, virtual production, digital twins, and 3D content authoring.
 
 ---
 

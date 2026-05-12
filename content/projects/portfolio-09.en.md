@@ -1,12 +1,12 @@
 ---
-title: "Real-Time Anomaly Detection & Multi-Camera Tracking System (Incheon Airport)"
+title: "Spatio-Temporal Action Recognition & Multi-Camera Person Re-Identification"
 lang: en
 slug: portfolio-09
 collection: portfolio
 permalink: /en/portfolio/portfolio-09/
 teaser: /images/architecture_anomaly.png
 excerpt: |
-  Architected and developed a real-time video surveillance pipeline for Incheon International Airport to identify anomalous human behaviors and track flagged individuals across a distributed camera network, enhancing security response times in highly crowded environments.
+  Real-time video understanding pipeline combining 3D-CNN action recognition (YOWO), HRNet pose estimation, and Person Re-Identification across a distributed camera network (deployed for Incheon International Airport). Spatio-temporal learning, multi-camera association, and pose-based behavior analysis apply to robotics, autonomous driving, sports analytics, and HCI.
 
 ---
 

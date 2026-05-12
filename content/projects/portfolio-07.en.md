@@ -1,12 +1,12 @@
 ---
-title: "Real-Time ALPR & Automated Fueling Tracking Pipeline"
+title: "Multi-Object Detection, OCR & Tracking with Synthetic Data Generation"
 lang: en
 slug: portfolio-07
 collection: portfolio
 permalink: /en/portfolio/portfolio-07/
 teaser: /images/architecture_alpr.png
 excerpt: |
-  Architected and developed a high-precision Automatic License Plate Recognition and vehicle tracking system to automate billing at gas stations, achieving >99% character recognition and >97% full plate accuracy using a robust synthetic training pipeline.
+  End-to-end perception pipeline combining YOLO detection, CRNN OCR, and DeepSORT multi-object tracking, trained on a procedurally generated synthetic dataset (&gt;99% character accuracy). Synthetic data generation, perspective rectification, and tracking-by-detection apply to autonomous driving, surveillance, robotics, and AI/ML data engineering.
 
 ---
 

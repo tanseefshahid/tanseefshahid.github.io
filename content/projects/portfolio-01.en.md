@@ -1,12 +1,12 @@
 ---
-title: "Real-Time 360° Defect Detection & PLC Integration Pipeline"
+title: "Multi-Camera 360° Vision System with Hardware-Synchronized Capture"
 lang: en
 slug: portfolio-01
 collection: portfolio
 permalink: /en/portfolio/portfolio-01/
 teaser: /images/architecture_defect.png
 excerpt: |
-  Architected and deployed a fully automated, hardware-in-the-loop machine vision system for high-speed industrial quality control. The system utilizes a synchronized 6-camera circular array to perform 360-degree surface inspections, actively communicating with machine PLCs to eject defective units in real-time.
+  Hardware-in-the-loop (HITL) machine vision system with a synchronized 6-camera array, real-time YOLO inference (&lt;200ms latency), and deterministic PLC/GPIO integration. Multi-view synchronization and edge-deployed deep learning concepts apply to robotics, autonomous driving sensor fusion, and surround-view perception.
 
 ---
 

@@ -1,12 +1,12 @@
 ---
-title: "3D Rendering Engine with Node-Based Workflow Editor"
+title: "Modular 3D Rendering Engine with Node-Based Visual Programming"
 lang: en
 slug: portfolio-0c
 collection: portfolio
 permalink: /en/portfolio/portfolio-0c/
 teaser: /images/architecture_0c.png
 excerpt: |
-  Built a flexible 3D inspection platform featuring a visual node editor. Users can design custom metrology workflows by connecting processing nodes for alignment, measurement, and defect detection.
+  Real-time 3D rendering engine (.NET 8/WPF) with an ECS architecture and node-based visual editor for designing custom 3D processing pipelines via drag-and-drop. Plugin-extensible design applicable to game engines, simulation tools, procedural generation, and 3D content authoring.
 ---
 
 ## Overview

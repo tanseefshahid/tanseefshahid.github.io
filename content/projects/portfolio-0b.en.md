@@ -1,12 +1,12 @@
 ---
-title: "PolyWorks-Style 3D Alignment Tool"
+title: "Interactive 3D Registration & Point Cloud Editing Application"
 lang: en
 slug: portfolio-0b
 collection: portfolio
 permalink: /en/portfolio/portfolio-0b/
 teaser: /images/architecture_0b.png
 excerpt: |
-  Developed a professional 3D metrology tool for aligning point clouds to CAD models. Features include landmark-based registration, ICP best-fit refinement, lasso-based noise removal, and batch verification of alignment results.
+  Desktop application for aligning point clouds (PLY/PCD) to mesh models (STL/OBJ) using landmark-based SVD registration, ICP refinement, and interactive editing. Core registration and SE(3) alignment techniques transfer to SLAM loop closure, 3D scan-to-scan alignment, and AR/VR scene anchoring.
 ---
 
 ## Overview

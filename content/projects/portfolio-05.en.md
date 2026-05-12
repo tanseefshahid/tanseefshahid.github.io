@@ -1,12 +1,12 @@
 ---
-title: "High-Fidelity Cloth Segmentation & Alpha Matting Pipeline"
+title: "High-Fidelity Semantic Segmentation & Alpha Matting Pipeline"
 lang: en
 slug: portfolio-05
 collection: portfolio
 permalink: /en/portfolio/portfolio-05/
 teaser: /images/architecture_clothseg.png
 excerpt: |
-  Developed an advanced semantic segmentation and background removal pipeline for a commercial fashion application using a fine-tuned U2Net architecture to extract pixel-perfect garment masks and categorize them into precise regions for downstream virtual try-on systems.
+  Pixel-precise semantic segmentation and alpha matting pipeline using a fine-tuned U2Net architecture for fine-grained mask extraction and region categorization. Same techniques apply to medical imaging, autonomous driving scene parsing, AR foreground extraction, and 3D scene segmentation.
 
 ---
 
