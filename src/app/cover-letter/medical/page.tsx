@@ -2,6 +2,7 @@
 
 import { ArrowLeft, Download, Mail, Globe, Linkedin } from "lucide-react";
 import Link from "next/link";
+import { printWithFilename } from "@/lib/printWithFilename";
 
 export default function MedicalCoverLetter() {
     return (
@@ -18,7 +19,7 @@ export default function MedicalCoverLetter() {
                     </Link>
 
                     <button
-                        onClick={() => window.print()}
+                        onClick={() => printWithFilename("Medical", "Cover-Letter")}
                         className="flex items-center gap-2 px-6 py-2 rounded-full bg-cyan-600 text-white font-medium hover:bg-cyan-700 transition-colors shadow-lg"
                     >
                         <Download className="w-4 h-4" />

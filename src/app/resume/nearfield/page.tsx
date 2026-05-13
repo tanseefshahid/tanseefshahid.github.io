@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Download, ArrowLeft, Mail, Github, Linkedin, Globe } from "lucide-react";
+import { printWithFilename } from "@/lib/printWithFilename";
 
 export default function NearfieldResumePage() {
     return (
@@ -25,7 +26,7 @@ export default function NearfieldResumePage() {
                     </Link>
 
                     <button
-                        onClick={() => window.print()}
+                        onClick={() => printWithFilename("Nearfield")}
                         className="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-blue-500 to-cyan-600 text-white hover:opacity-90 transition-all shadow-lg glow-blue"
                     >
                         <Download className="w-4 h-4" />

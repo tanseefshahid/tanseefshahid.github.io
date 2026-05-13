@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Download, ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
+import { printWithFilename } from "@/lib/printWithFilename";
 
 export default function MetrologyResumePage() {
     if (process.env.NODE_ENV === 'production') {
@@ -23,7 +24,7 @@ export default function MetrologyResumePage() {
                     </Link>
 
                     <button
-                        onClick={() => window.print()}
+                        onClick={() => printWithFilename("Metrology-Engineer")}
                         className="flex items-center gap-2 px-5 py-2 rounded text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all"
                     >
                         <Download className="w-4 h-4" />

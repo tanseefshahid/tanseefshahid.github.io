@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Download, ArrowLeft, Mail, Github, Linkedin, Globe } from "lucide-react";
+import { printWithFilename } from "@/lib/printWithFilename";
 
 export default function CloResumePage() {
     return (
@@ -25,7 +26,7 @@ export default function CloResumePage() {
                     </Link>
 
                     <button
-                        onClick={() => window.print()}
+                        onClick={() => printWithFilename("CLO-Virtual-Fashion")}
                         className="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:opacity-90 transition-all shadow-lg glow-cyan"
                     >
                         <Download className="w-4 h-4" />
