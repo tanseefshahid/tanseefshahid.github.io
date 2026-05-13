@@ -67,19 +67,6 @@ export default function HuaweiResearcherResumePage() {
                         </p>
                     </section>
 
-                    {/* Peer-Reviewed Publications - elevated to second section for research role */}
-                    <section className="mb-5 print-section">
-                        <h2 className="text-[11pt] font-bold text-gray-900 tracking-wider mb-2 pb-1 border-b border-gray-300">
-                            PEER-REVIEWED PUBLICATIONS
-                        </h2>
-                        <ul className="text-[10pt] text-gray-800 leading-snug space-y-1 list-disc list-inside">
-                            <li>Munir, A., Soomro, S., <strong>Shahid, M.T.</strong>, Soomro, T.A., Choi, K.N. &quot;Hybrid active contours driven by edge and region fitting energies based on <strong>p-Laplace equation</strong>,&quot; <em>IEEE Access</em>, vol. 7, 2019.</li>
-                            <li>Memon, A., Soomro, S., <strong>Shahid, M.T.</strong>, Munir, A., Niaz, A., Choi, K.N. &quot;Segmentation of Intensity-Corrupted Medical Images Using <strong>Adaptive Weight-Based Hybrid Active Contours</strong>,&quot; <em>Computational and Mathematical Methods in Medicine</em>, 2020.</li>
-                            <li>Kim, D.D., <strong>Shahid, M.T.</strong>, Kim, Y., Lee, W.J., Song, H.C., Piccialli, F., Choi, K.N. &quot;Generating Pedestrian Training Dataset using <strong>DCGAN</strong>,&quot; <em>Proceedings of the 2019 3rd International Conference on Advances in Image Processing (ICAIP)</em>, 2019.</li>
-                            <li><strong>Shahid, M.T.</strong> &quot;Object Segmentation with Active Contours Driven by Weight Matrix,&quot; M.S. Thesis, <em>Chung-Ang University</em>, 2019.</li>
-                        </ul>
-                    </section>
-
                     {/* Core Research & Technical Skills */}
                     <section className="mb-5 print-section">
                         <h2 className="text-[11pt] font-bold text-gray-900 tracking-wider mb-2 pb-1 border-b border-gray-300">
@@ -206,7 +193,7 @@ export default function HuaweiResearcherResumePage() {
                     </section>
 
                     {/* Honors & Awards */}
-                    <section className="mb-2 print-section">
+                    <section className="mb-5 print-section">
                         <h2 className="text-[11pt] font-bold text-gray-900 tracking-wider mb-2 pb-1 border-b border-gray-300">
                             HONORS &amp; AWARDS
                         </h2>
@@ -215,6 +202,19 @@ export default function HuaweiResearcherResumePage() {
                             <p className="text-[10pt] italic text-gray-700">Chung-Ang University (CAU) •</p>
                             <p className="text-[10pt] text-gray-800">Awarded to high-achieving international researchers demonstrating exceptional potential in advanced computer science and engineering fields.</p>
                         </div>
+                    </section>
+
+                    {/* Peer-Reviewed Publications - placed at the end (co-authored, non-tier-1 venues) */}
+                    <section className="mb-2 print-section">
+                        <h2 className="text-[11pt] font-bold text-gray-900 tracking-wider mb-2 pb-1 border-b border-gray-300">
+                            PEER-REVIEWED PUBLICATIONS
+                        </h2>
+                        <ul className="text-[10pt] text-gray-800 leading-snug space-y-1 list-disc list-inside">
+                            <li>Munir, A., Soomro, S., <strong>Shahid, M.T.</strong>, Soomro, T.A., Choi, K.N. &quot;Hybrid active contours driven by edge and region fitting energies based on <strong>p-Laplace equation</strong>,&quot; <em>IEEE Access</em>, vol. 7, 2019.</li>
+                            <li>Memon, A., Soomro, S., <strong>Shahid, M.T.</strong>, Munir, A., Niaz, A., Choi, K.N. &quot;Segmentation of Intensity-Corrupted Medical Images Using <strong>Adaptive Weight-Based Hybrid Active Contours</strong>,&quot; <em>Computational and Mathematical Methods in Medicine</em>, 2020.</li>
+                            <li>Kim, D.D., <strong>Shahid, M.T.</strong>, Kim, Y., Lee, W.J., Song, H.C., Piccialli, F., Choi, K.N. &quot;Generating Pedestrian Training Dataset using <strong>DCGAN</strong>,&quot; <em>Proceedings of the 2019 3rd International Conference on Advances in Image Processing (ICAIP)</em>, 2019.</li>
+                            <li><strong>Shahid, M.T.</strong> &quot;Object Segmentation with Active Contours Driven by Weight Matrix,&quot; M.S. Thesis, <em>Chung-Ang University</em>, 2019.</li>
+                        </ul>
                     </section>
                 </article>
             </div>
