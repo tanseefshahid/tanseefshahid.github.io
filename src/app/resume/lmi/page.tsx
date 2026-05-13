@@ -75,23 +75,6 @@ export default function LmiResumePage() {
                         </div>
                     </section>
 
-                    {/* Featured Project - the simulator */}
-                    <section className="mb-5 print-section">
-                        <h2 className="text-[11pt] font-bold text-gray-900 tracking-wider mb-2 pb-1 border-b border-gray-300">
-                            FEATURED PROJECT
-                        </h2>
-
-                        <div>
-                            <p className="text-[10pt] text-gray-900"><strong>Laser Profiler Simulation &amp; Hardware-Planning Toolkit</strong> <span className="italic text-gray-600">(personal R&amp;D, ongoing)</span></p>
-                            <p className="text-[10pt] text-gray-800 leading-snug mt-1">
-                                Designed and built a desktop 3D laser-profiler simulator (~2,300 LOC, Python / PyQt5 / PyVista / trimesh) emulating Keyence LJ-X8080-class line-laser sensors over arbitrary CAD models. Used internally to evaluate hardware feasibility — which surfaces are visible from which sensor pose, which scan strategy (rotating object, rotating laser, linear translation) recovers the geometry best, and which step size / angle range / ray density is required before committing to physical hardware.
-                            </p>
-                            <p className="text-[10pt] text-gray-800 leading-snug mt-1">
-                                Implements parallelized ray-mesh intersection (multi-process pool, persistent worker mesh state) for fast scan generation, configurable laser geometry with arbitrary rotation axis (X/Y/Z), CSV / PLY import-export, robust profile-row extraction, sinusoidal curve fitting (<em>scipy</em>) for pose deviation analysis, and an integrated 3D viewer for raw-vs-reconstructed point cloud comparison. Directly relevant to LMI&apos;s sensor-prototyping workflow with OEMs and system integrators.
-                            </p>
-                        </div>
-                    </section>
-
                     {/* Experience */}
                     <section className="mb-5 print-section">
                         <h2 className="text-[11pt] font-bold text-gray-900 tracking-wider mb-2 pb-1 border-b border-gray-300">
@@ -109,6 +92,7 @@ export default function LmiResumePage() {
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
                                 <p><strong>3D Laser Profiler Pipeline (Apple Project):</strong> Architected a high-performance C++ pipeline processing Keyence LJ-X8080 laser scan data for sub-millimeter precision measurement of smartphone camera modules — parallel ICP matching, robust plane fitting, automated ROI extraction, FAI tolerance validation against SQL Server specifications.</p>
+                                <p><strong>Laser Profiler Simulation &amp; Hardware-Planning Toolkit:</strong> Built an internal 3D laser-profiler simulator (Python, PyQt5, PyVista, trimesh) emulating Keyence LJ-X8080-class line-laser sensors over arbitrary CAD models — used to evaluate sensor placement, scan strategy (rotating object, rotating laser, linear translation), and step size / angle / ray density before committing to physical hardware. Implements parallelized ray-mesh intersection, robust profile extraction, sinusoidal pose deviation fitting (<em>scipy</em>), and an integrated 3D viewer for raw-vs-reconstructed point cloud comparison.</p>
                                 <p><strong>Pre-Processing, Segmentation &amp; Feature Extraction:</strong> Built production C++ modules for point cloud pre-processing, RANSAC/Eigen-based geometric primitive fitting (planes, cylinders, edges), and coordinate-frame estimation from raw laser scan data.</p>
                                 <p><strong>HMI &amp; Prototyping Tools:</strong> Designed a modular 3D rendering engine and node-based visual workflow editor (.NET 8 / WPF, ECS architecture) enabling non-programmers to construct custom inspection pipelines via drag-and-drop with an extensible plugin system — directly transferable proof-of-concept tooling for OEM customers.</p>
                                 <p><strong>Real-Time Mesh Editing:</strong> Built an interactive 3D alignment application (PolyWorks-style) with ICP best-fit, SVD landmark registration, and lasso noise removal, processing 1M+ point clouds in real-time via VTK / PyVista.</p>
