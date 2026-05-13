@@ -54,7 +54,7 @@ export default function AperaResumePage() {
                             SUMMARY
                         </h2>
                         <p className="text-[10pt] text-gray-800 leading-snug">
-                            Computer vision and machine learning engineer with 6+ years of experience building production perception systems for robotic guidance, industrial automation, and high-precision 3D applications. Deep expertise in <strong>6-DoF pose estimation, RGB-D depth processing, object detection, and 3D geometric algorithms</strong> (ICP, RANSAC, SVD) — combined with hands-on PyTorch model training, C++ production deployment, and NVIDIA edge GPU optimization. Proven track record shipping perception systems for autonomous CNC machining, 360° industrial inspection, and sub-millimeter precision metrology. Strong theoretical foundation with peer-reviewed publications in applied mathematics and computer vision.
+                            Computer vision and machine learning engineer with 6+ years of experience building production perception systems for robotic guidance, industrial automation, and high-precision 3D applications. Deep expertise in <strong>6-DoF pose estimation, RGB-D depth processing, object detection, and 3D geometric algorithms</strong> (ICP, RANSAC, SVD), combined with hands-on PyTorch model training, C++ production deployment, and NVIDIA edge GPU optimization. Proven track record shipping perception systems for autonomous CNC machining, 360° industrial inspection, and sub-millimeter precision metrology. Strong theoretical foundation with peer-reviewed publications in applied mathematics and computer vision.
                         </p>
                     </section>
 
@@ -91,7 +91,7 @@ export default function AperaResumePage() {
                                 <p className="text-[9pt] text-gray-700 italic">May 2025 - Jul 2025</p>
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
-                                <p><strong>Eye-in-Hand 6-DoF Pose Estimation for Robotic Guidance (Hwacheon Machinery):</strong> Built a real-time perception pipeline using an RGB-D camera mounted on an autonomous CNC drill head, performing 6-DoF pose estimation with FoundationPose and ICP refinement to register physical workpieces against CAD models in SE(3) space — eliminating manual fixturing and enabling dynamic toolpath adjustment.</p>
+                                <p><strong>Eye-in-Hand 6-DoF Pose Estimation for Robotic Guidance (Hwacheon Machinery):</strong> Built a real-time perception pipeline using an RGB-D camera mounted on an autonomous CNC drill head, performing 6-DoF pose estimation with FoundationPose and ICP refinement to register physical workpieces against CAD models in SE(3) space. Eliminated manual fixturing and enabled dynamic toolpath adjustment.</p>
                                 <p><strong>Hardware-Synchronized Industrial Vision (Pungkang Co. Ltd.):</strong> Deployed a real-time 360° object inspection system with a synchronized 6-camera Basler array and YOLO inference, reaching &lt;200ms end-to-end latency at 5 parts/sec with PLC-integrated control for industrial-grade reliability.</p>
                                 <p><strong>Real-Time C++/Python Bridging:</strong> Developed deterministic image acquisition and control logic in C++ bridging high-speed PyTorch inference pipelines with industrial automation hardware (NuDAQ I/O).</p>
                             </div>
@@ -107,9 +107,9 @@ export default function AperaResumePage() {
                                 <p className="text-[9pt] text-gray-700 italic">Aug 2025 - Present</p>
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
-                                <p><strong>Sub-Millimeter 3D Registration (Apple Project):</strong> Architected a high-performance C++ metrology pipeline using PCL and RANSAC/Eigen-based coordinate alignment, achieving sub-millimeter precision with automated tolerance validation against SQL Server specifications — production reliability at industrial scale.</p>
+                                <p><strong>Sub-Millimeter 3D Registration (Apple Project):</strong> Architected a high-performance C++ metrology pipeline using PCL and RANSAC/Eigen-based coordinate alignment, achieving sub-millimeter precision with automated tolerance validation against SQL Server specifications at industrial-grade reliability.</p>
                                 <p><strong>Real-Time Point Cloud Processing (Apple Project):</strong> Developed a 3D registration application implementing ICP best-fit, SVD-based landmark registration, and interactive editing, processing 1M+ point clouds in real-time via VTK/PyVista.</p>
-                                <p><strong>Modular Perception Pipeline Engine (Apple Project):</strong> Designed a node-based 3D processing engine (.NET 8/WPF, ECS architecture) enabling extensible perception pipelines with plugin-based modules — directly transferable to model deployment infrastructure.</p>
+                                <p><strong>Modular Perception Pipeline Engine (Apple Project):</strong> Designed a node-based 3D processing engine (.NET 8/WPF, ECS architecture) enabling extensible perception pipelines with plugin-based modules, directly transferable to model deployment infrastructure.</p>
                             </div>
                         </div>
 
@@ -123,8 +123,8 @@ export default function AperaResumePage() {
                                 <p className="text-[9pt] text-gray-700 italic">Dec 2021 - Apr 2025</p>
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
-                                <p><strong>Single-Image to 3D Mesh Generation:</strong> Engineered a PyTorch-based image-to-3D pipeline (OpenLRM Large Reconstruction Model) producing geometrically valid 3D meshes, reaching IoU 0.80 and Chamfer Distance 0.08 — applying foundation-model concepts to 3D reconstruction.</p>
-                                <p><strong>Foundation-Model-Based Generative Pipeline:</strong> Fine-tuned and deployed Latent Diffusion (LADi-VTON), DensePose, and CLIP textual inversion in a production pipeline reaching 85%+ visual fidelity — deployed to commercial customers on AWS via Docker.</p>
+                                <p><strong>Single-Image to 3D Mesh Generation:</strong> Engineered a PyTorch-based image-to-3D pipeline (OpenLRM Large Reconstruction Model) producing geometrically valid 3D meshes, reaching IoU 0.80 and Chamfer Distance 0.08, applying foundation-model concepts to 3D reconstruction.</p>
+                                <p><strong>Foundation-Model-Based Generative Pipeline:</strong> Fine-tuned and deployed Latent Diffusion (LADi-VTON), DensePose, and CLIP textual inversion in a production pipeline reaching 85%+ visual fidelity, deployed to commercial customers on AWS via Docker.</p>
                                 <p><strong>Production PyTorch Training Infrastructure:</strong> Designed end-to-end training pipelines on AWS with Weights &amp; Biases experiment tracking, multi-view synthetic data generation (24×360° Blender renders + ESRGAN), and reproducible model versioning.</p>
                                 <p><strong>Hierarchical Deep Learning Classification:</strong> Built a ResNet50-based fine-grained categorization system (PyTorch) handling severe class imbalance, reaching &gt;95% accuracy across 73 fine-grained classes.</p>
                             </div>
@@ -140,7 +140,7 @@ export default function AperaResumePage() {
                                 <p className="text-[9pt] text-gray-700 italic">Nov 2019 - Oct 2021</p>
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
-                                <p><strong>Edge GPU Deployment (NVIDIA Jetson):</strong> Deployed multi-class YOLO detection on NVIDIA Jetson edge devices for construction safety, with ONNX/TensorRT optimization for low-latency on-device inference — directly relevant to Apera&apos;s edge GPU robot-guidance constraints.</p>
+                                <p><strong>Edge GPU Deployment (NVIDIA Jetson):</strong> Deployed multi-class YOLO detection on NVIDIA Jetson edge devices for construction safety, with ONNX/TensorRT optimization for low-latency on-device inference. Directly relevant to Apera&apos;s edge GPU robot-guidance constraints.</p>
                                 <p><strong>Multi-Camera 3D Tracking (Incheon Airport):</strong> Built a real-time perception pipeline using YOWO (3D-CNN action recognition), HRNet pose estimation, and Person Re-ID across a distributed, spatially-calibrated camera network.</p>
                                 <p><strong>Synthetic Training Data Engineering:</strong> Developed a procedural data generation pipeline producing photorealistic synthetic datasets with parameterized variations (lighting, perspective, materials), enabling 98% downstream accuracy without restricted real-world data.</p>
                                 <p><strong>Mask R-CNN &amp; OCR Pipeline:</strong> Built a CRAFT + Tesseract OCR pipeline coupled with Mask R-CNN instance segmentation for robust text and geometric measurement extraction from highly variable field images.</p>
@@ -157,7 +157,7 @@ export default function AperaResumePage() {
                         <div className="mb-3">
                             <p className="text-[10pt] italic text-gray-900">Chung-Ang University (CAU), Seoul, South Korea</p>
                             <p className="text-[10pt] italic text-gray-900">M.S. in Computer Science (Computer Vision &amp; Machine Learning)</p>
-                            <p className="text-[10pt] text-gray-800">Thesis: &quot;Object Segmentation with Active Contours Driven by Weight Matrix&quot; — variational methods, energy minimization, and PDEs applied to image segmentation</p>
+                            <p className="text-[10pt] text-gray-800">Thesis: &quot;Object Segmentation with Active Contours Driven by Weight Matrix&quot;. Focused on variational methods, energy minimization, and PDEs applied to image segmentation.</p>
                             <p className="text-[10pt] text-gray-800">Research Focus: Computer Vision, Image Segmentation, Object Detection &amp; Tracking</p>
                             <p className="text-[10pt] text-gray-800">CAYSS Scholarship recipient (Chung-Ang Young Scientist Scholarship)</p>
                         </div>
@@ -165,7 +165,7 @@ export default function AperaResumePage() {
                         <div>
                             <p className="text-[10pt] italic text-gray-900">GIK Institute, Topi, Pakistan</p>
                             <p className="text-[10pt] italic text-gray-900">B.S. in Electronic Engineering</p>
-                            <p className="text-[10pt] text-gray-800">FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM) — 2nd position in final year project competition</p>
+                            <p className="text-[10pt] text-gray-800">FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM). Secured 2nd position in the final year project competition.</p>
                         </div>
                     </section>
 

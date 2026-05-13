@@ -93,7 +93,7 @@ export default function CadflowResumePage() {
                                 <p><strong>Single-Image to 3D Mesh Generation:</strong> Designed and trained an image-to-3D pipeline (PyTorch, OpenLRM) producing printable, geometrically valid 3D meshes from a single 2D image, reaching IoU 0.80 and Chamfer Distance 0.08, exported as .obj/.glb for downstream rendering and manufacturing workflows.</p>
                                 <p><strong>Custom 3D Asset Synthesis Pipeline:</strong> Built a procedural Blender (bpy) rendering system generating thousands of high-fidelity photorealistic training samples per asset (24×360° views, ESRGAN super-resolution), creating production-grade datasets for 3D ML training.</p>
                                 <p><strong>Production Generative AI Pipeline:</strong> Architected and shipped a photorealistic image synthesis system using fine-tuned Latent Diffusion (LADi-VTON), DensePose, U2Net segmentation, and CLIP textual inversion, reaching 85%+ visual fidelity. Deployed to commercial customers on AWS via Docker.</p>
-                                <p><strong>High-Precision Semantic Segmentation:</strong> Fine-tuned U2Net to extract pixel-perfect object masks with alpha-matting precision for downstream 3D pipeline consumption — same techniques directly applicable to anatomical mask extraction in medical imaging.</p>
+                                <p><strong>High-Precision Semantic Segmentation:</strong> Fine-tuned U2Net to extract pixel-perfect object masks with alpha-matting precision for downstream 3D pipeline consumption. Same techniques directly applicable to anatomical mask extraction in medical imaging.</p>
                                 <p><strong>Hierarchical Classification:</strong> Designed a ResNet50-based fine-grained classification system (PyTorch) with a 3-depth taxonomy reaching &gt;95% accuracy across 73 classes, routing objects to specialized downstream 3D generation models.</p>
                             </div>
                         </div>
@@ -108,8 +108,8 @@ export default function CadflowResumePage() {
                                 <p className="text-[9pt] text-gray-700 italic">Aug 2025 - Present</p>
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
-                                <p><strong>Node-Based 3D Pipeline Engine:</strong> Designed a modular 3D rendering and geometry construction engine (.NET 8/WPF, ECS architecture) with a node-based visual editor — directly transferable patterns to dental CAD workflow tools and clinician-facing design software.</p>
-                                <p><strong>Sub-Millimeter 3D Mesh Alignment:</strong> Built a PolyWorks-style 3D registration application with ICP best-fit, SVD landmark registration, and interactive mesh editing — processing 1M+ point clouds in real-time via VTK/PyVista, with precision standards directly applicable to dental scan alignment.</p>
+                                <p><strong>Node-Based 3D Pipeline Engine:</strong> Designed a modular 3D rendering and geometry construction engine (.NET 8/WPF, ECS architecture) with a node-based visual editor. Directly transferable patterns to dental CAD workflow tools and clinician-facing design software.</p>
+                                <p><strong>Sub-Millimeter 3D Mesh Alignment:</strong> Built a PolyWorks-style 3D registration application with ICP best-fit, SVD landmark registration, and interactive mesh editing, processing 1M+ point clouds in real-time via VTK/PyVista. Precision standards directly applicable to dental scan alignment.</p>
                                 <p><strong>Geometric Primitive Fitting:</strong> Implemented RANSAC and Eigen-based primitive fitting (planes, edges, cylinders) for sub-millimeter coordinate alignment of complex 3D meshes against reference specifications.</p>
                             </div>
                         </div>
@@ -139,7 +139,7 @@ export default function CadflowResumePage() {
                                 <p className="text-[9pt] text-gray-700 italic">Nov 2019 - Oct 2021</p>
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
-                                <p><strong>Synthetic Training Data Engine:</strong> Built a procedural data generation pipeline producing photorealistic synthetic datasets with parameterized variations (lighting, perspective, materials) — enabling 98% downstream accuracy without real customer data. Same approach used for medical/regulated-data scarcity scenarios.</p>
+                                <p><strong>Synthetic Training Data Engine:</strong> Built a procedural data generation pipeline producing photorealistic synthetic datasets with parameterized variations (lighting, perspective, materials), enabling 98% downstream accuracy without real customer data. Same approach used for medical/regulated-data scarcity scenarios.</p>
                                 <p><strong>OCR &amp; Geometric Mask R-CNN Pipeline:</strong> Developed a CRAFT + Tesseract OCR pipeline coupled with Mask R-CNN instance segmentation (PyTorch) for robust text and geometric measurement extraction from highly variable field images.</p>
                                 <p><strong>Edge ML Deployment:</strong> Deployed multi-class YOLO detection on NVIDIA Jetson edge devices with ONNX/TensorRT optimization for low-latency, on-device inference.</p>
                                 <p><strong>Spatio-Temporal Action Recognition:</strong> Built a 3D-CNN (YOWO) + HRNet pose estimation pipeline for behavior analysis and multi-camera person re-identification across distributed networks.</p>
@@ -156,14 +156,14 @@ export default function CadflowResumePage() {
                         <div className="mb-3">
                             <p className="text-[10pt] italic text-gray-900">Chung-Ang University (CAU)</p>
                             <p className="text-[10pt] italic text-gray-900">M.S. in Computer Science (Computer Vision &amp; Deep Learning)</p>
-                            <p className="text-[10pt] text-gray-800">Thesis: Object Segmentation with Active Contours Driven by Weight Matrix — segmentation algorithms applied to medical and natural images</p>
+                            <p className="text-[10pt] text-gray-800">Thesis: &quot;Object Segmentation with Active Contours Driven by Weight Matrix&quot;. Segmentation algorithms applied to medical and natural images.</p>
                             <p className="text-[10pt] text-gray-800">Research Focus: Image Segmentation, 3D Modeling, Deep Learning</p>
                         </div>
 
                         <div>
                             <p className="text-[10pt] italic text-gray-900">GIK Institute</p>
                             <p className="text-[10pt] italic text-gray-900">B.S. in Electronic Engineering</p>
-                            <p className="text-[10pt] text-gray-800">FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM) — 2nd position in final year project competition</p>
+                            <p className="text-[10pt] text-gray-800">FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM). Secured 2nd position in the final year project competition.</p>
                         </div>
                     </section>
 

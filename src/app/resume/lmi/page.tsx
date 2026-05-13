@@ -91,10 +91,10 @@ export default function LmiResumePage() {
                                 <p className="text-[9pt] text-gray-700 italic">Aug 2025 - Present</p>
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
-                                <p><strong>3D Laser Profiler Pipeline (Apple Project):</strong> Architected a high-performance C++ pipeline processing Keyence LJ-X8080 laser scan data for sub-millimeter precision measurement of smartphone camera modules — parallel ICP matching, robust plane fitting, automated ROI extraction, FAI tolerance validation against SQL Server specifications.</p>
-                                <p><strong>Laser Profiler Simulation &amp; Hardware-Planning Toolkit:</strong> Built an internal 3D laser-profiler simulator (Python, PyQt5, PyVista, trimesh) emulating Keyence LJ-X8080-class line-laser sensors over arbitrary CAD models — used to evaluate sensor placement, scan strategy (rotating object, rotating laser, linear translation), and step size / angle / ray density before committing to physical hardware. Implements parallelized ray-mesh intersection, robust profile extraction, sinusoidal pose deviation fitting (<em>scipy</em>), and an integrated 3D viewer for raw-vs-reconstructed point cloud comparison.</p>
+                                <p><strong>3D Laser Profiler Pipeline (Apple Project):</strong> Architected a high-performance C++ pipeline processing Keyence LJ-X8080 laser scan data for sub-millimeter precision measurement of smartphone camera modules. Includes parallel ICP matching, robust plane fitting, automated ROI extraction, and FAI tolerance validation against SQL Server specifications.</p>
+                                <p><strong>Laser Profiler Simulation &amp; Hardware-Planning Toolkit:</strong> Built an internal 3D laser-profiler simulator (Python, PyQt5, PyVista, trimesh) emulating Keyence LJ-X8080-class line-laser sensors over arbitrary CAD models. Used to evaluate sensor placement, scan strategy (rotating object, rotating laser, linear translation), and step size / angle / ray density before committing to physical hardware. Implements parallelized ray-mesh intersection, robust profile extraction, sinusoidal pose deviation fitting (<em>scipy</em>), and an integrated 3D viewer for raw-vs-reconstructed point cloud comparison.</p>
                                 <p><strong>Pre-Processing, Segmentation &amp; Feature Extraction:</strong> Built production C++ modules for point cloud pre-processing, RANSAC/Eigen-based geometric primitive fitting (planes, cylinders, edges), and coordinate-frame estimation from raw laser scan data.</p>
-                                <p><strong>HMI &amp; Prototyping Tools:</strong> Designed a modular 3D rendering engine and node-based visual workflow editor (.NET 8 / WPF, ECS architecture) enabling non-programmers to construct custom inspection pipelines via drag-and-drop with an extensible plugin system — directly transferable proof-of-concept tooling for OEM customers.</p>
+                                <p><strong>HMI &amp; Prototyping Tools:</strong> Designed a modular 3D rendering engine and node-based visual workflow editor (.NET 8 / WPF, ECS architecture) enabling non-programmers to construct custom inspection pipelines via drag-and-drop with an extensible plugin system. Directly transferable as proof-of-concept tooling for OEM customers.</p>
                                 <p><strong>Real-Time Mesh Editing:</strong> Built an interactive 3D alignment application (PolyWorks-style) with ICP best-fit, SVD landmark registration, and lasso noise removal, processing 1M+ point clouds in real-time via VTK / PyVista.</p>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ export default function LmiResumePage() {
                             </div>
                             <div className="text-[10pt] text-gray-800 leading-snug mt-1 space-y-1">
                                 <p><strong>Hardware-in-the-Loop Multi-Camera System (Pungkang Co. Ltd.):</strong> Deployed a real-time 360° surface inspection system using a synchronized 6-camera Basler GigE array with real-time inference at &lt;200ms latency, integrated with industrial PLCs via NuDAQ I/O for pneumatic rejection of defective units.</p>
-                                <p><strong>6-DoF Pose Estimation (Hwacheon Machinery):</strong> Built an eye-in-hand pose estimation pipeline using RGB-D, FoundationPose, and ICP refinement for autonomous CNC machining — registering physical workpieces against CAD models in SE(3) space, eliminating manual fixturing.</p>
+                                <p><strong>6-DoF Pose Estimation (Hwacheon Machinery):</strong> Built an eye-in-hand pose estimation pipeline using RGB-D, FoundationPose, and ICP refinement for autonomous CNC machining, registering physical workpieces against CAD models in SE(3) space and eliminating manual fixturing.</p>
                                 <p><strong>Sensor &amp; Acquisition Control:</strong> Developed deterministic image-acquisition and control logic bridging high-speed inference pipelines with industrial automation hardware.</p>
                             </div>
                         </div>
@@ -158,7 +158,7 @@ export default function LmiResumePage() {
                         <div className="mb-3">
                             <p className="text-[10pt] italic text-gray-900">Chung-Ang University (CAU), Seoul, South Korea</p>
                             <p className="text-[10pt] italic text-gray-900">M.S. in Computer Science (Computer Vision &amp; Applied Mathematics)</p>
-                            <p className="text-[10pt] text-gray-800">Thesis: &quot;Object Segmentation with Active Contours Driven by Weight Matrix&quot; — variational methods, energy minimization, and PDEs applied to image segmentation</p>
+                            <p className="text-[10pt] text-gray-800">Thesis: &quot;Object Segmentation with Active Contours Driven by Weight Matrix&quot;. Focused on variational methods, energy minimization, and PDEs applied to image segmentation.</p>
                             <p className="text-[10pt] text-gray-800">Research Focus: Image segmentation, geometric image modeling, variational methods</p>
                             <p className="text-[10pt] text-gray-800">CAYSS Scholarship recipient (Chung-Ang Young Scientist Scholarship)</p>
                         </div>
@@ -166,7 +166,7 @@ export default function LmiResumePage() {
                         <div>
                             <p className="text-[10pt] italic text-gray-900">GIK Institute, Topi, Pakistan</p>
                             <p className="text-[10pt] italic text-gray-900">B.S. in Electronic Engineering</p>
-                            <p className="text-[10pt] text-gray-800">FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM) — 2nd position in final year project competition</p>
+                            <p className="text-[10pt] text-gray-800">FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM). Secured 2nd position in the final year project competition.</p>
                         </div>
                     </section>
 
