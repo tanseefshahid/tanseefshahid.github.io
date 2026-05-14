@@ -29,7 +29,7 @@ const experiences = [
         current: false,
     },
     {
-        title: "AI Developer",
+        title: "Computer Vision Engineer",
         company: "Ellexi",
         location: "Seoul, South Korea",
         period: "Nov 2019 - Oct 2021",

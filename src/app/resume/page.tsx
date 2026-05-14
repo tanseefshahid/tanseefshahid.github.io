@@ -65,11 +65,12 @@ export default function ResumePage() {
                         </h2>
 
                         {/* Hyvision */}
-                        <div className="mb-4">
-                            <div className="flex justify-between items-baseline">
-                                <p className="text-[10pt] text-gray-900">
-                                    <em className="not-italic">Hyvision System</em>,&nbsp;
-                                    <strong className="font-bold">SLAM &amp; 3D Metrology Engineer</strong>
+                        <div className="mb-6">
+                            <div className="flex justify-between items-baseline mb-1">
+                                <p className="text-gray-900">
+                                    <strong className="text-[11.5pt] font-extrabold">Hyvision System</strong>
+                                    <span className="mx-2 text-gray-400">|</span>
+                                    <span className="text-[10pt] font-semibold">SLAM &amp; 3D Metrology Engineer</span>
                                 </p>
                                 <p className="text-[9pt] text-gray-700 italic">Aug 2025 - Present</p>
                             </div>
@@ -81,11 +82,12 @@ export default function ResumePage() {
                         </div>
 
                         {/* Luxolis */}
-                        <div className="mb-4">
-                            <div className="flex justify-between items-baseline">
-                                <p className="text-[10pt] text-gray-900">
-                                    <em className="not-italic">Luxolis</em>,&nbsp;
-                                    <strong className="font-bold">SLAM / Computer Vision Engineer</strong>
+                        <div className="mb-6">
+                            <div className="flex justify-between items-baseline mb-1">
+                                <p className="text-gray-900">
+                                    <strong className="text-[11.5pt] font-extrabold">Luxolis</strong>
+                                    <span className="mx-2 text-gray-400">|</span>
+                                    <span className="text-[10pt] font-semibold">SLAM / Computer Vision Engineer</span>
                                 </p>
                                 <p className="text-[9pt] text-gray-700 italic">May 2025 - Jul 2025</p>
                             </div>
@@ -96,11 +98,12 @@ export default function ResumePage() {
                         </div>
 
                         {/* PERSPECTIVE */}
-                        <div className="mb-4">
-                            <div className="flex justify-between items-baseline">
-                                <p className="text-[10pt] text-gray-900">
-                                    <em className="not-italic">PERSPECTIVE Corp.</em>,&nbsp;
-                                    <strong className="font-bold">3D Reconstruction &amp; Computer Vision Researcher</strong>
+                        <div className="mb-6">
+                            <div className="flex justify-between items-baseline mb-1">
+                                <p className="text-gray-900">
+                                    <strong className="text-[11.5pt] font-extrabold">PERSPECTIVE Corp.</strong>
+                                    <span className="mx-2 text-gray-400">|</span>
+                                    <span className="text-[10pt] font-semibold">3D Reconstruction &amp; Computer Vision Researcher</span>
                                 </p>
                                 <p className="text-[9pt] text-gray-700 italic">Dec 2021 - Apr 2025</p>
                             </div>
@@ -114,11 +117,12 @@ export default function ResumePage() {
                         </div>
 
                         {/* Ellexi */}
-                        <div className="mb-2">
-                            <div className="flex justify-between items-baseline">
-                                <p className="text-[10pt] text-gray-900">
-                                    <em className="not-italic">Ellexi</em>,&nbsp;
-                                    <strong className="font-bold">AI Developer</strong>
+                        <div className="mb-4">
+                            <div className="flex justify-between items-baseline mb-1">
+                                <p className="text-gray-900">
+                                    <strong className="text-[11.5pt] font-extrabold">Ellexi</strong>
+                                    <span className="mx-2 text-gray-400">|</span>
+                                    <span className="text-[10pt] font-semibold">Computer Vision Engineer</span>
                                 </p>
                                 <p className="text-[9pt] text-gray-700 italic">Nov 2019 - Oct 2021</p>
                             </div>
@@ -132,7 +136,7 @@ export default function ResumePage() {
                     </section>
 
                     {/* Education */}
-                    <section className="mb-5 print-section">
+                    <section className="mb-5 print-section print:break-before-page">
                         <h2 className="text-[11pt] font-bold text-gray-900 tracking-wider mb-2 pb-1 border-b border-gray-300">
                             EDUCATION
                         </h2>
@@ -148,7 +152,6 @@ export default function ResumePage() {
                             <p className="text-[10pt] italic text-gray-900">GIK Institute</p>
                             <p className="text-[10pt] italic text-gray-900">B.S. in Electronic Engineering</p>
                             <p className="text-[10pt] text-gray-800">FYP: Smart Blind Navigation System (Raspberry Pi, OpenCV, GSM)</p>
-                            <p className="text-[10pt] text-gray-800">Secured 2nd position in the final year project competition</p>
                         </div>
                     </section>
 
