@@ -22,9 +22,10 @@ This changes interview strategy: **lead with the defect segmentation custom loss
 ### Update 2: VP of Software is First Meeting
 
 First scheduled interview is with the **VP of Software**, likely early next week. This is almost certainly NOT a coding interview. It's a hiring-manager-style conversation about background, motivation, and project depth. Don't burn the weekend on coding drills — focus on:
+
 - Owning my 3 anchor projects cold (elevator pitches, architecture diagrams, follow-up questions)
 - "Why Ouster / Why Now" answer
-- "Why leaving Hyvision after 3 months" answer
+- "Why looking to leave Hyvision after ~10 months" answer (**TENURE: Aug 2025 to May 2026 = ~9-10 months, NOT 3 months**)
 - Good questions to ask the VP back
 
 ### Update 3: "LIDAR-class point cloud" Phrasing is Slightly Stretched
@@ -163,13 +164,26 @@ Need to similarly calibrate before the interview:
 
 **Strategy:** Don't volunteer corrections unprompted. But if asked specifically about any of these, use the same pattern as the custom loss reframe: "I want to be precise — what I actually did was X. The genuine custom part was Y."
 
-### Risk #3: "Why are you leaving Hyvision after only 3 months?"
+### Risk #3: "Why are you looking to leave Hyvision?"
 
-A VP will likely ask. Don't dodge or bad-mouth.
+**TENURE CORRECTION:** I joined Hyvision in **August 2025**. Today is **May 2026**. So my tenure at Hyvision is approximately **9-10 months**, NOT 3 months. The VP will likely ask why I'm looking after less than a year, which is a softer question than "after 3 months" but still worth handling carefully.
 
 **Prepared answer:**
 
-> "I joined Hyvision in August 2025 thinking it would be a balance of 3D metrology and ML work. In practice the role has been mostly classical metrology pipelines — important work, and I've shipped good things there, but the ML and modern perception work I want to specialize in isn't where the company is going. I want to be honest that I'm looking for the next chapter, and I'm being deliberate about finding a role where I can do production ML on cutting-edge perception. Ouster is at the top of the list for that reason."
+> "I joined Hyvision in August 2025 — so I've been there about 9-10 months now. The work has been good: I've shipped a high-speed 3D laser inspection pipeline for an Apple smartphone-camera-module project, built a PolyWorks-style alignment application, and designed the node-based 3D rendering engine with the modular plugin system. So I've delivered concrete value in that time.
+>
+> The reason I'm looking is that the role has settled into mostly classical 3D metrology in C++. That's valuable work, and I'm strong at it, but the direction the company is going doesn't include the production ML and modern perception work I want to be central to in my next chapter. I have six-plus years across detection, tracking, foundation models, and generative AI, and I want to be back at the center of that. Ouster is at the top of my list because the job description is almost a one-to-one mapping of what I want to do — object detection and tracking, custom loss design, architecture modification, edge optimization, all on LIDAR-class 3D data. It's not that Hyvision is wrong; it's that Ouster is right."
+
+**Key things this answer does:**
+- Names the tenure accurately ("about 9-10 months")
+- Demonstrates I shipped real work in that time (not a job-hopper who quit early)
+- Reframes departure as "moving toward something" not "running away"
+- Names Ouster specifically with concrete reasons
+- Doesn't bad-mouth Hyvision
+
+**If they push further with "but isn't 10 months still short?":**
+
+> "It is shorter than the 3-4 year stretches I had at PERSPECTIVE and Ellexi, and I'm aware of that. The honest version is that I evaluated Hyvision optimistically when I joined and the role evolved differently from what I expected. I'd rather be deliberate now about finding the right next role than spend another year drifting from where I want my career to go. My intent is for the next role to be a 3-5 year commitment, and Ouster is the kind of company I'd want to grow with."
 
 ### Risk #4: The LJ-X8080 vs LIDAR Distinction
 
