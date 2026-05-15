@@ -164,7 +164,35 @@ Need to similarly calibrate before the interview:
 
 **Strategy:** Don't volunteer corrections unprompted. But if asked specifically about any of these, use the same pattern as the custom loss reframe: "I want to be precise — what I actually did was X. The genuine custom part was Y."
 
-### Risk #3: "Why are you looking to leave Hyvision?"
+### Risk #3a: "Why did you leave Luxolis after only 3 months?"
+
+**Tenure:** May 2025 - Jul 2025 = **3 months**. The VP will probably ask about this; it's the shortest stint on the resume and it sits right next to the Hyvision short stint, which makes the recent career arc look like job-hopping unless I handle it well.
+
+**Real reason:** I was the sole 2D/3D vision engineer at Luxolis. The company hit funding issues, the team was contracting, and payroll became uncertain. Hyvision approached me with a stable offer at significantly better pay and a real 3D metrology team. I took the offer.
+
+**Prepared answer:**
+
+> "Luxolis was a 3-month stint, and I want to give you the honest context. I joined as the sole 2D and 3D vision engineer — the entire vision side of the company was me. While I was there I shipped two meaningful pieces of work: a real-time 360° defect detection system with a 6-camera Basler array and PLC integration, and an eye-in-hand 6-DoF pose estimation pipeline using FoundationPose and ICP for autonomous CNC machining.
+>
+> The reason I left is that the company hit funding issues — payroll became uncertain and the team around me was contracting. With me being the only person on the vision side, there wasn't a clear path to continue building. Hyvision approached me with a stable offer, significantly better pay, and a 3D metrology team I'd be joining rather than carrying alone. I took the offer.
+>
+> So the short tenure at Luxolis isn't a pattern of job-hopping — it was responding to instability at a startup by moving to a more stable role at a larger company. The 3-and-a-half-plus years at PERSPECTIVE before that, and the 2-year stint at Ellexi before that, are the more representative shape of my career."
+
+**Key tactical notes for delivering this answer:**
+
+- **Frontload the deliverables before the reason.** The interviewer should hear "I shipped X and Y" before they hear "I left." This forms a "this person did real work" impression before the "why did they leave" impression starts forming.
+- **The "sole vision engineer" framing converts the short tenure into a senior-engineer signal.** I operated independently, owned the entire vision function, shipped without senior peers. That's a senior trait.
+- **"Funding issues" is the right phrasing.** Don't say: "the CEO was incompetent," "they couldn't pay me," "the company was a mess," "I should have seen the red flags." Stick to neutral, factual language: "funding issues," "the team was contracting," "payroll became uncertain."
+- **Don't over-explain.** Give enough to satisfy the legitimate-reason check, then stop. No detailed funding-round histories.
+- **The closing pivot to PERSPECTIVE (3.5y) and Ellexi (2y) is the most important sentence.** It reframes the recent short stints as outliers inside a pattern of multi-year commitments. Practice it confidently.
+
+**If they push with "but joining a struggling company is its own kind of red flag":**
+
+> "Fair point. The honest version is that the funding situation wasn't visible from the outside when I joined — they were on a contract with a major Korean CNC manufacturer and the engineering work was concrete. The instability emerged a couple of months in. With the benefit of hindsight, I'd have done more diligence on financial runway before joining. Lesson learned."
+
+This is the correct senior-engineer answer: own the joining decision, acknowledge what you'd do differently, don't blame the company.
+
+### Risk #3b: "Why are you looking to leave Hyvision?"
 
 **TENURE CORRECTION:** I joined Hyvision in **August 2025**. Today is **May 2026**. So my tenure at Hyvision is approximately **9-10 months**, NOT 3 months. The VP will likely ask why I'm looking after less than a year, which is a softer question than "after 3 months" but still worth handling carefully.
 
@@ -184,6 +212,35 @@ Need to similarly calibrate before the interview:
 **If they push further with "but isn't 10 months still short?":**
 
 > "It is shorter than the 3-4 year stretches I had at PERSPECTIVE and Ellexi, and I'm aware of that. The honest version is that I evaluated Hyvision optimistically when I joined and the role evolved differently from what I expected. I'd rather be deliberate now about finding the right next role than spend another year drifting from where I want my career to go. My intent is for the next role to be a 3-5 year commitment, and Ouster is the kind of company I'd want to grow with."
+
+### Risk #3c: The Combined Career Arc Question
+
+The VP might ask about both short stints together, or combine them into a single "what's been going on the past year?" question. I need a single coherent narrative that ties Luxolis + Hyvision into one story.
+
+**The career arc:**
+
+| Role | Tenure | Length |
+|------|--------|--------|
+| Ellexi | Nov 2019 - Oct 2021 | 2 years |
+| PERSPECTIVE | Dec 2021 - Apr 2025 | 3 years 5 months |
+| Luxolis | May 2025 - Jul 2025 | 3 months |
+| Hyvision | Aug 2025 - present | ~9-10 months |
+
+Two stable multi-year stints, then two short ones in a row. The combined story:
+
+**Prepared combined-arc answer:**
+
+> "If you look at my full career arc, the pattern is a 2-year stint at Ellexi and a 3.5-year stint at PERSPECTIVE — those are the representative shape. Then 2025 became a transitional year for me. I left PERSPECTIVE in April 2025 because the company's direction shifted away from the 3D reconstruction work I wanted to focus on. I joined Luxolis as the sole 2D/3D vision engineer; that was a 3-month stint that ended because of funding issues at the company. Hyvision came in with a stable offer at much better pay, so I moved there in August. About 10 months in, I've shipped good work — the Apple smartphone-camera-module pipeline, the PolyWorks-style alignment app, the node-based 3D rendering engine — but the role has settled into mostly classical metrology, not the production ML work I want central to my career.
+>
+> So the two short stints aren't a pattern of restlessness. Luxolis was responding to instability at a startup. Hyvision was a stable landing pad while I figured out the right next chapter. Ouster is the next chapter — and I'm being deliberate about this one because I want it to be a 3-5 year commitment, not another transitional move."
+
+**Key tactical notes:**
+
+- **Anchor on the long stints first.** The first sentence frames the historical pattern as multi-year commitments. This is the lens I want them to read the rest through.
+- **Name the transition explicitly.** "2025 became a transitional year" is a senior-engineer framing — it acknowledges the unusual pattern without being defensive about it.
+- **Don't apologize for taking the Hyvision offer.** Moving from a struggling startup to a stable larger company for better pay is the *correct* decision. State it confidently.
+- **Close with the commitment signal.** "3-5 year commitment, not another transitional move" tells the VP I'm not going to job-hop out of Ouster in a year. This is what they want to hear.
+- **Don't apologize for the short stints in the closing.** State them factually and move on.
 
 ### Risk #4: The LJ-X8080 vs LIDAR Distinction
 
