@@ -1448,6 +1448,256 @@ def kth_largest(nums, k):
 
 ---
 
+## Interviewer Profile — Dani Katsif (VP of Software Engineering, Ouster)
+
+**Critical context:** The interviewer is Dani Katsif, VP of Software Engineering at Ouster. He is NOT a generic VP — he has specific public focus areas that should shape the conversation strategy. Knowing his focus means you can:
+
+1. Tailor your "Why Ouster" to reference his actual work
+2. Ask him strategic questions that signal commercial awareness
+3. Anticipate the question categories he's most likely to drill on
+4. Avoid blindsiding into questions about areas where you're weak (e.g., NVIDIA DRIVE SDK)
+
+### What's Publicly Known About Dani
+
+- VP of Software Engineering at Ouster
+- Recently celebrated the launch of the **Cloud Portal for the Ouster Gemini Perception Platform** (public LinkedIn post)
+- Focus area: **cloud-scale 3D Lidar data ingestion, storage, retrieval, visualization**
+- Context: Ouster completed its **merger with Velodyne in 2023** — this created legacy-systems integration challenges that are still being worked through
+- Strategic direction Ouster is moving: **hardware-centric company → also a SaaS/cloud platform company** (the Gemini Cloud Portal is the visible manifestation of this pivot)
+
+### What This Tells You About His Likely Question Themes
+
+Dani's interview will tilt MORE toward:
+
+- **Cloud architecture for high-bandwidth sensor data** (his current focus area)
+- **Strategic system-design questions** about scaling perception platforms
+- **Legacy/integration thinking** (Velodyne merger context)
+- **Cross-functional and leadership maturity** (VP-level behavioral)
+- **Business and commercial awareness** (he's a VP, he thinks in product terms)
+
+LESS toward:
+
+- Low-level coding (he'll delegate that to a later round)
+- Specific ML model internals (less his domain than the perception team's)
+- Algorithm whiteboarding (not VP-level material)
+
+This means your existing prep doc is well-aligned on behavioral and project-depth material, but you should add cloud-platform thinking and Gemini-awareness to your strongest answers.
+
+---
+
+### D1: Gemini-Aware Update to "Why Ouster" (replaces or extends B1)
+
+**The original B1 answer is good but generic.** Update it to reference Gemini specifically. This is a HIGH-LEVERAGE change — a VP whose product is Gemini will notice when a candidate names it.
+
+**Updated Why Ouster (Gemini-aware version):**
+
+> "Three reasons. First, Ouster sits at the intersection of two things I've worked on for years: production ML deployment and 3D geometric perception. Most companies do one or the other. Ouster's product requires both, and the job description reflects that — custom loss design, architecture modification, edge optimization, all on 3D point cloud data. That's a rare combination.
+>
+> Second, what's caught my attention specifically is the Gemini Perception Platform and the recent Cloud Portal launch. The strategic pivot from being a hardware-centric sensor company to also being a cloud-native perception platform is interesting both technically and commercially. The technical challenge of ingesting and processing 3D Lidar streams from a fleet of customer devices at cloud scale is exactly the kind of problem I'd want to work on next. And the commercial pivot — moving from selling sensors to selling perception-as-a-service — is the kind of strategic shift that creates a lot of interesting engineering work.
+>
+> Third, I'm at a career inflection point. My work at Hyvision is C++ metrology, which is valuable but narrower than what I want to focus on long-term. I want to be back at the center of applied ML on cutting-edge perception. A senior role at Ouster — specifically the kind of role that connects perception models to the Gemini platform infrastructure — is exactly the right move."
+
+**Key beats of the update:**
+
+- Mention Gemini Perception Platform BY NAME
+- Mention the Cloud Portal launch (his recent public win)
+- Frame the hardware-to-SaaS pivot as interesting BOTH technically and commercially
+- Reference perception-as-a-service as the strategic shift
+- Close with positioning yourself at the model-to-platform interface
+
+**Why this works:** Naming Gemini signals you researched the company. Naming the Cloud Portal signals you researched HIM specifically. Mentioning the hardware-to-SaaS pivot signals commercial awareness, not just technical interest.
+
+---
+
+### D2: Cloud Architecture for Sensor Data — The Likely System Design Question
+
+**Most probable system design prompt from Dani:** Some variant of "How would you architect a cloud backend to ingest and visualize real-time 3D Lidar data from thousands of devices?"
+
+**Use the S2 5-step framework from earlier in the doc**, with this answer:
+
+**Clarifying questions to ask first:**
+
+> "Quick clarifications before I sketch the design. What's the scale we're targeting — thousands of devices each producing how much data per second? What's the customer-facing latency expectation — real-time visualization with sub-second latency, or near-real-time with a few-second window? Is the workload primarily ingestion-heavy with batch query, or is interactive query a first-class requirement? And what's the retention expectation — days, months, or full historical archive?"
+
+**High-level architecture (assume 10K devices, ~100Mbps per sensor, sub-2-second visualization latency, mixed batch + interactive query, 90-day retention as defaults):**
+
+> "Five-layer architecture. Edge ingestion layer at the device — minimal processing, mostly serialization and compression of the raw point cloud packets. Transport layer using a streaming protocol like gRPC bidirectional streaming or a managed pub-sub like Kafka or Google Pub/Sub, with the device pushing into a regional ingestion endpoint to minimize WAN latency. Ingestion service in the cloud doing schema validation, decompression, and routing to two paths: a hot path for real-time visualization that goes straight to a stream-processing engine, and a warm path that lands in object storage for historical query. Stream processing layer (Flink, Beam, or Spark Streaming) does aggregation, anomaly detection, and feeds the live visualization endpoint. Storage layer is tiered — recent data in something query-friendly like ClickHouse or Druid for fast interactive query, older data in object storage like S3 with a metadata index for slower archival query."
+
+**Component deep-dive (key decisions):**
+
+> "Point cloud compression at the edge is critical for cost. Raw 3D LIDAR is bandwidth-expensive at scale. I'd compress with a specialized library — Draco or a custom RANSAC-based plane-removal codec — at the edge to cut bandwidth by 5-10x. Decompression happens server-side in the ingestion layer.
+>
+> Storage tiering matters because cost grows linearly with retention. Hot tier (last 24h) in fast query store, warm tier (last 30 days) in slightly slower columnar store, cold tier (90 days +) in S3 with metadata index. Customers querying 'show me the incident on Tuesday at 3pm' hit the warm tier; customers doing 'show me all incidents in March' hit cold + metadata index.
+>
+> For visualization, the front end can't render millions of points per device in a browser. Server-side downsampling and LOD (level of detail) — different point density at different zoom levels — done in the stream-processing layer before serving to the front end."
+
+**Failure modes and operational concerns:**
+
+> "Backpressure handling. Devices can't pause when the cloud is slow; they have to either drop frames or buffer locally. Local buffering at the device with TTL-based dropping is the standard pattern. Pub-sub layer handles bursts on the cloud side.
+>
+> Data consistency vs latency trade-off. For real-time visualization, eventual consistency is fine — the user expects a few seconds of lag. For triggered alerts on safety-critical anomalies, you'd want stronger consistency guarantees, which means a separate fast path with at-least-once delivery semantics.
+>
+> Multi-tenancy isolation. With thousands of customer devices, one customer's burst can't degrade another's quality of service. Per-tenant rate limiting at the ingestion layer, separate stream-processing topics per tenant or per region."
+
+**Key tactical notes:**
+
+- Don't overengineer — VPs hate solutions that assume Google-scale when the problem is 10K devices
+- DO mention cost — VPs care about $/device/month not just technical elegance
+- DO mention backpressure and multi-tenancy — these are operational concerns that mark you as senior
+- Reference specific technology only where you have real knowledge — if you don't know Druid vs ClickHouse internals, just say "columnar fast-query store" and move on
+
+---
+
+### D3: Velodyne Merger Question — Legacy Integration
+
+**Likely question:** "Have you ever had to merge two distinct technology stacks or migrate legacy systems into a modern architecture?"
+
+**Honest answer:** You haven't done a corporate-merger-scale integration, but you've done the smaller version multiple times. Frame it that way.
+
+**Prepared answer:**
+
+> "Not at the corporate-merger scale, but I've done the patterns that apply. At PERSPECTIVE I joined a team that had three separate legacy pipelines for cloth segmentation, garment classification, and try-on rendering, each built by different engineers with different conventions. Part of my work was consolidating these into a unified pipeline with consistent interfaces, shared data formats, and a single deployment path. The principles I learned generalize to bigger integration work.
+>
+> The principles I'd apply to a Velodyne-style merger integration:
+>
+> First, strangler-fig over big-bang. Don't try to rewrite everything in one effort. Identify the boundaries between the two stacks, build adapters at the boundaries, then migrate one component at a time behind those adapters. Each migration is small and reversible. The big-bang rewrite is the classic anti-pattern that kills integration projects.
+>
+> Second, preserve external interfaces while internal changes happen. Customers of the merged platform shouldn't see the integration — APIs stay stable, data formats stay backwards-compatible, only internals change. This buys you time without breaking customer trust.
+>
+> Third, dual-stack support during transition. For some period, both legacy systems run in parallel. The 'shadow mode' pattern — run the new system alongside the old one, compare outputs, build confidence — is the safe way to switch over.
+>
+> Fourth, name the technical debt explicitly. Legacy integration creates new debt — the adapter layers, the dual-stack maintenance burden. Don't pretend it's free. Track it, schedule paydown.
+>
+> The honest gap I'd flag: I haven't worked on corporate-merger-scale integration where two engineering organizations are also being merged. That's a leadership and people problem at least as much as a technical one. If that's part of this role, I'd want to learn from the people who've done it."
+
+**Key beats:**
+
+- Honest: haven't done corporate-merger scale; have done multi-pipeline consolidation
+- Four principles: strangler-fig, preserve external interfaces, dual-stack transition, name the debt
+- Acknowledge the gap: corporate-merger is also a people/leadership problem
+- Show willingness to learn from people who've done it
+
+---
+
+### D4: Ownership Question (Likely Behavioral)
+
+**Likely question:** "Tell me about a time you spotted a critical flaw in a production system that wasn't your responsibility. What did you do?"
+
+**Framing:** This is testing whether you take ownership beyond your assigned scope. VPs love candidates who have a "see something, say something" instinct.
+
+**Prepared answer (PLACEHOLDER — replace with a real story):**
+
+> "[PLACEHOLDER: Pick a real incident. Examples that might apply:
+>
+> Option A — At Hyvision, you noticed something in the metrology pipeline that wasn't your direct project, but would have caused incorrect FAI results downstream. You flagged it, helped diagnose, and got it fixed before it hit the customer.
+>
+> Option B — At PERSPECTIVE, you noticed a model serving issue (memory leak, latency spike, accuracy degradation) on a pipeline owned by another engineer. You diagnosed, proposed a fix, and either fixed it yourself or helped the owner fix it.
+>
+> Option C — A code quality issue (a class of bugs, a missing test pattern, a deployment risk) that wasn't being addressed because no one owned it. You proposed and implemented the fix.]
+>
+> STAR structure:
+>
+> **Situation:** Set the scene briefly — what system, why you noticed it
+>
+> **The flaw:** What was wrong and why it mattered. Quantify if possible.
+>
+> **The decision to act:** This is the key beat. Why did you decide to engage even though it wasn't your responsibility? Frame it as: 'It would have been easy to assume someone else was handling it, but I'd seen patterns like this go unaddressed before, so I escalated rather than assume.'
+>
+> **The action:** What you did — investigation, communication with the actual owner, proposed fix, helped execute or executed yourself
+>
+> **The result:** Outcome — flaw fixed, customer impact avoided, process improved
+>
+> **The lesson:** What you took from it. 'Ownership beyond scope is what separates senior engineers from mid-level — I learned to default to engagement, not to deferral.'"
+
+**Critical notes:**
+
+- Don't sound like you went around the actual owner or made them look bad. Frame it as helping, not policing.
+- The ideal story has you GETTING THE OWNER ON BOARD, not bypassing them.
+- The lesson should be about ownership being a senior-engineer trait, not about you being special.
+
+---
+
+### D5: Strategic Questions to Ask Dani Back
+
+**B13 in the doc has generic VP questions. These are Dani-specific.** Pick 2-3 to ask near the end of the conversation. These signal commercial and strategic awareness.
+
+**Top questions ranked by signal value:**
+
+> "I noticed you recently launched the Cloud Portal for the Gemini Perception Platform. From your seat, how does that shift the engineering culture at Ouster — moving from a hardware-centric stack to also being a SaaS/cloud platform? What kinds of engineers are you trying to add to the team to support that direction?"
+
+This is THE question. It demonstrates you've researched HIM specifically, you understand the strategic context, and you're asking about culture/team — not just technical specs. A VP will remember this question.
+
+> "Post-Velodyne merger, where is the engineering organization on the integration journey? Is the technical stack mostly unified at this point, or are there still meaningful legacy systems being modernized?"
+
+This shows you understand the company history and that you're thinking about what you'd actually walk into. VPs appreciate candidates who think about onboarding realities.
+
+> "What's the biggest technical bottleneck on the Gemini platform right now — is it ingestion throughput, query latency, model accuracy, something on the visualization side? Where would a new senior engineer's effort have the highest leverage in the next 6 months?"
+
+This is a focused, sophisticated question that lets him talk about his actual problems. VPs love problems-focused questions because they reveal where the role's leverage actually is.
+
+> "How does the perception team interact with the platform team? In a typical sprint, how much of an ML engineer's work is model improvement versus platform integration versus customer-facing deployment?"
+
+This reveals how the role is actually structured day-to-day. Critical info for you and a sophisticated question for him.
+
+> "Looking 18-24 months out, what does success look like for Gemini? Are you optimizing for breadth — more customer device types, more verticals — or depth — deeper analytics on existing customer data?"
+
+Strategic question that signals you think about product direction, not just engineering tasks.
+
+**Lower-priority questions (only if conversation runs long):**
+
+> "What's the engineering culture around postmortems and incident response — how does the team handle production failures?"
+
+> "What do the most successful senior engineers on your team have in common? What's their pattern?"
+
+**Avoid asking:**
+
+- Compensation specifics (not in this round)
+- "When will I hear back?" (ask the recruiter)
+- Generic "what's the culture like?" (no one gives a useful answer)
+- Anything that could be answered by reading the company website
+
+---
+
+### D6: Calibration Notes for Dani-Specific Risks
+
+Based on what's known about his focus, here are the areas where you might be exposed:
+
+**Risk 1: NVIDIA DRIVE SDK or similar automotive integration platforms**
+
+The AI summary mentioned this. You haven't worked with NVIDIA DRIVE. If asked:
+
+> "I haven't worked with NVIDIA DRIVE specifically, but I've worked with NVIDIA Jetson at the edge inference layer using TensorRT and ONNX. The patterns are related — both are NVIDIA-stack integration with specific SDK conventions. I'd ramp on DRIVE quickly given that foundation, but I want to be honest that hands-on DRIVE experience is something I'd be building, not bringing."
+
+**Risk 2: Cloud platform depth (AWS/GCP architect-level)**
+
+Your cloud experience is real but deployment-focused, not platform-architect-level. If pushed:
+
+> "My cloud experience is primarily on the deployment side — AWS S3 and EC2 for model serving, Docker containerization, basic CI/CD. I haven't designed multi-region cloud architectures from scratch. For the system design question earlier, I drew on principles I understand, but a real architecture would involve learning the specifics of Ouster's existing stack and the trade-offs you've already made."
+
+**Risk 3: Large-scale distributed systems (Kafka, Spark, Flink internals)**
+
+Possible probe area. If pushed:
+
+> "I'm familiar with these technologies at the conceptual level — what Kafka does, why you'd use Flink versus Spark Streaming, the basic patterns of stream processing. I haven't been hands-on with the operational side of running these systems in production. If the role required operating these at scale, I'd want to ramp up specifically, possibly through a focused side project."
+
+**The pattern across all three risks:** Acknowledge honestly, name what you DO know that's adjacent, signal willingness to ramp, don't pretend.
+
+---
+
+### D7: Last-Minute Research Checklist (Friday Morning)
+
+Before the 10pm interview, spend 60-90 minutes on this:
+
+- [ ] Read 1-2 recent Ouster blog posts (search "Ouster blog" or check their site's News/Blog section)
+- [ ] Read at least 1 article about the Gemini Cloud Portal launch (search "Ouster Gemini Cloud Portal launch")
+- [ ] Skim Dani Katsif's LinkedIn — look for his recent posts to know what's top-of-mind for him
+- [ ] Read Ouster's most recent earnings release headline or analyst summary — know the basics of company financial state (public company, OUST ticker)
+- [ ] Have 2-3 specific things from this research that you can naturally reference in your answers ("I read your recent blog post on X" or "I saw the announcement about Y")
+
+The goal isn't to memorize their corporate strategy. The goal is to have 2-3 concrete, recent things you can drop naturally into the conversation to signal preparation.
+
+---
+
 ## Senior-Engineer Supplement (added 2026-05-18, Mon → Fri 10pm KST interview)
 
 **Context:** A Google AI summary of Ouster's typical Senior Software Engineer loop flagged four interview categories: (1) DS&A + low-level optimization, (2) system design, (3) hardware/domain familiarity, (4) senior behavioral. My role is Senior ML Engineer, not Senior SWE, so emphasis will tilt toward ML, but a VP of Software meeting can pull from any of these categories. This supplement covers the highest-probability gaps for a senior-level conversation.
