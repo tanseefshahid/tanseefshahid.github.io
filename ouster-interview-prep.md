@@ -9,6 +9,170 @@
 
 ---
 
+## 🎯 HOW TO USE THIS DOCUMENT (read this FIRST when you get home)
+
+**Time remaining:** Monday evening → Friday 10pm KST interview. ~4.5 days, ~10 hours/day available (work is light, manager said to learn for a few weeks).
+
+**Common mistake to avoid:** Don't just read the doc top to bottom and hope it sticks. Don't just ask Claude to quiz you on material you haven't read. Both fail differently.
+
+### The 3-Phase Cycle (use for EVERY major topic)
+
+For each section/topic in this doc, do all three phases in order:
+
+**Phase 1 — Read (10-15 min per topic):**
+
+- Read the entry once carefully
+- Read again with a pen, underline the 3-4 key beats
+- Close the doc, mentally try to recall the structure
+- If you can't recall, read one more time
+
+**Phase 2 — Practice Aloud (15-25 min per topic):**
+
+- Stand up, walk around, talk to the wall as if a person is there
+- Deliver the answer aloud with no notes
+- First time will be rough — keep going
+- Repeat 3-5 times until the structure flows naturally
+- Memorize the BEATS, not word-for-word. Let words come fresh each time
+- Speaking aloud uses different brain pathways than reading silently. The interview is a speaking task — train the speaking muscle
+
+**Phase 3 — Quiz with Claude (30-45 min per topic cluster):**
+
+- Open a new Claude conversation (Opus model)
+- Paste the full prep doc at the top so Claude has context
+- Tell Claude: "Quiz me on [topic]. Push hard on follow-ups like a senior interviewer would. Tell me where I'm weak."
+- Claude probes follow-ups you didn't expect — this is where you find second-order gaps
+- After each answer, ask Claude for SPECIFIC feedback: "Rate me on (1) clarity, (2) technical depth, (3) calibrated honesty about shipped-vs-explored, (4) length. Give me one specific thing to improve."
+
+**Why this order matters:**
+
+- Read = acquire raw material
+- Aloud = compress into your voice + discover what you don't actually know
+- Quiz = stress-test under interviewer pressure + patch gaps
+
+Skip Read → Quiz feels frustrating because you keep getting basics wrong.
+Skip Aloud → Quiz exposes you to interviewer pressure before you've internalized anything — builds anxiety.
+Skip Quiz → you walk into the interview with material that hasn't been pressure-tested.
+
+**Total time per major topic: ~1-1.5 hours.** At 10 hours/day with breaks, that's 6-8 major topics per day.
+
+---
+
+### Day-by-Day Plan (Mon evening → Fri morning)
+
+#### Monday Evening (tonight, ~3 hours)
+
+- **Hour 1:** Read the Senior-Engineer Supplement (S1-S4) once through. Don't try to absorb everything — get the shape so tomorrow's deeper passes have context
+- **Hour 2:** Read + memorize aloud: B1 Why Ouster (3-5 reps), Risk #3c Combined Career Arc (3-5 reps)
+- **Hour 3:** Open new Claude conversation. Paste this doc. Quiz on B1 and Risk #3c with follow-ups
+
+#### Tuesday (10 hours) — Theme: Centerpiece technical answer + project depth
+
+- **Morning block (3 hours): Custom Loss story (Dice + Focal Tversky)**
+  - 30 min read the section + the code
+  - 60 min practice the 90-second walkthrough aloud
+  - 90 min Claude quiz on the 8 follow-up questions
+
+- **Midday block (3 hours): Project 1 — ALPR (Ellexi)**
+  - 30 min read the deep-dive
+  - 60 min practice elevator pitch + architecture diagram aloud
+  - 90 min Claude quiz on all 8 likely questions including DeepSORT internals
+
+- **Afternoon block (3 hours): Project 2 — Luxolis 6-DoF**
+  - Same read → aloud → quiz structure
+
+- **Evening (1 hour):** Light review of what you covered. NO new material. Sleep early.
+
+#### Wednesday (10 hours) — Theme: Models + behavioral
+
+- **Morning block (3 hours): Project 3 — Hyvision metrology**
+  - Same read → aloud → quiz structure
+
+- **Midday block (3 hours): Model Cheat Sheet — top 10 models**
+  - 30 min read M1-M20 quickly
+  - 30 min focus on top 10: YOLO, DeepSORT, ResNet50, Mask R-CNN, OpenLRM, Latent Diffusion, LADi-VTON, CLIP, FoundationPose, ICP, RANSAC
+  - 60 min practice each top-10 aloud (~5 min each)
+  - 60 min Claude quiz: "Pick any model from my CV, ask me to walk through how it works"
+
+- **Afternoon block (3 hours): Behavioral B1-B14**
+  - 30 min re-read all 14 entries
+  - 60 min practice B3, B6, B7, B9, B10, B12 aloud
+  - 90 min Claude quiz on behavioral with follow-ups
+
+- **Evening (1 hour):** Decide your 3 REAL stories for B4 (difficult problem), B5 (failure), B8 (conflict). Write them down. Replace the placeholders in the doc.
+
+#### Thursday (10 hours) — Theme: System design + threading + MOCK INTERVIEW
+
+- **Morning block (3 hours): System Design (S2)**
+  - 30 min read framework
+  - 60 min practice the 5-step framework aloud on the worked example
+  - 90 min Claude quiz: ask Claude for 2-3 different system design prompts, walk through each
+
+- **Midday block (3 hours): C++ Threading (S1) + Tech Debt (S3.1) + Cross-functional (S3.3)**
+  - 30 min read each section
+  - 60 min practice the scenario answers aloud
+  - 90 min Claude quiz on threading scenarios + senior behavioral
+
+- **Afternoon block (3 hours): FULL MOCK VP INTERVIEW** ⭐ HIGHEST VALUE ACTIVITY OF THE WEEK
+  - Tell Claude: "You are the VP of Software at Ouster. I am your candidate. Run a 60-minute mock interview. Open with intro, ask background and motivation questions, dig into 1-2 projects, ask 1-2 technical questions, ask behavioral, close with my questions. After the mock, give detailed scorecard and weak spots."
+  - Repeat once more if time, addressing weak spots
+
+- **Evening (1 hour):** Triage weak spots. Light review only.
+
+#### Friday Morning (~5-6 hours before interview)
+
+- **4 hours:** Targeted re-drill of weak spots from Thursday's mock
+- **1-2 hours:** Light review + Ouster company research (recent blog posts, papers)
+- **Evening before 10pm:** NO new material. Eat well. Nap if possible. Tech setup check (camera, mic, lighting, water bottle, resume printout, this doc within reach for last-minute scan)
+- **9pm:** Sit at desk. Open Zoom 15 min early. Calm breath. Show up rested
+
+---
+
+### Tactical Notes
+
+**Don't memorize word-for-word.** Memorize the **beats** (bullet points at the bottom of each prepared answer). Let words come fresh each time. Practice aloud enough that beats are second nature; words will vary slightly and that's good.
+
+**Talk to the wall.** Walk around your room, speak to the wall as if it's the VP. Feels stupid the first 30 seconds, becomes natural. Speaking aloud uses different neural pathways than reading silently.
+
+**Record yourself once.** On Wednesday or Thursday, record 2-3 answers on your phone. Listen back. You'll hear verbal tics, pace problems, trailing-off moments. 15 min of self-recording = 2 hours of practice without feedback.
+
+**When quizzing with Claude, ask for SPECIFIC feedback.** Generic "good answer" is useless. Tell Claude exactly what to evaluate: "Rate me on (1) clarity, (2) technical depth, (3) calibrated honesty, (4) length. One specific thing to improve."
+
+**Mock the VP meeting at least twice.** Thursday afternoon's full mock is the single highest-value activity in the whole plan. If you do nothing else, do this. Closest simulation to the real thing.
+
+---
+
+### The Three Things That Matter Most
+
+1. **Read → Aloud → Quiz, in that order, for every topic.** Pure quiz wastes time on unknown material; pure read creates false confidence.
+2. **Practice aloud, not in your head.** The interview is a speaking task. Train the skill that matches the test.
+3. **Do at least one full 60-minute mock VP interview before Friday.** Thursday afternoon. Non-negotiable.
+
+The prep doc has everything you need. The work now is internalizing it, not adding more. Trust the doc, follow the cycle, don't try to cram more material in.
+
+---
+
+### Triage If You Fall Behind
+
+If by Wednesday evening you're behind on the plan, ruthlessly cut these (in order):
+
+1. **First to cut:** Lower-priority models (M4 U2Net, M5 HRNet, M6 YOWO, M7 Re-ID, M8 CRAFT, M9 CRNN, M10 Tesseract, M16 DensePose, M20 ESRGAN)
+2. **Second to cut:** Warm-up questions W2 (2D image processing) and W4 (coding warm-ups beyond IoU)
+3. **Third to cut:** S4 Network protocols
+4. **Fourth to cut:** Tier 2 ML theory entirely
+5. **Fifth to cut:** Behavioral B11, B14
+
+What you CANNOT cut:
+
+- Custom Loss story (centerpiece)
+- B1 Why Ouster
+- Risk #3a, #3b, #3c (career arc questions)
+- Project deep-dives P1, P2, P3
+- Top 5 models: YOLO, DeepSORT, ICP, RANSAC, FoundationPose
+- B13 Questions to ask the VP
+- Thursday's full mock VP interview
+
+---
+
 ## ⚡ LATEST UPDATES (read this section first)
 
 Three big updates from the most recent prep session that change strategy materially. The rest of the doc still applies but THESE sections take precedence:
