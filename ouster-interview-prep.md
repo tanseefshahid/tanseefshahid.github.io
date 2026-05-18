@@ -1284,6 +1284,362 @@ def kth_largest(nums, k):
 
 ---
 
+## Senior-Engineer Supplement (added 2026-05-18, Mon → Fri 10pm KST interview)
+
+**Context:** A Google AI summary of Ouster's typical Senior Software Engineer loop flagged four interview categories: (1) DS&A + low-level optimization, (2) system design, (3) hardware/domain familiarity, (4) senior behavioral. My role is Senior ML Engineer, not Senior SWE, so emphasis will tilt toward ML, but a VP of Software meeting can pull from any of these categories. This supplement covers the highest-probability gaps for a senior-level conversation.
+
+**Timeline reality check:** Interview is Friday at 10pm Korean time. Today is Monday. ~25-35 hours of focused prep available. Triage: master 5-6 critical answers cold, skim the rest.
+
+---
+
+### S1: C++ Multi-Threading — The Real-World Scenarios
+
+**Context:** I've used C++ threading at Hyvision (parallel ICP, parallel raycasting in the simulator) and at Luxolis (multi-camera synchronized capture). The textbook vocabulary may be rusty but the real-world patterns are familiar. The interview-likely questions are scenario-based, not "implement a mutex from scratch."
+
+#### S1.1 — "Walk me through how you'd parallelize a heavy point cloud operation."
+
+**Prepared answer:**
+
+> "It depends on the operation, but the common pattern is data parallelism with OpenMP because point cloud operations are usually embarrassingly parallel at the point level. For example, when I parallelized the nearest-neighbor search in ICP at Hyvision, the KD-tree is built once and treated as read-only shared state, then OpenMP partitions the source points across threads. Each thread does its own queries against the shared tree, writes results to a thread-local buffer, and we merge at the end. No locks needed because writes are partitioned.
+>
+> For operations with shared mutable state, the pattern changes. If I'm accumulating into a single result, like the cross-covariance matrix in ICP's SVD step, I'd use OpenMP reduction or a per-thread accumulator that gets merged at the end. Reduction is cleaner because OpenMP handles the merge for built-in types.
+>
+> For producer-consumer patterns, like multi-camera capture feeding inference, I'd use a thread-safe queue with condition variables. Producer threads push frames in; the consumer thread blocks on the queue until a frame is available, processes it, and loops. Standard pattern, well-understood failure modes."
+
+**Key beats:**
+
+- Data parallelism with OpenMP for embarrassingly parallel operations
+- Shared read-only state (KD-tree) + thread-local writes = no locks
+- Reduction or per-thread accumulator for shared mutable state
+- Producer-consumer with thread-safe queue + condition variables for pipelines
+
+#### S1.2 — "One thread finishes before others. How do you handle that?"
+
+**Prepared answer:**
+
+> "Depends on whether the thread is done permanently or just waiting for more work.
+>
+> If it's permanently done, the standard pattern is a thread pool with a work queue. Idle threads pull from the queue instead of finishing — so a thread that 'finishes early' just goes back to the queue and picks up the next available task. C++ has `std::async` and there are thread pool libraries; for the kind of work I do, I'd use OpenMP's task model or a simple custom pool.
+>
+> If it's waiting for a barrier — all threads need to sync before proceeding — I'd use `std::barrier` (C++20) or a condition variable with a counter. Threads that arrive early block until the count reaches the expected number.
+>
+> The anti-pattern to avoid is busy-waiting in a loop checking a flag. That burns CPU. Use condition variables for blocking waits, atomics only for low-frequency state checks."
+
+**Key beats:**
+
+- Permanently done → thread pool with work queue
+- Sync point → barrier or condition variable + counter
+- Anti-pattern: busy-waiting on a flag
+
+#### S1.3 — "One thread has heavy load, others process data with the spare capacity."
+
+**Prepared answer:**
+
+> "This is a load imbalance problem, very common in real-world parallel processing. Three approaches depending on the situation.
+>
+> First, dynamic work assignment instead of static partitioning. If I assign work in fixed-size chunks upfront and one chunk is unexpectedly heavy, the assigned thread is overloaded while others sit idle. The fix is to use a shared work queue where any free thread can pull the next task. OpenMP's `schedule(dynamic)` does this automatically for loop parallelism.
+>
+> Second, work stealing. If threads have their own task queues but one runs out, it can 'steal' tasks from another's queue. Standard in modern parallel runtimes like Intel TBB.
+>
+> Third, work splitting. If a single task is genuinely too large for one thread, split it. For example, if processing one camera's frame takes 200ms and another's takes 20ms, I'd batch-process multiple frames of the slow camera in parallel rather than one-frame-at-a-time.
+>
+> In practice for the parallel ICP at Hyvision, I used OpenMP with dynamic scheduling because some source points have much denser local neighborhoods than others, making nearest-neighbor queries take variable time. Static scheduling would have left some threads idle while one finished a hard chunk."
+
+**Key beats:**
+
+- Dynamic work assignment via shared queue (OpenMP `schedule(dynamic)`)
+- Work stealing (Intel TBB pattern)
+- Work splitting for tasks too large for one thread
+- Real example: parallel ICP used dynamic scheduling due to variable neighborhood density
+
+#### S1.4 — Race conditions and how to avoid them (quick answer for warm-up)
+
+> "A race condition is when two or more threads access shared state without synchronization and the outcome depends on which thread runs first. Classic example: two threads incrementing a counter without a lock — final value can be wrong because read-modify-write isn't atomic.
+>
+> Prevention: use mutexes around critical sections, use atomic types for single-variable updates (`std::atomic<int>` is cheaper than mutex for one counter), or design to avoid shared mutable state entirely (thread-local data + merge at the end). The last one is usually the best — locks are correct but slow; lock-free is fast but hard to get right."
+
+**Key beats:**
+
+- Definition: unsynchronized access to shared state, outcome depends on scheduling
+- Three fixes: mutex (correct but slow), atomic (cheaper for single values), avoid shared state (best)
+
+#### S1.5 — Deadlock — the 4 conditions and how to prevent it
+
+> "Deadlock requires four conditions simultaneously: mutual exclusion, hold and wait, no preemption, and circular wait. Break any one and you can't deadlock.
+>
+> The most practical prevention is breaking circular wait — establish a global lock ordering and always acquire locks in that order across all threads. If thread A always takes lock 1 then lock 2, and thread B does the same, they can't deadlock on those two locks.
+>
+> Other practical patterns: `std::lock` and `std::scoped_lock` (C++17) atomically acquire multiple locks without ordering issues. Timeout-based acquisition (`try_lock_for`) lets a thread back off if it can't get a lock quickly, preventing indefinite blocking."
+
+**Key beats:**
+
+- Four conditions: mutual exclusion, hold-and-wait, no preemption, circular wait
+- Prevention: break circular wait via global lock ordering
+- C++17 `std::scoped_lock` for safe multi-lock acquisition
+- `try_lock_for` for timeout-based backoff
+
+---
+
+### S2: ML System Design Framework
+
+**Context:** A 45-minute system design question is likely in the technical screen, less likely in the VP meeting but possible. The question will probably be ML-flavored: "Design a real-time detection and tracking system for autonomous trucks using our LIDAR sensor" or similar. Use this 5-step template to structure any system design answer.
+
+#### The 5-Step Framework
+
+**Step 1: Clarify requirements (2-3 minutes)**
+
+Ask before diving in. Examples:
+
+- What's the latency budget? (Real-time at 10Hz vs batch processing)
+- What's the data scale? (Single sensor vs fleet of vehicles vs offline corpus)
+- Single modality or fused? (LIDAR-only vs LIDAR + camera + IMU)
+- What's downstream consuming the output? (Path planner vs visualization vs storage)
+- Onboard or offboard compute? (Edge GPU vs cloud server)
+- What level of accuracy is needed? (Production-shipped or research prototype)
+- Are there safety/redundancy requirements?
+
+**Step 2: High-level architecture (5 minutes)**
+
+Sketch the boxes. For a LIDAR perception system:
+
+```
+[LIDAR Sensor] → [Sensor Driver] → [Preprocessing] → [Detector]
+                                                          ↓
+                                                      [Tracker] → [Output API]
+                                                          ↑
+[Camera] → [Sync + Calib] ──────────────────────────────┘ (if fusion)
+```
+
+Name the technology choice for each box. Use Ouster vocabulary where relevant.
+
+**Step 3: Component deep-dive (15 minutes)**
+
+Go one box at a time. For each, name:
+
+- Algorithm choice (e.g., CenterPoint for detector, ByteTrack for tracker)
+- Why this choice given the requirements
+- Key parameters
+- Failure modes and mitigations
+
+**Step 4: Data pipeline and training (5 minutes)**
+
+How does the model get trained and updated?
+
+- Data source: synthetic, real-world capture, customer fleets, mix
+- Labeling: manual, semi-automated, self-supervised
+- Training infra: single-GPU vs distributed, framework
+- Versioning: model artifacts, dataset versions, reproducibility
+- Drift detection: how to know when to retrain
+
+**Step 5: Deployment, monitoring, iteration (5 minutes)**
+
+- Deployment target: edge GPU, what hardware specifically
+- Optimization: quantization (INT8?), TensorRT, ONNX
+- Latency profiling: how to measure and where to look for bottlenecks
+- Monitoring in production: what metrics, what triggers alerts
+- Iteration loop: how do production failures feed back into retraining
+
+#### S2 Worked Example: "Design real-time LIDAR detection and tracking for autonomous trucks"
+
+**Clarifying questions to ask:**
+
+> "Quick clarifications. What latency budget — assuming 10Hz LIDAR with detection needed each scan? What's the deployment hardware — Jetson AGX Orin or something more powerful? Are we LIDAR-only or fusing with cameras? And what's downstream — feeding a path planner that needs persistent track IDs, or just per-frame detections for a visualization?"
+
+**Pretend they say: 100ms latency budget, Jetson AGX Orin, LIDAR-only for now, downstream is path planner that needs persistent IDs.**
+
+**High-level architecture:**
+
+> "Five-stage pipeline. Sensor driver pulls raw LIDAR packets from the Ouster sensor over UDP. Preprocessing runs ground removal and ROI cropping. Detector outputs 3D bounding boxes per scan. Tracker associates detections across scans to produce persistent track IDs. Output API publishes tracks to the path planner over a message bus."
+
+**Component deep-dive:**
+
+> "Detector: I'd start with CenterPoint over PointPillars representation. CenterPoint is anchor-free, fast on GPU, and proven on autonomous-driving benchmarks. PointPillars converts the LIDAR point cloud to a pseudo-image by collapsing the Z dimension into pillars, which lets me use 2D convolutions for speed. Inference target around 30-40ms on Orin.
+>
+> Tracker: ByteTrack on the detections. ByteTrack handles partial occlusion better than vanilla SORT by associating low-confidence detections in a second pass. For autonomous driving, persistence matters for path planning — losing a track of an adjacent vehicle for one frame is dangerous. ByteTrack's two-pass association is the right trade-off.
+>
+> Preprocessing: ground removal via RANSAC plane fit on the lower portion of the scan. ROI cropping to remove returns from the sky and beyond a configurable range (typically 100m). This drops the point count we feed into the detector by 30-50%, which directly improves latency.
+>
+> Sync and timing: LIDAR scans typically come asynchronously to other sensors. We'd timestamp every scan at the driver level using PTP synchronization, so downstream consumers can correlate with camera frames or IMU data even though we're LIDAR-only for now."
+
+**Data pipeline:**
+
+> "Training data is the hardest part for autonomous driving. We'd want a mix: customer fleet data with auto-labeled tracks for diversity, hand-labeled validation sets for evaluation, and synthetic data for rare edge cases (occluded pedestrians, unusual vehicles). Auto-labeling uses a heavier offline detection model to bootstrap labels from production data — the offline model can be 10x slower than the online one because it's not latency-constrained.
+>
+> Drift detection: monitor distribution shift on input statistics (point density, return intensity distribution) and on output statistics (detection counts per class, track lifetimes). Sudden shifts trigger investigation."
+
+**Deployment:**
+
+> "TensorRT compilation with INT8 quantization for the detector, calibrated on production-distribution data. The tracker is lighter weight, runs in pure C++. End-to-end latency target broken down: 5ms for preprocessing, 30-40ms for detector inference, 5ms for tracker association, 5ms for serialization to output. Total ~50ms, comfortably within the 100ms budget with headroom for downstream consumers.
+>
+> Monitoring: latency histogram per stage, detection count per class per minute, track ID switch rate, dropped frames at the sensor driver. Alerts on sustained latency violations or anomalous detection-count shifts."
+
+#### Key tactical notes for system design
+
+- **Always clarify before designing.** The clarifications are part of the score — they show you don't over-engineer for the wrong constraints.
+- **Talk through trade-offs explicitly.** "I chose X because the latency budget rules out Y" is the senior-engineer signal.
+- **Name technology choices with reasons, not just buzzwords.** "CenterPoint because it's anchor-free and fast on GPU" is better than "use a state-of-the-art detector."
+- **Quantify wherever possible.** "30-40ms detector inference, 5ms preprocessing" is much stronger than "should be fast enough."
+- **Acknowledge what you don't know.** "I'd want to benchmark the specific quantization accuracy hit before committing to INT8" is mature.
+
+---
+
+### S3: Senior Behavioral Additions
+
+#### S3.1 — "How do you balance shipping under tight deadlines versus maintaining clean, optimized code?" (Technical Debt)
+
+**Prepared answer:**
+
+> "I treat this as a conscious trade-off conversation, not a personal preference. The framing I use: every shortcut taken to hit a deadline is a loan that has to be paid back with interest. The question isn't 'should we take the shortcut' — it's 'are we tracking the loan, and are we paying it back on a defined timeline?'
+>
+> Concretely, when I'm pushed to ship faster than would be ideal, I do three things. First, I document the shortcuts in the code itself — a TODO comment with a ticket reference, not just 'TODO fix this later.' Second, I open the actual ticket immediately, scope the work, and put it in the team's backlog with a target sprint. Third, I name the trade-off explicitly to the person asking for the speed — 'we can ship by Friday, but it'll cost us about three days of refactoring within the next two sprints. Confirming that's acceptable.'
+>
+> The anti-pattern I avoid is silent debt — where the engineer takes the shortcut without flagging it, the manager doesn't see the cost, and the codebase quietly degrades. That's how teams end up with unmaintainable systems and burnt-out engineers.
+>
+> The other anti-pattern is the opposite: refusing to ever take debt. Sometimes a customer commitment matters more than code quality, and refusing to take any debt is its own kind of failure. The job is judgment about which debts are worth taking, not zero debt."
+
+**Key beats:**
+
+- Debt is a loan that has to be paid back — track it, schedule it, name it
+- Three actions: document in code, open ticket immediately, name trade-off to requester
+- Anti-pattern 1: silent debt (engineer + manager both lose visibility)
+- Anti-pattern 2: refusing all debt (rigidity is its own failure)
+- The job is judgment about which debts are worth taking
+
+#### S3.2 — "Tell me about a time you disagreed with a senior engineer or principal on architecture."
+
+**Framing:** PLACEHOLDER — needs real story. Senior interviewers want to see you can disagree productively with someone more senior, not just peers. The story matters more than the answer. Key beats:
+
+- Frame the other person's position charitably (they had real reasoning)
+- Describe how I raised the disagreement (in conversation, with data not opinion)
+- The resolution (often: I lost the argument, executed their plan, learned something OR I made my case, they updated their view, we landed on a hybrid)
+- The lesson about how I operate now
+
+**Strong story patterns to consider for B8 placeholder filling:**
+
+- Architecture choice where I pushed back on a senior's preferred approach with data/benchmarks
+- Estimation pushback where I argued the senior's timeline was unrealistic with specifics
+- Scope or priority disagreement where I advocated for a different focus
+
+**Avoid:** Stories where I "won" and the senior was clearly wrong. Stories about being underappreciated. Personal conflicts. Stories where I went around the senior to escalate.
+
+#### S3.3 — "How do you explain technical trade-offs to non-software teams (hardware, optics, product)?"
+
+**Prepared answer:**
+
+> "Three principles.
+>
+> First, lead with the consequence, not the cause. Hardware and product people care about what happens, not how. Instead of 'the model uses a 4-byte FP32 per weight which is too large for our memory constraint,' I'd say 'this model won't fit on our target hardware. To fit, we'd need to either use INT8 quantization, which we'd need to validate, or pick a smaller model architecture, which would cost us about 2% accuracy.' Same information, different framing.
+>
+> Second, use analogies from their domain. Hardware engineers think about thermal budgets, power envelopes, and tolerances — I can frame ML trade-offs in those terms. 'Latency is to our perception system what bandwidth is to your sensor — there's a hard ceiling, and everything we do has to fit underneath.'
+>
+> Third, give them concrete trade-off options rather than abstract trade-offs. Don't say 'we can be more accurate or faster.' Say 'option A: 95% accuracy at 100ms, option B: 92% accuracy at 30ms, option C: 96% accuracy at 200ms.' Cross-functional partners can make decisions on concrete numbers; they can't on abstract dimensions.
+>
+> The mistake I try to avoid is using ML jargon as a shield. Saying 'we'd need to fine-tune with a custom loss function' to a product person is useless. Saying 'we'd need two weeks of model retraining' is the information they actually need."
+
+**Key beats:**
+
+- Lead with consequence, not cause
+- Use analogies from their domain (thermal budgets for HW, etc.)
+- Concrete trade-off options with numbers, not abstract dimensions
+- Avoid: ML jargon as a shield
+
+---
+
+### S4: Network Protocols and Sensor Hardware Basics (for the resume-review category)
+
+**Context:** Ouster engineers may probe how I think about sensor-level data flow. I don't have deep network protocol experience, but I can speak to the basics from my industrial hardware integration work (Basler GigE, PLC, NuDAQ).
+
+#### S4.1 — "How would you handle packet loss in a UDP sensor stream?"
+
+**Prepared answer:**
+
+> "UDP doesn't guarantee delivery, so packet loss is expected and has to be handled at the application layer. Three approaches depending on what's lost.
+>
+> First, detect and skip. Each packet has a sequence number; the receiver tracks gaps. For perception data where one frame is independent of the next, missing one packet just means dropping that frame and processing the next one. For LIDAR specifically, this might mean dropping a partial scan and waiting for the next complete scan.
+>
+> Second, request retransmission for critical packets. If the data is small and order-sensitive — like calibration parameters or configuration updates — I'd send those over a reliable channel like TCP, not UDP. UDP is for high-throughput sensor data where occasional loss is acceptable; TCP is for control plane.
+>
+> Third, application-level FEC. If the data is critical and bandwidth allows, I could send redundant packets so a missing packet can be reconstructed. This is overkill for most LIDAR applications.
+>
+> For Ouster sensors specifically, the standard pattern would be detect-and-skip on the data plane (UDP) with TCP for the control plane (configuration). I'd build the application to be robust to occasional dropped scans rather than trying to recover every packet."
+
+**Key beats:**
+
+- UDP loss is expected, application layer handles it
+- Detect-and-skip for independent frames
+- TCP for control plane (calibration, config) — not data plane
+- FEC for critical data when bandwidth allows
+- Ouster pattern: UDP data + TCP control, app robust to dropped scans
+
+#### S4.2 — "How does multi-camera hardware synchronization work?"
+
+**Prepared answer:**
+
+> "Two main approaches: software sync and hardware sync.
+>
+> Software sync uses timestamps. Each camera produces frames with a timestamp; the receiving application correlates by timestamp. This works if clocks are loosely synchronized via NTP or PTP, but you get sync precision limited by network and OS scheduling — maybe 10ms in practice. Fine for offline correlation, marginal for real-time perception.
+>
+> Hardware sync uses a physical trigger. A master trigger signal — generated by a GPIO line, dedicated trigger box, or PTP-synced clock pulse — is wired to all cameras. Each camera exposes its sensor when the trigger arrives. This gives microsecond-level sync precision. Required for stereo or for any application where you need to fuse cross-camera data at the same moment in time.
+>
+> At Luxolis I worked with a 6-camera Basler GigE array with hardware-triggered synchronization through a NuDAQ I/O board. The PLC drove the trigger signal, all six cameras exposed simultaneously, and the application received six synchronized frames per trigger pulse. Without hardware sync, the 360° defect detection wouldn't have worked because the geometric calibration between cameras assumes simultaneous capture."
+
+**Key beats:**
+
+- Software sync = timestamps + loosely-synced clocks, ~10ms precision
+- Hardware sync = physical trigger to all sensors, microsecond precision
+- Real example: Luxolis 6-camera Basler GigE + NuDAQ-driven PLC trigger
+- Hardware sync was required because cross-camera geometric calibration assumed simultaneous capture
+
+---
+
+### Drill Priority for the Next 4 Days (Mon-Fri)
+
+Given limited time, focus on the highest-probability items:
+
+**Monday (today) — 3 hours:**
+
+- [ ] Read the Senior-Engineer Supplement (S1-S4) once through
+- [ ] Memorize S1.3 "load imbalance" answer — most likely threading question
+- [ ] Memorize S3.1 technical debt answer
+- [ ] Memorize the S2 system design 5-step framework (just the steps, not the worked example)
+
+**Tuesday — 4-6 hours:**
+
+- [ ] Practice the S2 worked example aloud — design LIDAR detection+tracking for autonomous trucks
+- [ ] Read project deep-dives (P1-P3) twice through
+- [ ] Memorize Risk #3c combined career arc answer
+- [ ] Memorize B1 Why Ouster
+
+**Wednesday — 4-6 hours:**
+
+- [ ] Read Model Cheat Sheet M1-M20 once through
+- [ ] Memorize top 10 models cold (M1, M2, M3, M11, M12, M13, M14, M15, M17, M18, M19)
+- [ ] Drill the Dice + Focal Tversky custom loss walkthrough (centerpiece answer)
+- [ ] Practice B13 questions to ask the VP
+
+**Thursday — 4-6 hours:**
+
+- [ ] Mock VP meeting with the new Claude conversation (or self-mock)
+- [ ] Drill weak spots identified in mock
+- [ ] Final pass on behavioral questions B1-B14
+- [ ] Confirm 3 real stories for B4, B5, B8 (these placeholders need real content)
+
+**Friday — 2 hours max + interview at 10pm:**
+
+- [ ] Light re-read only, no new material
+- [ ] Confirm tech setup (camera, mic, lighting, water)
+- [ ] Eat well, nap if possible
+- [ ] Show up rested
+
+**What to deprioritize if time is tight:**
+
+- Skip Tier 2 ML theory entirely (point cloud detection variants, edge optimization deep dive)
+- Skip lower-priority models (M4, M5, M6, M7, M8, M9, M10, M16, M20)
+- Skip W4 coding warm-ups beyond IoU (focus on warmups W1, W3, W5)
+- Skip S4 network protocols unless they ask
+
+---
+
 ## Model Cheat Sheet — Mechanics for CV-Listed Techniques
 
 **Context:** Every model named on the resume is a potential interview question. A senior interviewer can pick any one and say "walk me through how that works internally." This section gives me a compact, fluent answer for each — enough mechanical depth to sound credible without overclaiming.
