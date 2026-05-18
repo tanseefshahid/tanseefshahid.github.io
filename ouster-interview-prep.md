@@ -484,6 +484,475 @@ Keyence LJ-X8080 → Scan Aggregation (line scans → 2.5D height map) → ROI E
 
 ---
 
+## Behavioral & Personal Questions (CRITICAL for VP Meeting)
+
+**The VP of Software meeting is at least 50% behavioral.** Technical project depth alone won't carry the conversation. These prepared answers cover the questions almost certain to come up.
+
+**Format per question:**
+
+- **Framing** — what they're really testing
+- **Prepared answer** — actual words to say
+- **Key beats** — bullet structure if I blank
+- **Common follow-ups** — what they'll ask next
+
+**About the placeholder stories:** Some answers (team conflict, biggest failure, project setback) use placeholder specifics — they show the right structure but the details need to be replaced with my actual career stories. Work on these at home with the new Claude conversation, swapping in real incidents.
+
+---
+
+### B1: "Why Ouster specifically?"
+
+**Framing:** Highest-leverage motivation question. VPs reject candidates whose "why us" answer could apply to any company. Be specific about Ouster's product, technology, and the role.
+
+**Prepared answer:**
+
+> "Three reasons. First, Ouster sits at the intersection of two things I've worked on for years: production ML deployment and 3D geometric perception. Most companies do one or the other. Ouster's product requires both, and the job description reflects that — custom loss design, architecture modification, edge optimization, all on 3D point cloud data. That's a rare combination.
+>
+> Second, LIDAR-based detection is a problem where the algorithmic landscape is still evolving. PointPillars, CenterPoint, range-view detectors, transformer-based 3D detection — there's real room to contribute, not just import an existing solution. The job description explicitly mentions translating research papers into code and modifying internal architectures, which tells me Ouster respects that kind of work.
+>
+> Third, I'm at a career inflection point. My work at Hyvision is C++ metrology, which is valuable but narrower than what I want to focus on long-term. I want to be back at the center of applied ML on cutting-edge perception. A senior role at a LIDAR company building production detection systems is exactly the right move. And to be honest, Ouster as a company is at the right stage too — past Series A, real revenue, real customers in autonomous driving and robotics — so I'd be building production systems, not slideware."
+
+**Key beats:**
+
+- Production ML + 3D geometric perception is a rare combination, Ouster needs both
+- LIDAR detection is algorithmically evolving, not solved — real room to contribute
+- Career inflection: I want to be back at the center of applied ML
+- Ouster stage: post-Series-A, real revenue, production work not slideware
+
+**Common follow-ups:** "What specifically interests you about our products?" → mention LIDAR digital sensors, autonomous driving customer applications, the perception stack. "What do you know about our team?" → admit honestly what you've researched and ask them to expand.
+
+---
+
+### B2: "Where do you see yourself in 5 to 10 years?"
+
+**Framing:** This is a commitment-signal question. They want to know: will you stay, will you grow with us, or are you using us as a stepping stone? Honest answer that signals long-term commitment but doesn't sound canned.
+
+**Prepared answer:**
+
+> "I think about this on two timelines. In the 5-year window, my goal is to grow on the deep technical track — senior to staff to principal engineer, contributing to architecture-level decisions, mentoring junior ML engineers, and being the person who can take a hard problem from research paper to shipped product without needing hand-holding at any stage. I want to be hands-on with code for the foreseeable future, not move into pure management.
+>
+> On the 10-year horizon, I'm more open. The deep technical track is one path I'd be excited to continue on. The other path I think about honestly is eventually starting something of my own — if the right opportunity emerges with the right co-founder, the right problem, and the right funding context. I'm not actively planning to leave a senior engineering role to do that — it would have to be a specific opportunity worth the risk. The five years between then and now would be spent learning everything I can about how great products are built and shipped, which is exactly what I'd be doing at Ouster.
+>
+> What I'm clear on is what I'm not optimizing for: I don't want to job-hop. The 3.5 years at PERSPECTIVE and 2 years at Ellexi are more the shape of how I want to commit to a role. Ouster is the kind of company I'd want to grow with, which is why I'm investing the time to find the right next role rather than taking the first offer."
+
+**Key beats:**
+
+- 5-year: deep IC track — senior → staff → principal, stay hands-on with code
+- 10-year: deep IC continued OR start something if right opportunity emerges
+- Either way, 5 years between now and then = learning how great products ship
+- Closing commitment signal: not job-hopping, looking for the right multi-year role
+
+**Common follow-ups:** "What kind of company would you found?" → "Something in applied AI for industrial or robotics applications — I don't have a specific idea yet, which is why I'm not doing it now. The thinking has to mature first." "Wouldn't you leave us in 2 years?" → "If I were going to do that I wouldn't be investing this much in finding the right next role. I'd be taking any offer that gets me close to founding faster."
+
+---
+
+### B3: "What can you bring to the team?"
+
+**Framing:** Direct value-prop question. Not a humility moment — name your differentiators concretely.
+
+**Prepared answer:**
+
+> "Three things that I think are differentiated.
+>
+> First, the cross-stack experience. I'm comfortable on both sides of the model-to-deployment handoff — writing PyTorch training code in the morning and writing C++ production code in the afternoon. Most ML engineers can do one. The job description specifically calls out collaboration with the C++ application team, which tells me this is a real need, and it's something I do every week.
+>
+> Second, the experience taking research papers to shipped products. At PERSPECTIVE I took LADi-VTON, OpenLRM, and DensePose from research repos to a customer-facing AWS deployment. At Luxolis I integrated FoundationPose into a production robotic perception pipeline. These aren't theoretical claims — they're shipped systems with real customers using them. Ouster's job description says 'turning papers into code' is a core responsibility, and that's a track I can already execute.
+>
+> Third, the math-and-engineering combination. I have peer-reviewed publications on variational methods and PDEs from my Master's, and I work in production C++ daily on point cloud algorithms — RANSAC, ICP, SVD, sub-millimeter precision. Most candidates have either the theoretical depth or the engineering muscle. The combination is rarer, and the job description explicitly asks for both — 'strong grasp of linear algebra and probability as it applies to custom loss function design and geometric 3D vision' is a one-line summary of how I think.
+>
+> The honest version is that I'd also bring high agency and a strong work ethic. The visa relocation context means I'm bringing real commitment to making this work — this isn't a casual move for me."
+
+**Key beats:**
+
+- Cross-stack: PyTorch + C++ daily (rare combination, called out in JD)
+- Research-to-production track: LADi-VTON, OpenLRM, FoundationPose shipped
+- Math + engineering combo: publications + production C++ on point clouds
+- Personal: high agency, strong commitment given relocation context
+
+**Common follow-ups:** "Give me a concrete example of [one of these]." → pull from the project deep-dives. "How would you onboard?" → see B7 below.
+
+---
+
+### B4: "Tell me about a time you faced a difficult problem and how you solved it."
+
+**Framing:** Classic STAR-method question. Pick a real story with technical depth and a clear "what I learned" close. PLACEHOLDER STORY — replace with real one at home.
+
+**Prepared answer (placeholder — REPLACE WITH REAL STORY at home):**
+
+> "[PLACEHOLDER: Pick a real story. Suggestions from your career:
+>
+> Option A — Ellexi: The IR hotspot bug on night-time license plates that broke OCR accuracy. (We discussed this earlier as a possible story for the ALPR project.)
+>
+> Option B — Hyvision: The trimmed-ICP residual bug at the Apple project where standard ICP averaged residuals including outliers and gave false-fails.
+>
+> Option C — PERSPECTIVE: A specific debugging story from the OpenLRM or LADi-VTON deployment — e.g., a training instability, a memory bottleneck, a customer-facing failure mode you fixed.]
+>
+> STAR structure to fill in:
+>
+> **Situation:** [Where you were, what the project was, what role you played, what was at stake]
+>
+> **Task:** [What specifically you needed to solve and why it was difficult]
+>
+> **Action:** [Specific steps you took — investigation, hypotheses you ruled out, what you tried that didn't work, what eventually worked, who you collaborated with]
+>
+> **Result:** [Concrete outcome — metrics improved, deadline met, customer issue resolved, downstream impact]
+>
+> **Lesson learned:** [The senior-engineer reflection. What you'd do differently next time, or what general principle you took away]"
+
+**Key beats:**
+
+- Pick a real story with technical depth — don't fabricate
+- STAR structure: Situation → Task → Action → Result → Lesson
+- The Lesson is the senior-engineer differentiator — most candidates skip it
+- 2-3 minutes total when delivered well
+
+**Common follow-ups:** "What would you have done differently?" → answer the lesson part if not already covered. "Did you share this with the team?" → talk about how you wrote it up or presented it.
+
+---
+
+### B5: "Tell me about a time you failed."
+
+**Framing:** Senior interviewers value self-aware failure stories more than humble-brag fake failures. Pick a real one. Show what you learned. PLACEHOLDER — replace at home.
+
+**Prepared answer (placeholder — REPLACE WITH REAL STORY at home):**
+
+> "[PLACEHOLDER: A real failure to consider:
+>
+> Option A — Luxolis joining decision: Joining a startup without doing financial-runway diligence. You acknowledged this as a lesson in our earlier prep — 'with the benefit of hindsight, I'd have done more diligence on financial runway before joining.' This is a strong, mature failure story.
+>
+> Option B — A technical failure: A model you shipped that had a failure mode you didn't catch in testing, and how you discovered and fixed it in production.
+>
+> Option C — A timeline failure: A project where you committed to a deadline you couldn't hit and had to renegotiate scope.]
+>
+> Structure:
+>
+> **What happened:** [The specific failure, concretely]
+>
+> **Why it happened:** [Honest root cause — usually a judgment call, missing information, or process gap. Don't blame others.]
+>
+> **What I did about it:** [The immediate fix and the longer-term change in how you operate]
+>
+> **What I take from it:** [The lesson, framed as a principle that affects how you work now]"
+
+**Notes on delivery:**
+
+- Don't pick a "humble brag" failure like "I work too hard." Senior interviewers see through this immediately.
+- Don't pick a failure that suggests you can't be trusted with responsibility (e.g., shipped broken code to production that hurt the customer). Pick one where the failure was contained and the lesson is clear.
+- Owning the failure without blame-shifting is the senior signal. Avoid "well, the team didn't tell me X" or "the customer changed requirements." Even if true, frame it as "I didn't ask the right questions early enough."
+
+**Key beats:**
+
+- Real failure with real consequences (no humble-brag)
+- Honest root cause, no blame-shifting
+- What you did to fix it AND change how you operate
+- The principle you carry forward
+
+**Common follow-ups:** "Has it happened again?" → "Not in the same way, because of [what I changed]." "Did your manager/team know?" → "Yes, I flagged it as soon as I understood the scope. Hiding it would have been worse."
+
+---
+
+### B6: "How do you handle a situation where a client or stakeholder is causing delays or changing requirements?"
+
+**Framing:** This tests whether you're a senior engineer who can manage upward and outward, or just a coder who needs requirements handed to you. Show maturity about how the world actually works.
+
+**Prepared answer:**
+
+> "First, I assume the delay or change is rational from their side — they have information or pressure I don't have visibility into. Reacting defensively or treating them as the adversary is the easy mistake.
+>
+> Concretely, my approach is:
+>
+> Step one: get the real picture. Schedule a short conversation, not an email thread. Ask open-ended questions about what's actually changing and why. Often what looks like 'the client is being difficult' turns out to be 'the client's downstream user found a problem we didn't anticipate.'
+>
+> Step two: separate the technical impact from the timeline impact. Quantify both honestly. If the change adds two weeks to the schedule, say so. If it kills 30% of the existing work, say so. Senior people respect honesty about cost more than optimistic estimates that slip later.
+>
+> Step three: bring options. Don't show up with just the problem. 'Here are three ways we can absorb this — option A keeps the deadline but cuts scope, option B keeps scope but extends two weeks, option C is somewhere in between with specific trade-offs.' This shifts the conversation from blame to decision-making.
+>
+> Step four: document the decision and the trade-offs. Email summary, ticket update, whatever fits the team's norms. So three months later, when someone asks 'why didn't we have feature X,' there's a paper trail of the conscious trade-off.
+>
+> A concrete example: at Hyvision the Apple project had several mid-stream specification changes from the customer because their downstream QA requirements shifted. The first time it happened I almost just absorbed the change quietly. The second time I started doing the explicit trade-off documentation pattern, which made the conversations significantly easier for both sides.
+>
+> The thing I try to avoid is the engineering anti-pattern of just working harder to absorb scope changes silently. That doesn't help anyone — the customer doesn't know they're getting more than they're paying for, and the engineer burns out."
+
+**Key beats:**
+
+- Assume rational behavior from client side (don't treat as adversary)
+- Get the real picture in conversation, not email
+- Separate technical impact from timeline impact, quantify honestly
+- Bring options, not just problems (3 options with trade-offs)
+- Document the decision so there's a paper trail
+- Avoid the anti-pattern of silently absorbing scope changes
+
+**Common follow-ups:** "Has this come up in a recent project?" → use the Hyvision Apple project example. "What if the client is being unreasonable?" → "Then it becomes a management question — I escalate with documentation, not just complaints."
+
+---
+
+### B7: "How do you contribute to a team? How do you collaborate?"
+
+**Framing:** Culture fit + collaboration question. Show concrete patterns of how you work with others, not platitudes.
+
+**Prepared answer:**
+
+> "A few patterns I try to bring consistently.
+>
+> First, I default to being the person who writes things down. After a meeting or a hallway conversation about a decision, I follow up with a short written summary — what we decided, what's still open, who owns what. This costs almost nothing and saves the team a lot of 'wait, what did we agree to?' confusion three weeks later. I do this even when no one asks for it.
+>
+> Second, I try to ask questions early instead of guessing later. If a spec is ambiguous, I'd rather spend 10 minutes clarifying with the product or research person now than ship the wrong thing and rework it. This sometimes annoys people who want me to just go figure it out, but the rework cost is worse than the annoying-question cost.
+>
+> Third, when I disagree with a technical decision, I disagree in writing with reasoning, not in a Slack reaction. And I commit to whatever the team decides afterward, including if I lost the argument. 'Disagree and commit' is the principle. The worst engineering culture is one where decisions get re-litigated in side conversations.
+>
+> Fourth — and this is more relevant for cross-functional work — I try to translate. ML engineers and product people speak different languages. When I'm in a meeting with both, I'll often rephrase what the product person said in technical terms and what the ML person said in product terms, just to make sure both sides actually heard the same thing. Senior engineers do this naturally; junior engineers often don't realize it's needed.
+>
+> Concretely on a team at Ouster: I'd expect to spend my first month deeply listening — reading the codebase, reading the team's docs, attending design reviews without trying to prove myself. The second month is when I'd start contributing pull requests on smaller bounded problems to demonstrate I understand the team's conventions. By the third month I'd hope to be owning a meaningful piece of work end-to-end. The instinct to come in hot and start changing things on day one usually backfires."
+
+**Key beats:**
+
+- Default to writing things down (decisions, action items, summaries)
+- Ask clarifying questions early — rework cost > annoying-question cost
+- Disagree in writing with reasoning, then commit to team decision
+- Translate between technical and product languages in meetings
+- Onboarding pattern: month 1 listen, month 2 small PRs, month 3 own work
+
+**Common follow-ups:** "Tell me about a team you've worked with that was particularly effective." → describe what made it work (clear ownership, written decisions, low-ego culture). "What's your management style?" → if it comes up, see B11 below.
+
+---
+
+### B8: "Tell me about a time you had a conflict with a teammate or manager."
+
+**Framing:** Classic question — they want to see emotional maturity. Show that you can disagree productively without making it personal. PLACEHOLDER STORY — replace at home.
+
+**Prepared answer (placeholder — REPLACE WITH REAL STORY at home):**
+
+> "[PLACEHOLDER: Pick a real low-stakes professional disagreement. Strong options:
+>
+> Option A — A technical disagreement at PERSPECTIVE about architecture choice (e.g., one approach vs another for the segmentation pipeline, or the right way to integrate the diffusion model).
+>
+> Option B — A timeline disagreement where you pushed back on a deadline that wasn't realistic.
+>
+> Option C — A scope disagreement where you advocated for a different priority than what management wanted.
+>
+> AVOID: Personal conflicts. Stories where you 'won' and the other person was wrong. Stories about being underappreciated.]
+>
+> STAR-style structure:
+>
+> **Situation:** [Brief context — what project, what was the disagreement about]
+>
+> **The disagreement:** [What each side wanted, what was at stake. Frame the other person's position charitably — they had real reasons, not just being difficult.]
+>
+> **How it played out:** [How you raised it, what conversations happened, who else was involved, how the decision got made]
+>
+> **The resolution:** [What was decided, whether you got your way or not]
+>
+> **What I took from it:** [Reflection — the lesson is rarely 'I was right' even if you were. The lesson is usually something like 'I learned to frame disagreements as questions instead of statements' or 'I learned the other person had context I didn't have']"
+
+**Critical tactical notes:**
+
+- The interviewer is **not** evaluating whether you were right. They're evaluating whether you can disagree without making it personal.
+- Frame the other person charitably. If you can describe their reasoning as if you were arguing their side, you sound senior. If you can only describe it as "they didn't understand," you sound junior.
+- Closing the story with "I learned X" is essential. Without the lesson, the story sounds like you're still litigating it.
+- "I was right and we eventually did it my way" is a bad ending unless you frame it as "and I learned to make my case earlier and more clearly next time."
+
+**Key beats:**
+
+- Real disagreement, low-stakes, professional
+- Charitable framing of the other side
+- How you raised it (in conversation, with reasoning)
+- Resolution (often: compromise, or you committed to their decision)
+- Lesson about how you operate now, not about who was right
+
+**Common follow-ups:** "Has it affected your relationship with that person?" → ideally "no, we still work well together / they're a colleague I respect." "What if your manager makes a decision you strongly disagree with?" → "I raise it once in writing, commit to executing if they hold the line, and let the result speak for itself."
+
+---
+
+### B9: "What's your greatest strength?"
+
+**Framing:** Don't be generic ("I'm a hard worker"). Pick a specific, defensible strength tied to your actual work.
+
+**Prepared answer:**
+
+> "The strongest thing I bring is the combination of theoretical depth and shipping discipline. I can read a research paper, understand the math underneath, prototype it in PyTorch, and then take it through the engineering work — C++ deployment, edge optimization, integration with industrial hardware — to get it in front of real users. Most engineers I've worked with are strong at one end or the other. The full pipeline from paper to production is rarer.
+>
+> Concretely, this is what made the LADi-VTON deployment at PERSPECTIVE work. The paper was published, I implemented and fine-tuned it on our domain data, set up the AWS infrastructure, and shipped it to commercial customers. Every step required different skills, and the value comes from being able to hold all of them in your head at once.
+>
+> The Ouster job description specifically calls out 'translating state-of-the-art research papers into code and adapting them into robust, production-grade solutions.' That's the loop I'm strongest at."
+
+**Key beats:**
+
+- Combination of theoretical depth + shipping discipline (the rare combination)
+- Concrete example: LADi-VTON paper-to-production at PERSPECTIVE
+- Map back to Ouster JD: "research papers into code" is exactly this strength
+
+---
+
+### B10: "What's your greatest weakness?"
+
+**Framing:** Don't do humble-brag fake weaknesses ("I work too hard"). Pick a real one with a real mitigation. Senior interviewers respect this enormously.
+
+**Prepared answer:**
+
+> "I tend to optimize too long on the algorithm side before talking to the engineering side about deployment constraints. My instinct is to get the model accuracy where I want it, then think about latency, memory, and integration. Sometimes that backfires — I'll spend a week tuning a model that turns out to be three times too slow for the target hardware, and I have to rework the architecture choice from scratch.
+>
+> What I've learned to do is invert the order: in the first day of a new project, pin down the hard constraints — latency budget, memory budget, deployment target — and use them as a filter on what algorithms are even on the table. It's basic engineering discipline, and I'm better at it now than I was three years ago, but it's something I still consciously have to remind myself of when I'm excited about a new approach.
+>
+> The other thing I'd call out is that I'm more comfortable in deep technical work than in big-room management presentations. I do them when they're needed, but it's not my natural mode. I've gotten better with practice. It's still a growth area."
+
+**Key beats:**
+
+- Real weakness #1: tendency to over-optimize algorithm before checking deployment constraints
+- Real mitigation: pin down hard constraints day 1, use as algorithm filter
+- Real weakness #2 (secondary): more comfortable in deep technical work than big presentations
+- Tone: matter-of-fact, not apologetic
+
+**Common follow-ups:** "How are you working on it?" → "Constraint-first project setup, plus regular conversations with deployment-focused colleagues early in any project." "Anything else?" → don't volunteer more weaknesses; one strong honest one is better than a list.
+
+---
+
+### B11: "Have you led a team or mentored junior engineers?"
+
+**Framing:** They want to know if you can grow into a tech lead role even if you're applying as an IC. Be honest about what you've actually done.
+
+**Prepared answer:**
+
+> "I've been the most senior person on the vision side at two of my last three companies — Luxolis where I was the sole vision engineer, and the cloth segmentation team at PERSPECTIVE where I was the most senior of the small group. That meant doing a lot of de-facto mentoring even without a formal lead title — code reviews, design reviews, helping junior engineers think through their first production deployments.
+>
+> What I've done specifically:
+>
+> Code reviews focused on teaching, not just gatekeeping. The pattern I try to use is: explain why the suggestion matters, not just what to change. A code review comment that says 'rename this variable' teaches less than one that says 'rename this — the current name will confuse the next person who reads it because it's ambiguous with X.'
+>
+> Pairing on hard debugging sessions when a junior engineer was stuck. The principle I try to hold is: don't take over the keyboard. Walk them through the diagnostic process so they can do it themselves next time.
+>
+> Architecture conversations early in a project, where the junior engineer presents their approach and I push on the trade-offs they may not have considered yet. The goal is for them to develop the muscle of considering trade-offs proactively.
+>
+> I haven't formally managed people, and I'm not sure I want to step into people management in the next few years — my preference is the deep IC track. But the mentoring and lead-engineer work I've done has been some of the most rewarding parts of my career, and I'd want to keep doing it at Ouster regardless of the formal title."
+
+**Key beats:**
+
+- Senior position on vision side at Luxolis (sole) and PERSPECTIVE (most senior of small group)
+- De-facto mentoring without formal title
+- Specific patterns: teaching code reviews, paired debugging, architecture trade-off conversations
+- Honest: prefer deep IC track, not people management, but want to keep mentoring
+
+---
+
+### B12: "Why should we hire you over the other candidates?"
+
+**Framing:** Direct competitive question. Don't deflect ("I'm sure they're all great"). Make your case concretely.
+
+**Prepared answer:**
+
+> "I can only argue from what I bring — I don't know the other candidates. What I'd say is: my profile combines four things that are individually common but rare in combination.
+>
+> Six-plus years of production ML at four companies, with real shipped systems at every one. C++ engineering at production quality for three of those years, with current daily work on a sub-millimeter precision pipeline. Foundation-model deployment experience — taking OpenLRM, LADi-VTON, and FoundationPose from research repos to deployed systems. And edge optimization on NVIDIA Jetson with TensorRT and ONNX.
+>
+> Most candidates have two or three of these. The full set is rarer, and it's exactly the combination your job description asks for.
+>
+> The other piece I'd add is the visa-relocation context. I'm not casually interviewing — committing to Ouster means committing to relocation, to a major life change. The opportunity cost on my side is high enough that I'm only going to take this if it's the right role, which means once I commit, I commit hard. That kind of high-stakes commitment is something I think translates into how I'd show up at the team."
+
+**Key beats:**
+
+- Don't compare to others — argue from your own profile
+- Four-things-in-combination: production ML + C++ + foundation models + edge deployment
+- Map back to JD: exact combination they're asking for
+- Personal: visa relocation = high commitment = will show up seriously
+
+---
+
+### B13: "Do you have any questions for me?"
+
+**Framing:** This is not optional. Coming in without questions is a fatal signal that you're not serious. Have 3-4 prepared, ask 2-3, leave space for natural follow-ups.
+
+**Tier-1 questions to ask the VP (pick 2-3):**
+
+> "Where is Ouster's perception stack today versus where you want it to be in 18 months? What's the biggest gap?"
+
+> "How is the detection and tracking team organized? Are you building unified models in-house or starting from open-source baselines and customizing them?"
+
+> "What's the team's split between research-style work — translating papers into code — versus productionization and deployment?"
+
+> "How do you balance accuracy versus latency in your customer-facing models? What's your typical latency budget at the edge?"
+
+> "How do you think about LIDAR-only versus LIDAR-camera fusion? Where does Ouster's strategy land?"
+
+> "What does success look like in this role at 6 months? At 18 months?"
+
+**Tier-2 questions (good if there's time):**
+
+> "What's the biggest technical risk Ouster is carrying right now, from your seat?"
+
+> "Who on the team would I be working most closely with? What's their background?"
+
+> "What's the engineering culture around debugging and incident response — when something breaks in production, how does the team work through it?"
+
+> "How does Ouster decide which research papers are worth implementing versus letting the field mature?"
+
+**Avoid asking:**
+
+- "What's the culture like?" — too generic, no one gives a useful answer
+- "What are the benefits?" — save for HR conversations
+- "When can I expect to hear back?" — ask the recruiter, not the VP
+- Compensation specifics — not in this round
+
+**Key beats:**
+
+- Always have 3-4 ready, ask 2-3
+- Pick questions that show you've researched the company and thought about the role
+- Open-ended questions get more useful answers than yes/no questions
+- "What's the biggest gap?" and "What's the biggest risk?" are senior-engineer questions that VPs respect
+
+---
+
+### B14: "Why are you considering leaving Korea? Why now?"
+
+**Framing:** They may ask this gently if visa is on the table. Answer with personal honesty.
+
+**Prepared answer:**
+
+> "Korea has been a great place to build my career — I've spent the last six-plus years here across four companies, and I've had access to industrial applications and customer relationships that are hard to find elsewhere. That said, the senior ML opportunities here are narrower than what's available in North America. Most of the deep ML research-to-production work I want to do next is in the US, Canada, and a few European hubs. So for the kind of role I'm aiming for, this is the right time to move.
+>
+> On the personal side: I'm Pakistani, currently on a work visa in Korea. Long-term residency requires planting roots in a country that's open to immigrant tech talent. Canada specifically has a strong pathway — Global Talent Stream, then PR, then citizenship over several years. Vancouver as a city is appealing too, and the AI ecosystem there is real and growing.
+>
+> Ouster specifically combines all of that: the role I want, the city I'd want to land in, and a company that's at a stage where I can contribute meaningfully. The technical fit and the life-stage fit are aligned. That's why I'm being deliberate about this opportunity rather than waiting another year."
+
+**Key beats:**
+
+- Korea has been great, but senior ML opportunities are narrower than NA/Europe
+- Personal: long-term residency goal, Canada has strong pathway (GTS → PR → citizenship)
+- Vancouver fits, AI ecosystem real and growing
+- Ouster: technical fit + life-stage fit aligned = right time
+
+---
+
+## Behavioral Question Preparation Checklist
+
+**Before the VP meeting, make sure I can deliver these aloud:**
+
+- [ ] B1 — Why Ouster (3 specific reasons)
+- [ ] B2 — Where in 5-10 years (deep IC + optional founding)
+- [ ] B3 — What I bring (3 differentiators)
+- [ ] B4 — Difficult problem (REAL story, STAR structure) **NEEDS REAL STORY**
+- [ ] B5 — A failure (REAL story, owns the failure) **NEEDS REAL STORY**
+- [ ] B6 — Client delays / scope changes (4-step pattern)
+- [ ] B7 — Team contribution (4 patterns + onboarding plan)
+- [ ] B8 — Conflict with teammate (REAL story, charitable framing) **NEEDS REAL STORY**
+- [ ] B9 — Greatest strength (theoretical depth + shipping discipline)
+- [ ] B10 — Greatest weakness (over-optimize before deployment constraints)
+- [ ] B11 — Led / mentored (de-facto lead at Luxolis + PERSPECTIVE)
+- [ ] B12 — Why hire me over others (4 things in combination)
+- [ ] B13 — Questions for them (have 3-4 ready, ask 2-3)
+- [ ] B14 — Why leave Korea now (personal + life-stage honesty)
+
+**Plus career-arc answers from earlier section:**
+
+- [ ] Risk #3a — Why leave Luxolis after 3 months
+- [ ] Risk #3b — Why looking to leave Hyvision
+- [ ] Risk #3c — Combined career arc
+
+**Three highest-priority answers to memorize cold (the VP will almost certainly hit these):**
+
+1. B1 — Why Ouster
+2. Risk #3c — Combined career arc (covers Luxolis + Hyvision in one answer)
+3. B13 — Questions for them (memorize 4 specific ones)
+
+---
+
 ## ML Theory Study Plan (Tier 1 priorities)
 
 ### Tier 1A: Detection Landscape
