@@ -1284,6 +1284,248 @@ def kth_largest(nums, k):
 
 ---
 
+## Model Cheat Sheet — Mechanics for CV-Listed Techniques
+
+**Context:** Every model named on the resume is a potential interview question. A senior interviewer can pick any one and say "walk me through how that works internally." This section gives me a compact, fluent answer for each — enough mechanical depth to sound credible without overclaiming.
+
+**Format per model:**
+
+- **What it is** — 1 sentence
+- **How it works** — 2-3 sentence mechanism
+- **Key parameters / variants** — what knobs exist
+- **Where I used it** — project context
+- **Common interview trap** — what NOT to say
+
+---
+
+### M1: YOLO (You Only Look Once)
+
+- **What it is:** Single-stage real-time object detector that predicts class + bounding box in one forward pass.
+- **How it works:** Divides input image into a grid; each grid cell predicts bounding box offsets, objectness score, and class probabilities. Anchor-based versions (v3-v5) use predefined box priors from K-means clustering; anchor-free versions (v6, v8) predict box parameters directly from the feature pixel. Multi-scale via FPN/PAN neck for detecting different object sizes.
+- **Key variants:** v3 (anchor + Darknet53), v5 (CSPDarknet + PANet), v8 (anchor-free + decoupled head), YOLOX (anchor-free with SimOTA assignment), YOLO-World (open-vocabulary). Loss = box regression (CIoU) + objectness (BCE) + classification (BCE).
+- **Where I used it:** Pungkang 360° defect detection at Luxolis (6-camera real-time inference), Ellexi ALPR (plate detection), PPE compliance on Jetson.
+- **Common trap:** Don't say YOLO is "the algorithm" — it's a family. Be ready to name the specific version you used and why (typically YOLOv5 or v8 for production).
+
+---
+
+### M2: DeepSORT (Deep Simple Online Realtime Tracking)
+
+- **What it is:** Tracking-by-detection algorithm that associates per-frame detections into persistent tracks using motion + appearance.
+- **How it works:** Per frame: (1) Kalman filter predicts each existing track's location; (2) for each (track, detection) pair, compute association cost = Mahalanobis distance in Kalman state space + cosine distance between appearance embeddings; (3) Hungarian algorithm solves the assignment; (4) update matched tracks, init unmatched detections, delete tracks unseen for N frames.
+- **Key parameters:** Max age (frames before deletion), Re-ID feature gallery size per track, Mahalanobis distance gate threshold, cosine distance threshold for appearance.
+- **Where I used it:** Ellexi ALPR (multi-vehicle tracking across gas-station cameras for billing association), Incheon Airport (person tracking).
+- **Common trap:** Don't say "SORT plus deep features" without explaining the two-distance cost. The Mahalanobis-plus-cosine gating is the key DeepSORT contribution over SORT.
+
+---
+
+### M3: Mask R-CNN
+
+- **What it is:** Two-stage instance segmentation network that extends Faster R-CNN with a parallel mask prediction branch.
+- **How it works:** Backbone (typically ResNet+FPN) extracts features. Region Proposal Network (RPN) generates object candidates. ROI Align (not ROI Pooling) extracts fixed-size features per candidate without quantization artifacts. Three parallel heads on each ROI: classification, box regression, and a small FCN producing a binary mask per class.
+- **Key parameters:** NMS IoU threshold, ROI batch size per image, mask resolution (typically 28×28 upsampled).
+- **Where I used it:** Ellexi gas meter inspection (segmenting heavily degraded plate regions), defect inspection segmentation (where the Dice + Focal Tversky custom loss was applied).
+- **Common trap:** Don't say "Faster R-CNN with a mask head" without mentioning ROI Align — that's the technical innovation that made dense mask prediction work at pixel precision.
+
+---
+
+### M4: U-Net / U2Net
+
+- **What U-Net is:** Encoder-decoder segmentation architecture with skip connections from encoder to decoder at each resolution. The "U" shape: downsampling path captures context, upsampling path captures localization, skip connections preserve detail.
+- **What U2Net is:** Nested U-Net — each block of the outer U-Net is itself a smaller U-Net (called Residual U-block, RSU). Deeply nested structure captures multi-scale context within each level. Outputs 7 side maps (6 intermediate + 1 fused) for deep supervision during training.
+- **Key parameters:** Input resolution (typically 320×320 or 512×512), number of RSU blocks per level (controls capacity vs speed), deep supervision loss weights across the 7 outputs.
+- **Where I used it:** PERSPECTIVE cloth segmentation for virtual try-on pipeline (fine-tuned on domain cloth data, standard architecture, BCE loss in production).
+- **Common trap:** Don't claim I modified U2Net's internal architecture for production — I explored modifications (boundary-aware loss, trimap branch) but the shipped version was off-the-shelf. See `answer.md` Q1.x for the calibrated answer.
+
+---
+
+### M5: HRNet (High-Resolution Network)
+
+- **What it is:** Backbone designed for tasks needing precise spatial localization (pose estimation, segmentation) by maintaining high-resolution feature maps throughout the network.
+- **How it works:** Unlike standard backbones that downsample aggressively then upsample, HRNet keeps a high-resolution branch all the way through, while spawning parallel lower-resolution branches that exchange information at each stage. The output has both fine spatial detail and rich semantic context.
+- **Key parameters:** Number of stages (W18 = small, W32/W48 = larger), resolution of each parallel branch.
+- **Where I used it:** Incheon Airport human pose estimation as part of the YOWO + HRNet + Re-ID multi-camera pipeline for behavior analysis.
+- **Common trap:** Don't say "it's like ResNet" — the parallel multi-resolution branches and the cross-resolution fusion are what make HRNet different. The "high resolution maintained throughout" is the key idea.
+
+---
+
+### M6: YOWO (You Only Watch Once)
+
+- **What it is:** Real-time spatio-temporal action detection network. Detects actions in video by combining 2D appearance features with 3D temporal features.
+- **How it works:** Two-branch architecture. 2D backbone (typically Darknet) processes the current frame for spatial features. 3D backbone (3D ResNeXt) processes a clip of K consecutive frames for temporal features. Features are fused at the head, which outputs bounding boxes plus action class. Single-stage, end-to-end trainable.
+- **Key parameters:** Clip length K (typically 16 frames), number of action classes, IoU threshold for detection NMS.
+- **Where I used it:** Incheon Airport anomaly detection — detecting falls, sprinting, abandoned baggage as time-extended actions, not single-frame classifications.
+- **Common trap:** Don't describe YOWO as "just action recognition" — it's spatio-temporal localization, meaning it produces both where (bounding box) and what (action class). That's harder than classification.
+
+---
+
+### M7: Person Re-Identification (Re-ID)
+
+- **What it is:** A learned appearance embedding network that maps an image of a person to a fixed-length feature vector. Same identity → vectors close together; different identities → vectors far apart.
+- **How it works:** Backbone (typically ResNet50 or OSNet) extracts features; final layer projects to a 128-dim or 512-dim embedding. Trained with metric learning losses — triplet loss (anchor, positive, negative) or contrastive loss with hard negative mining. At inference, compare embeddings with cosine distance for matching.
+- **Key parameters:** Embedding dimension, training dataset (Market-1501, MARS, MSMT17), distance threshold for "same person" decision.
+- **Where I used it:** Incheon Airport multi-camera tracking — when a person disappeared from one camera and reappeared in another, Re-ID embeddings determined whether it was the same identity.
+- **Common trap:** Don't conflate Re-ID with face recognition. Re-ID uses full-body appearance (clothing, build, gait); face recognition is face-specific. Re-ID is robust to face occlusion but fails when the person changes clothes.
+
+---
+
+### M8: CRAFT (Character Region Awareness for Text Detection)
+
+- **What it is:** Text detection network that produces per-character heatmaps rather than word-level bounding boxes.
+- **How it works:** Two output heatmaps: region score (probability that each pixel is inside a character) and affinity score (probability that each pixel is between two adjacent characters). Post-processing groups high-region pixels into character regions, then uses affinity scores to merge adjacent characters into words. Works at pixel level so it handles curved text, rotated text, and varying scale.
+- **Key parameters:** Region score threshold, affinity score threshold, text line grouping logic.
+- **Where I used it:** Ellexi gas meter inspection (detecting heavily degraded date stamps in field images with arbitrary text orientation).
+- **Common trap:** Don't describe CRAFT as outputting bounding boxes directly — it outputs heatmaps. The bounding boxes are derived in post-processing.
+
+---
+
+### M9: CRNN (Convolutional Recurrent Neural Network)
+
+- **What it is:** End-to-end neural network for sequence recognition from images, designed for OCR.
+- **How it works:** CNN backbone extracts a sequence of feature columns from the input image (each column = features for a vertical slice). Bidirectional LSTM processes the sequence to capture context in both directions. CTC (Connectionist Temporal Classification) decoder converts the per-column predictions into a variable-length character sequence without requiring per-character alignment in training labels.
+- **Key parameters:** Feature column width, LSTM hidden size, CTC blank token for alignment-free training.
+- **Where I used it:** Ellexi ALPR (character recognition on cropped, perspective-rectified license plates).
+- **Common trap:** Don't forget CTC's role. The reason CRNN works for variable-length sequences is CTC, not the LSTM. Without CTC you'd need per-character bounding box annotations during training, which would be impractical.
+
+---
+
+### M10: Tesseract OCR
+
+- **What it is:** Open-source OCR engine, originally rule-based, modernized to use LSTM-based line recognition in v4+.
+- **How it works:** v4+ uses bidirectional LSTM on text line images. Page layout analysis first segments the input into lines, then each line is fed to the LSTM recognizer. Outputs UTF-8 text plus per-character confidence.
+- **Key parameters:** Language model (eng, kor, etc.), page segmentation mode (PSM — single line, sparse text, etc.), OCR engine mode.
+- **Where I used it:** Ellexi gas meter inspection (extracting date text after CRAFT located it).
+- **Common trap:** Don't pitch Tesseract as state-of-the-art. It's reliable, well-supported, and free, but modern transformer-based OCR like TrOCR is more accurate. The reason to use Tesseract is engineering pragmatism (no GPU needed, mature integration), not accuracy.
+
+---
+
+### M11: ResNet50
+
+- **What it is:** 50-layer deep CNN backbone with residual (skip) connections that enabled training very deep networks without vanishing gradients.
+- **How it works:** Each "residual block" computes f(x) + x, where f is the learned transformation and the +x is a skip connection that lets the gradient flow directly past the block. Architecture: initial conv + 4 stages of bottleneck residual blocks (with 1x1, 3x3, 1x1 conv pattern), global average pooling, fully connected classifier.
+- **Key parameters:** Pretrained weights (ImageNet vs random init), input resolution, batch normalization momentum, learning rate schedule for fine-tuning.
+- **Where I used it:** PERSPECTIVE apparel classifier (3-depth hierarchical taxonomy, fine-tuned ResNet50 backbone with weighted multi-task cross-entropy across heads).
+- **Common trap:** Don't claim novel architecture work on ResNet50 — it's a backbone, you fine-tuned it. The "custom" part of your apparel classifier work was the multi-head architecture and training recipe, not the backbone itself.
+
+---
+
+### M12: OpenLRM (Large Reconstruction Model)
+
+- **What it is:** Transformer-based single-image-to-3D mesh reconstruction model. Takes one RGB image, outputs a 3D mesh.
+- **How it works:** Vision transformer backbone encodes the input image into image tokens. A triplane (3-plane) decoder produces 3-axis-aligned feature maps that implicitly represent a 3D radiance field. Marching cubes or similar mesh extraction converts the implicit field to an explicit triangle mesh. The training objective combines render loss (compare rendered views to ground truth multi-view images) and geometric losses.
+- **Key parameters:** Input image resolution, transformer depth, triplane resolution, number of rendered views for training supervision.
+- **Where I used it:** PERSPECTIVE single-image to 3D mesh pipeline (IoU 0.80, Chamfer Distance 0.08, trained with custom 24×360° Blender multi-view renders enhanced by ESRGAN).
+- **Common trap:** Don't claim I modified internal LRM architecture — what I did was fine-tune on a custom synthetic multi-view dataset and adjusted the input pipeline. The transformer + triplane architecture stayed standard. See the "Architecture Modification" reframe for honesty.
+
+---
+
+### M13: Latent Diffusion (LDM) / Stable Diffusion
+
+- **What it is:** Diffusion model that operates in a learned compressed latent space rather than pixel space, making high-resolution image generation tractable.
+- **How it works:** Three-component architecture. (1) VAE compresses 512×512 RGB images to 64×64 latent codes (8x downsampling). (2) U-Net denoiser is trained to predict noise on noisy latents; at inference it iteratively denoises starting from pure noise, conditioned on text or other signals. (3) Text encoder (typically CLIP text encoder) embeds the prompt; cross-attention in the U-Net injects text features at each denoising step.
+- **Key parameters:** Number of denoising steps (typically 20-50 with samplers like DDIM or PNDM), classifier-free guidance scale (CFG, typically 7.5), VAE downsampling factor.
+- **Where I used it:** PERSPECTIVE virtual try-on (fine-tuned LADi-VTON which builds on LDM, with garment conditioning).
+- **Common trap:** Don't say diffusion "generates images from text" without mentioning the iterative denoising loop and the latent-space compression. Those are the two reasons LDM works where pixel-space diffusion didn't scale.
+
+---
+
+### M14: LADi-VTON
+
+- **What it is:** Latent diffusion model specifically designed for virtual try-on — overlaying a target garment onto a person image while preserving identity.
+- **How it works:** Built on Stable Diffusion U-Net but with garment-aware conditioning. The denoiser is conditioned on three inputs: the person image (with garment region masked out), the target garment image, and human-pose information from DensePose. Two key innovations: textual inversion of the garment into a learned pseudo-word so CLIP can condition on garment identity, and warping module that pre-aligns the garment to the person's pose before denoising.
+- **Key parameters:** Number of denoising steps, CFG scale, pseudo-word token dimension for textual inversion, warping module type.
+- **Where I used it:** PERSPECTIVE virtual try-on pipeline (fine-tuned on commercial fashion dataset, deployed on AWS, reached 85%+ visual fidelity).
+- **Common trap:** Don't describe LADi-VTON as "just Stable Diffusion for clothes." The textual inversion of garments into pseudo-words and the DensePose + warping conditioning are what make it work for try-on specifically.
+
+---
+
+### M15: CLIP (Contrastive Language-Image Pretraining)
+
+- **What it is:** Joint image + text encoder trained on 400M image-text pairs from the internet. Produces embeddings where images and their text descriptions are close in a shared vector space.
+- **How it works:** Two encoders — vision transformer for images, text transformer for text. Trained with contrastive loss: in a batch of N image-text pairs, push correct pair embeddings together, push incorrect pairs apart. After training, can do zero-shot classification by comparing image embedding to text embeddings of class names ("a photo of a dog" vs "a photo of a cat").
+- **Key parameters:** Vision backbone (ViT-B/32, ViT-L/14, etc.), text context length, contrastive temperature.
+- **Where I used it:** PERSPECTIVE virtual try-on pipeline — CLIP's text encoder for textual inversion of garment identity, projecting the visual garment features into the CLIP text space so the diffusion model could condition on them.
+- **Common trap:** Don't describe CLIP as "image classification" — it's a representation learning model. The zero-shot classification is a downstream use; the embeddings are the actual output.
+
+---
+
+### M16: DensePose
+
+- **What it is:** Network that maps every human pixel to its corresponding point on a canonical 3D body model (SMPL).
+- **How it works:** Extends Mask R-CNN architecture with two additional heads on each person ROI: (1) part classification (which body part — head, torso, left arm, etc.), (2) per-part UV coordinate regression (continuous 2D coordinates within the part's canonical surface). The output is a dense pixel-to-surface correspondence.
+- **Key parameters:** Number of body parts (typically 24 for SMPL), UV resolution per part.
+- **Where I used it:** PERSPECTIVE virtual try-on (provided pose-aware human geometry that LADi-VTON conditioned on, so the garment could be warped onto the correct body region).
+- **Common trap:** Don't confuse DensePose with 2D pose estimation (which gives keypoints like elbows and wrists). DensePose gives dense surface coordinates, not sparse keypoints. It's a richer representation but harder to compute.
+
+---
+
+### M17: FoundationPose
+
+- **What it is:** Foundation model for 6-DoF object pose estimation that generalizes to novel objects given only their 3D CAD model at test time — no per-object retraining.
+- **How it works:** Two phases. (1) Hypothesis generation: render the CAD model from many candidate poses, use a transformer scorer to rank which pose best matches the observed RGB-D. (2) Iterative refinement: a refinement network takes current pose, renders the model at that pose, computes residual, predicts pose delta. Repeat for several iterations.
+- **Key parameters:** Number of pose hypotheses sampled, refinement iterations, depth weight in the scoring function.
+- **Where I used it:** Luxolis Hwacheon CNC machining (eye-in-hand 6-DoF pose for autonomous workpiece registration, refined with ICP for sub-millimeter alignment).
+- **Common trap:** Don't claim FoundationPose alone hit sub-millimeter accuracy. It gave good initialization (few-mm residual); the ICP refinement closed the gap to sub-mm.
+
+---
+
+### M18: ICP (Iterative Closest Point)
+
+- **What it is:** Classical algorithm for finding the rigid transform (rotation + translation) that best aligns two point clouds.
+- **How it works:** Loop: (1) for each source point, find closest target point via KD-tree lookup; (2) compute optimal rigid transform from these correspondences (closed-form via SVD on the cross-covariance matrix for point-to-point variant); (3) apply transform to source; (4) repeat until convergence. Variants change the error metric: point-to-point uses Euclidean distance; point-to-plane uses distance to the tangent plane at the target point (faster convergence on smooth surfaces).
+- **Key parameters:** Max iterations, convergence threshold, max correspondence distance, variant (point-to-point, point-to-plane, GICP, trimmed ICP).
+- **Where I used it:** Hyvision Apple project (sub-millimeter mesh registration), Luxolis 6-DoF pose refinement, multiple metrology pipelines.
+- **Common trap:** Don't claim ICP is robust to initialization — it's a local optimizer that converges to local minima. It needs a good initial guess (from FoundationPose, landmark registration, or fixture constraints). See the Hyvision project deep-dive for the symmetric-feature handling story.
+
+---
+
+### M19: RANSAC (Random Sample Consensus)
+
+- **What it is:** Algorithm for robustly fitting a parametric model (line, plane, cylinder) to data with a high outlier rate.
+- **How it works:** Iterate: (1) randomly sample the minimum points needed for the model (3 for a plane); (2) fit the model to those points; (3) count inliers — points whose distance to the model is below threshold; (4) keep the model with most inliers. After N iterations, refit using all inliers via least squares. N is chosen so that probability of at least one all-inlier sample is high (e.g., 99%).
+- **Key parameters:** Inlier distance threshold (tune to sensor noise), number of iterations N, minimum inlier count to accept the model.
+- **Where I used it:** Hyvision Apple project (plane fitting on reference surfaces, edge fitting for coordinate frame estimation), Ellexi geometric measurement.
+- **Common trap:** Don't say "RANSAC is for outlier removal" — that's a side effect. RANSAC is for robust model fitting; the inlier/outlier split is the byproduct.
+
+---
+
+### M20: ESRGAN (Enhanced Super-Resolution GAN)
+
+- **What it is:** GAN-based super-resolution network that upscales low-resolution images to high-resolution with photorealistic textures.
+- **How it works:** Generator uses Residual-in-Residual Dense Blocks (RRDB) — deeper than original SRGAN. Trained with three losses: pixel-level L1, VGG-based perceptual loss (encourages perceptually similar features), and adversarial loss from a discriminator that distinguishes real high-res from upsampled. The combination produces sharper, more realistic textures than pixel-loss-only methods that tend toward blurry outputs.
+- **Key parameters:** Upscale factor (typically 4x), number of RRDB blocks, loss weighting (pixel vs perceptual vs adversarial).
+- **Where I used it:** PERSPECTIVE multi-view synthetic data generation — enhanced 24×360° Blender renders before using as OpenLRM training data, to push texture realism closer to real product photos.
+- **Common trap:** Don't describe ESRGAN as "upscaling" without mentioning the perceptual + adversarial losses. Pixel-loss-only upscalers (SRCNN, bicubic) produce blurry results. The perceptual + adversarial training is what makes ESRGAN look "real."
+
+---
+
+### Model Cheat Sheet — Drill Priority
+
+**Top 10 to memorize cold given Ouster's job description:**
+
+- [ ] M1 YOLO — central to detection
+- [ ] M2 DeepSORT — central to tracking (JD explicitly names it)
+- [ ] M17 FoundationPose — most recent ML work, foundation model
+- [ ] M18 ICP — daily work, point cloud staple
+- [ ] M19 RANSAC — point cloud staple
+- [ ] M11 ResNet50 — backbone fundamentals
+- [ ] M3 Mask R-CNN — segmentation fundamentals
+- [ ] M12 OpenLRM — modern 3D reconstruction
+- [ ] M13 Latent Diffusion + M14 LADi-VTON — generative AI fundamentals
+- [ ] M15 CLIP — multimodal fundamentals
+
+**Lower priority (drill if time):**
+
+- M4 U2Net, M5 HRNet, M6 YOWO, M7 Person Re-ID, M8 CRAFT, M9 CRNN, M10 Tesseract, M16 DensePose, M20 ESRGAN
+
+**Delivery tips for each:**
+
+- Lead with "what it is" — 1 crisp sentence
+- Then "how it works" mechanism — 2-3 sentences
+- If they push, name parameters and where I used it
+- ALWAYS calibrate the "where I used it" line honestly — see the Common Trap entries
+
+---
+
 ## ML Theory Study Plan (Tier 1 priorities)
 
 ### Tier 1A: Detection Landscape
