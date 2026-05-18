@@ -953,6 +953,337 @@ Keyence LJ-X8080 → Scan Aggregation (line scans → 2.5D height map) → ROI E
 
 ---
 
+## Basic-Level Warm-Up Questions (Likely VP Opening Material)
+
+**Context:** Glassdoor reviews of Ouster interviews suggest VPs sometimes warm up with average-difficulty technical questions before going deep. These are NOT meant to stump the candidate — they're meant to:
+
+- Confirm I actually know basics (not just framework names)
+- Calibrate my communication style on simple material
+- Find the lowest-difficulty level where I struggle, then dig in
+
+**Strategy:** Answer concisely (2-4 sentences for warm-ups), demonstrate I can explain to a junior engineer, mention 1 trade-off or gotcha to show depth without over-explaining. If they push further, go deeper. **Do not over-answer warm-ups.**
+
+---
+
+### W1: Point Cloud Preprocessing (most likely Ouster warm-up territory)
+
+#### W1.1 — "How would you downsample a dense point cloud?"
+
+**Quick answer:**
+
+> "Three common approaches. Voxel grid downsampling divides space into 3D cells of a fixed size and replaces all points in a cell with their centroid — very fast, gives uniform density. Random subsampling just picks N random points — fastest but doesn't preserve structure. Farthest point sampling picks points iteratively to maximize coverage — slower but preserves shape better. For most preprocessing I'd use voxel grid with a cell size tuned to the application; for downstream tasks that need geometric coverage like surface reconstruction I'd consider farthest point sampling."
+
+**If pushed deeper:** Voxel grid in PCL is `pcl::VoxelGrid<PointT>::filter()` with `setLeafSize`. The cell size trade-off: smaller cells preserve detail but keep more points, larger cells lose detail but compress more.
+
+**Trap to avoid:** Don't just say "voxel grid" without mentioning the cell-size trade-off.
+
+#### W1.2 — "What's the Statistical Outlier Removal (SOR) filter?"
+
+**Quick answer:**
+
+> "SOR removes points that are statistical outliers relative to their local neighborhood. For each point, it computes the mean distance to its K nearest neighbors. Across all points, it computes the global mean and standard deviation of those distances. Any point whose mean K-NN distance is more than N standard deviations from the global mean is flagged as an outlier and removed. Common parameters are K=50 neighbors and N=1.0 standard deviations. It's useful for removing sensor noise spikes and floating points from depth sensors."
+
+**If pushed deeper:** PCL implementation is `pcl::StatisticalOutlierRemoval`. Trade-off: aggressive SOR (small N) can remove real thin structures, conservative SOR (large N) leaves noise. Tune by visualizing on representative data.
+
+**Trap to avoid:** Don't confuse SOR with Radius Outlier Removal (which just checks if a point has fewer than N neighbors within radius R).
+
+#### W1.3 — "What's a bilateral filter on a point cloud?"
+
+**Quick answer:**
+
+> "It's an edge-preserving smoothing filter. Standard Gaussian smoothing averages over a spatial neighborhood, which blurs everything including edges. Bilateral filtering weights neighbors by two factors: spatial distance and feature similarity — for point clouds, the feature is typically normal direction or intensity. Points that are spatially close AND have similar normals get high weight; points with different normals (across an edge) get low weight. The result is smoothing within flat regions while preserving sharp edges and corners."
+
+**If pushed deeper:** Computationally expensive — O(N*K) per point with K-NN lookup. PCL has `pcl::BilateralFilter`. For LIDAR data, normal-based bilateral is more useful than intensity-based.
+
+**Trap to avoid:** Don't describe it as "just smoothing" — the edge-preservation is the whole point.
+
+#### W1.4 — "What's a KD-tree and why use it for point clouds?"
+
+**Quick answer:**
+
+> "KD-tree is a binary space-partitioning data structure for organizing points in k-dimensional space. At each node, it splits the points along one axis at the median, alternating axes as you go down the tree. The benefit is fast nearest-neighbor queries — O(log N) average case for balanced trees versus O(N) for brute force linear search. For point cloud algorithms like ICP, RANSAC, and normal estimation that do millions of nearest-neighbor queries, the KD-tree is essential. PCL uses FLANN under the hood for the actual implementation."
+
+**If pushed deeper:** Trade-off: building the tree is O(N log N), but you pay it once and amortize across many queries. KD-trees degrade in high dimensions (curse of dimensionality), so for very high-D feature spaces alternatives like ball trees or LSH may be better. For 3D point clouds (low dimensionality), KD-tree is optimal.
+
+**Trap to avoid:** Don't confuse KD-tree with octree — both are spatial indexing structures but octrees split space uniformly into 8 cells per node, KD-trees split along a chosen axis at the median.
+
+#### W1.5 — "What's an octree? When would you use it over a KD-tree?"
+
+**Quick answer:**
+
+> "Octree is a tree where each internal node has exactly 8 children, splitting space uniformly into 8 octants. KD-tree splits along one axis per node, alternating. For point clouds, octrees are better when the geometry has hierarchical spatial structure you want to exploit — like multi-resolution voxelization where you can prune entire subtrees that are empty or fully occupied. KD-trees are better for pure nearest-neighbor queries because they adapt to the data distribution. PCL has both; voxel grid filtering and occupancy mapping use octrees, nearest-neighbor search uses KD-trees."
+
+**Trap to avoid:** Don't confuse use cases — for "find the closest point" use KD-tree, for "is this region occupied" use octree.
+
+---
+
+### W2: 2D Image Processing Fundamentals
+
+#### W2.1 — "Explain what a convolution is."
+
+**Quick answer:**
+
+> "A convolution is a sliding-window operation where a small kernel is applied at every position in an input. At each position, you take the dot product between the kernel and the local image patch. The output is a new image where each pixel summarizes the response of the local region to the kernel pattern. Different kernels do different things: Sobel kernels detect edges, Gaussian kernels blur, sharpening kernels enhance high-frequencies. In deep learning, the kernel weights are learned rather than hand-designed."
+
+**If pushed deeper:** Mathematically, true convolution flips the kernel before sliding (`y[n] = sum x[k] * h[n-k]`), but in deep learning we usually do cross-correlation without flipping. The terminology has drifted — what frameworks call "convolution" is technically cross-correlation. Doesn't matter for ML because learned kernels can compensate either way.
+
+**Trap to avoid:** Don't just say "filter" — be specific about the dot-product operation.
+
+#### W2.2 — "Implement a 1D edge detection from scratch in code."
+
+**Quick answer:**
+
+> "Simplest edge detector is the gradient — first derivative. For 1D, the discrete approximation is `dx[i] = x[i+1] - x[i-1]` (central difference). Higher response where the signal changes rapidly. Threshold the absolute value to get edge pixels."
+
+```python
+import numpy as np
+
+def edge_detect_1d(signal):
+    # Central difference gradient
+    grad = np.zeros_like(signal, dtype=float)
+    grad[1:-1] = (signal[2:] - signal[:-2]) / 2.0
+    return np.abs(grad)
+
+# Usage
+signal = np.array([1, 1, 1, 5, 5, 5, 1, 1, 1])
+edges = edge_detect_1d(signal)
+# edges around index 3 and 6 will have high values
+```
+
+**If pushed deeper:** For 2D, Sobel kernels combine smoothing with differentiation (`[1, 2, 1] * [-1, 0, 1]` outer product gives the Sobel x-kernel). Canny edge detector adds non-maximum suppression and hysteresis thresholding on top of gradient magnitude.
+
+**Trap to avoid:** Don't use forward difference (`x[i+1] - x[i]`) without explaining you're doing first-order — central difference is symmetric and more accurate.
+
+#### W2.3 — "What's a separable filter and why is it efficient?"
+
+**Quick answer:**
+
+> "A 2D filter is separable if it can be decomposed into a 1D row filter followed by a 1D column filter that gives the same result. Gaussian blur is the classic example: a 5x5 Gaussian kernel can be applied as a 5-element horizontal pass then a 5-element vertical pass. The cost goes from O(K²) per pixel to O(2K). For a 5x5 kernel that's 25 multiplies vs 10 — over 2x faster. Sobel kernels are also separable. For arbitrary kernels you can check separability with SVD: if the kernel matrix has rank 1, it's separable."
+
+**Trap to avoid:** Don't claim all 2D filters are separable — most aren't. Gaussian, Sobel, and box filters are; arbitrary learned conv kernels usually aren't.
+
+#### W2.4 — "Why use Gaussian blur before edge detection?"
+
+**Quick answer:**
+
+> "Edge detection is essentially differentiation, and differentiation amplifies high-frequency noise. Gaussian blur is a low-pass filter that suppresses noise before differentiation, so you get cleaner edge response. The trade-off is that more blur also smooths out real edges, so you tune the Gaussian sigma to your noise level. This combined operation — Gaussian smoothing then differentiation — is what makes Canny edge detection work robustly."
+
+**Trap to avoid:** Don't say "noise reduction" without explaining the differentiation-amplifies-noise reason.
+
+---
+
+### W3: Edge Device / Real-Time Performance
+
+#### W3.1 — "How do you make a deep learning model run faster on edge devices?"
+
+**Quick answer:**
+
+> "Four main levers in priority order. First, model architecture choice — use mobile-class backbones like MobileNet or EfficientNet instead of ResNet-152. Second, quantization — convert FP32 weights to FP16 or INT8, giving 2-4x speedup with minor accuracy loss. Third, model pruning and distillation — train a smaller student model to match the larger teacher's output, or zero-out unimportant weights. Fourth, runtime optimization — convert to ONNX and compile with TensorRT or similar to fuse layers and tune kernels for the specific GPU."
+
+**If pushed deeper:** Order of operations matters. Quantization happens after training. Pruning during or after. Distillation is a parallel training process. Runtime compilation is the last step before deployment. Each layer compounds — don't skip steps to chase headline speedup.
+
+**Trap to avoid:** Don't say "just use quantization" — it's one tool, not the whole answer.
+
+#### W3.2 — "How do you profile a slow model? Where would you look?"
+
+**Quick answer:**
+
+> "Profile first, optimize second. For PyTorch, `torch.profiler` gives per-operation timing and identifies which layers dominate. For ONNX/TensorRT, the `trtexec` tool benchmarks the engine and shows per-layer cost. Common bottlenecks: large fully-connected layers near the end of classifier networks, attention layers in transformers (quadratic in sequence length), large convolutions with small batch size (kernel launch overhead). Memory transfers between CPU and GPU also dominate if you're not careful — `pin_memory=True` for DataLoader and avoiding unnecessary `.cpu()` calls helps."
+
+**Trap to avoid:** Don't speculate about bottlenecks without measuring. Senior interviewers love "profile first, optimize second."
+
+#### W3.3 — "What's the difference between FP16 and INT8 quantization?"
+
+**Quick answer:**
+
+> "FP16 is half-precision floating point — 16 bits per number instead of 32. Same approximate range as FP32 but less precision. On modern NVIDIA GPUs with Tensor Cores, FP16 is roughly 2x faster than FP32 with usually no accuracy loss for inference. INT8 is 8-bit integer quantization — 4x smaller than FP32 and roughly 3-4x faster on supported hardware. The accuracy loss with INT8 is real (typically 1-3% on classification, more on detection) so it requires calibration with representative data to find optimal scale and zero-point per layer. Mixed precision is common — use INT8 for compute-bound layers and FP16 for accuracy-sensitive layers."
+
+**Trap to avoid:** Don't conflate "smaller model size" with "faster inference" — they're correlated but not the same thing. Speed depends on hardware support for the data type.
+
+#### W3.4 — "What's layer fusion in TensorRT?"
+
+**Quick answer:**
+
+> "Layer fusion combines adjacent operations into a single GPU kernel to reduce kernel launch overhead and memory round-trips. Classic example: Conv + BatchNorm + ReLU. Separately, each requires a kernel launch, GPU memory read, compute, memory write. Fused, it's one kernel that does all three in registers without intermediate writes to global memory. TensorRT does this automatically during compilation. Other common fusions: element-wise ops chained together, attention QKV projection into one matmul. The speedup depends on the model — heavy fusion candidates can see 2-3x improvement."
+
+**Trap to avoid:** Don't say "TensorRT magic" — explain the kernel-launch and memory-round-trip mechanics.
+
+---
+
+### W4: Algorithm / Coding Warm-Ups
+
+These are short coding questions a VP might use as a 5-minute warm-up. Have crisp Python answers ready. Talk through approach before writing.
+
+#### W4.1 — "How would you merge K sorted arrays?"
+
+**Quick answer (verbal):**
+
+> "Standard approach is a min-heap of size K. Push the first element of each array onto the heap with a (value, array_index, element_index) tuple. Pop the smallest, add it to the output, then push the next element from the same array. Repeat until the heap is empty. Time complexity is O(N log K) where N is total elements and K is number of arrays. Space is O(K) for the heap. Naive merge-two-at-a-time gives O(N*K) which is much worse."
+
+```python
+import heapq
+
+def merge_k_sorted(arrays):
+    heap = []
+    for i, arr in enumerate(arrays):
+        if arr:  # skip empty arrays
+            heapq.heappush(heap, (arr[0], i, 0))
+
+    result = []
+    while heap:
+        val, arr_idx, elem_idx = heapq.heappop(heap)
+        result.append(val)
+        if elem_idx + 1 < len(arrays[arr_idx]):
+            next_val = arrays[arr_idx][elem_idx + 1]
+            heapq.heappush(heap, (next_val, arr_idx, elem_idx + 1))
+    return result
+```
+
+**Trap to avoid:** Don't suggest concatenate-and-sort — that's O(N log N), loses the pre-sorted property, and is the answer a junior engineer gives.
+
+#### W4.2 — "Implement IoU between two 2D bounding boxes."
+
+**Quick answer:**
+
+```python
+def iou_2d(box1, box2):
+    # box format: (x1, y1, x2, y2)  with x2>x1, y2>y1
+    x1 = max(box1[0], box2[0])
+    y1 = max(box1[1], box2[1])
+    x2 = min(box1[2], box2[2])
+    y2 = min(box1[3], box2[3])
+
+    # No overlap
+    if x2 <= x1 or y2 <= y1:
+        return 0.0
+
+    intersection = (x2 - x1) * (y2 - y1)
+    area1 = (box1[2] - box1[0]) * (box1[3] - box1[1])
+    area2 = (box2[2] - box2[0]) * (box2[3] - box2[1])
+    union = area1 + area2 - intersection
+
+    return intersection / union if union > 0 else 0.0
+```
+
+**Talk through:**
+
+> "Intersection rectangle is defined by the max of the lower corners and the min of the upper corners. If those don't form a valid rectangle (`x2 <= x1` or `y2 <= y1`), there's no overlap and IoU is 0. Otherwise, intersection area divided by union area, where union is sum of areas minus intersection. The edge case to handle is two boxes with zero overlap — without the early return, the math still gives 0 but might log warnings on negative-area calculations."
+
+**Trap to avoid:** Don't forget the no-overlap case. Don't compute area as `(x2 - x1 + 1) * (y2 - y1 + 1)` — that's the pixel-count convention (e.g., COCO), but for continuous boxes use plain `(x2 - x1) * (y2 - y1)`. Be ready to explain which convention you're using.
+
+#### W4.3 — "Implement non-maximum suppression (NMS) in pure Python."
+
+**Quick answer:**
+
+```python
+def nms(boxes, scores, iou_threshold=0.5):
+    # boxes: list of (x1, y1, x2, y2); scores: list of confidences
+    indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
+    keep = []
+
+    while indices:
+        # Take highest-scoring remaining box
+        current = indices[0]
+        keep.append(current)
+        # Filter out boxes with high IoU vs current
+        indices = [i for i in indices[1:]
+                   if iou_2d(boxes[current], boxes[i]) < iou_threshold]
+    return keep
+```
+
+**Talk through:**
+
+> "Sort boxes by score descending. Pop the highest-scoring box and keep it. Drop any remaining box that has IoU above the threshold with the kept box — they're considered duplicates. Repeat until no boxes remain. Time complexity is O(N²) in worst case for naïve implementation; the GPU implementations in torchvision are much faster but the algorithmic logic is the same."
+
+**Trap to avoid:** Don't reorder boxes or drop the IoU comparison. Some candidates skip the sort step. Some forget that NMS is per-class — if you have multi-class detection, you run NMS independently per class.
+
+#### W4.4 — "Reverse a linked list" or "find the K-th largest element"
+
+**For reverse linked list:**
+
+```python
+def reverse_list(head):
+    prev, curr = None, head
+    while curr:
+        next_node = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_node
+    return prev
+```
+
+**For K-th largest (heap approach):**
+
+```python
+import heapq
+def kth_largest(nums, k):
+    return heapq.nlargest(k, nums)[-1]
+# Or O(n) average with quickselect, but heap is fine for warm-up
+```
+
+**Trap to avoid:** Don't overthink these. They're warm-ups. Crisp answer, mention complexity, move on.
+
+---
+
+### W5: General "Show Your Thinking" Questions
+
+#### W5.1 — "How would you go about debugging a model that's working in training but failing in production?"
+
+**Quick answer:**
+
+> "Standard checklist. First, confirm the inference code matches training — same preprocessing pipeline, same input normalization, same data type (FP32 vs FP16). This is the most common cause. Second, check for data distribution shift — production inputs may have different statistics than training data. I'd compare input histograms. Third, check inference-mode subtleties — `model.eval()` is set so dropout and batch norm behave correctly. Fourth, check for hardware-specific numerical issues — quantization or TensorRT compilation can introduce rounding errors that compound. Fifth, look at specific failure cases — collect examples, look for patterns, see if they share input characteristics."
+
+**Trap to avoid:** Don't jump to "retrain the model" — that's expensive and rarely the right first step.
+
+#### W5.2 — "If you had to choose between accuracy and latency, how do you decide?"
+
+**Quick answer:**
+
+> "It's a product question, not a technical one. You decide by asking: what's the customer's tolerance? For autonomous driving perception at highway speed, latency under 100ms is non-negotiable — every 50ms of lag is a meter of car travel. For batch processing of inspection images overnight, accuracy is paramount and latency is irrelevant. So I start by quantifying the customer's actual constraints, then I find the highest-accuracy model that fits within the latency budget. Pareto frontier thinking — there's no general answer, only project-specific trade-offs."
+
+**Trap to avoid:** Don't pick one as a personal preference. Senior engineers know it depends on the use case.
+
+#### W5.3 — "What's the difference between Python and C++ for ML deployment?"
+
+**Quick answer:**
+
+> "Python is the development language — fast iteration, rich ecosystem, easy debugging. PyTorch and TensorFlow are Python-first. For production deployment, Python has two problems: the GIL serializes threads which limits CPU parallelism, and the per-call overhead of Python objects matters when you're trying to hit sub-100ms inference. C++ removes both. Typical pattern: train in Python, export the model to a portable format like ONNX or TorchScript, then run inference from a C++ application that loads the exported model. The Python-to-C++ boundary is at the model artifact, not in the live inference loop."
+
+**Trap to avoid:** Don't dismiss Python as "slow" — it's slow for tight loops, but for orchestration and one-shot inference it's perfectly fine. Use the right tool per layer.
+
+---
+
+### How to Use This Section
+
+**Before the VP meeting, drill these aloud:**
+
+- [ ] W1.1 — Point cloud downsampling (voxel grid + FPS)
+- [ ] W1.2 — SOR filter mechanics
+- [ ] W1.3 — Bilateral filter (edge-preserving)
+- [ ] W1.4 — KD-tree complexity and use case
+- [ ] W1.5 — KD-tree vs octree
+- [ ] W2.1 — What's a convolution
+- [ ] W2.2 — 1D edge detection from scratch
+- [ ] W2.3 — Separable filters
+- [ ] W3.1 — Making a model faster on edge
+- [ ] W3.2 — Profiling a slow model
+- [ ] W3.3 — FP16 vs INT8
+- [ ] W4.1 — Merge K sorted arrays
+- [ ] W4.2 — IoU 2D from scratch
+- [ ] W4.3 — NMS from scratch
+- [ ] W5.1 — Debug training-passes-production-fails
+- [ ] W5.2 — Accuracy vs latency
+
+**Format tips:**
+
+- Answer in 2-4 sentences for warm-ups
+- Mention one trade-off or gotcha to show depth
+- DON'T over-answer — stop and let them push if they want more
+- Talk through approach BEFORE writing code
+- For coding questions: clarify input format first ("are these continuous boxes or pixel coordinates?")
+
+---
+
 ## ML Theory Study Plan (Tier 1 priorities)
 
 ### Tier 1A: Detection Landscape
