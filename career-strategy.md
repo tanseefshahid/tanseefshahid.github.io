@@ -86,6 +86,60 @@ The reason "no sponsorship" is the default answer is because at senior level the
 
 Be a good employee. Ship the work. Don't burn the bridge. You may need a reference; you may stay longer than planned.
 
+**Bandwidth bonus:** Hyvision inspection work is mostly reuse of algorithms you've already built (ICP-based inspection, etc.). This gives you roughly 15-20 free hours per week that most candidates don't have. The boss explicitly said "learn for a few weeks before new task" — that's permission for skill building. Use it wisely (see Time Allocation below).
+
+---
+
+## Time Allocation — How to Actually Use 15-20 Free Hours Per Week
+
+**Counterintuitive truth:** The biggest leverage from free time is NOT more applications. The application bottleneck is the supply of senior openings — the Canadian GTS-friendly list has ~10-12 companies, each with 0-2 senior ML openings at any moment. Sending 30 applications per month to the same companies doesn't help. Quality applications already saturate the available supply.
+
+**What more time actually buys: a faster, more polished profile-builder project.** Track C says 2-4 hours/week, 6-month timeline. With 15-20 free hours/week, you can finish in 6-8 weeks instead of 6 months. A finished, polished, public project is the single biggest lever for converting "no sponsorship" defaults into "yes, worth it."
+
+### Weekly Rhythm
+
+Concentrate, don't spread thin:
+
+- **8-10 hours/week: profile-builder project** (finish in 8-10 weeks)
+- **4-6 hours/week: targeted skill gap closing** (modern tracking — ByteTrack, BoT-SORT papers + code; 3D Gaussian Splatting reproduction; Lidar perception fundamentals — PointPillars, CenterPoint)
+- **3-4 hours/week: quality applications + LinkedIn outreach** (5-8 quality apps/month is enough)
+- **2-3 hours/week: general paper reading + staying-current**
+
+### The Trap to Avoid
+
+Spending all 20 hours on "applications" — sending 30 mediocre apps to companies that won't sponsor anyway. That's the volume-without-leverage trap. **Resist it.** Volume in a saturated supply market produces zero additional results.
+
+### Workplace Discipline
+
+Hyvision permission covers **skill building, project building, paper reading, learning**. It does NOT cover job hunting visibly:
+
+- Skill / paper / project work during work hours: fine, explicit permission
+- Application drafting, hiring manager DMs, interview scheduling: lunch or after hours, not at your desk in view of others
+- Do not put job-search files on the work computer (use personal laptop / cloud)
+- Keep the two visibly separate so you don't burn the bridge
+
+### Daily Structure Suggestion
+
+If work is genuinely slow, a sustainable daily rhythm:
+
+- **Morning (work hours):** Profile-builder project + skill building
+- **Lunch (your time):** Quick LinkedIn check, 1-2 hiring manager messages, save interesting roles
+- **Afternoon (work hours):** Profile-builder project continued + actual work tasks as they come up
+- **Evening (your time):** Quality application drafting if a target opening came up, otherwise rest
+
+Two days per week skip the profile work and use the time to fully draft and send a thoughtful application to a high-priority target. **Mondays and Thursdays** work well — fresh start of week energy, and Thursday catches Friday hiring decisions.
+
+### Picking the Profile-Builder Project Within 7 Days
+
+Don't keep researching options. Pick by next Friday. Recommended ranking for your situation:
+
+1. **GitHub: Implement ByteTrack from scratch with clear writeup.** Modern tracking is a direct gap from your existing DeepSORT experience. The repo demonstrates you've kept current. Realistic finish in 4-6 weeks at 8-10 hr/week.
+2. **GitHub: 3D Gaussian Splatting reproduction with documented learnings.** Bigger signal, harder finish in 8 weeks. Closes the gap you flagged during Ouster prep.
+3. **Technical blog with 4-6 substantial posts** on your real shipped work (laser simulator, defect segmentation custom loss, FoundationPose adaptation lessons). Lower technical bar, broader audience signal. Finish in 4-6 weeks.
+4. **Workshop paper submission at a CVPR/ICCV workshop.** Highest signal if accepted, much higher uncertainty and slower timeline (3-4 months including writing + review).
+
+Pick the one you'll actually finish, not the one that sounds most impressive. **A finished mediocre project beats an unfinished ambitious one by a wide margin.**
+
 ---
 
 ## Phase 2: Months 4-9 (Aug 2026 → Jan 2027) — If NA Hasn't Worked
