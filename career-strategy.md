@@ -27,6 +27,46 @@ Recent rejections (LMI, Ouster) were both visa-policy filters, not skill rejecti
 
 ## The 90-Day Plan (May → Jul 2026) — Phase 1
 
+### Track 0: Canadian PR Pursuit (PARALLEL — START THIS WEEK, HIGHEST LEVERAGE)
+
+**This is the single highest-leverage move.** Even at borderline CRS score (estimated 480-490), pursuing PR in parallel changes the game completely. PR card in hand opens the entire NA job market — no sponsorship filter, salary jumps because the visa friction is gone, can apply anywhere without "no sponsorship" rejections.
+
+**Realistic timeline if started May 2026:**
+
+| Step | Time | Status |
+|------|------|--------|
+| Book IELTS General + prep | 1-2 months | [ ] book this week |
+| ECA via WES (educational credential assessment) | 3-6 months | [ ] order this week |
+| Express Entry profile creation | 1 week (after IELTS + ECA) | [ ] |
+| PNP applications (Ontario Tech, BC PNP Tech, etc.) | 1-2 months | [ ] |
+| Wait for Invitation to Apply (ITA) | 1-12 months | [ ] |
+| PR application processing | 6 months | [ ] |
+| **PR card in hand** | **12-24 months** | |
+
+**CRS score reality check (480-490 estimated):**
+
+- General Express Entry draws: 500-540+ in 2024-2025 — you'd miss
+- STEM category-based draws: 480-510 range — you're inside the band
+- PNP-backed: +600 points, almost guaranteed invite — this is the goal
+
+**Why this is the highest leverage:**
+
+- Once PR is in hand, every salary range opens up. The 5x gap is closable in one move.
+- Track A applications keep going in parallel — PR doesn't replace job search, it backstops it
+- Even if no immediate offer comes from Track A, PR by mid-2027 means you can land in Canada and job-hunt on the ground without visa pressure
+- PR-in-hand makes Phase 2 (Singapore/Tokyo) and Phase 3 (Europe) much less necessary
+
+**Critical actions THIS WEEK (do not deliberate, just execute):**
+
+- [ ] Book IELTS **General** (NOT Academic — General is what Express Entry needs). Target test date: 8 weeks out. Aim for CLB 9-10 (IELTS Listening 8.0 / Reading 7.0 / Writing 7.0 / Speaking 7.0 or better).
+- [ ] Order WES ECA online. Need transcripts from Chung-Ang and GIK Institute. 4-6 week processing.
+- [ ] Research three provincial PNP Tech streams: Ontario Tech Draw, BC PNP Tech, Saskatchewan Tech Talent Pathway. Different requirements per province — check fit.
+- [ ] Calculate exact CRS using IRCC's official calculator with CONSERVATIVE IELTS estimates. Verify the 480-490 number, don't take it on faith.
+
+**This track is bureaucratic, not strategic. Don't deliberate. Just execute the paperwork.** The earlier you start the clock, the earlier it pays off. Twelve months from now you can either be PR-pending with a clear path, or you can be in the same spot wishing you'd started.
+
+---
+
 ### Track A: Sponsorship-Friendly Canadian Companies (PRIMARY)
 
 Canada's Global Talent Stream (GTS) program brings senior tech talent in 2-4 weeks. Companies that use GTS regularly are pre-approved and have HR teams that know the process. **The "no sponsorship" surprise that killed Ouster doesn't happen at these companies.**
@@ -68,17 +108,57 @@ Lower probability for $200K but faster timeline if it hits. Realistic compensati
 
 **Note:** Remote-from-Korea has 2-3x current pay ceiling but doesn't solve PR question.
 
-### Track C: Profile-Builder Project (ONE thing, sustained)
+### Track C: Profile-Builder Project — 3D Reconstruction / Gaussian Splatting (DECIDED)
 
 The reason "no sponsorship" is the default answer is because at senior level there are more candidates than openings. To stand out enough to justify sponsorship cost, you need top-20% profile signals.
 
-**Pick ONE of these. Commit 2-4 hours per week. Six-month timeline.**
+**Decision made: 3D Gaussian Splatting reproduction with documented learnings.** Not ByteTrack, not SLAM, not generic blog posts. The reasoning:
 
-- **Option 1 (highest signal):** Submit a paper to a workshop at a major conference (CVPR workshop, ICCV workshop, NeurIPS workshop). Build on your defect-segmentation custom loss work, or your laser-simulator hardware planning. Workshop bar is lower than main conference, but acceptance is real publication signal.
-- **Option 2 (sustained signal):** Clean, well-documented GitHub project demonstrating modern technique relevant to your target jobs. Examples: implement ByteTrack from scratch, implement 3D Gaussian Splatting, build a complete mini-perception stack (detector + tracker + visualizer). Quality matters more than quantity — one excellent project beats five mediocre ones.
-- **Option 3 (lower effort, broader signal):** Technical blog with 4-6 substantial posts demonstrating depth. Topics: your real custom loss work, the laser simulator, FoundationPose adaptation lessons, 3D point cloud algorithms in production C++.
+**Why 3D Reconstruction over tracking:**
 
-**Pick by Friday of next week. Stop debating, start doing.**
+- Your PERSPECTIVE experience (OpenLRM single-image-to-3D, multi-view rendering with Blender + ESRGAN, research-to-production track) is a genuine differentiator most candidates can't match
+- 3D reconstruction / neural rendering market in 2026 is supply-constrained — companies will reconsider "no sponsorship" defaults for someone who hits the bar
+- Salary ceiling meaningfully higher ($180-250K+ at Apple Vision Pro, Meta Reality Labs, NVIDIA Omniverse, Luma AI, Niantic, hot AR/VR startups) vs tracking ($150-200K at AV companies)
+- Tracking is a saturated market — more senior candidates than openings. Adding ByteTrack to your resume doesn't change competitive position dramatically.
+- 3D Gaussian Splatting specifically was a gap flagged during Ouster prep — closing it directly addresses the exact thing you were studying for the interview
+
+**Why NOT SLAM:**
+
+- 4-6 month ramp too long given PR-or-sponsorship timeline pressure
+- Full SLAM stacks (VIO, loop closure, mapping) are a deep specialty, not a skill update
+- Smaller market than tracking or 3D reconstruction
+- Doesn't leverage your generative AI / foundation model background
+
+**Why NOT pure tracking (ByteTrack):**
+
+- Already what you have. ByteTrack on top of DeepSORT is a refresh, not repositioning.
+- Ouster rejection was visa, not tracking depth. Track A wasn't the filter.
+- Mention modern tracking awareness in interviews if asked ("studying ByteTrack and BoT-SORT to stay current") but don't build it as the profile-builder project.
+
+**Scope of the Gaussian Splatting project:**
+
+- Reproduce the original Kerbl et al. 2023 paper end-to-end
+- Train on at least one standard scene (Mip-NeRF 360 dataset or similar)
+- Document the journey: training instabilities, hyperparameter sensitivities, rendering trade-offs
+- Compare quality against NeRF on the same scene to demonstrate understanding
+- Bonus stretch: extend with one novel direction (e.g., dynamic scene support, improved compression, integration with traditional point cloud)
+- Output: clean GitHub repo + 2-3 blog posts documenting learnings
+
+**Realistic timeline at 8-10 hours/week with your bandwidth: 8-10 weeks. Ship by end of July 2026.**
+
+**Blog posts are byproducts, not a separate project:**
+
+- "What I learned implementing 3D Gaussian Splatting from scratch"
+- "Gaussian Splatting vs NeRF: trade-offs in practice"
+- "Bridging my OpenLRM production work to neural rendering"
+
+Done as documentation of the main project, not a standalone effort.
+
+**Workshop paper as stretch goal (decide in month 3, not now):**
+
+If the Gaussian Splatting reproduction goes well and you have something novel to say, consider submitting to a CVPR / ICCV / NeurIPS workshop in month 3. Higher signal if accepted, but high uncertainty. Don't pre-commit to this — let the work decide.
+
+**Pick Friday next week.** Open the Kerbl et al. 2023 paper this weekend. Set up the reference implementation by next weekend. Commit the first 50-100 lines and a README by end of next weekend. **Public commitment forces follow-through.**
 
 ### Track D: Stay in Current Job
 
@@ -100,10 +180,14 @@ Be a good employee. Ship the work. Don't burn the bridge. You may need a referen
 
 Concentrate, don't spread thin:
 
-- **8-10 hours/week: profile-builder project** (finish in 8-10 weeks)
-- **4-6 hours/week: targeted skill gap closing** (modern tracking — ByteTrack, BoT-SORT papers + code; 3D Gaussian Splatting reproduction; Lidar perception fundamentals — PointPillars, CenterPoint)
+- **8-10 hours/week: 3D Gaussian Splatting profile-builder project** (finish in 8-10 weeks)
+- **4-6 hours/week: PR pursuit + skill gap closing**
+  - IELTS prep (first 8 weeks) — ~3-4 hours/week until test taken
+  - After IELTS: shift these hours to skill gap closing (modern tracking awareness, Lidar perception fundamentals, ML staying-current)
 - **3-4 hours/week: quality applications + LinkedIn outreach** (5-8 quality apps/month is enough)
 - **2-3 hours/week: general paper reading + staying-current**
+
+**Total: ~17-23 hours/week of focused career work on top of the day job.** Sustainable if you actually have the work-time bandwidth Hyvision allows. Not sustainable if you're trying to do this entirely after-hours.
 
 ### The Trap to Avoid
 
@@ -129,16 +213,18 @@ If work is genuinely slow, a sustainable daily rhythm:
 
 Two days per week skip the profile work and use the time to fully draft and send a thoughtful application to a high-priority target. **Mondays and Thursdays** work well — fresh start of week energy, and Thursday catches Friday hiring decisions.
 
-### Picking the Profile-Builder Project Within 7 Days
+### Profile-Builder Decision Reference (DECIDED — see Track C)
 
-Don't keep researching options. Pick by next Friday. Recommended ranking for your situation:
+**Decision: 3D Gaussian Splatting reproduction.** Full reasoning in Track C above.
 
-1. **GitHub: Implement ByteTrack from scratch with clear writeup.** Modern tracking is a direct gap from your existing DeepSORT experience. The repo demonstrates you've kept current. Realistic finish in 4-6 weeks at 8-10 hr/week.
-2. **GitHub: 3D Gaussian Splatting reproduction with documented learnings.** Bigger signal, harder finish in 8 weeks. Closes the gap you flagged during Ouster prep.
-3. **Technical blog with 4-6 substantial posts** on your real shipped work (laser simulator, defect segmentation custom loss, FoundationPose adaptation lessons). Lower technical bar, broader audience signal. Finish in 4-6 weeks.
-4. **Workshop paper submission at a CVPR/ICCV workshop.** Highest signal if accepted, much higher uncertainty and slower timeline (3-4 months including writing + review).
+**Alternatives considered and rejected:**
 
-Pick the one you'll actually finish, not the one that sounds most impressive. **A finished mediocre project beats an unfinished ambitious one by a wide margin.**
+- **ByteTrack from scratch:** Rejected because tracking is what you already have — refresh not repositioning. Saturated market. Doesn't address Ouster-style visa-filter problem.
+- **Technical blog as standalone:** Rejected as standalone effort but ADOPTED as byproduct of the Gaussian Splatting project (2-3 posts documenting the journey).
+- **Workshop paper submission:** Deferred to month 3 stretch decision after Gaussian Splatting work is visible. Don't pre-commit.
+- **SLAM specialty:** Rejected — 4-6 month ramp too long given timeline pressure, smaller hiring market, doesn't leverage existing strengths.
+
+**The rule that produced the decision:** A finished excellent project beats four half-finished attempts. Ship one thing well before starting the next. Most engineers' weakness is starting many things; the differentiator is finishing.
 
 ---
 
@@ -190,6 +276,8 @@ You will not close a 5x salary gap in one move. Plan in steps:
 
 **Climb, don't jump.** People who try to leap directly from $40K to $200K usually fail. People who climb in steps usually get there in 3-5 years.
 
+**PR-in-hand changes this table:** If Track 0 succeeds and PR comes through in 12-24 months, Steps 2 and 3 collapse into a single move. PR holder applying to Canadian senior ML roles regularly hits $150-200K base + equity in year 1, with US H-1B-equivalent freedom of movement. The step ladder is the contingency plan. PR is the express elevator.
+
 ---
 
 ## Hard Truths to Remember When Discouraged
@@ -212,13 +300,16 @@ You will not close a 5x salary gap in one move. Plan in steps:
 
 At the end of each month, answer honestly:
 
-1. How many quality applications did I send this month? (Target: 8-13)
-2. How many real conversations did I have with hiring teams? (Target: 2-3)
-3. How many hours did I put into the profile-builder project? (Target: 10-16)
-4. What did I learn this month that changes my strategy?
-5. Am I still on the right path, or do I need to pivot to Phase 2?
+1. **PR pursuit:** What stage am I at? (IELTS booked? Taken? ECA submitted? EE profile created? PNP applied? ITA received?)
+2. How many quality applications did I send this month? (Target: 8-13)
+3. How many real conversations did I have with hiring teams? (Target: 2-3)
+4. How many hours did I put into the Gaussian Splatting profile-builder project? (Target: 30-40/month)
+5. What did I learn this month that changes my strategy?
+6. Am I still on the right path, or do I need to pivot to Phase 2?
 
 If you're hitting the targets but no offers in 3 months, expand to Phase 2. If you're missing the targets, the problem is execution, not strategy — fix execution before changing strategy.
+
+**Critical PR milestone check:** If by end of month 2 you haven't taken IELTS and submitted ECA, you've failed at the highest-leverage move. Stop, drop everything else, and execute this — the bureaucratic clock matters more than any single application.
 
 ---
 
