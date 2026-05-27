@@ -42,3 +42,18 @@ next-env.d.ts
 
 # claude code local settings
 .claude/
+
+# Per-job tailored resumes & cover letters — kept on disk for local dev (notFound() in production),
+# not committed to the public repo.
+/src/app/resume/
+/src/app/cover-letter/
+/src/app/portfolio-pdf/
+
+# Local application drafts / notes / extracted job data
+/cover_letters/
+/harnham_*
+/hyundai-*.md
+
+# Dev-only image assets referenced by the portfolio PDF page
+/public/assets/images/Interactive-3D-Registration.png
+/public/assets/images/node_base_workflow.png
