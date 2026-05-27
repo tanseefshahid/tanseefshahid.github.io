@@ -53,6 +53,17 @@ next-env.d.ts
 /cover_letters/
 /harnham_*
 /hyundai-*.md
+/career-strategy.md
+/extracted_resume.txt
+
+# Resume / CV PDFs — kept on disk for tailoring; not on the public repo
+/Resume.pdf
+/Muhammad Tanseef Shahid _ 3D Metrology & AI Engineer.pdf
+
+# Draft content not used by the live site (only content/projects/ is rendered)
+/content/cover_letters/
+/content/ideas/
+/content/projects_new/
 
 # Dev-only image assets referenced by the portfolio PDF page
 /public/assets/images/Interactive-3D-Registration.png
