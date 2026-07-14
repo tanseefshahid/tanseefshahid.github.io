@@ -466,4 +466,24 @@ html {
     flex-direction: row !important;
     justify-content: space-between !important;
   }
+
+  /* ===== Portfolio-PDF: each project STARTS on a new page ===== */
+  /* Projects may run as long as needed (flow onto a second page); we only
+     force the start of each project onto a fresh page. */
+  .pf-break {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  /* Readable architecture diagrams (not full-bleed), aspect preserved,
+     centered with equal space on the left and right. */
+  .pf-shot {
+    max-height: 4.8in !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

@@ -7,7 +7,7 @@
  * Pass a slug like "Apera-AI" or "CADflow" — the function builds the full
  * filename: `Resume-Muhammad-Tanseef-Shahid-{slug}.pdf` (LinkedIn-style).
  */
-export function printWithFilename(slug: string, kind: "Resume" | "Cover-Letter" = "Resume") {
+export function printWithFilename(slug: string, kind: "Resume" | "Cover-Letter" | "Portfolio" = "Resume") {
     const originalTitle = document.title;
     const safeSlug = slug.replace(/\s+/g, "-").replace(/[^A-Za-z0-9-]/g, "");
     document.title = `${kind}-Muhammad-Tanseef-Shahid-${safeSlug}`;
