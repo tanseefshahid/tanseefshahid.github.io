@@ -41,7 +41,7 @@ const CATEGORY_STYLE: Record<Category, string> = {
 const FEATURED: Featured[] = [
     {
         n: "01",
-        title: "단일 이미지 → 3D 메시 복원 (뉴럴 렌더링)",
+        title: "단일 이미지 → 3D 메시 재구성",
         category: "3D 생성",
         image: "/images/architecture_3d.png",
         tags: ["OpenLRM", "NeRF", "PyTorch3D", "Triplane", "Blender (bpy)", "Mesh Extraction"],
@@ -62,7 +62,7 @@ const FEATURED: Featured[] = [
         result:
             "복잡한 형상에서 IoU 0.80 · Chamfer Distance 0.08 · Normal Consistency 0.82를 달성했고, 장면별 NeRF 최적화를 피드포워드 트랜스포머로 대체하여 추론 시간을 크게 줄여 실시간 자산 생성에 적합한 파이프라인을 확보했습니다.",
         output: [
-            { src: "/images/render.png", caption: "Blender 절차적 합성 · 멀티뷰 렌더링 (객체당 24 × 360°)" },
+            { src: "/images/render.png", caption: "Blender 절차적 합성 · 360° 다각도 멀티뷰 렌더링" },
         ],
     },
     {
@@ -237,7 +237,7 @@ export default function RebuilderAIPortfolio() {
                     <h2 className="text-2xl font-bold text-white mb-8">
                         주요 프로젝트<span className="text-cyan-400">.</span>
                         <span className="block text-sm font-normal text-gray-400 mt-1">
-                            채용 공고의 포트폴리오 가이드에 따라 문제 → 접근 → 결과 흐름으로 정리했습니다.
+                            채용 공고의 포트폴리오 가이드(문제 정의 → 가설 → 실행·검증 → 결과)에 맞춰 정리했습니다.
                         </span>
                     </h2>
 
