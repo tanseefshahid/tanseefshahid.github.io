@@ -26,6 +26,8 @@ type Featured = {
     approach: string[];
     result: string;
     relevance: string;
+    hypothesis?: string;
+    validation?: string;
     output?: { src: string; caption: string }[];
 };
 
@@ -44,17 +46,21 @@ const FEATURED: Featured[] = [
         image: "/images/architecture_3d.png",
         tags: ["OpenLRM", "NeRF", "PyTorch3D", "Triplane", "Blender (bpy)", "Mesh Extraction"],
         relevance:
-            "리빌더AI의 핵심과 정확히 일치합니다 — 단일 2D 입력을 제조 가능한 3D 자산으로 변환하는 피드포워드 복원, 미분가능 멀티뷰 렌더링, 그리고 시각적 품질이 아닌 기하학적 정합성 검증.",
+            "리빌더AI의 핵심 파이프라인과 직접 맞닿아 있습니다 — 단일 2D 입력을 제조 가능한 3D 자산으로 변환하는 피드포워드 재구성, 대규모 합성 데이터 학습, 그리고 시각 품질이 아닌 기하학적 정합성으로 결과를 검증하는 접근.",
         problem:
-            "단일 2D 이미지에서 3D 지오메트리를 복원하는 것은 깊이 모호성(depth ambiguity) 때문에 ill-posed 문제입니다. Occupancy Network는 깊이 해상도가 부족했고, NeRF는 품질은 개선했으나 장면마다 비용이 큰 최적화가 필요해 실시간 자산 생성에는 부적합했습니다.",
+            "단일 2D 이미지에서 3D 지오메트리를 복원하는 것은 깊이 모호성(depth ambiguity) 때문에 ill-posed 문제입니다. 초기의 멀티뷰 픽셀 매칭과 Occupancy Network는 깊이 해상도가 부족했고, NeRF는 품질은 좋았지만 장면마다 비용이 큰 최적화가 필요해 실시간 자산 생성에는 부적합했습니다.",
+        hypothesis:
+            "장면마다 최적화가 필요한 NeRF 대신, 대규모 데이터로 형상 사전(shape prior)을 학습한 트랜스포머 기반 피드포워드 재구성이 NeRF에 준하는 형상 품질을 유지하면서 실시간 추론을 달성할 것이라 가정했습니다. 또한 실제 사진 대신 절차적 합성 렌더로 학습하면 카메라·조명·형상 분포를 통제해 재구성 정확도를 높일 수 있다고 보았습니다.",
         approach: [
-            "Blender(bpy)로 대규모 CAD 가구 데이터셋에 대한 절차적 합성 데이터 파이프라인을 구축 — 객체당 24 × 360° 뷰를 카메라 포즈·초점거리·조명을 최적화하여 렌더링.",
-            "ESRGAN 초해상화로 고주파 텍스처를 주입하여 생성 메시가 뭉개져 보이지 않도록 처리.",
-            "암시적(implicit) NeRF 표현에서 트랜스포머 기반 OpenLRM으로 전환하여 triplane 특징 예측 → 깨끗한 manifold 메시 추출.",
-            "2D 시각 품질이 아니라 표면 법선(surface normal)·포인트 클라우드 편차 기준으로 ground-truth CAD와 비교 검증.",
+            "Blender(bpy)로 대규모 CAD 가구 데이터셋(테이블·의자·책장·침대·소파)에 대한 절차적 렌더링 파이프라인을 구축 — 객체당 24 × 360° 뷰를 카메라 회전·초점거리·조명을 최적화하여 표면 형상이 최대한 드러나도록 촬영.",
+            "렌더 이미지를 ESRGAN으로 초해상화하여 고주파 텍스처를 주입, 학습 중 메시가 과도하게 매끈해지는(over-smoothing) 현상을 억제.",
+            "암시적(implicit) NeRF 표현에서 트랜스포머 기반 OpenLRM으로 전환 — triplane 표현을 예측하도록 파인튜닝하고 이로부터 깨끗한 manifold 메시를 추출.",
+            "PyTorch / PyTorch3D 기반으로 학습·평가 루프를 구성하고 triplane 해상도와 하이퍼파라미터를 조정.",
         ],
+        validation:
+            "2D 시각 품질이 아니라 표면 법선(surface normal)과 포인트 클라우드 편차를 기준으로 ground-truth CAD와 정량 비교하는 평가 프로토콜을 설계 — '보기에만 그럴듯한' 재구성이 아니라 제조에 필요한 기하 정확도를 직접 측정했습니다.",
         result:
-            "복잡한 형상에서 IoU 0.80 · Chamfer Distance 0.08 · Normal Consistency 0.82 달성 — 무거운 NeRF 최적화를 실시간 피드포워드 트랜스포머 파이프라인으로 대체하여 프로덕션 자산 생성에 적합.",
+            "복잡한 형상에서 IoU 0.80 · Chamfer Distance 0.08 · Normal Consistency 0.82를 달성했고, 장면별 NeRF 최적화를 피드포워드 트랜스포머로 대체하여 추론 시간을 크게 줄여 실시간 자산 생성에 적합한 파이프라인을 확보했습니다.",
         output: [
             { src: "/images/render.png", caption: "Blender 절차적 합성 · 멀티뷰 렌더링 (객체당 24 × 360°)" },
         ],
@@ -66,17 +72,21 @@ const FEATURED: Featured[] = [
         image: "/images/architecture_vton.png",
         tags: ["Latent Diffusion", "LADi-VTON", "CLIP Textual Inversion", "DensePose", "Geometry-Aware"],
         relevance:
-            "엄격한 정체성·기하 보존을 갖춘 확산(diffusion) 생성 경험 — SDXL / Trellis-3D 계열 파이프라인의 핵심 역량이며, 리빌더AI의 풋웨어·의류(ASICS 등) 파트너십과도 직결됩니다.",
+            "diffusion 기반 생성 파이프라인 전반의 핵심 역량(조건화 · 디테일 보존 · GPU 서빙)과 직결되며, 리빌더AI의 풋웨어·의류(ASICS 등) 파트너십과도 맞닿아 있습니다.",
         problem:
-            "확산 모델은 원본 의류의 텍스처·로고·구조적 정체성을 임의로 변형(hallucinate)하는 경향이 있습니다. 목표는 새로운 체형·포즈에 맞춰 의류를 기하학적으로 워핑하면서도, 원본의 스타일과 원단 속성을 수학적으로 강제 보존하는 것이었습니다.",
+            "확산 모델은 원본 의류의 텍스처·로고·구조적 정체성을 임의로 변형(hallucinate)하는 경향이 있습니다. 목표는 새로운 체형·포즈에 맞춰 의류를 기하학적으로 워핑하면서도, 원본의 스타일과 원단 속성을 강하게 보존하는 것이었습니다.",
+        hypothesis:
+            "의류의 시각적 정체성을 CLIP 임베딩으로 조건화하고, 고주파 디테일(솔기·패턴·로고)을 EMASC로 VAE 병목을 우회해 직접 주입하면, 확산 모델의 hallucination 없이 원본 스타일을 보존하면서 새로운 체형·포즈에 맞춰 합성할 수 있을 것이라 가정했습니다.",
         approach: [
-            "멀티모달 전처리 스택 구성: 18-keypoint 포즈, DensePose UV(3D→2D 표면), SCHP 시맨틱 파싱.",
-            "생성 이전에 2D 의류를 추정된 3D DensePose 좌표로 변형하는 공간 워핑 모듈 설계.",
+            "멀티모달 전처리 스택 구성: 18-keypoint 포즈, DensePose UV(3D→2D 표면 매핑), SCHP 시맨틱 파싱으로 대상 영역을 정밀 분리.",
+            "생성 이전에 2D 의류를 추정된 3D DensePose 좌표로 기하 변형하는 공간 워핑 모듈 설계 — 체형·곡률에 맞춰 텍스처가 정렬되도록.",
             "의류 특징을 CLIP 토큰 임베딩 공간에 매핑(textual inversion)하여 확산 과정을 시각적 정체성에 조건화.",
-            "EMASC skip connection을 추가해 VAE 병목을 우회하고 고주파 디테일(솔기·패턴·로고)을 디코더에 직접 주입.",
+            "EMASC skip connection으로 VAE 병목을 우회해 고주파 디테일을 디코더에 직접 주입하고, classifier-free guidance scale·노이즈 스케줄을 파인튜닝하여 사실성과 스타일 보존의 균형을 조정.",
         ],
+        validation:
+            "커스텀 paired/unpaired 데이터셋을 직접 구축·정제하여 미학습 실제 의류로의 일반화를 점검하고, 다양한 체형·포즈·난이도 높은 원단(레이스·반투명 등)에서 텍스처·로고·구조가 보존되는지 반복 검증했습니다.",
         result:
-            "다양한 체형·포즈·난이도 높은 원단에서 상용 수준의 사실적 합성 달성, 미학습 실제 의류에도 강건하게 일반화 — Docker / Flask / AWS 기반 컨테이너 GPU 파이프라인으로 배포.",
+            "상용 애플리케이션에 투입 가능한 사실적 합성 품질을 확보했고, 전체 멀티모델 추론을 Docker로 컨테이너화하여 Flask · AWS(EC2/S3) 기반으로 확장 가능하게 배포했습니다.",
         output: [
             { src: "/images/ladi-vton.png", caption: "가상 피팅 결과 — 상의·하의·원피스 합성 (LADi-VTON)" },
         ],
@@ -139,7 +149,7 @@ const FEATURED: Featured[] = [
 
 const NEED_MAP: { need: string; evidence: string }[] = [
     { need: "2D 입력 → 고품질 3D 자산 생성·복원", evidence: "단일 이미지→3D (OpenLRM/Triplane), Latent-Diffusion 합성" },
-    { need: "Differentiable Rendering & 최적화", evidence: "Blender 멀티뷰 렌더 파이프라인, PyTorch3D, ICP/SVD gradient 정합" },
+    { need: "Differentiable Rendering 기반 최적화 (우대)", evidence: "PyTorch3D 3D 처리 · ICP/SVD gradient 정합 · 반복 기하 최적화 — 미분가능 렌더링으로 전이 가능한 기반" },
     { need: "3D 전처리 (메시·포인트·카메라) / 멀티뷰 재구성", evidence: "포인트클라우드↔메시 정합, hand-eye 카메라 캘리브레이션, 24뷰 합성 캡처" },
     { need: "3D Vision / MVG — 카메라·포즈·NeRF", evidence: "6-DoF FoundationPose + ICP, NeRF→피드포워드 복원" },
     { need: "생성 모델 (Diffusion / SDXL·Trellis-3D)", evidence: "LADi-VTON latent diffusion, CLIP textual inversion, EMASC 조건화" },
@@ -183,7 +193,7 @@ export default function RebuilderAIPortfolio() {
                         Muhammad Tanseef Shahid<span className="text-cyan-400">.</span>
                     </h1>
                     <p className="text-lg text-gray-300 mb-5">
-                        3D 계측 &amp; AI 엔지니어 — 2D→3D 생성, 미분가능 렌더링, 멀티뷰 지오메트리
+                        3D 계측 &amp; AI 엔지니어 — 2D→3D 재구성·생성, 생성형 모델, 멀티뷰 지오메트리 &amp; 정합
                     </p>
                     <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400">
                         <a href="mailto:mtanseefshahid@gmail.com" className="inline-flex items-center gap-1.5 hover:text-cyan-300">
@@ -276,14 +286,26 @@ export default function RebuilderAIPortfolio() {
                                             <h4 className="text-xs font-bold uppercase tracking-wide text-cyan-400 mb-1">문제</h4>
                                             <p className="text-sm text-gray-300 leading-relaxed">{p.problem}</p>
                                         </div>
+                                        {p.hypothesis && (
+                                            <div>
+                                                <h4 className="text-xs font-bold uppercase tracking-wide text-cyan-400 mb-1">가설</h4>
+                                                <p className="text-sm text-gray-300 leading-relaxed">{p.hypothesis}</p>
+                                            </div>
+                                        )}
                                         <div>
-                                            <h4 className="text-xs font-bold uppercase tracking-wide text-cyan-400 mb-1">접근</h4>
+                                            <h4 className="text-xs font-bold uppercase tracking-wide text-cyan-400 mb-1">{p.hypothesis ? "실행" : "접근"}</h4>
                                             <ul className="list-disc pl-5 space-y-1">
                                                 {p.approach.map((a, i) => (
                                                     <li key={i} className="text-sm text-gray-300 leading-relaxed">{a}</li>
                                                 ))}
                                             </ul>
                                         </div>
+                                        {p.validation && (
+                                            <div>
+                                                <h4 className="text-xs font-bold uppercase tracking-wide text-cyan-400 mb-1">검증</h4>
+                                                <p className="text-sm text-gray-300 leading-relaxed">{p.validation}</p>
+                                            </div>
+                                        )}
                                         <div>
                                             <h4 className="text-xs font-bold uppercase tracking-wide text-cyan-400 mb-1">결과</h4>
                                             <p className="text-sm text-gray-300 leading-relaxed">{p.result}</p>
