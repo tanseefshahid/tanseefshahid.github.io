@@ -2,6 +2,14 @@
 
 @import "tailwindcss";
 
+/* The /resume and /cover-letter pages live in .gitignore'd folders (kept local
+   only, notFound() in production). Tailwind v4 auto-detection skips .gitignore'd
+   paths, so their utility classes (gray text, gray backgrounds, pt-based sizes)
+   would never be generated and the pages render white-on-white on screen.
+   Register them explicitly so their classes are emitted. */
+@source "./resume";
+@source "./cover-letter";
+
 :root {
   /* Premium Dark Theme Colors */
   --background: #070A12;
@@ -466,4 +474,67 @@ html {
     flex-direction: row !important;
     justify-content: space-between !important;
   }
+
+  /* ===== Portfolio PDF print rules ===== */
+  .portfolio-doc img {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .portfolio-doc h2,
+  .portfolio-doc h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Keep short lists (e.g. the Company / Role / Period block) from splitting
+     so a single line never orphans onto a blank page. */
+  .portfolio-doc .prose ul,
+  .portfolio-doc .prose ol {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Override the resume-oriented generic print heading sizes for the portfolio.
+     The project title must stay dominant over the in-content headings. */
+  .portfolio-doc .portfolio-project > h2 {
+    font-size: 22pt !important;
+  }
+
+  .portfolio-doc .prose h2 {
+    font-size: 13pt !important;
+  }
+
+  .portfolio-doc .prose h3 {
+    font-size: 11pt !important;
+  }
+}
+
+/* Portfolio PDF: never render embedded videos/iframes (screen + print) */
+.portfolio-doc video,
+.portfolio-doc iframe {
+  display: none !important;
+}
+
+/* Portfolio PDF: center images (prose forces display:block, so text-align won't center) */
+.portfolio-doc img {
+  display: block;
+  max-width: 85%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Media swap: the live project pages show the demo video; the portfolio PDF
+   document shows a static screenshot instead (videos don't render in a PDF). */
+.print-only {
+  display: none;
+}
+
+.portfolio-doc .print-only {
+  display: block;
+}
+
+.portfolio-doc .screen-only {
+  display: none;
 }

@@ -48,5 +48,5 @@ CNC operations require exact sub-millimeter spatial alignment before the tool en
 ## Company
 
 - **Luxolis**, Seoul, South Korea
-- **Role**: SLAM Engineer
-- **Period**: Apr. 2025 – Present
+- **Role**: SLAM / Computer Vision Engineer
+- **Period**: Apr. 2025 – Jul. 2025

@@ -17,7 +17,7 @@ Developed a modular, node-based 3D inspection engine designed to offer greater f
   <img src="/images/architecture_0c.png" alt="Node-Based Workflow Editor Architecture">
 </div>
 
-<div className="my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+<div class="screen-only my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
   <video 
     controls 
     className="w-full" 
@@ -25,6 +25,10 @@ Developed a modular, node-based 3D inspection engine designed to offer greater f
     <source src="/assets/videos/nodegraph_demo.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
+</div>
+
+<div class="print-only" style="text-align: center;">
+  <img src="/assets/images/node_base_workflow.png" alt="Node-based visual programming workflow editor interface" />
 </div>
 
 ## Key Features
@@ -57,5 +61,5 @@ Developed a modular, node-based 3D inspection engine designed to offer greater f
 ## Company
 
 - **Hyvision**, Seoul, South Korea
-- **Role**: 3D Metrology & AI Engineer
+- **Role**: SLAM & 3D Metrology Engineer
 - **Period**: Aug 2025 – Present

@@ -45,5 +45,5 @@ Built a robust and highly optimized 3D data processing pipeline in C++ explicitl
 ## Company
 
 - **Hyvision**, Seoul, South Korea
-- **Role**: 3D Metrology & AI Engineer
+- **Role**: SLAM & 3D Metrology Engineer
 - **Period**: Aug 2025 – Present

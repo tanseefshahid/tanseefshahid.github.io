@@ -45,5 +45,5 @@ Developed a high-speed 3D inspection framework designed for the automated qualit
 ## Company
 
 - **Hyvision**, Seoul, South Korea
-- **Role**: 3D Metrology & AI Engineer
+- **Role**: SLAM & 3D Metrology Engineer
 - **Period**: Aug 2025 – Present

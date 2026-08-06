@@ -48,5 +48,5 @@ The production line operates at a high throughput of 5 units per second, leaving
 ## Company
 
 - **Luxolis**, Seoul, South Korea
-- **Role**: SLAM Engineer
-- **Period**: Apr. 2025 – Present
+- **Role**: SLAM / Computer Vision Engineer
+- **Period**: Apr. 2025 – Jul. 2025

@@ -54,7 +54,17 @@ next-env.d.ts
 /harnham_*
 /hyundai-*.md
 /career-strategy.md
+/gaussian-splatting-plan.md
 /extracted_resume.txt
+/personal-info.md
+
+# Internal employer engine design doc — local only, not for the public repo
+/ARCHITECTURE.md
+
+# Per-company interview prep and immigration/legal correspondence — local only
+/synopsys/
+/synopsys.zip
+/Ellis_porter/
 
 # Resume / CV PDFs — kept on disk for tailoring; not on the public repo
 /Resume.pdf

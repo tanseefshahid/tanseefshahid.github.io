@@ -17,7 +17,7 @@ Built a desktop-based 3D metrology application designed to replicate the alignme
   <img src="/images/architecture_0b.png" alt="3D Alignment Tool Architecture">
 </div>
 
-<div className="my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+<div class="screen-only my-8 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
   <video 
     controls 
     className="w-full" 
@@ -25,6 +25,10 @@ Built a desktop-based 3D metrology application designed to replicate the alignme
     <source src="/assets/videos/alignment_demo.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
+</div>
+
+<div class="print-only" style="text-align: center;">
+  <img src="/assets/images/Interactive-3D-Registration.png" alt="Interactive 3D Registration application interface" />
 </div>
 
 ## Key Features
@@ -56,5 +60,5 @@ Built a desktop-based 3D metrology application designed to replicate the alignme
 ## Company
 
 - **Hyvision**, Seoul, South Korea
-- **Role**: 3D Metrology & AI Engineer
+- **Role**: SLAM & 3D Metrology Engineer
 - **Period**: Aug 2025 – Present
