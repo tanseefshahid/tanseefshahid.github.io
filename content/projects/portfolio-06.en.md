@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-06/
 teaser: /images/architecture_apparel.png
 excerpt: |
   Hierarchical ResNet50-based classification system handling severe class imbalance and high intra-class variance across a 3-depth taxonomy of 73 classes (&gt;95% top-level, &gt;90% fine-grained). Hierarchical FGVC and class-imbalance techniques generalize to medical diagnosis, species recognition, defect classification, and 3D model categorization.
-
+order: 10
+category: "Perception"
+tags: ["ResNet50", "FGVC"]
+blurb: "ResNet50 hierarchical classifier handling severe class imbalance across a 3-depth taxonomy of 73 classes — 95%+ top-level, 90%+ fine-grained."
+company: "PERSPECTIVE Corp."
+role: "3D Reconstruction & Computer Vision Researcher"
+period: "Dec 2021 — Apr 2025"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

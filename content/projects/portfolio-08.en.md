@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-08/
 teaser: /images/architecture_ppe.png
 excerpt: |
   Low-latency multi-class detection and 2D spatial tracking deployed on NVIDIA Jetson edge devices, handling heavy occlusion, variable lighting, and zero-cloud-dependency constraints. Edge inference, spatial-zone reasoning, and real-time alerting transfer to robotics, autonomous vehicles, and on-device AR systems.
-
+order: 12
+category: "Perception"
+tags: ["Jetson", "TensorRT"]
+blurb: "Low-latency multi-class detection and 2D spatial tracking on NVIDIA Jetson under occlusion, variable lighting, and zero cloud dependency."
+company: "Ellexi"
+role: "Computer Vision Engineer"
+period: "Nov 2019 — Oct 2021"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

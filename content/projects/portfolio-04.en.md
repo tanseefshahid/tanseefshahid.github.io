@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-04/
 teaser: /images/architecture_3d.png
 excerpt: |
   Image-to-3D generative pipeline producing high-fidelity textured meshes from a single RGB image using OpenLRM (Large Reconstruction Model) and a custom multi-view Blender rendering pipeline (24×360° views, ESRGAN-enhanced). Core 3D reconstruction techniques apply to AR/VR, gaming, virtual production, digital twins, and 3D content authoring.
-
+order: 5
+category: "Generative 3D"
+tags: ["OpenLRM", "NeRF", "Blender"]
+blurb: "Image-to-3D pipeline producing high-fidelity textured meshes from one RGB image using OpenLRM and a custom 24-view Blender rendering pipeline."
+company: "PERSPECTIVE Corp."
+role: "3D Reconstruction & Computer Vision Researcher"
+period: "Dec 2021 — Apr 2025"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

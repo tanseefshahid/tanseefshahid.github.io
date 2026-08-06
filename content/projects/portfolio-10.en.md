@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-10/
 teaser: /images/architecture_gasmeter.png
 excerpt: |
   Hybrid OCR (CRAFT + Tesseract) and geometric measurement pipeline (Mask R-CNN segmentation, angle estimation) handling severe weathering, variable lighting, and arbitrary capture angles. Robust text extraction and geometric analysis transfer to document AI, infrastructure inspection, robotics perception, and industrial digitization.
-
+order: 14
+category: "Perception"
+tags: ["CRAFT", "Tesseract", "Mask R-CNN"]
+blurb: "Hybrid CRAFT + Tesseract OCR and geometric measurement (Mask R-CNN, angle estimation) under severe weathering and arbitrary capture angles."
+company: "Ellexi"
+role: "Computer Vision Engineer"
+period: "Nov 2019 — Oct 2021"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

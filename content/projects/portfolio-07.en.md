@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-07/
 teaser: /images/architecture_alpr.png
 excerpt: |
   End-to-end perception pipeline combining YOLO detection, CRNN OCR, and DeepSORT multi-object tracking, trained on a procedurally generated synthetic dataset (&gt;99% character accuracy). Synthetic data generation, perspective rectification, and tracking-by-detection apply to autonomous driving, surveillance, robotics, and AI/ML data engineering.
-
+order: 11
+category: "Perception"
+tags: ["YOLO", "CRNN", "DeepSORT"]
+blurb: "YOLO detection, CRNN OCR, and DeepSORT tracking trained on a procedurally generated synthetic dataset at over 99% character accuracy."
+company: "Ellexi"
+role: "Computer Vision Engineer"
+period: "Nov 2019 — Oct 2021"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

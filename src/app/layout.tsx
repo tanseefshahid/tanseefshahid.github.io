@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Muhammad Tanseef Shahid | 3D Metrology & AI Engineer",
-  description: "Portfolio and resume of Muhammad Tanseef Shahid - 3D Metrology & AI Engineer specializing in computer vision, deep learning, and 3D reconstruction.",
+  title: "Muhammad Tanseef Shahid | 3D Metrology & Machine Learning Engineer",
+  description:
+    "Portfolio of Muhammad Tanseef Shahid — 3D Metrology & Machine Learning Engineer. Sub-millimeter industrial metrology, 6-DoF pose estimation, neural rendering, and real-time edge perception.",
 };
 
 export default function RootLayout({
@@ -26,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#070A12] text-slate-300 selection:bg-cyan-500/30`}
+        className={`${plexSans.variable} ${plexMono.variable} antialiased bg-paper text-ink`}
       >
         {children}
         <GoogleAnalytics gaId="G-T9KRJHC7BD" />

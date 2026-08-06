@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-03/
 teaser: /images/architecture_vton.png
 excerpt: |
   Conditional image generation pipeline using fine-tuned LADi-VTON Latent Diffusion, DensePose human geometry extraction, and CLIP textual inversion for photorealistic synthesis. Applied to virtual try-on but the diffusion conditioning, geometry-aware synthesis, and large-scale rendering apply to generative 3D, AR effects, and content creation.
-
+order: 6
+category: "Generative 3D"
+tags: ["Diffusion", "DensePose", "CLIP"]
+blurb: "Conditional generation using fine-tuned LADi-VTON latent diffusion, DensePose geometry extraction, and CLIP textual inversion."
+company: "PERSPECTIVE Corp."
+role: "3D Reconstruction & Computer Vision Researcher"
+period: "Dec 2021 — Apr 2025"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

@@ -7,6 +7,14 @@ permalink: /en/portfolio/portfolio-0c/
 teaser: /images/architecture_0c.png
 excerpt: |
   Real-time 3D rendering engine (.NET 8/WPF) with an ECS architecture and node-based visual editor for designing custom 3D processing pipelines via drag-and-drop. Plugin-extensible design applicable to game engines, simulation tools, procedural generation, and 3D content authoring.
+order: 8
+category: "3D & SLAM"
+tags: [".NET 8", "ECS", "Helix"]
+blurb: "Real-time .NET 8/WPF rendering engine with ECS architecture and a drag-and-drop node editor for authoring custom 3D processing pipelines."
+company: "Hyvision System"
+role: "3D Metrology & Machine Learning Engineer"
+period: "Aug 2025 — Present"
+location: "Seoul, South Korea"
 ---
 
 ## Overview
@@ -61,5 +69,5 @@ Developed a modular, node-based 3D inspection engine designed to offer greater f
 ## Company
 
 - **Hyvision**, Seoul, South Korea
-- **Role**: SLAM & 3D Metrology Engineer
+- **Role**: 3D Metrology & Machine Learning Engineer
 - **Period**: Aug 2025 – Present

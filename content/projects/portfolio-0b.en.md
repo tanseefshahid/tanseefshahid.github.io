@@ -7,6 +7,14 @@ permalink: /en/portfolio/portfolio-0b/
 teaser: /images/architecture_0b.png
 excerpt: |
   Desktop application for aligning point clouds (PLY/PCD) to mesh models (STL/OBJ) using landmark-based SVD registration, ICP refinement, and interactive editing. Core registration and SE(3) alignment techniques transfer to SLAM loop closure, 3D scan-to-scan alignment, and AR/VR scene anchoring.
+order: 7
+category: "3D & SLAM"
+tags: ["WPF", "SVD", "ICP"]
+blurb: "Desktop app aligning point clouds (PLY/PCD) to mesh models (STL/OBJ) with landmark-based SVD registration, ICP refinement, and interactive editing."
+company: "Hyvision System"
+role: "3D Metrology & Machine Learning Engineer"
+period: "Aug 2025 — Present"
+location: "Seoul, South Korea"
 ---
 
 ## Overview
@@ -60,5 +68,5 @@ Built a desktop-based 3D metrology application designed to replicate the alignme
 ## Company
 
 - **Hyvision**, Seoul, South Korea
-- **Role**: SLAM & 3D Metrology Engineer
+- **Role**: 3D Metrology & Machine Learning Engineer
 - **Period**: Aug 2025 – Present

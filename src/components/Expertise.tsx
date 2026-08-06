@@ -1,74 +1,51 @@
-"use client";
+import SectionHeading from "./SectionHeading";
 
-import { motion } from "framer-motion";
-import { Cpu, Eye, Code, Layers, Video, Zap } from "lucide-react";
-
-const expertiseAreas = [
+const AREAS = [
     {
         title: "3D Geometry & SLAM",
-        description: "Point cloud processing, geometric registration (ICP, RANSAC, SVD), 6-DoF pose estimation, hand-eye calibration, and sub-millimeter alignment for robotics, autonomous systems, and precision metrology.",
-        icon: Layers,
+        body: "Point cloud processing, geometric registration (ICP, RANSAC, SVD), 6-DoF pose estimation, hand-eye calibration, and sub-millimeter alignment.",
     },
     {
         title: "Computer Vision",
-        description: "Object detection (YOLO), semantic segmentation (U-Net, U2Net, SAM, Mask R-CNN), multi-view geometry, OCR, and multi-camera tracking & re-identification (DeepSORT, HRNet).",
-        icon: Eye,
+        body: "Object detection, semantic segmentation, multi-view geometry, OCR, and multi-camera tracking & re-identification.",
     },
     {
-        title: "3D Reconstruction & Rendering",
-        description: "Single-image to 3D mesh generation (OpenLRM), NeRF, neural rendering, Blender-based procedural rendering, and exporting production-ready .obj / .glb assets for AR/VR, gaming, and manufacturing.",
-        icon: Video,
+        title: "3D Reconstruction",
+        body: "Single-image to mesh (OpenLRM), NeRF and neural rendering, Blender procedural pipelines, production .obj / .glb export.",
     },
     {
         title: "Generative AI",
-        description: "Latent Diffusion (LADi-VTON, Stable Diffusion), GANs, conditional generation, CLIP textual inversion, and large-scale synthetic dataset engineering for data-scarce and regulated domains.",
-        icon: Cpu,
+        body: "Latent diffusion, GANs, conditional generation, CLIP textual inversion, and large-scale synthetic dataset engineering.",
     },
     {
         title: "Software Engineering",
-        description: "Production C++ (Eigen, PCL, STL), C# / .NET 8 (WPF, ECS architecture), Python (PyTorch, Flask), and full-stack web (React / Next.js, TypeScript). Multi-threaded, containerized, scalable architectures.",
-        icon: Code,
+        body: "Production C++ (Eigen, PCL), C# / .NET 8 (WPF, ECS), Python (PyTorch, Flask). Multi-threaded, containerized architectures.",
     },
     {
         title: "Edge AI & Deployment",
-        description: "NVIDIA Jetson edge inference, TensorRT/ONNX optimization, Docker containerization, hardware-in-the-loop integration (PLC/GPIO, Basler cameras), and cloud deployment (AWS).",
-        icon: Zap,
+        body: "Jetson edge inference, TensorRT/ONNX optimization, Docker, hardware-in-the-loop (PLC/GPIO, Basler), AWS deployment.",
     },
 ];
 
 export default function Expertise() {
     return (
-        <section id="expertise" className="relative py-24 px-4 overflow-hidden">
-            <div className="max-w-6xl mx-auto relative z-10">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-sans">
-                        Core <span className="gradient-text-vibrant">Expertise</span><span className="text-cyan-400">.</span>
-                    </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
-                        Bridging classical geometric algorithms and modern AI to build robust 3D systems across robotics, metrology, generative content, and real-time perception.
-                    </p>
+        <section id="expertise" className="border-t border-rule">
+            <div className="mx-auto max-w-[1120px] px-5 py-14 sm:px-8 md:py-18">
+                <div className="mb-9 md:mb-11">
+                    <SectionHeading num="01">Core Expertise</SectionHeading>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {expertiseAreas.map((area, index) => (
-                        <motion.div
-                            key={area.title}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className="p-6 rounded-2xl glass-strong hover:bg-white/[0.08] transition-all duration-300 group"
+                <div className="grid grid-cols-1 gap-px border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
+                    {AREAS.map(({ title, body }) => (
+                        <div
+                            key={title}
+                            className="bg-paper-raised px-6 pt-7 pb-8 transition-colors hover:bg-paper-bright"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
-                                <area.icon className="w-6 h-6 text-cyan-400" />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-3">
-                                {area.title}
-                            </h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">
-                                {area.description}
+                            <h3 className="mb-3 text-[17px] font-semibold text-ink">{title}</h3>
+                            <p className="m-0 text-[14.5px] leading-[1.6] text-ink-muted text-pretty">
+                                {body}
                             </p>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

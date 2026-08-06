@@ -1,148 +1,76 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+const FACTS: { label: string; value: string }[] = [
+    { label: "Experience", value: "6+ years" },
+    { label: "Precision", value: "Sub-millimeter" },
+    { label: "Systems shipped", value: "14 documented" },
+    { label: "Education", value: "M.S. Computer Vision" },
+    { label: "Based in", value: "Seoul, South Korea" },
+    { label: "Core stack", value: "C++ / PCL · Python · .NET 8" },
+];
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-            {/* Animated Gradient Mesh Background */}
-            <div className="absolute inset-0 z-0">
-                {/* Primary gradient orbs */}
-                <motion.div
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute top-[-30%] left-[-20%] h-[80vh] w-[80vh] rounded-full bg-violet-600/30 blur-[120px]"
-                />
-                <motion.div
-                    animate={{
-                        scale: [1.2, 1, 1.2],
-                        opacity: [0.4, 0.2, 0.4],
-                    }}
-                    transition={{
-                        duration: 10,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute top-[20%] right-[-10%] h-[60vh] w-[60vh] rounded-full bg-cyan-500/25 blur-[100px]"
-                />
-                <motion.div
-                    animate={{
-                        scale: [1, 1.3, 1],
-                        opacity: [0.2, 0.4, 0.2],
-                    }}
-                    transition={{
-                        duration: 12,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute bottom-[-20%] left-[30%] h-[70vh] w-[70vh] rounded-full bg-fuchsia-600/20 blur-[120px]"
-                />
+        <section id="top" className="mx-auto max-w-[1120px] px-5 pt-16 pb-14 sm:px-8 md:pt-24 md:pb-18">
+            <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-18">
+                <div>
+                    <p className="mb-6 font-mono text-[11.5px] uppercase tracking-[0.16em] text-accent md:mb-6.5">
+                        3D Metrology · SLAM · Computer Vision · Generative AI
+                    </p>
 
-                {/* Subtle grid overlay */}
-                <div
-                    className="absolute inset-0 opacity-[0.02]"
-                    style={{
-                        backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                                          linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-                        backgroundSize: '50px 50px'
-                    }}
-                />
-            </div>
-
-            <div className="z-10 text-center px-4 max-w-5xl">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
-                    {/* Role Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2, duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass border border-cyan-500/20"
-                    >
-                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                        <span className="text-sm font-medium tracking-wide text-cyan-300 uppercase">
-                            3D Computer Vision · AI · Robotics · Generative Systems
-                        </span>
-                    </motion.div>
-
-                    {/* Name with Gradient */}
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 font-sans">
-                        <span className="text-white">Muhammad Tanseef</span>
+                    {/* Sized so "Muhammad Tanseef" stays on one line at every breakpoint —
+                        the two-column grid narrows this column to ~493px at lg. */}
+                    <h1 className="mb-7 text-[36px] font-semibold leading-[1.04] tracking-[-0.03em] sm:text-[48px] md:text-[56px] lg:text-[50px] xl:text-[58px]">
+                        Muhammad Tanseef
                         <br />
-                        <span className="text-white">Shahid<span className="text-cyan-400">.</span></span>
+                        Shahid
                     </h1>
 
-                    {/* Description */}
-                    <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-6 leading-relaxed">
-                        Engineer and researcher across{" "}
-                        <span className="text-white font-semibold">3D Reconstruction</span>,{" "}
-                        <span className="text-white font-semibold">SLAM &amp; Metrology</span>,{" "}
-                        <span className="text-white font-semibold">Generative AI</span>, and{" "}
-                        <span className="text-white font-semibold">Computer Vision</span>. Building production-grade systems with over 6 years of experience.
+                    <p className="mb-4.5 max-w-[34em] text-[17px] leading-[1.6] text-ink-soft text-pretty md:text-[19px]">
+                        Engineer and researcher building production-grade 3D systems — from
+                        sub-millimeter industrial metrology and 6-DoF pose estimation to neural
+                        rendering and real-time edge perception.
                     </p>
 
-                    <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-                        From point cloud processing and 6-DoF pose estimation to neural rendering, latent diffusion, real-time perception, and edge deployment.
+                    <p className="mb-8 max-w-[34em] text-[15px] leading-[1.65] text-ink-muted text-pretty md:text-[16px]">
+                        Six years across robotics, inspection, and generative AI R&amp;D in Seoul.
+                        Currently architecting high-speed 3D laser inspection at Hyvision System.
                     </p>
-                </motion.div>
 
-                {/* Social Links */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="flex justify-center gap-4"
-                >
-                    {[
-                        { href: "https://www.linkedin.com/in/muhammad-tanseef-shahid/", icon: Linkedin, label: "LinkedIn" },
-                        { href: "mailto:mtanseefshahid@gmail.com", icon: Mail, label: "Email" },
-                    ].map(({ href, icon: Icon, label }) => (
-                        <motion.a
-                            key={label}
-                            href={href}
-                            target={href.startsWith("mailto") ? undefined : "_blank"}
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="group relative p-4 rounded-xl glass hover:bg-white/10 transition-all duration-300"
+                    <div className="flex flex-wrap gap-2.5">
+                        <a
+                            href="mailto:mtanseefshahid@gmail.com"
+                            className="rounded-[2px] bg-ink px-5 py-2.75 text-[14px] font-medium text-paper transition-colors hover:bg-accent"
                         >
-                            <Icon className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
-                            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                                {label}
-                            </span>
-                            {/* Glow effect on hover */}
-                            <div className="absolute inset-0 rounded-xl bg-cyan-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity -z-10" />
-                        </motion.a>
-                    ))}
-                </motion.div>
-            </div>
+                            mtanseefshahid@gmail.com
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/muhammad-tanseef-shahid/"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-[2px] border border-rule-strong px-5 py-2.75 text-[14px] font-medium text-ink transition-colors hover:border-ink"
+                        >
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-            >
-                <span className="text-xs text-gray-500 tracking-widest uppercase">Scroll</span>
-                <motion.div
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                    <ChevronDown className="w-5 h-5 text-gray-500" />
-                </motion.div>
-            </motion.div>
+                <dl className="border-t border-ink pt-1">
+                    {FACTS.map(({ label, value }, i) => (
+                        <div
+                            key={label}
+                            className={`flex items-baseline justify-between gap-4 py-4.25 ${
+                                i < FACTS.length - 1 ? "border-b border-rule" : ""
+                            }`}
+                        >
+                            <dt className="font-mono text-[11.5px] uppercase tracking-[0.1em] text-ink-faint">
+                                {label}
+                            </dt>
+                            <dd className="m-0 text-right text-[15px] font-medium text-ink sm:text-[17px]">
+                                {value}
+                            </dd>
+                        </div>
+                    ))}
+                </dl>
+            </div>
         </section>
     );
 }

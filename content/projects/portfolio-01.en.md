@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-01/
 teaser: /images/architecture_defect.png
 excerpt: |
   Hardware-in-the-loop (HITL) machine vision system with a synchronized 6-camera array, real-time YOLO inference (&lt;200ms latency), and deterministic PLC/GPIO integration. Multi-view synchronization and edge-deployed deep learning concepts apply to robotics, autonomous driving sensor fusion, and surround-view perception.
-
+order: 4
+category: "Perception"
+tags: ["YOLO", "Basler", "PLC"]
+blurb: "Hardware-in-the-loop machine vision with a synchronized 6-camera array, real-time YOLO inference under 200 ms, and deterministic PLC/GPIO integration."
+company: "Luxolis"
+role: "SLAM / Computer Vision Engineer"
+period: "Apr 2025 — Jul 2025"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

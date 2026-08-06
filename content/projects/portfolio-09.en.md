@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-09/
 teaser: /images/architecture_anomaly.png
 excerpt: |
   Real-time video understanding pipeline combining 3D-CNN action recognition (YOWO), HRNet pose estimation, and Person Re-Identification across a distributed camera network (deployed for Incheon International Airport). Spatio-temporal learning, multi-camera association, and pose-based behavior analysis apply to robotics, autonomous driving, sports analytics, and HCI.
-
+order: 13
+category: "Perception"
+tags: ["YOWO", "HRNet", "Re-ID"]
+blurb: "3D-CNN action recognition (YOWO), HRNet pose estimation, and person re-identification across a distributed camera network at Incheon Airport."
+company: "Ellexi"
+role: "Computer Vision Engineer"
+period: "Nov 2019 — Oct 2021"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

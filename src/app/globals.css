@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 @import "tailwindcss";
 
 /* The /resume and /cover-letter pages live in .gitignore'd folders (kept local
@@ -9,25 +7,44 @@
    Register them explicitly so their classes are emitted. */
 @source "./resume";
 @source "./cover-letter";
+@source "./portfolio-pdf";
+
+/* ===== Editorial theme tokens =====
+   Warm paper ground, near-black ink, hairline rules, one restrained blue accent.
+   Exposed to Tailwind as bg-paper / text-ink / border-rule / text-accent etc. */
+@theme {
+  --font-sans: var(--font-plex-sans), "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-paper: oklch(0.972 0.004 85);
+  --color-paper-raised: oklch(0.985 0.003 85);
+  --color-paper-bright: oklch(1 0 0);
+
+  --color-ink: oklch(0.24 0.008 70);
+  --color-ink-soft: oklch(0.35 0.008 70);
+  --color-ink-muted: oklch(0.5 0.008 70);
+  --color-ink-faint: oklch(0.56 0.008 70);
+  --color-ink-ghost: oklch(0.68 0.008 80);
+
+  --color-rule: oklch(0.88 0.006 80);
+  --color-rule-soft: oklch(0.92 0.005 80);
+  --color-rule-strong: oklch(0.82 0.008 80);
+
+  --color-accent: oklch(0.5 0.12 248);
+
+  /* Extra-small breakpoint for the header wordmark swap. */
+  --breakpoint-xs: 24rem;
+}
 
 :root {
-  /* Premium Dark Theme Colors */
-  --background: #070A12;
-  --foreground: #ffffff;
-  --muted-foreground: #a0aec0;
+  /* Legacy aliases retained for the print rules and the resume/cover-letter
+     pages, which still reference the older accent variables. */
+  --background: oklch(0.972 0.004 85);
+  --foreground: oklch(0.24 0.008 70);
+  --accent-primary: oklch(0.5 0.12 248);
+  --accent-secondary: oklch(0.5 0.12 248);
+  --accent-tertiary: oklch(0.5 0.12 248);
 
-  /* Gradient Colors */
-  --gradient-start: #0f1c32;
-  --gradient-mid: #0a1122;
-  --gradient-end: #070A12;
-
-  /* Accent Colors */
-  --accent-primary: #06b6d4;
-  /* Cyan/Light Blue */
-  --accent-secondary: #3b82f6;
-  --accent-tertiary: #8b5cf6;
-
-  /* Glass Colors */
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-highlight: rgba(255, 255, 255, 0.1);
@@ -37,15 +54,53 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Glassmorphism Classes */
+/* Anchor targets sit below the 60px sticky header. */
+:target {
+  scroll-margin-top: 84px;
+}
+
+[id] {
+  scroll-margin-top: 84px;
+}
+
+::selection {
+  background: oklch(0.5 0.12 248 / 0.18);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.84 0.006 80);
+  border: 2px solid var(--color-paper);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.74 0.008 80);
+}
+
+/* ===== Legacy dark utilities =====
+   No longer used by the live pages, but the @media print block below and the
+   local-only resume/cover-letter pages still reference them. Left untouched so
+   those documents keep printing exactly as before. */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
@@ -62,99 +117,27 @@ body {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
+.gradient-text,
 .gradient-text-vibrant {
-  background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent);
 }
 
-/* Glow Effects */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.1);
+/* ===== Project page prose (light editorial) ===== */
+.prose {
+  color: var(--color-ink-soft);
 }
 
-.glow-purple {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1);
-}
-
-/* Gradient Border */
-.gradient-border {
-  position: relative;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Selection Color */
-::selection {
-  background: rgba(6, 182, 212, 0.3);
-  color: #fff;
-}
-
-/* ===== Project Page Prose Styles ===== */
 .prose h2 {
   margin-top: 3rem !important;
   margin-bottom: 1.25rem !important;
   padding-bottom: 0.75rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 1.75rem !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.02em;
-  position: relative;
-}
-
-.prose h2::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-  border-radius: 1px;
+  border-bottom: 1px solid var(--color-rule);
+  font-family: var(--font-mono);
+  font-size: 0.9375rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink) !important;
 }
 
 .prose h2:first-child {
@@ -164,18 +147,17 @@ html {
 .prose h3 {
   margin-top: 2rem !important;
   margin-bottom: 0.75rem !important;
-  font-size: 1.25rem !important;
+  font-size: 1.1875rem !important;
   font-weight: 600 !important;
-  color: var(--accent-primary) !important;
+  color: var(--color-ink) !important;
   letter-spacing: -0.01em;
-  padding-left: 0.75rem;
-  border-left: 3px solid var(--accent-primary);
 }
 
 .prose p {
   margin-bottom: 1rem !important;
-  line-height: 1.8 !important;
-  color: #cbd5e1 !important;
+  line-height: 1.7 !important;
+  color: var(--color-ink-soft) !important;
+  text-wrap: pretty;
 }
 
 .prose ul {
@@ -183,46 +165,68 @@ html {
   margin-bottom: 1.25rem !important;
   padding-left: 0 !important;
   list-style: none !important;
+  display: grid;
+  gap: 0.6875rem;
 }
 
 .prose ul li {
   position: relative;
-  padding-left: 1.5rem !important;
-  margin-bottom: 0.5rem !important;
-  line-height: 1.75 !important;
-  color: #cbd5e1 !important;
+  padding-left: 1rem !important;
+  margin-bottom: 0 !important;
+  line-height: 1.6 !important;
+  color: var(--color-ink-soft) !important;
+  border-left: 1px solid var(--color-rule-strong);
+  text-wrap: pretty;
 }
 
 .prose ul li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--accent-primary);
-  font-weight: bold;
+  content: none;
+}
+
+.prose ol {
+  color: var(--color-ink-soft) !important;
 }
 
 .prose strong {
-  color: #f1f5f9 !important;
+  color: var(--color-ink) !important;
   font-weight: 600;
+}
+
+.prose a {
+  color: var(--color-accent) !important;
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  background: oklch(0.94 0.004 85);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 0.9em;
 }
 
 .prose img {
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
-  border-radius: 1rem !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--color-rule) !important;
+  box-shadow: none !important;
 }
 
 .prose hr {
-  border-color: rgba(255, 255, 255, 0.06) !important;
+  border-color: var(--color-rule) !important;
   margin-top: 2.5rem !important;
   margin-bottom: 2.5rem !important;
 }
 
+.prose video,
 .prose iframe {
-  border-radius: 1rem !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--color-rule) !important;
 }
 
 /* ===== Resume document (LinkedIn-style) ===== */

@@ -1,194 +1,100 @@
-"use client";
+import SectionHeading from "./SectionHeading";
 
-import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, MapPin, Calendar } from "lucide-react";
-
-const experiences = [
+const EXPERIENCE = [
     {
-        title: "SLAM & 3D Metrology Engineer",
-        company: "Hyvision System",
-        location: "Seoul, South Korea",
-        period: "Aug 2025 - Present",
-        description: "Architecting high-speed 3D laser inspection for UMP modules with PCL and RANSAC/Eigen alignment at sub-millimeter precision. Building PolyWorks-style alignment apps with ICP best-fit and a modular node-based rendering engine (.NET 8/WPF) for custom inspection pipelines.",
+        period: "Aug 2025 — Present",
         current: true,
+        title: "3D Metrology & Machine Learning Engineer",
+        org: "Hyvision System · Seoul",
+        body: "Architecting high-speed 3D laser inspection for UMP modules with PCL and RANSAC/Eigen alignment at sub-millimeter precision. Building PolyWorks-style alignment applications with ICP best-fit and a modular node-based rendering engine (.NET 8 / WPF) for custom inspection pipelines.",
     },
     {
+        period: "Apr 2025 — Jul 2025",
+        current: false,
         title: "SLAM / Computer Vision Engineer",
-        company: "Luxolis",
-        location: "Seoul, South Korea",
-        period: "May 2025 - Jul 2025",
-        description: "Deployed a real-time 360° surface inspection system with a synchronized 6-camera Basler array and YOLO inference (<200ms latency, PLC-integrated). Built an eye-in-hand 6-DoF pose estimation pipeline using RGB-D, FoundationPose, and ICP refinement for autonomous CNC toolpath adjustment in SE(3) space.",
-        current: false,
+        org: "Luxolis · Seoul",
+        body: "Deployed a real-time 360° surface inspection system with a synchronized 6-camera Basler array and YOLO inference at under 200 ms latency, PLC-integrated. Built an eye-in-hand 6-DoF pose estimation pipeline using RGB-D, FoundationPose, and ICP refinement for autonomous CNC toolpath adjustment in SE(3) space.",
     },
     {
+        period: "Dec 2021 — Apr 2025",
+        current: false,
         title: "3D Reconstruction & Computer Vision Researcher",
-        company: "PERSPECTIVE Corp.",
-        location: "Seoul, South Korea",
-        period: "Dec 2021 - Apr 2025",
-        description: "Led 3D reconstruction and generative AI R&D: automated XR scene understanding from 2D floor plans, photorealistic virtual try-on (LADi-VTON + DensePose), single-image to 3D mesh (OpenLRM, IoU 0.80), hierarchical apparel classification (>95% across 74 classes), and face reconstruction with GANs/diffusion models.",
-        current: false,
+        org: "PERSPECTIVE Corp. · Seoul",
+        body: "Led 3D reconstruction and generative AI R&D: automated XR scene understanding from 2D floor plans, photorealistic virtual try-on (LADi-VTON + DensePose), single-image to 3D mesh (OpenLRM, IoU 0.80), hierarchical apparel classification above 95% across 74 classes, and face reconstruction with GANs and diffusion models.",
     },
     {
-        title: "Computer Vision Engineer",
-        company: "Ellexi",
-        location: "Seoul, South Korea",
-        period: "Nov 2019 - Oct 2021",
-        description: "Built real-time ALPR for gas stations (98% accuracy with YOLO + CRNN + DeepSORT), PPE compliance detection on NVIDIA Jetson, anomaly detection & multi-camera tracking for Incheon Airport (YOWO + HRNet + Person Re-ID), and a gas meter inspection pipeline using CRAFT/Tesseract OCR.",
+        period: "Nov 2019 — Oct 2021",
         current: false,
+        title: "Computer Vision Engineer",
+        org: "Ellexi · Seoul",
+        body: "Built real-time ALPR for gas stations at 98% accuracy (YOLO + CRNN + DeepSORT), PPE compliance detection on NVIDIA Jetson, anomaly detection and multi-camera tracking for Incheon Airport (YOWO + HRNet + Person Re-ID), and a gas meter inspection pipeline using CRAFT/Tesseract OCR.",
     },
 ];
 
-const education = [
+const EDUCATION = [
     {
-        degree: "M.S. in Computer Vision",
-        school: "Chung-Ang University",
-        location: "Seoul, South Korea",
-        period: "Sep 2019",
-        description: "Specializing in advanced computer vision techniques.",
+        degree: "M.S. Computer Vision",
+        school: "Chung-Ang University · Seoul · 2019",
     },
     {
-        degree: "B.S. in Electronics Engineering",
-        school: "GIK Institute Pakistan",
-        location: "Pakistan",
-        period: "July 2016",
-        description: "",
+        degree: "B.S. Electronics Engineering",
+        school: "GIK Institute · Pakistan · 2016",
     },
 ];
 
 export default function Experience() {
     return (
-        <section className="relative py-24 px-4 overflow-hidden">
-            {/* Background gradient handled globally, removed local gradient */}
+        <section id="experience" className="border-t border-rule">
+            <div className="mx-auto max-w-[1120px] px-5 py-14 sm:px-8 md:py-18">
+                <div className="mb-9 md:mb-11">
+                    <SectionHeading num="02">Experience</SectionHeading>
+                </div>
 
-            <div className="max-w-5xl mx-auto relative z-10">
-                {/* Experience Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-20"
-                >
-                    <div className="flex items-center gap-4 mb-12">
-                        <div className="p-3 rounded-xl glass glow-cyan bg-cyan-500/10">
-                            <Briefcase className="w-6 h-6 text-cyan-400" />
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">
-                            Professional <span className="gradient-text-vibrant">Experience</span><span className="text-cyan-400">.</span>
-                        </h2>
-                    </div>
-
-                    <div className="space-y-6">
-                        {experiences.map((exp, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="group relative"
-                            >
-                                <div className="glass-strong rounded-2xl p-6 hover:bg-white/[0.08] transition-all duration-300">
-                                    {/* Current indicator */}
-                                    {exp.current && (
-                                        <div className="absolute -top-px -left-px -right-px h-[2px] bg-gradient-to-r from-cyan-500 via-violet-500 to-transparent rounded-t-2xl" />
-                                    )}
-
-                                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                                        <div className="flex-1">
-                                            <div className="flex items-center gap-3 mb-2">
-                                                <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                                                    {exp.title}
-                                                </h3>
-                                                {exp.current && (
-                                                    <span className="px-2 py-0.5 text-xs font-medium bg-cyan-500/20 text-cyan-400 rounded-full">
-                                                        Current
-                                                    </span>
-                                                )}
-                                            </div>
-                                            <p className="text-lg text-cyan-400/90 font-medium mb-3">
-                                                {exp.company}
-                                            </p>
-                                            <p className="text-gray-400 leading-relaxed">
-                                                {exp.description}
-                                            </p>
-                                        </div>
-
-                                        <div className="flex flex-col gap-2 text-sm text-gray-500 md:text-right shrink-0">
-                                            <div className="flex items-center gap-2 md:justify-end">
-                                                <Calendar className="w-4 h-4" />
-                                                <span>{exp.period}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2 md:justify-end">
-                                                <MapPin className="w-4 h-4" />
-                                                <span>{exp.location}</span>
-                                            </div>
-                                        </div>
+                <div>
+                    {EXPERIENCE.map((job, i) => (
+                        <div
+                            key={job.title}
+                            className={`grid gap-3 border-t border-rule py-7 md:grid-cols-[190px_minmax(0,1fr)] md:gap-10 ${
+                                i === EXPERIENCE.length - 1 ? "border-b" : ""
+                            }`}
+                        >
+                            <div>
+                                <div className="font-mono text-[12.5px] text-ink">{job.period}</div>
+                                {job.current && (
+                                    <div className="mt-1.5 inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-accent">
+                                        <span
+                                            className="block h-[5px] w-[5px] rounded-full bg-accent"
+                                            aria-hidden="true"
+                                        />
+                                        Current
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                                )}
+                            </div>
 
-                {/* Education Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <div className="flex items-center gap-4 mb-12">
-                        <div className="p-3 rounded-xl glass glow-cyan bg-cyan-500/10">
-                            <GraduationCap className="w-6 h-6 text-cyan-400" />
+                            <div>
+                                <h3 className="mb-1 text-[18px] font-semibold text-ink sm:text-[20px]">
+                                    {job.title}
+                                </h3>
+                                <div className="mb-3.5 text-[14.5px] text-ink-muted">{job.org}</div>
+                                <p className="m-0 max-w-[60em] text-[15px] leading-[1.65] text-ink-soft text-pretty sm:text-[15.5px]">
+                                    {job.body}
+                                </p>
+                            </div>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">
-                            <span className="gradient-text-vibrant">Education</span><span className="text-cyan-400">.</span>
-                        </h2>
-                    </div>
+                    ))}
+                </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {education.map((edu, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="group"
-                            >
-                                <div className="glass-strong rounded-2xl p-6 h-full hover:bg-white/[0.08] transition-all duration-300 relative overflow-hidden">
-                                    {/* Gradient accent */}
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-
-                                    <div className="relative">
-                                        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                                            {edu.school}
-                                        </h3>
-                                        <p className="text-cyan-400/90 font-medium mb-3">
-                                            {edu.degree}
-                                        </p>
-                                        {edu.description && (
-                                            <p className="text-gray-400 text-sm mb-4">
-                                                {edu.description}
-                                            </p>
-                                        )}
-                                        <div className="flex items-center gap-4 text-sm text-gray-500">
-                                            <div className="flex items-center gap-1">
-                                                <Calendar className="w-4 h-4" />
-                                                <span>{edu.period}</span>
-                                            </div>
-                                            <div className="flex items-center gap-1">
-                                                <MapPin className="w-4 h-4" />
-                                                <span>{edu.location}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                <div className="mt-11 grid grid-cols-1 gap-px border border-rule bg-rule sm:grid-cols-2">
+                    {EDUCATION.map(({ degree, school }) => (
+                        <div key={degree} className="bg-paper-raised p-6">
+                            <div className="mb-3 font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-faint">
+                                Education
+                            </div>
+                            <h3 className="mb-1 text-[17px] font-semibold text-ink">{degree}</h3>
+                            <div className="text-[14.5px] text-ink-muted">{school}</div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );

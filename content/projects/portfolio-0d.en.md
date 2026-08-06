@@ -7,6 +7,14 @@ permalink: /en/portfolio/portfolio-0d/
 teaser: /images/architecture_0d.png
 excerpt: |
   High-performance C++ pipeline computing precise 6-DoF pose (Tx, Ty, Rx, Ry) of objects relative to reference frames using parallel ICP registration, robust RANSAC plane fitting, and automated ROI extraction. Pose estimation and template matching techniques transfer to robotics, SLAM, autonomous navigation, and depth-sensor calibration.
+order: 2
+category: "3D & SLAM"
+tags: ["C++", "ICP", "Metrology"]
+blurb: "C++ pipeline computing precise 6-DoF pose relative to reference frames using parallel ICP registration, RANSAC plane fitting, and automated ROI extraction."
+company: "Hyvision System"
+role: "3D Metrology & Machine Learning Engineer"
+period: "Aug 2025 — Present"
+location: "Seoul, South Korea"
 ---
 
 ## Overview
@@ -45,5 +53,5 @@ Built a robust and highly optimized 3D data processing pipeline in C++ explicitl
 ## Company
 
 - **Hyvision**, Seoul, South Korea
-- **Role**: SLAM & 3D Metrology Engineer
+- **Role**: 3D Metrology & Machine Learning Engineer
 - **Period**: Aug 2025 – Present

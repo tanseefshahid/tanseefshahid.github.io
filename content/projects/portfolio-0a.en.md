@@ -7,6 +7,14 @@ permalink: /en/portfolio/portfolio-0a/
 teaser: /images/architecture_0a.png
 excerpt: |
   High-performance C++/PCL framework for large-scale point cloud processing, robust geometric primitive fitting (RANSAC), and automated coordinate-frame estimation. Core techniques transfer to SLAM, robotics, 3D scene reconstruction, and autonomous mapping.
+order: 1
+category: "3D & SLAM"
+tags: ["C++", "PCL", "RANSAC", "Eigen"]
+blurb: "High-performance C++/PCL framework for large-scale point cloud processing, robust RANSAC primitive fitting, and automated coordinate-frame estimation."
+company: "Hyvision System"
+role: "3D Metrology & Machine Learning Engineer"
+period: "Aug 2025 — Present"
+location: "Seoul, South Korea"
 ---
 
 ## Overview
@@ -45,5 +53,5 @@ Developed a high-speed 3D inspection framework designed for the automated qualit
 ## Company
 
 - **Hyvision**, Seoul, South Korea
-- **Role**: SLAM & 3D Metrology Engineer
+- **Role**: 3D Metrology & Machine Learning Engineer
 - **Period**: Aug 2025 – Present

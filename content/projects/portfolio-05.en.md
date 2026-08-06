@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-05/
 teaser: /images/architecture_clothseg.png
 excerpt: |
   Pixel-precise semantic segmentation and alpha matting pipeline using a fine-tuned U2Net architecture for fine-grained mask extraction and region categorization. Same techniques apply to medical imaging, autonomous driving scene parsing, AR foreground extraction, and 3D scene segmentation.
-
+order: 9
+category: "Perception"
+tags: ["U2Net", "PyTorch"]
+blurb: "Pixel-precise segmentation and alpha matting with a fine-tuned U2Net architecture for fine-grained mask extraction and region categorization."
+company: "PERSPECTIVE Corp."
+role: "3D Reconstruction & Computer Vision Researcher"
+period: "Dec 2021 — Apr 2025"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

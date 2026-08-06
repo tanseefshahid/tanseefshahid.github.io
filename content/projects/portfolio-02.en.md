@@ -7,7 +7,14 @@ permalink: /en/portfolio/portfolio-02/
 teaser: /images/architecture_cnc.png
 excerpt: |
   Real-time 6-DoF pose estimation pipeline using an eye-in-hand RGB-D camera, FoundationPose, and ICP refinement to register physical objects against 3D models in SE(3) space. Hand-eye calibration and pose tracking apply directly to robotic manipulation, autonomous pick-and-place, and SLAM-driven mobile robots.
-
+order: 3
+category: "3D & SLAM"
+tags: ["RGB-D", "FoundationPose", "ROS"]
+blurb: "Real-time pose estimation with an eye-in-hand RGB-D camera, FoundationPose, and ICP refinement to register objects against 3D models in SE(3)."
+company: "Luxolis"
+role: "SLAM / Computer Vision Engineer"
+period: "Apr 2025 — Jul 2025"
+location: "Seoul, South Korea"
 ---
 
 ## Project Overview

@@ -1,125 +1,132 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
 
-const navItems = ["Expertise", "Skills", "Experience", "Projects"];
+const NAV = [
+    { href: "/#expertise", label: "Expertise" },
+    { href: "/#experience", label: "Experience" },
+    { href: "/#projects", label: "Projects" },
+    { href: "/#skills", label: "Skills" },
+];
 
 export default function StickyHeader() {
-    const [scrolled, setScrolled] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
+    // Lock body scroll while the mobile sheet is open.
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+        document.body.style.overflow = open ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
         };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const scrollToSection = (item: string) => {
-        const el = document.getElementById(item.toLowerCase());
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
-        }
-        setMobileMenuOpen(false);
-    };
+    }, [open]);
 
     return (
-        <motion.header
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className={`print:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? "glass-strong py-4 border-b border-white/10 shadow-lg shadow-black/20"
-                : "bg-transparent py-6"
-                }`}
-        >
-            <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2 group">
-                    <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
-                        MTS<span className="text-white">.</span>
-                    </span>
+        <header className="sticky top-0 z-50 border-b border-rule bg-paper/[0.88] backdrop-blur-[10px]">
+            <div className="mx-auto flex h-15 max-w-[1120px] items-center justify-between gap-6 px-5 sm:px-8">
+                <Link
+                    href="/"
+                    className="flex items-center gap-2 font-mono text-[13px] font-medium tracking-[0.08em] text-ink transition-colors hover:text-accent"
+                >
+                    <span className="block h-[7px] w-[7px] bg-accent" aria-hidden="true" />
+                    <span className="hidden xs:inline">M. TANSEEF SHAHID</span>
+                    <span className="xs:hidden">M.T. SHAHID</span>
                 </Link>
 
                 {/* Desktop nav */}
-                <nav className="hidden md:flex items-center gap-8">
-                    {navItems.map((item) => (
-                        <button
-                            key={item}
-                            onClick={() => scrollToSection(item)}
-                            className="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none"
+                <nav className="hidden items-center gap-7 md:flex">
+                    {NAV.map(({ href, label }) => (
+                        <Link
+                            key={href}
+                            href={href}
+                            className="text-[13.5px] text-ink-muted transition-colors hover:text-accent"
                         >
-                            {item}
-                        </button>
+                            {label}
+                        </Link>
                     ))}
-                </nav>
 
-                <div className="flex items-center gap-4">
-                    {process.env.NODE_ENV === 'development' && (
+                    {process.env.NODE_ENV === "development" && (
                         <>
                             <Link
                                 href="/resume"
-                                className="px-5 py-2 rounded-full text-sm font-medium bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-cyan-500/50 transition-all"
+                                className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-ghost transition-colors hover:text-accent"
                             >
                                 Resume
                             </Link>
                             <Link
                                 href="/portfolio-pdf"
-                                className="px-5 py-2 rounded-full text-sm font-medium bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-cyan-500/50 transition-all"
+                                className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-ghost transition-colors hover:text-accent"
                             >
-                                Portfolio
+                                PDF
                             </Link>
                         </>
                     )}
 
-                    {/* Mobile hamburger button */}
-                    <button
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 bg-transparent border-none cursor-pointer"
-                        aria-label="Toggle menu"
+                    <a
+                        href="mailto:mtanseefshahid@gmail.com"
+                        className="rounded-[2px] border border-ink/70 px-[15px] py-[7px] text-[13px] font-medium text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
                     >
-                        <span
-                            className={`block w-5 h-0.5 bg-white rounded transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""
-                                }`}
-                        />
-                        <span
-                            className={`block w-5 h-0.5 bg-white rounded transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""
-                                }`}
-                        />
-                        <span
-                            className={`block w-5 h-0.5 bg-white rounded transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                                }`}
-                        />
-                    </button>
-                </div>
+                        Get in touch
+                    </a>
+                </nav>
+
+                {/* Mobile toggle */}
+                <button
+                    type="button"
+                    onClick={() => setOpen((v) => !v)}
+                    aria-label={open ? "Close menu" : "Open menu"}
+                    aria-expanded={open}
+                    className="-mr-2 p-2 text-ink md:hidden"
+                >
+                    {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </button>
             </div>
 
-            {/* Mobile dropdown menu */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.nav
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.25, ease: "easeInOut" }}
-                        className="md:hidden overflow-hidden glass-strong border-t border-white/10"
-                    >
-                        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3">
-                            {navItems.map((item) => (
-                                <button
-                                    key={item}
-                                    onClick={() => scrollToSection(item)}
-                                    className="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none text-left py-2"
+            {/* Mobile sheet */}
+            {open && (
+                <div className="border-t border-rule bg-paper md:hidden">
+                    <nav className="mx-auto flex max-w-[1120px] flex-col px-5 py-2 sm:px-8">
+                        {NAV.map(({ href, label }) => (
+                            <Link
+                                key={href}
+                                href={href}
+                                onClick={() => setOpen(false)}
+                                className="border-b border-rule-soft py-3.5 text-[15px] text-ink-soft transition-colors hover:text-accent"
+                            >
+                                {label}
+                            </Link>
+                        ))}
+
+                        {process.env.NODE_ENV === "development" && (
+                            <>
+                                <Link
+                                    href="/resume"
+                                    onClick={() => setOpen(false)}
+                                    className="border-b border-rule-soft py-3.5 text-[15px] text-ink-ghost"
                                 >
-                                    {item}
-                                </button>
-                            ))}
-                        </div>
-                    </motion.nav>
-                )}
-            </AnimatePresence>
-        </motion.header>
+                                    Resume (dev)
+                                </Link>
+                                <Link
+                                    href="/portfolio-pdf"
+                                    onClick={() => setOpen(false)}
+                                    className="border-b border-rule-soft py-3.5 text-[15px] text-ink-ghost"
+                                >
+                                    Portfolio PDF (dev)
+                                </Link>
+                            </>
+                        )}
+
+                        <a
+                            href="mailto:mtanseefshahid@gmail.com"
+                            onClick={() => setOpen(false)}
+                            className="my-4 rounded-[2px] bg-ink px-5 py-3 text-center text-[14px] font-medium text-paper"
+                        >
+                            Get in touch
+                        </a>
+                    </nav>
+                </div>
+            )}
+        </header>
     );
 }
