@@ -20,8 +20,9 @@ export default function ProjectCard({ project }: { project: Project }) {
                 {project.title}
             </h3>
 
-            <p className="m-0 text-[14.5px] leading-[1.6] text-ink-muted text-pretty">
-                {project.blurb}
+            {/* The project's own excerpt, clamped so cards stay even in the grid. */}
+            <p className="m-0 line-clamp-4 text-[14.5px] leading-[1.6] text-ink-muted text-pretty">
+                {project.description}
             </p>
 
             {project.tags.length > 0 && (

@@ -10,7 +10,6 @@ excerpt: |
 order: 1
 category: "3D & SLAM"
 tags: ["C++", "PCL", "RANSAC", "Eigen"]
-blurb: "High-performance C++/PCL framework for large-scale point cloud processing, robust RANSAC primitive fitting, and automated coordinate-frame estimation."
 company: "Hyvision System"
 role: "3D Metrology & Machine Learning Engineer"
 period: "Aug 2025 — Present"

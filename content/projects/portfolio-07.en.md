@@ -10,7 +10,6 @@ excerpt: |
 order: 11
 category: "Perception"
 tags: ["YOLO", "CRNN", "DeepSORT"]
-blurb: "YOLO detection, CRNN OCR, and DeepSORT tracking trained on a procedurally generated synthetic dataset at over 99% character accuracy."
 company: "Ellexi"
 role: "Computer Vision Engineer"
 period: "Nov 2019 — Oct 2021"

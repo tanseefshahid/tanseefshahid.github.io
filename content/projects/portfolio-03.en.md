@@ -10,7 +10,6 @@ excerpt: |
 order: 6
 category: "Generative 3D"
 tags: ["Diffusion", "DensePose", "CLIP"]
-blurb: "Conditional generation using fine-tuned LADi-VTON latent diffusion, DensePose geometry extraction, and CLIP textual inversion."
 company: "PERSPECTIVE Corp."
 role: "3D Reconstruction & Computer Vision Researcher"
 period: "Dec 2021 — Apr 2025"

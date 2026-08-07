@@ -10,7 +10,6 @@ excerpt: |
 order: 4
 category: "Perception"
 tags: ["YOLO", "Basler", "PLC"]
-blurb: "Hardware-in-the-loop machine vision with a synchronized 6-camera array, real-time YOLO inference under 200 ms, and deterministic PLC/GPIO integration."
 company: "Luxolis"
 role: "SLAM / Computer Vision Engineer"
 period: "Apr 2025 — Jul 2025"

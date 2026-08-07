@@ -10,7 +10,6 @@ excerpt: |
 order: 12
 category: "Perception"
 tags: ["Jetson", "TensorRT"]
-blurb: "Low-latency multi-class detection and 2D spatial tracking on NVIDIA Jetson under occlusion, variable lighting, and zero cloud dependency."
 company: "Ellexi"
 role: "Computer Vision Engineer"
 period: "Nov 2019 — Oct 2021"

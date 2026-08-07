@@ -10,7 +10,6 @@ excerpt: |
 order: 8
 category: "3D & SLAM"
 tags: [".NET 8", "ECS", "Helix"]
-blurb: "Real-time .NET 8/WPF rendering engine with ECS architecture and a drag-and-drop node editor for authoring custom 3D processing pipelines."
 company: "Hyvision System"
 role: "3D Metrology & Machine Learning Engineer"
 period: "Aug 2025 — Present"

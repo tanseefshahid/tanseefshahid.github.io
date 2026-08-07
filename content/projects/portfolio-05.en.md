@@ -10,7 +10,6 @@ excerpt: |
 order: 9
 category: "Perception"
 tags: ["U2Net", "PyTorch"]
-blurb: "Pixel-precise segmentation and alpha matting with a fine-tuned U2Net architecture for fine-grained mask extraction and region categorization."
 company: "PERSPECTIVE Corp."
 role: "3D Reconstruction & Computer Vision Researcher"
 period: "Dec 2021 — Apr 2025"

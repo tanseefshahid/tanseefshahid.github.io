@@ -10,7 +10,6 @@ excerpt: |
 order: 2
 category: "3D & SLAM"
 tags: ["C++", "ICP", "Metrology"]
-blurb: "C++ pipeline computing precise 6-DoF pose relative to reference frames using parallel ICP registration, RANSAC plane fitting, and automated ROI extraction."
 company: "Hyvision System"
 role: "3D Metrology & Machine Learning Engineer"
 period: "Aug 2025 — Present"

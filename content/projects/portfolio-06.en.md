@@ -10,7 +10,6 @@ excerpt: |
 order: 10
 category: "Perception"
 tags: ["ResNet50", "FGVC"]
-blurb: "ResNet50 hierarchical classifier handling severe class imbalance across a 3-depth taxonomy of 73 classes — 95%+ top-level, 90%+ fine-grained."
 company: "PERSPECTIVE Corp."
 role: "3D Reconstruction & Computer Vision Researcher"
 period: "Dec 2021 — Apr 2025"

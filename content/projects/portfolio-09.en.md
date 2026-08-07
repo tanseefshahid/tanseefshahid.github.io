@@ -10,7 +10,6 @@ excerpt: |
 order: 13
 category: "Perception"
 tags: ["YOWO", "HRNet", "Re-ID"]
-blurb: "3D-CNN action recognition (YOWO), HRNet pose estimation, and person re-identification across a distributed camera network at Incheon Airport."
 company: "Ellexi"
 role: "Computer Vision Engineer"
 period: "Nov 2019 — Oct 2021"

@@ -28,12 +28,13 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
         <section id="projects" className="border-t border-rule">
             <div className="mx-auto max-w-[1120px] px-5 py-14 sm:px-8 md:py-18">
                 <div className="mb-4.5">
-                    <SectionHeading num="03">Selected Work</SectionHeading>
+                    <SectionHeading num="03">Selected Works</SectionHeading>
                 </div>
 
                 <p className="mb-8 max-w-[46em] text-[15px] leading-[1.6] text-ink-muted text-pretty md:text-[16px]">
-                    Fourteen systems spanning 3D reconstruction, SLAM, metrology, generative AI, and
-                    real-time perception. Filter by domain.
+                    A collection of projects spanning 3D reconstruction, SLAM, metrology, generative
+                    AI, and real-time perception — bridging classical geometry with modern deep
+                    learning.
                 </p>
 
                 <div className="mb-8 flex flex-wrap gap-2">

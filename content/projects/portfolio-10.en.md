@@ -10,7 +10,6 @@ excerpt: |
 order: 14
 category: "Perception"
 tags: ["CRAFT", "Tesseract", "Mask R-CNN"]
-blurb: "Hybrid CRAFT + Tesseract OCR and geometric measurement (Mask R-CNN, angle estimation) under severe weathering and arbitrary capture angles."
 company: "Ellexi"
 role: "Computer Vision Engineer"
 period: "Nov 2019 — Oct 2021"

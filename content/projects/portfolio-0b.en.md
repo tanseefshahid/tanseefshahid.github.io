@@ -10,7 +10,6 @@ excerpt: |
 order: 7
 category: "3D & SLAM"
 tags: ["WPF", "SVD", "ICP"]
-blurb: "Desktop app aligning point clouds (PLY/PCD) to mesh models (STL/OBJ) with landmark-based SVD registration, ICP refinement, and interactive editing."
 company: "Hyvision System"
 role: "3D Metrology & Machine Learning Engineer"
 period: "Aug 2025 — Present"

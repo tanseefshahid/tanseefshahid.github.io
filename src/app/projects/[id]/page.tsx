@@ -29,7 +29,7 @@ export async function generateMetadata({
 
     return {
         title: `${project.title} | Muhammad Tanseef Shahid`,
-        description: project.blurb,
+        description: project.description,
     };
 }
 
@@ -100,7 +100,7 @@ export default async function ProjectPage({
                     </h1>
 
                     <p className="mb-8 max-w-[40em] text-[17px] leading-[1.6] text-ink-soft text-pretty md:text-[19px]">
-                        {project.blurb}
+                        {project.description}
                     </p>
 
                     {project.tags.length > 0 && (

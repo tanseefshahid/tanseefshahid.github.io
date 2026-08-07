@@ -47,7 +47,7 @@ export default function Experience() {
         <section id="experience" className="border-t border-rule">
             <div className="mx-auto max-w-[1120px] px-5 py-14 sm:px-8 md:py-18">
                 <div className="mb-9 md:mb-11">
-                    <SectionHeading num="02">Experience</SectionHeading>
+                    <SectionHeading num="02">Professional Experience</SectionHeading>
                 </div>
 
                 <div>

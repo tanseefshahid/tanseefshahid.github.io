@@ -10,7 +10,6 @@ excerpt: |
 order: 5
 category: "Generative 3D"
 tags: ["OpenLRM", "NeRF", "Blender"]
-blurb: "Image-to-3D pipeline producing high-fidelity textured meshes from one RGB image using OpenLRM and a custom 24-view Blender rendering pipeline."
 company: "PERSPECTIVE Corp."
 role: "3D Reconstruction & Computer Vision Researcher"
 period: "Dec 2021 — Apr 2025"

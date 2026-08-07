@@ -13,7 +13,7 @@ export default function Hero() {
             <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-18">
                 <div>
                     <p className="mb-6 font-mono text-[11.5px] uppercase tracking-[0.16em] text-accent md:mb-6.5">
-                        3D Metrology · SLAM · Computer Vision · Generative AI
+                        3D Computer Vision · AI · Robotics · Generative Systems
                     </p>
 
                     {/* Sized so "Muhammad Tanseef" stays on one line at every breakpoint —
@@ -25,14 +25,17 @@ export default function Hero() {
                     </h1>
 
                     <p className="mb-4.5 max-w-[34em] text-[17px] leading-[1.6] text-ink-soft text-pretty md:text-[19px]">
-                        Engineer and researcher building production-grade 3D systems — from
-                        sub-millimeter industrial metrology and 6-DoF pose estimation to neural
-                        rendering and real-time edge perception.
+                        Engineer and researcher across{" "}
+                        <strong className="font-semibold text-ink">3D Reconstruction</strong>,{" "}
+                        <strong className="font-semibold text-ink">SLAM &amp; Metrology</strong>,{" "}
+                        <strong className="font-semibold text-ink">Generative AI</strong>, and{" "}
+                        <strong className="font-semibold text-ink">Computer Vision</strong>. Building
+                        production-grade systems with over 6 years of experience.
                     </p>
 
                     <p className="mb-8 max-w-[34em] text-[15px] leading-[1.65] text-ink-muted text-pretty md:text-[16px]">
-                        Six years across robotics, inspection, and generative AI R&amp;D in Seoul.
-                        Currently architecting high-speed 3D laser inspection at Hyvision System.
+                        From point cloud processing and 6-DoF pose estimation to neural rendering,
+                        latent diffusion, real-time perception, and edge deployment.
                     </p>
 
                     <div className="flex flex-wrap gap-2.5">
