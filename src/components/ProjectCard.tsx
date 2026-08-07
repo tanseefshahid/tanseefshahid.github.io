@@ -1,10 +1,18 @@
 import Link from "next/link";
 import type { Project } from "@/lib/projectTypes";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+    project,
+    onSelect,
+}: {
+    project: Project;
+    /** Fired before navigating, so the grid can stash its browsing state. */
+    onSelect?: () => void;
+}) {
     return (
         <Link
             href={project.link}
+            onClick={onSelect}
             className="flex flex-col gap-3.5 bg-paper-raised px-6 pt-7 pb-6.5 transition-colors hover:bg-paper-bright"
         >
             <div className="flex items-center justify-between gap-3">
