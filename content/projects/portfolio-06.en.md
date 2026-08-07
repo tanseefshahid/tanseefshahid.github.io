@@ -1,5 +1,5 @@
 ---
-title: "Hierarchical Deep Learning for Multi-Granularity Apparel Classification"
+title: "Hierarchical Clothing Recognition Across a 73-Category Taxonomy"
 lang: en
 slug: portfolio-06
 collection: portfolio

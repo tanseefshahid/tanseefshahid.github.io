@@ -1,5 +1,5 @@
 ---
-title: "Real-Time ALPR & Automated Fueling Tracking Pipeline"
+title: "Real-Time License Plate Recognition & Vehicle Tracking"
 lang: en
 slug: portfolio-07
 collection: portfolio

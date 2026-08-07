@@ -1,5 +1,5 @@
 ---
-title: "Automated Gas Meter Inspection & Hazard Detection Pipeline"
+title: "Robust OCR & Geometric Structural Analysis in Unconstrained Field Conditions"
 lang: en
 slug: portfolio-10
 collection: portfolio
