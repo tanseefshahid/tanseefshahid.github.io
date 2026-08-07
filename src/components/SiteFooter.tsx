@@ -1,4 +1,5 @@
 import Link from "next/link";
+import EmailButton from "./EmailButton";
 
 export default function SiteFooter({
     heading = (
@@ -19,7 +20,7 @@ export default function SiteFooter({
     const link = backLink ?? { href: "#top", label: "BACK TO TOP ↑" };
 
     return (
-        <footer className="border-t border-ink bg-ink text-paper">
+        <footer id="contact" className="border-t border-ink bg-ink text-paper">
             <div className="mx-auto max-w-[1120px] px-5 pt-14 pb-9 sm:px-8 md:pt-16">
                 <div className="grid items-end gap-8 md:grid-cols-[minmax(0,1fr)_auto] md:gap-12">
                     <div>
@@ -32,12 +33,7 @@ export default function SiteFooter({
                     </div>
 
                     <div className="flex flex-col items-start gap-2.5">
-                        <a
-                            href="mailto:mtanseefshahid@gmail.com"
-                            className="whitespace-nowrap rounded-[2px] bg-paper px-5.5 py-3 text-[14px] font-medium text-ink transition-colors hover:bg-accent hover:text-paper"
-                        >
-                            mtanseefshahid@gmail.com
-                        </a>
+                        <EmailButton tone="dark" />
                         <a
                             href="https://www.linkedin.com/in/muhammad-tanseef-shahid/"
                             target="_blank"

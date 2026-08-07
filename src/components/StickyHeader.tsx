@@ -63,12 +63,14 @@ export default function StickyHeader() {
                         </>
                     )}
 
-                    <a
-                        href="mailto:mtanseefshahid@gmail.com"
+                    {/* Points at the contact footer rather than a mailto: — a bare
+                        mailto silently dead-ends on machines with no mail handler. */}
+                    <Link
+                        href="/#contact"
                         className="rounded-[2px] border border-ink/70 px-[15px] py-[7px] text-[13px] font-medium text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
                     >
                         Get in touch
-                    </a>
+                    </Link>
                 </nav>
 
                 {/* Mobile toggle */}
@@ -117,13 +119,13 @@ export default function StickyHeader() {
                             </>
                         )}
 
-                        <a
-                            href="mailto:mtanseefshahid@gmail.com"
+                        <Link
+                            href="/#contact"
                             onClick={() => setOpen(false)}
                             className="my-4 rounded-[2px] bg-ink px-5 py-3 text-center text-[14px] font-medium text-paper"
                         >
                             Get in touch
-                        </a>
+                        </Link>
                     </nav>
                 </div>
             )}

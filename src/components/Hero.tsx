@@ -1,3 +1,5 @@
+import EmailButton from "./EmailButton";
+
 const FACTS: { label: string; value: string }[] = [
     { label: "Experience", value: "6+ years" },
     { label: "Precision", value: "Sub-millimeter" },
@@ -38,13 +40,8 @@ export default function Hero() {
                         latent diffusion, real-time perception, and edge deployment.
                     </p>
 
-                    <div className="flex flex-wrap gap-2.5">
-                        <a
-                            href="mailto:mtanseefshahid@gmail.com"
-                            className="rounded-[2px] bg-ink px-5 py-2.75 text-[14px] font-medium text-paper transition-colors hover:bg-accent"
-                        >
-                            mtanseefshahid@gmail.com
-                        </a>
+                    <div className="flex flex-wrap items-center gap-2.5">
+                        <EmailButton />
                         <a
                             href="https://www.linkedin.com/in/muhammad-tanseef-shahid/"
                             target="_blank"
