@@ -1,5 +1,5 @@
 ---
-title: "High-Fidelity Cloth Segmentation & Alpha Matting Pipeline"
+title: "Garment Background Removal & Segmentation for Virtual Try-On"
 lang: en
 slug: portfolio-05
 collection: portfolio

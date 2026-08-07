@@ -1,5 +1,5 @@
 ---
-title: "High-Fidelity Virtual Try-On via Latent Diffusion & Textual Inversion"
+title: "Virtual Try-On via Latent Diffusion & Textual Inversion"
 lang: en
 slug: portfolio-03
 collection: portfolio
