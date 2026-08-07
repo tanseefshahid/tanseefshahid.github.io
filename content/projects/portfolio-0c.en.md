@@ -1,5 +1,5 @@
 ---
-title: "Modular 3D Rendering Engine with Node-Based Visual Programming"
+title: "Node-Based 3D Inspection Engine (.NET 8 / DirectX 11)"
 lang: en
 slug: portfolio-0c
 collection: portfolio

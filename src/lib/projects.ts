@@ -12,18 +12,34 @@ const projectsDirectory = path.join(process.cwd(), "content/projects");
 export { CATEGORIES } from "./projectTypes";
 export type { Category, Project } from "./projectTypes";
 
+/**
+ * Frontmatter excerpts carry HTML entities (`&lt;200ms`, `&gt;95%`) left over
+ * from when they were rendered as HTML. React renders strings literally, so
+ * without this the cards read "&gt;95%". Decoded here rather than in the
+ * markdown so either form keeps working.
+ */
+function decodeEntities(s: string): string {
+    return s
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&nbsp;/g, " ")
+        .replace(/&amp;/g, "&"); // last, so "&amp;lt;" does not become "<"
+}
+
 function readProject(fileName: string): Project {
     const id = fileName.replace(/\.en\.md$/, "");
     const fullPath = path.join(projectsDirectory, fileName);
     const { data, content } = matter(fs.readFileSync(fullPath, "utf8"));
 
-    const description = data.excerpt || "No description available";
+    const description = decodeEntities(data.excerpt || "No description available");
 
     return {
         id,
-        title: data.title || "Untitled Project",
+        title: decodeEntities(data.title || "Untitled Project"),
         description,
-        blurb: data.blurb || description,
+        blurb: decodeEntities(data.blurb || description),
         category: data.category || "",
         tags: data.tags || [],
         imageUrl: data.teaser || data.image || undefined,

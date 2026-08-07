@@ -1,5 +1,5 @@
 ---
-title: "Edge-Deployed Real-Time Object Detection & Spatial Zone Tracking"
+title: "Real-Time PPE Compliance & Spatial Hazard Detection at the Edge"
 lang: en
 slug: portfolio-08
 collection: portfolio

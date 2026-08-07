@@ -1,5 +1,5 @@
 ---
-title: "Hierarchical Fine-Grained Visual Categorization (FGVC) with Deep CNNs"
+title: "Hierarchical Deep Learning for Multi-Granularity Apparel Classification"
 lang: en
 slug: portfolio-06
 collection: portfolio

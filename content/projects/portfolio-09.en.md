@@ -1,5 +1,5 @@
 ---
-title: "Spatio-Temporal Action Recognition & Multi-Camera Person Re-Identification"
+title: "Real-Time Anomaly Detection & Multi-Camera Tracking System (Incheon Airport)"
 lang: en
 slug: portfolio-09
 collection: portfolio

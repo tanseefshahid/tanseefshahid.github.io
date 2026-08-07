@@ -1,5 +1,5 @@
 ---
-title: "Eye-in-Hand 6-DoF Pose Estimation & Robotic Spatial Localization"
+title: "Eye-in-Hand 6-DoF Pose Estimation & Autonomous CNC Localization"
 lang: en
 slug: portfolio-02
 collection: portfolio

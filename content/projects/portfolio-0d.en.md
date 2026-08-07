@@ -1,5 +1,5 @@
 ---
-title: "6-DoF Pose Estimation from Laser Scan Point Clouds"
+title: "Camera Module Tilt Analysis from Laser Scan Data"
 lang: en
 slug: portfolio-0d
 collection: portfolio

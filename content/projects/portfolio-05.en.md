@@ -1,5 +1,5 @@
 ---
-title: "High-Fidelity Semantic Segmentation & Alpha Matting Pipeline"
+title: "High-Fidelity Cloth Segmentation & Alpha Matting Pipeline"
 lang: en
 slug: portfolio-05
 collection: portfolio

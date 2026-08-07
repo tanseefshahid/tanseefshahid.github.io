@@ -1,5 +1,5 @@
 ---
-title: "Interactive 3D Registration & Point Cloud Editing Application"
+title: "PolyWorks-Style 3D Alignment & Point Cloud Inspection App"
 lang: en
 slug: portfolio-0b
 collection: portfolio

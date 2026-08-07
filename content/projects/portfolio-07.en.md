@@ -1,5 +1,5 @@
 ---
-title: "Multi-Object Detection, OCR & Tracking with Synthetic Data Generation"
+title: "Real-Time ALPR & Automated Fueling Tracking Pipeline"
 lang: en
 slug: portfolio-07
 collection: portfolio

@@ -1,5 +1,5 @@
 ---
-title: "Real-Time 3D Point Cloud Processing & Geometric Registration Framework"
+title: "Automated 3D Laser Inspection for UMP Module Metrology"
 lang: en
 slug: portfolio-0a
 collection: portfolio

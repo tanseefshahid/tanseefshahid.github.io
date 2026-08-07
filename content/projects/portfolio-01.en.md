@@ -1,5 +1,5 @@
 ---
-title: "Multi-Camera 360° Vision System with Hardware-Synchronized Capture"
+title: "Real-Time 360° Defect Detection & PLC Integration Pipeline"
 lang: en
 slug: portfolio-01
 collection: portfolio
