@@ -1,5 +1,5 @@
 ---
-title: "Real-Time PPE Compliance & Spatial Hazard Detection at the Edge"
+title: "Construction Site Safety Monitoring on NVIDIA Jetson"
 lang: en
 slug: portfolio-08
 collection: portfolio

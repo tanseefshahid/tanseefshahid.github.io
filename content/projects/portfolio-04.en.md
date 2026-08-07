@@ -1,5 +1,5 @@
 ---
-title: "Single-Image to 3D Reconstruction Pipeline via OpenLRM & Neural Rendering"
+title: "Single-Image to 3D Reconstruction via OpenLRM & Neural Rendering"
 lang: en
 slug: portfolio-04
 collection: portfolio

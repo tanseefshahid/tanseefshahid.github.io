@@ -1,5 +1,5 @@
 ---
-title: "Automated 3D Laser Inspection for UMP Module Metrology"
+title: "Automated 3D Laser Inspection for Sub-Millimetre Part Metrology"
 lang: en
 slug: portfolio-0a
 collection: portfolio

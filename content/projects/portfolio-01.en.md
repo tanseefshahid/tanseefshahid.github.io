@@ -1,5 +1,5 @@
 ---
-title: "Real-Time 360° Defect Detection & PLC Integration Pipeline"
+title: "Real-Time 360° Defect Detection & PLC Integration"
 lang: en
 slug: portfolio-01
 collection: portfolio
