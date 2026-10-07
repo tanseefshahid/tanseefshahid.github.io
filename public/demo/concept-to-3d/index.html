@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concept image to game-ready 3D</title>
+<meta name="description" content="A pipeline that turns one concept image into a game-ready 3D prop: generation, geometry cleanup to a poly budget, artist-style UVs, baked maps, LODs, and an automatic artist report.">
+<style>
+:root { color-scheme: light dark;
+  --bg:#fbfbfc; --fg:#16181d; --mut:#5d6470; --line:#e3e5ea; --card:#fff; --ok:#1a8a4a; --bad:#c3362b; --accent:#2f6feb; }
+@media (prefers-color-scheme: dark) { :root {
+  --bg:#0f1115; --fg:#e8eaf0; --mut:#99a1b0; --line:#262a33; --card:#161920; --ok:#3ccf7a; --bad:#ff6b5e; --accent:#5b8cff; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 ui-sans-serif,system-ui,Segoe UI,sans-serif; }
+header, main, footer { max-width:1100px; margin:0 auto; padding:20px 16px; }
+h1 { font-size:26px; line-height:1.25; margin:0 0 6px; } h2 { font-size:20px; margin:36px 0 10px; }
+h3 { font-size:14px; color:var(--mut); margin:18px 0 8px; text-transform:uppercase; letter-spacing:.05em; }
+p { margin:0 0 10px; } .mut { color:var(--mut); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px; margin:0; }
+.card img { width:100%; display:block; border-radius:8px; }
+figcaption { color:var(--mut); font-size:14px; margin-top:8px; }
+model-viewer { width:100%; height:380px; background:var(--bg); display:block; border-radius:8px; }
+table { border-collapse:collapse; width:100%; font-size:15px; }
+td, th { padding:7px 8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+th { color:var(--mut); font-weight:600; }
+.ok { color:var(--ok); font-weight:600; } .bad { color:var(--bad); font-weight:600; }
+.num { font-variant-numeric:tabular-nums; }
+.steps li { margin-bottom:6px; }
+.pill { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:2px 10px; font-size:13px; color:var(--mut); margin:0 6px 6px 0; }
+footer { color:var(--mut); font-size:14px; border-top:1px solid var(--line); margin-top:30px; }
+a { color:var(--accent); }
+@media (max-width:600px) { model-viewer { height:300px; } body { font-size:15px; } }
+</style>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script></head>
+<body>
+<header>
+<h1>Concept image to game-ready 3D</h1>
+<p class="mut">A working pipeline, not a mock-up. One concept image goes in; a prop an artist can drop into an engine comes out,
+with a report of the checks an art team would run by hand. Drag the models to orbit, pinch or scroll to zoom.</p>
+<div>
+<span class="pill">Hunyuan3D-2 generation</span><span class="pill">geometry cleanup</span><span class="pill">remesh to poly budget</span>
+<span class="pill">artist-style UV charts</span><span class="pill">normal + colour bake</span><span class="pill">3 LODs</span><span class="pill">automatic artist report</span>
+</div>
+</header>
+<main>
+<h2>Input → generated → game-ready</h2>
+<div class='grid'><figure class="card"><img src="img/concept.png" alt="&lt;b&gt;1 · Input.&lt;/b&gt; One concept image." loading="lazy"><figcaption><b>1 · Input.</b> One concept image.</figcaption></figure><figure class="card"><model-viewer src="models/raw_preview.glb" poster="img/raw_shaded.jpg" camera-controls auto-rotate shadow-intensity="0.6" exposure="1.1" touch-action="pan-y" loading="lazy" reveal="auto"></model-viewer><figcaption><b>2 · Generated.</b> Hunyuan3D-2 output, 715,062 triangles, 9 shells, no usable UVs. Shown decimated for the web.</figcaption></figure><figure class="card"><model-viewer src="models/clean_web.glb" poster="img/clean_shaded.jpg" camera-controls auto-rotate shadow-intensity="0.6" exposure="1.1" touch-action="pan-y" loading="lazy" reveal="auto"></model-viewer><figcaption><b>3 · Game-ready.</b> 5,000 triangles, one watertight shell, 19 UV islands, baked normal and colour maps, pivot at the base.</figcaption></figure></div>
+
+<h2>The artist report</h2>
+<p class="mut">Every asset gets this table automatically. These are the checks a game artist runs before accepting a mesh:
+poly budget, watertight, manifold, one shell, no needle triangles, consistent normals, UV island count, UV stretch,
+texture coverage, PBR maps, real-world scale.</p>
+<div class='card'><table><tr><th>check</th><th>generated mesh</th><th>after cleanup</th></tr><tr><td>poly budget</td><td><span class="bad">fail</span> <span class="num">715,062 tris vs budget 5,000 (143.0x)</span></td><td><span class="ok">pass</span> <span class="num">5,000 tris vs budget 5,000 (1.0x)</span></td></tr><tr><td>watertight</td><td><span class="bad">fail</span> <span class="num">0 boundary edges, closed but non-manifold</span></td><td><span class="ok">pass</span> <span class="num">0 boundary edges</span></td></tr><tr><td>manifold</td><td><span class="bad">fail</span> <span class="num">6 non-manifold edges</span></td><td><span class="ok">pass</span> <span class="num">0 non-manifold edges</span></td></tr><tr><td>single shell</td><td><span class="bad">fail</span> <span class="num">9 components, 8 tiny</span></td><td><span class="ok">pass</span> <span class="num">1 components</span></td></tr><tr><td>no degenerate faces</td><td><span class="bad">fail</span> <span class="num">36 zero-area, 38834 slivers</span></td><td><span class="bad">fail</span> <span class="num">0 zero-area, 132 slivers</span></td></tr><tr><td>consistent normals</td><td><span class="ok">pass</span> <span class="num">winding consistent</span></td><td><span class="ok">pass</span> <span class="num">winding consistent</span></td></tr><tr><td>uv islands</td><td><span class="bad">fail</span> <span class="num">27290 islands</span></td><td><span class="ok">pass</span> <span class="num">19 islands</span></td></tr><tr><td>uv stretch</td><td><span class="ok">pass</span> <span class="num">p90 stretch 1.239</span></td><td><span class="ok">pass</span> <span class="num">p90 stretch 1.3</span></td></tr><tr><td>uv coverage</td><td><span class="ok">pass</span> <span class="num">79% of texture used</span></td><td><span class="ok">pass</span> <span class="num">56% of texture used</span></td></tr><tr><td>pbr textures</td><td><span class="bad">fail</span> <span class="num">baseColorTexture</span></td><td><span class="ok">pass</span> <span class="num">baseColorTexture, normalTexture</span></td></tr><tr><td>real-world scale</td><td><span class="ok">pass</span> <span class="num">extent [1.2675, 1.9963, 1.24] (units unknown; glTF = metres)</span></td><td><span class="ok">pass</span> <span class="num">extent [1.2683, 1.9966, 1.238] (units unknown; glTF = metres)</span></td></tr><tr><th>total</th><th>4 / 11</th><th>10 / 11</th></tr></table></div>
+
+<h2>What the cleanup does</h2>
+<ol class="steps">
+<li><b>Weld and repair.</b> Merge seam-split vertices, drop floating fragments (9 shells → 1), fill holes, fix normals.</li>
+<li><b>Remesh to budget.</b> Voxel remesh to a clean closed surface, then decimate to the prop budget (5,000 triangles). The high-poly is kept for baking.</li>
+<li><b>Artist-style UVs.</b> Cluster faces into regions by position and normal, cut seams along region borders, unwrap each region with minimum stretch,
+split any region that stretches or folds. 19 islands, p90 stretch 1.30.</li>
+<li><b>Bake.</b> Tangent normal and base colour from high to low, so the detail survives the 140× triangle cut.</li>
+<li><b>LODs and export.</b> 5,000 / 2,500 / 1,250 triangles, pivot at the base, glTF. Whole stage: 30.8 s on one GPU.</li>
+</ol>
+
+<h2>Renders and maps</h2>
+<div class='grid'><figure class="card"><img src="img/raw_wire.jpg" alt="Generated mesh, wireframe: triangle soup from marching cubes" loading="lazy"><figcaption>Generated mesh, wireframe: triangle soup from marching cubes</figcaption></figure><figure class="card"><img src="img/clean_wire.jpg" alt="After cleanup, wireframe: 5K triangles, even density" loading="lazy"><figcaption>After cleanup, wireframe: 5K triangles, even density</figcaption></figure><figure class="card"><img src="img/basecolor.jpg" alt="Baked base colour, 2K. Islands follow parts: face, sign, flippers, feet" loading="lazy"><figcaption>Baked base colour, 2K. Islands follow parts: face, sign, flippers, feet</figcaption></figure><figure class="card"><img src="img/normal.jpg" alt="Baked tangent-space normal map, 2K. Carries the lettering and feather detail" loading="lazy"><figcaption>Baked tangent-space normal map, 2K. Carries the lettering and feather detail</figcaption></figure></div>
+
+<h2>Where it stands</h2>
+<p>This is the geometry half: the part of generated 3D that artists otherwise fix by hand. What is next is the artist half:
+a style model trained on a studio's own art so the output matches the look, and an in-DCC tool where the artist accepts,
+rejects or regenerates one part at a time, with every decision logged as training data.</p>
+<p class="mut">Known limits today: 132 needle triangles remain from the decimator;
+texture coverage is 56% where a hand unwrap reaches 70–80%; topology is triangles, not quads;
+roughness and ambient occlusion are not baked yet.</p>
+</main>
+<footer>
+<p>Tanseef Shahid · 3D geometry and inspection engineer · <a href="https://tanseefshahid.github.io">tanseefshahid.github.io</a></p>
+<p>Concept image: Hunyuan3D-2 sample asset. Generation: Tencent Hunyuan3D-2. Cleanup, UVs, bake and report: own code, Blender headless and Python.</p>
+</footer>
+</body></html>
