@@ -70,12 +70,18 @@ split any region that stretches or folds. 19 islands, p90 stretch 1.30.</li>
 <h2>Next stage: style training data</h2><p class='mut'>The style model learns a studio's look from its own assets. For the public demo the stand-in is Creative-Commons work from Objaverse, rendered with the generator's own camera rig (front view shown). Every part of multi-material assets is merged into one texture atlas so the full prop is seen. Names and part counts are printed under each tile; red means part of the asset had no texture and was dropped.</p><div class='grid'><figure class="card"><img src="img/montage_view0.jpg" alt="Hand-painted prop set: 58 assets, front views" loading="lazy"><figcaption>Hand-painted prop set: 58 assets, front views</figcaption></figure><figure class="card"><img src="img/montage_league.jpg" alt="League-style fan set: 77 assets, front views, before curation" loading="lazy"><figcaption>League-style fan set: 77 assets, front views, before curation</figcaption></figure></div>
 
 <h2>Where it stands</h2>
-<p>This is the geometry half: the part of generated 3D that artists otherwise fix by hand. What is next is the artist half:
-a style model trained on a studio's own art so the output matches the look, and an in-DCC tool where the artist accepts,
-rejects or regenerates one part at a time, with every decision logged as training data.</p>
-<p class="mut">Known limits today: 132 needle triangles remain from the decimator;
-texture coverage is 56% where a hand unwrap reaches 70–80%; topology is triangles, not quads;
-roughness and ambient occlusion are not baked yet.</p>
+<p>Three of the four pieces an art team would need are working. <b>Geometry:</b> every asset goes from a triangle soup to a
+budgeted mesh with artist-style UVs, baked maps, LODs and a report of the checks, in about a minute. <b>Artist control:</b> the
+mesh is cut into parts with a pivot each, thin parts are handled on their own so they survive, and the artist accepts, rejects,
+redoes, splits or merges parts with every decision logged. That log is what a studio tool should collect from day one.
+<b>Evaluation:</b> a fixed held-out set, the same seed and mesh for every comparison, metrics next to the pictures, and the
+pictures win when they disagree.</p>
+<p>The fourth piece, <b>style</b>, is honest work in progress. A texture LoRA trained on 18 hand-painted props moved palette
+and shading toward the target and stopped there; the next two runs on more data got worse, and the reason is written down:
+the added data was noisier than it looked. The fix is curation, not more training, and it is parked until the data is right.</p>
+<p class="mut">Known limits today: the part cut is geometric, not semantic, so organic shapes need a merge or split from the
+artist; each part carries its own texture rather than one atlas per prop; roughness and ambient occlusion are not baked;
+topology is triangles, not quads; and the style model does not yet produce studio-grade painted detail.</p>
 </main>
 <footer>
 <p>Tanseef Shahid · 3D geometry and inspection engineer · <a href="https://tanseefshahid.github.io">tanseefshahid.github.io</a></p>
